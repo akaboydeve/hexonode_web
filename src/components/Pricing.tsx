@@ -68,12 +68,22 @@ const Pricing: React.FC = () => {
   const service = serviceData[activeService] || serviceData.minecraft;
 
   // Check if the current service should show tier navigation
-  const shouldShowTierNav = ['minecraft', 'vps', 'games'].includes(activeService);
+  const shouldShowTierNav = ['minecraft', 'vps', 'games', 'domains'].includes(activeService);
 
   // Function to get location-specific price
   const getLocationPrice = (plan: Plan) => {
     return plan.locationPricing[selectedLocation] || plan.price;
   };
+
+  // Convert tier format from UI (e.g., "Budget Plan") to data format (e.g., "budget")
+  const getTierValue = (displayTier: string): string => {
+    return displayTier.split(' ')[0].toLowerCase();
+  };
+
+  // Filter plans based on selected tier if tier selection is enabled
+  const filteredPlans = shouldShowTierNav
+    ? service.plans.filter((plan: Plan) => plan.tier === getTierValue(activeTier))
+    : service.plans;
 
   // Format price based on location
   const formatPrice = (price: number): string => {
@@ -132,7 +142,7 @@ const Pricing: React.FC = () => {
         {shouldShowTierNav && <TierNav activeTier={activeTier} setActiveTier={setActiveTier} />}
 
         <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-8">
-          {service.plans.map((plan: Plan, index: number) => {
+          {filteredPlans.map((plan: Plan, index: number) => {
             const { originalPrice, discountPercent } = getDiscountInfo(plan);
             return (
               <div

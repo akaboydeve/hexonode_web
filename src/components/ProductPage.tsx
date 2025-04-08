@@ -29,10 +29,10 @@ const ProductPage: React.FC<ProductPageProps> = ({ serviceType }) => {
     const [selectedTier, setSelectedTier] = useState<'budget' | 'premium' | 'ultra'>('budget');
 
     // Services that should show tier selection
-    const tierEnabledServices = ['minecraft', 'vps', 'games'];
+    const tierEnabledServices = ['minecraft', 'vps', 'games', 'domains'];
     const showTierSelection = tierEnabledServices.includes(validServiceType);
 
-    // Tier multipliers
+    // Tier multipliers - no multipliers for domains as they have fixed pricing
     const tierPriceMultipliers = {
         'budget': 1.0,     // Base price
         'premium': 1.5,    // 50% premium
@@ -70,16 +70,6 @@ const ProductPage: React.FC<ProductPageProps> = ({ serviceType }) => {
         'Japan': '$'
     };
 
-    // Get all plans regardless of tier
-    const filteredPlans = serviceData[validServiceType].plans;
-
-    // Set the selected plan when the component mounts or when plans change
-    useEffect(() => {
-        if (filteredPlans?.length > 0) {
-            setSelectedPlan(filteredPlans[0] as unknown as Plan);
-        }
-    }, [validServiceType, filteredPlans]);
-
     // Get price for the selected location and tier
     const getPlanLocationPrice = (plan: Plan) => {
         let basePrice = plan.locationPricing ?
@@ -93,6 +83,18 @@ const ProductPage: React.FC<ProductPageProps> = ({ serviceType }) => {
 
         return Math.round(basePrice * 100) / 100; // Round to 2 decimal places
     };
+
+    // Filter plans for domains based on tier
+    const filteredPlans = validServiceType === 'domains'
+        ? serviceData[validServiceType].plans.filter((plan: any) => plan.tier === selectedTier)
+        : serviceData[validServiceType].plans;
+
+    // Set the selected plan when the component mounts or when plans change
+    useEffect(() => {
+        if (filteredPlans?.length > 0) {
+            setSelectedPlan(filteredPlans[0] as unknown as Plan);
+        }
+    }, [validServiceType, filteredPlans]);
 
     // Format price according to service type (yearly for domains)
     const formatPrice = (price: number) => {

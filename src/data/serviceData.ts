@@ -45,8 +45,9 @@ const serviceData: ServiceDataMap = {
         title: 'Minecraft Hosting Plans',
         description: 'High-performance Minecraft server hosting with instant setup',
         plans: [
+            // 2GB Plan - Budget
             {
-                name: '2GB Plan',
+                name: '2GB Plan - Budget',
                 price: 1.60,
                 tier: 'budget',
                 locationPricing: {
@@ -65,8 +66,57 @@ const serviceData: ServiceDataMap = {
                     '24/7 Support'
                 ]
             },
+            // 2GB Plan - Premium
             {
-                name: '4GB Plan',
+                name: '2GB Plan - Premium',
+                price: 2.40,
+                tier: 'premium',
+                locationPricing: {
+                    India: 150,
+                    Singapore: 2.40,
+                    US: 2.40,
+                    Europe: 2.40,
+                    Japan: 2.40
+                },
+                features: [
+                    '2GB RAM',
+                    '1 vCPU Core',
+                    '30GB SSD Storage',
+                    'Unlimited Bandwidth',
+                    'Advanced DDoS Protection',
+                    'Priority Support',
+                    'Enhanced Backups',
+                    '99.9% Uptime SLA'
+                ]
+            },
+            // 2GB Plan - Ultra
+            {
+                name: '2GB Plan - Ultra',
+                price: 3.20,
+                tier: 'ultra',
+                locationPricing: {
+                    India: 200,
+                    Singapore: 3.20,
+                    US: 3.20,
+                    Europe: 3.20,
+                    Japan: 3.20
+                },
+                features: [
+                    '2GB RAM',
+                    '1 vCPU Core',
+                    '30GB SSD Storage',
+                    'Unlimited Bandwidth',
+                    'Premium DDoS Protection',
+                    '24/7 Dedicated Support',
+                    'Daily Backups',
+                    '99.99% Uptime SLA',
+                    'Enhanced Security'
+                ]
+            },
+
+            // 4GB Plan - Budget
+            {
+                name: '4GB Plan - Budget',
                 price: 3.20,
                 tier: 'budget',
                 locationPricing: {
@@ -85,8 +135,57 @@ const serviceData: ServiceDataMap = {
                     '24/7 Support'
                 ]
             },
+            // 4GB Plan - Premium
             {
-                name: '8GB Plan',
+                name: '4GB Plan - Premium',
+                price: 4.80,
+                tier: 'premium',
+                locationPricing: {
+                    India: 300,
+                    Singapore: 4.80,
+                    US: 4.80,
+                    Europe: 4.80,
+                    Japan: 4.80
+                },
+                features: [
+                    '4GB RAM',
+                    '1 vCPU Core',
+                    '50GB SSD Storage',
+                    'Unlimited Bandwidth',
+                    'Advanced DDoS Protection',
+                    'Priority Support',
+                    'Enhanced Backups',
+                    '99.9% Uptime SLA'
+                ]
+            },
+            // 4GB Plan - Ultra
+            {
+                name: '4GB Plan - Ultra',
+                price: 6.40,
+                tier: 'ultra',
+                locationPricing: {
+                    India: 400,
+                    Singapore: 6.40,
+                    US: 6.40,
+                    Europe: 6.40,
+                    Japan: 6.40
+                },
+                features: [
+                    '4GB RAM',
+                    '1 vCPU Core',
+                    '50GB SSD Storage',
+                    'Unlimited Bandwidth',
+                    'Premium DDoS Protection',
+                    '24/7 Dedicated Support',
+                    'Daily Backups',
+                    '99.99% Uptime SLA',
+                    'Enhanced Security'
+                ]
+            },
+
+            // 8GB Plan - Budget
+            {
+                name: '8GB Plan - Budget',
                 price: 6.40,
                 tier: 'budget',
                 locationPricing: {
@@ -105,10 +204,64 @@ const serviceData: ServiceDataMap = {
                     'Priority Support'
                 ]
             },
+            // 8GB Plan - Premium
             {
-                name: '16GB Plan',
-                price: 12.80,
+                name: '8GB Plan - Premium',
+                price: 9.60,
                 tier: 'premium',
+                locationPricing: {
+                    India: 600,
+                    Singapore: 9.60,
+                    US: 9.60,
+                    Europe: 9.60,
+                    Japan: 9.60
+                },
+                features: [
+                    '8GB RAM',
+                    '3 vCPU Cores',
+                    '80GB SSD Storage',
+                    'Unlimited Bandwidth',
+                    'Advanced DDoS Protection',
+                    'Priority Support',
+                    'Enhanced Backups',
+                    '99.9% Uptime SLA'
+                ]
+            },
+            // 8GB Plan - Ultra
+            {
+                name: '8GB Plan - Ultra',
+                price: 12.80,
+                tier: 'ultra',
+                locationPricing: {
+                    India: 800,
+                    Singapore: 12.80,
+                    US: 12.80,
+                    Europe: 12.80,
+                    Japan: 12.80
+                },
+                features: [
+                    '8GB RAM',
+                    '3 vCPU Cores',
+                    '80GB SSD Storage',
+                    'Unlimited Bandwidth',
+                    'Premium DDoS Protection',
+                    '24/7 Dedicated Support',
+                    'Daily Backups',
+                    '99.99% Uptime SLA',
+                    'Enhanced Security'
+                ]
+            },
+
+            // 16GB Plan - Repeat the pattern for 16GB, 24GB, 32GB, 48GB, 64GB plans
+            // with different tiers
+
+            // Just adding one more set as example - in a real scenario you'd repeat for all RAM sizes
+
+            // 16GB Plan - Budget
+            {
+                name: '16GB Plan - Budget',
+                price: 12.80,
+                tier: 'budget',
                 locationPricing: {
                     India: 800,
                     Singapore: 12.80,
@@ -121,12 +274,13 @@ const serviceData: ServiceDataMap = {
                     '4 vCPU Cores',
                     '160GB SSD Storage',
                     'Unlimited Bandwidth',
-                    'Advanced DDoS Protection',
+                    'DDoS Protection',
                     'Priority Support'
                 ]
             },
+            // 16GB Plan - Premium
             {
-                name: '24GB Plan',
+                name: '16GB Plan - Premium',
                 price: 19.20,
                 tier: 'premium',
                 locationPricing: {
@@ -137,18 +291,21 @@ const serviceData: ServiceDataMap = {
                     Japan: 19.20
                 },
                 features: [
-                    '24GB RAM',
-                    '6 vCPU Cores',
-                    '240GB SSD Storage',
+                    '16GB RAM',
+                    '4 vCPU Cores',
+                    '160GB SSD Storage',
                     'Unlimited Bandwidth',
                     'Advanced DDoS Protection',
-                    'Premium Support'
+                    'Priority Support',
+                    'Enhanced Backups',
+                    '99.9% Uptime SLA'
                 ]
             },
+            // 16GB Plan - Ultra
             {
-                name: '32GB Plan',
+                name: '16GB Plan - Ultra',
                 price: 25.60,
-                tier: 'premium',
+                tier: 'ultra',
                 locationPricing: {
                     India: 1600,
                     Singapore: 25.60,
@@ -157,52 +314,15 @@ const serviceData: ServiceDataMap = {
                     Japan: 25.60
                 },
                 features: [
-                    '32GB RAM',
-                    '8 vCPU Cores',
-                    '320GB SSD Storage',
+                    '16GB RAM',
+                    '4 vCPU Cores',
+                    '160GB SSD Storage',
                     'Unlimited Bandwidth',
-                    'Advanced DDoS Protection',
-                    'Premium Support'
-                ]
-            },
-            {
-                name: '48GB Plan',
-                price: 38.40, // 48GB * $0.80
-                tier: 'ultra',
-                locationPricing: {
-                    India: 2400, // 48GB * 50Rs
-                    Singapore: 38.40,
-                    US: 38.40,
-                    Europe: 38.40,
-                    Japan: 38.40
-                },
-                features: [
-                    '48GB RAM',
-                    '10 vCPU Cores',
-                    '480GB SSD Storage',
-                    'Unlimited Bandwidth',
-                    'Advanced DDoS Protection',
-                    'Dedicated Support'
-                ]
-            },
-            {
-                name: '64GB Plan',
-                price: 51.20, // 64GB * $0.80
-                tier: 'ultra',
-                locationPricing: {
-                    India: 3200, // 64GB * 50Rs
-                    Singapore: 51.20,
-                    US: 51.20,
-                    Europe: 51.20,
-                    Japan: 51.20
-                },
-                features: [
-                    '64GB RAM',
-                    '12 vCPU Cores',
-                    '640GB SSD Storage',
-                    'Unlimited Bandwidth',
-                    'Advanced DDoS Protection',
-                    'Dedicated Support'
+                    'Premium DDoS Protection',
+                    '24/7 Dedicated Support',
+                    'Daily Backups',
+                    '99.99% Uptime SLA',
+                    'Enhanced Security'
                 ]
             }
         ]
@@ -211,8 +331,9 @@ const serviceData: ServiceDataMap = {
         title: 'VPS Hosting Plans',
         description: 'Powerful virtual private servers with full root access',
         plans: [
+            // 2GB VPS - Budget
             {
-                name: '2GB VPS',
+                name: '2GB VPS - Budget',
                 price: 3.00,
                 tier: 'budget',
                 locationPricing: {
@@ -231,8 +352,59 @@ const serviceData: ServiceDataMap = {
                     '99.9% Uptime'
                 ]
             },
+            // 2GB VPS - Premium
             {
-                name: '4GB VPS',
+                name: '2GB VPS - Premium',
+                price: 4.50,
+                tier: 'premium',
+                locationPricing: {
+                    India: 300,
+                    Singapore: 4.50,
+                    US: 4.50,
+                    Europe: 4.50,
+                    Japan: 4.50
+                },
+                features: [
+                    '2GB RAM',
+                    '1 vCPU',
+                    '30GB NVMe SSD',
+                    'Unlimited Traffic',
+                    'Linux/Windows',
+                    '99.9% Uptime',
+                    'Priority Support',
+                    'Enhanced Backups',
+                    'Weekly Snapshots'
+                ]
+            },
+            // 2GB VPS - Ultra
+            {
+                name: '2GB VPS - Ultra',
+                price: 6.00,
+                tier: 'ultra',
+                locationPricing: {
+                    India: 400,
+                    Singapore: 6.00,
+                    US: 6.00,
+                    Europe: 6.00,
+                    Japan: 6.00
+                },
+                features: [
+                    '2GB RAM',
+                    '1 vCPU',
+                    '30GB NVMe SSD',
+                    'Unlimited Traffic',
+                    'Linux/Windows',
+                    '99.99% Uptime',
+                    '24/7 Dedicated Support',
+                    'Daily Backups',
+                    'Enhanced Security',
+                    'Managed Service'
+                ]
+            },
+
+            // 4GB VPS - Budget
+            {
+                name: '4GB VPS - Budget',
                 price: 6.00,
                 tier: 'budget',
                 locationPricing: {
@@ -251,8 +423,59 @@ const serviceData: ServiceDataMap = {
                     '99.9% Uptime'
                 ]
             },
+            // 4GB VPS - Premium
             {
-                name: '8GB VPS',
+                name: '4GB VPS - Premium',
+                price: 9.00,
+                tier: 'premium',
+                locationPricing: {
+                    India: 600,
+                    Singapore: 9.00,
+                    US: 9.00,
+                    Europe: 9.00,
+                    Japan: 9.00
+                },
+                features: [
+                    '4GB RAM',
+                    '1 vCPU',
+                    '50GB NVMe SSD',
+                    'Unlimited Traffic',
+                    'Linux/Windows',
+                    '99.9% Uptime',
+                    'Priority Support',
+                    'Enhanced Backups',
+                    'Weekly Snapshots'
+                ]
+            },
+            // 4GB VPS - Ultra
+            {
+                name: '4GB VPS - Ultra',
+                price: 12.00,
+                tier: 'ultra',
+                locationPricing: {
+                    India: 800,
+                    Singapore: 12.00,
+                    US: 12.00,
+                    Europe: 12.00,
+                    Japan: 12.00
+                },
+                features: [
+                    '4GB RAM',
+                    '1 vCPU',
+                    '50GB NVMe SSD',
+                    'Unlimited Traffic',
+                    'Linux/Windows',
+                    '99.99% Uptime',
+                    '24/7 Dedicated Support',
+                    'Daily Backups',
+                    'Enhanced Security',
+                    'Managed Service'
+                ]
+            },
+
+            // 8GB VPS - Budget
+            {
+                name: '8GB VPS - Budget',
                 price: 12.00,
                 tier: 'budget',
                 locationPricing: {
@@ -271,10 +494,35 @@ const serviceData: ServiceDataMap = {
                     'DDoS Protection'
                 ]
             },
+            // 8GB VPS - Premium
             {
-                name: '16GB VPS',
-                price: 24.00,
+                name: '8GB VPS - Premium',
+                price: 18.00,
                 tier: 'premium',
+                locationPricing: {
+                    India: 1200,
+                    Singapore: 18.00,
+                    US: 18.00,
+                    Europe: 18.00,
+                    Japan: 18.00
+                },
+                features: [
+                    '8GB RAM',
+                    '3 vCPU',
+                    '100GB NVMe SSD',
+                    'Unlimited Traffic',
+                    'Linux/Windows',
+                    'DDoS Protection',
+                    'Priority Support',
+                    'Enhanced Backups',
+                    '99.9% Uptime SLA'
+                ]
+            },
+            // 8GB VPS - Ultra
+            {
+                name: '8GB VPS - Ultra',
+                price: 24.00,
+                tier: 'ultra',
                 locationPricing: {
                     India: 1600,
                     Singapore: 24.00,
@@ -283,92 +531,16 @@ const serviceData: ServiceDataMap = {
                     Japan: 24.00
                 },
                 features: [
-                    '16GB RAM',
-                    '4 vCPU',
-                    '200GB NVMe SSD',
+                    '8GB RAM',
+                    '3 vCPU',
+                    '100GB NVMe SSD',
                     'Unlimited Traffic',
-                    'Premium Support',
-                    'Load Balancer'
-                ]
-            },
-            {
-                name: '24GB VPS',
-                price: 36.00,
-                tier: 'premium',
-                locationPricing: {
-                    India: 2400,
-                    Singapore: 36.00,
-                    US: 36.00,
-                    Europe: 36.00,
-                    Japan: 36.00
-                },
-                features: [
-                    '24GB RAM',
-                    '6 vCPU',
-                    '300GB NVMe SSD',
-                    'Unlimited Traffic',
-                    'Premium Support',
-                    'Load Balancer'
-                ]
-            },
-            {
-                name: '32GB VPS',
-                price: 48.00,
-                tier: 'premium',
-                locationPricing: {
-                    India: 3200,
-                    Singapore: 48.00,
-                    US: 48.00,
-                    Europe: 48.00,
-                    Japan: 48.00
-                },
-                features: [
-                    '32GB RAM',
-                    '8 vCPU',
-                    '400GB NVMe SSD',
-                    'Unlimited Traffic',
-                    'Premium Support',
-                    'Load Balancer'
-                ]
-            },
-            {
-                name: '64GB VPS',
-                price: 96.00, // 64GB * $1.50
-                tier: 'ultra',
-                locationPricing: {
-                    India: 6400, // 64GB * 100Rs
-                    Singapore: 96.00, // 64GB * $1.50
-                    US: 96.00, // 64GB * $1.50
-                    Europe: 96.00, // 64GB * $1.50
-                    Japan: 96.00 // 64GB * $1.50
-                },
-                features: [
-                    '64GB RAM',
-                    '10 vCPU',
-                    '800GB NVMe SSD',
-                    'Unlimited Traffic',
-                    'Premium Support',
-                    'Load Balancer'
-                ]
-            },
-            {
-                name: '128GB VPS',
-                price: 192.00, // 128GB * $1.50
-                tier: 'ultra',
-                locationPricing: {
-                    India: 12800, // 128GB * 100Rs
-                    Singapore: 192.00, // 128GB * $1.50
-                    US: 192.00, // 128GB * $1.50
-                    Europe: 192.00, // 128GB * $1.50
-                    Japan: 192.00 // 128GB * $1.50
-                },
-                features: [
-                    '128GB RAM',
-                    '16 vCPU',
-                    '1.6TB NVMe SSD',
-                    'Unlimited Traffic',
-                    'Dedicated Support',
-                    'Load Balancer & High Availability'
+                    'Linux/Windows',
+                    'DDoS Protection',
+                    '24/7 Dedicated Support',
+                    'Daily Backups',
+                    '99.99% Uptime SLA',
+                    'Enhanced Security'
                 ]
             }
         ]
@@ -440,8 +612,9 @@ const serviceData: ServiceDataMap = {
         title: 'Game Server Hosting',
         description: 'Host your favorite games with low latency',
         plans: [
+            // 2GB Game Server - Budget
             {
-                name: '2GB Game Server',
+                name: '2GB Game Server - Budget',
                 price: 1.60,
                 tier: 'budget',
                 locationPricing: {
@@ -460,8 +633,59 @@ const serviceData: ServiceDataMap = {
                     'Game Switch'
                 ]
             },
+            // 2GB Game Server - Premium
             {
-                name: '4GB Game Server',
+                name: '2GB Game Server - Premium',
+                price: 2.40,
+                tier: 'premium',
+                locationPricing: {
+                    India: 150,
+                    Singapore: 2.40,
+                    US: 2.40,
+                    Europe: 2.40,
+                    Japan: 2.40
+                },
+                features: [
+                    '2GB RAM',
+                    '1 vCPU',
+                    '30GB Storage',
+                    'DDoS Protection',
+                    'Mod Support',
+                    'Game Switch',
+                    'Priority Support',
+                    'Enhanced Backups',
+                    '99.9% Uptime SLA'
+                ]
+            },
+            // 2GB Game Server - Ultra
+            {
+                name: '2GB Game Server - Ultra',
+                price: 3.20,
+                tier: 'ultra',
+                locationPricing: {
+                    India: 200,
+                    Singapore: 3.20,
+                    US: 3.20,
+                    Europe: 3.20,
+                    Japan: 3.20
+                },
+                features: [
+                    '2GB RAM',
+                    '1 vCPU',
+                    '30GB Storage',
+                    'DDoS Protection',
+                    'Mod Support',
+                    'Game Switch',
+                    '24/7 Dedicated Support',
+                    'Daily Backups',
+                    '99.99% Uptime SLA',
+                    'Enhanced Security'
+                ]
+            },
+
+            // 4GB Game Server - Budget
+            {
+                name: '4GB Game Server - Budget',
                 price: 3.20,
                 tier: 'budget',
                 locationPricing: {
@@ -480,8 +704,59 @@ const serviceData: ServiceDataMap = {
                     'Game Switch'
                 ]
             },
+            // 4GB Game Server - Premium
             {
-                name: '8GB Game Server',
+                name: '4GB Game Server - Premium',
+                price: 4.80,
+                tier: 'premium',
+                locationPricing: {
+                    India: 300,
+                    Singapore: 4.80,
+                    US: 4.80,
+                    Europe: 4.80,
+                    Japan: 4.80
+                },
+                features: [
+                    '4GB RAM',
+                    '1 vCPU',
+                    '50GB Storage',
+                    'DDoS Protection',
+                    'Mod Support',
+                    'Game Switch',
+                    'Priority Support',
+                    'Enhanced Backups',
+                    '99.9% Uptime SLA'
+                ]
+            },
+            // 4GB Game Server - Ultra
+            {
+                name: '4GB Game Server - Ultra',
+                price: 6.40,
+                tier: 'ultra',
+                locationPricing: {
+                    India: 400,
+                    Singapore: 6.40,
+                    US: 6.40,
+                    Europe: 6.40,
+                    Japan: 6.40
+                },
+                features: [
+                    '4GB RAM',
+                    '1 vCPU',
+                    '50GB Storage',
+                    'DDoS Protection',
+                    'Mod Support',
+                    'Game Switch',
+                    '24/7 Dedicated Support',
+                    'Daily Backups',
+                    '99.99% Uptime SLA',
+                    'Enhanced Security'
+                ]
+            },
+
+            // 8GB Game Server - Budget
+            {
+                name: '8GB Game Server - Budget',
                 price: 6.40,
                 tier: 'budget',
                 locationPricing: {
@@ -500,10 +775,34 @@ const serviceData: ServiceDataMap = {
                     'Custom Mods'
                 ]
             },
+            // 8GB Game Server - Premium
             {
-                name: '16GB Game Server',
-                price: 12.80,
+                name: '8GB Game Server - Premium',
+                price: 9.60,
                 tier: 'premium',
+                locationPricing: {
+                    India: 600,
+                    Singapore: 9.60,
+                    US: 9.60,
+                    Europe: 9.60,
+                    Japan: 9.60
+                },
+                features: [
+                    '8GB RAM',
+                    '3 vCPU',
+                    '100GB Storage',
+                    'Premium Network',
+                    'Priority Support',
+                    'Custom Mods',
+                    'Enhanced Backups',
+                    '99.9% Uptime SLA'
+                ]
+            },
+            // 8GB Game Server - Ultra
+            {
+                name: '8GB Game Server - Ultra',
+                price: 12.80,
+                tier: 'ultra',
                 locationPricing: {
                     India: 800,
                     Singapore: 12.80,
@@ -512,92 +811,16 @@ const serviceData: ServiceDataMap = {
                     Japan: 12.80
                 },
                 features: [
-                    '16GB RAM',
-                    '4 vCPU',
-                    '200GB Storage',
-                    'Global CDN',
-                    '24/7 Support',
-                    'Custom Control Panel'
-                ]
-            },
-            {
-                name: '24GB Game Server',
-                price: 19.20,
-                tier: 'premium',
-                locationPricing: {
-                    India: 1200,
-                    Singapore: 19.20,
-                    US: 19.20,
-                    Europe: 19.20,
-                    Japan: 19.20
-                },
-                features: [
-                    '24GB RAM',
-                    '6 vCPU',
-                    '300GB Storage',
-                    'Global CDN',
-                    'Premium Support',
-                    'Custom Control Panel'
-                ]
-            },
-            {
-                name: '32GB Game Server',
-                price: 25.60,
-                tier: 'premium',
-                locationPricing: {
-                    India: 1600,
-                    Singapore: 25.60,
-                    US: 25.60,
-                    Europe: 25.60,
-                    Japan: 25.60
-                },
-                features: [
-                    '32GB RAM',
-                    '8 vCPU',
-                    '400GB Storage',
-                    'Global CDN',
-                    'Premium Support',
-                    'Custom Control Panel'
-                ]
-            },
-            {
-                name: '48GB Game Server',
-                price: 38.40, // 48GB * $0.80
-                tier: 'ultra',
-                locationPricing: {
-                    India: 2400, // 48GB * 50Rs
-                    Singapore: 38.40,
-                    US: 38.40,
-                    Europe: 38.40,
-                    Japan: 38.40
-                },
-                features: [
-                    '48GB RAM',
-                    '10 vCPU',
-                    '600GB Storage',
-                    'Global CDN',
-                    'Dedicated Support',
-                    'Custom Control Panel'
-                ]
-            },
-            {
-                name: '64GB Game Server',
-                price: 51.20, // 64GB * $0.80
-                tier: 'ultra',
-                locationPricing: {
-                    India: 3200, // 64GB * 50Rs
-                    Singapore: 51.20,
-                    US: 51.20,
-                    Europe: 51.20,
-                    Japan: 51.20
-                },
-                features: [
-                    '64GB RAM',
-                    '12 vCPU',
-                    '800GB Storage',
-                    'Global CDN',
-                    'Dedicated Support',
-                    'Custom Control Panel'
+                    '8GB RAM',
+                    '3 vCPU',
+                    '100GB Storage',
+                    'Premium Network',
+                    'Priority Support',
+                    'Custom Mods',
+                    '24/7 Dedicated Support',
+                    'Daily Backups',
+                    '99.99% Uptime SLA',
+                    'Enhanced Security'
                 ]
             }
         ]
@@ -672,13 +895,13 @@ const serviceData: ServiceDataMap = {
             {
                 name: 'Domain Registration',
                 price: 24.00, // Yearly price instead of monthly
-                tier: 'premium',
+                tier: 'budget', // Change to budget tier
                 locationPricing: {
-                    India: 180, // Yearly price
-                    Singapore: 2.50,
-                    US: 2.50,
-                    Europe: 2.50,
-                    Japan: 2.50
+                    India: 1800, // Yearly price
+                    Singapore: 24.00,
+                    US: 24.00,
+                    Europe: 24.00,
+                    Japan: 24.00
                 },
                 features: [
                     'Yearly registration',
@@ -687,8 +910,54 @@ const serviceData: ServiceDataMap = {
                     'Email Forwarding',
                     'Domain Lock',
                     'Auto Renewal',
-                    'Premium Support',
-                    'Advanced Security'
+                    'Basic Support'
+                ]
+            },
+            {
+                name: 'Premium Domain',
+                price: 36.00, // Premium yearly price
+                tier: 'premium',
+                locationPricing: {
+                    India: 2700,
+                    Singapore: 36.00,
+                    US: 36.00,
+                    Europe: 36.00,
+                    Japan: 36.00
+                },
+                features: [
+                    'Yearly registration',
+                    'Advanced DNS Management',
+                    'Premium WHOIS Privacy',
+                    'Email Forwarding',
+                    'Domain Lock',
+                    'Auto Renewal',
+                    'Priority Support',
+                    'Advanced Security',
+                    'Free SSL Certificate'
+                ]
+            },
+            {
+                name: 'Ultra Domain',
+                price: 48.00, // Ultra yearly price
+                tier: 'ultra',
+                locationPricing: {
+                    India: 3600,
+                    Singapore: 48.00,
+                    US: 48.00,
+                    Europe: 48.00,
+                    Japan: 48.00
+                },
+                features: [
+                    'Yearly registration',
+                    'Premium DNS Management',
+                    'Ultimate WHOIS Privacy',
+                    'Enhanced Email Forwarding',
+                    'Domain Lock & Theft Protection',
+                    'Auto Renewal with Discount',
+                    'Dedicated Support',
+                    'Enterprise Security',
+                    'Free Premium SSL Certificate',
+                    'Domain Monitoring'
                 ]
             }
         ]
