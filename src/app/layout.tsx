@@ -1,10 +1,9 @@
 import { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/react";
 import { AuthProvider } from "@/context/AuthContext";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 import "@/index.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -96,8 +95,9 @@ export default function RootLayout({
                     <Navbar />
                     <main>{children}</main>
                     <Footer />
-                    <Analytics />
-                    <SpeedInsights />
+                    {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
+                        <GoogleAnalytics measurementId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
+                    )}
                 </AuthProvider>
             </body>
         </html>
