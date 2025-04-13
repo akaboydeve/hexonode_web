@@ -51,7 +51,7 @@ const serviceData: ServiceDataMap = {
                 price: 1.60,
                 tier: 'budget',
                 locationPricing: {
-                    India: 100,
+                    India: 200,
                     Singapore: 1.60,
                     US: 1.60,
                     Europe: 1.60,
