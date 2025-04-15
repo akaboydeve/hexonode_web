@@ -178,12 +178,14 @@ const Pricing: React.FC = () => {
                     </li>
                   ))}
                 </ul>
-                <Link
-                  href={`/product/${activeService}`}
+                <a
+                  href={service.productLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="mt-8 w-full bg-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-purple-500 transition-all transform hover:scale-105 block text-center"
                 >
                   Get Started
-                </Link>
+                </a>
               </div>
             );
           })}

@@ -27,6 +27,7 @@ export interface ServiceData {
     title: string;
     description: string;
     plans: Plan[];
+    productLink: string; // Add product link property
 }
 
 export interface ServiceDataMap {
@@ -44,6 +45,7 @@ const serviceData: ServiceDataMap = {
     minecraft: {
         title: 'Minecraft Hosting Plans',
         description: 'High-performance Minecraft server hosting with instant setup',
+        productLink: 'https://panel.hexonode.com/minecraft',
         plans: [
             // 2GB Plan - Budget
             {
@@ -252,11 +254,6 @@ const serviceData: ServiceDataMap = {
                 ]
             },
 
-            // 16GB Plan - Repeat the pattern for 16GB, 24GB, 32GB, 48GB, 64GB plans
-            // with different tiers
-
-            // Just adding one more set as example - in a real scenario you'd repeat for all RAM sizes
-
             // 16GB Plan - Budget
             {
                 name: '16GB Plan - Budget',
@@ -324,12 +321,220 @@ const serviceData: ServiceDataMap = {
                     '99.99% Uptime SLA',
                     'Enhanced Security'
                 ]
+            },
+
+            // 32GB Plan - Budget
+            {
+                name: '32GB Plan - Budget',
+                price: 25.60,
+                tier: 'budget',
+                locationPricing: {
+                    India: 1600,
+                    Singapore: 25.60,
+                    US: 25.60,
+                    Europe: 25.60,
+                    Japan: 25.60
+                },
+                features: [
+                    '32GB RAM',
+                    '6 vCPU Cores',
+                    '320GB SSD Storage',
+                    'Unlimited Bandwidth',
+                    'DDoS Protection',
+                    'Priority Support'
+                ]
+            },
+            // 32GB Plan - Premium
+            {
+                name: '32GB Plan - Premium',
+                price: 38.40,
+                tier: 'premium',
+                locationPricing: {
+                    India: 2400,
+                    Singapore: 38.40,
+                    US: 38.40,
+                    Europe: 38.40,
+                    Japan: 38.40
+                },
+                features: [
+                    '32GB RAM',
+                    '6 vCPU Cores',
+                    '320GB SSD Storage',
+                    'Unlimited Bandwidth',
+                    'Advanced DDoS Protection',
+                    'Priority Support',
+                    'Enhanced Backups',
+                    '99.9% Uptime SLA'
+                ]
+            },
+            // 32GB Plan - Ultra
+            {
+                name: '32GB Plan - Ultra',
+                price: 51.20,
+                tier: 'ultra',
+                locationPricing: {
+                    India: 3200,
+                    Singapore: 51.20,
+                    US: 51.20,
+                    Europe: 51.20,
+                    Japan: 51.20
+                },
+                features: [
+                    '32GB RAM',
+                    '6 vCPU Cores',
+                    '320GB SSD Storage',
+                    'Unlimited Bandwidth',
+                    'Premium DDoS Protection',
+                    '24/7 Dedicated Support',
+                    'Daily Backups',
+                    '99.99% Uptime SLA',
+                    'Enhanced Security'
+                ]
+            },
+
+            // 48GB Plan - Budget
+            {
+                name: '48GB Plan - Budget',
+                price: 38.40,
+                tier: 'budget',
+                locationPricing: {
+                    India: 2400,
+                    Singapore: 38.40,
+                    US: 38.40,
+                    Europe: 38.40,
+                    Japan: 38.40
+                },
+                features: [
+                    '48GB RAM',
+                    '8 vCPU Cores',
+                    '480GB SSD Storage',
+                    'Unlimited Bandwidth',
+                    'DDoS Protection',
+                    'Priority Support'
+                ]
+            },
+            // 48GB Plan - Premium
+            {
+                name: '48GB Plan - Premium',
+                price: 57.60,
+                tier: 'premium',
+                locationPricing: {
+                    India: 3600,
+                    Singapore: 57.60,
+                    US: 57.60,
+                    Europe: 57.60,
+                    Japan: 57.60
+                },
+                features: [
+                    '48GB RAM',
+                    '8 vCPU Cores',
+                    '480GB SSD Storage',
+                    'Unlimited Bandwidth',
+                    'Advanced DDoS Protection',
+                    'Priority Support',
+                    'Enhanced Backups',
+                    '99.9% Uptime SLA'
+                ]
+            },
+            // 48GB Plan - Ultra
+            {
+                name: '48GB Plan - Ultra',
+                price: 76.80,
+                tier: 'ultra',
+                locationPricing: {
+                    India: 4800,
+                    Singapore: 76.80,
+                    US: 76.80,
+                    Europe: 76.80,
+                    Japan: 76.80
+                },
+                features: [
+                    '48GB RAM',
+                    '8 vCPU Cores',
+                    '480GB SSD Storage',
+                    'Unlimited Bandwidth',
+                    'Premium DDoS Protection',
+                    '24/7 Dedicated Support',
+                    'Daily Backups',
+                    '99.99% Uptime SLA',
+                    'Enhanced Security'
+                ]
+            },
+
+            // 64GB Plan - Budget
+            {
+                name: '64GB Plan - Budget',
+                price: 51.20,
+                tier: 'budget',
+                locationPricing: {
+                    India: 3200,
+                    Singapore: 51.20,
+                    US: 51.20,
+                    Europe: 51.20,
+                    Japan: 51.20
+                },
+                features: [
+                    '64GB RAM',
+                    '10 vCPU Cores',
+                    '640GB SSD Storage',
+                    'Unlimited Bandwidth',
+                    'DDoS Protection',
+                    'Priority Support'
+                ]
+            },
+            // 64GB Plan - Premium
+            {
+                name: '64GB Plan - Premium',
+                price: 76.80,
+                tier: 'premium',
+                locationPricing: {
+                    India: 4800,
+                    Singapore: 76.80,
+                    US: 76.80,
+                    Europe: 76.80,
+                    Japan: 76.80
+                },
+                features: [
+                    '64GB RAM',
+                    '10 vCPU Cores',
+                    '640GB SSD Storage',
+                    'Unlimited Bandwidth',
+                    'Advanced DDoS Protection',
+                    'Priority Support',
+                    'Enhanced Backups',
+                    '99.9% Uptime SLA'
+                ]
+            },
+            // 64GB Plan - Ultra
+            {
+                name: '64GB Plan - Ultra',
+                price: 102.40,
+                tier: 'ultra',
+                locationPricing: {
+                    India: 6400,
+                    Singapore: 102.40,
+                    US: 102.40,
+                    Europe: 102.40,
+                    Japan: 102.40
+                },
+                features: [
+                    '64GB RAM',
+                    '10 vCPU Cores',
+                    '640GB SSD Storage',
+                    'Unlimited Bandwidth',
+                    'Premium DDoS Protection',
+                    '24/7 Dedicated Support',
+                    'Daily Backups',
+                    '99.99% Uptime SLA',
+                    'Enhanced Security'
+                ]
             }
         ]
     },
     vps: {
         title: 'VPS Hosting Plans',
         description: 'Powerful virtual private servers with full root access',
+        productLink: 'https://panel.hexonode.com/vps',
         plans: [
             // 2GB VPS - Budget
             {
@@ -473,6 +678,32 @@ const serviceData: ServiceDataMap = {
                 ]
             },
 
+            // 6GB VPS - Ultra
+            {
+                name: '6GB VPS - Ultra',
+                price: 18.00,
+                tier: 'ultra',
+                locationPricing: {
+                    India: 1200,
+                    Singapore: 18.00,
+                    US: 18.00,
+                    Europe: 18.00,
+                    Japan: 18.00
+                },
+                features: [
+                    '6GB RAM',
+                    '2 vCPU',
+                    '75GB NVMe SSD',
+                    'Unlimited Traffic',
+                    'Linux/Windows',
+                    '99.99% Uptime',
+                    '24/7 Dedicated Support',
+                    'Daily Backups',
+                    'Enhanced Security',
+                    'Managed Service'
+                ]
+            },
+
             // 8GB VPS - Budget
             {
                 name: '8GB VPS - Budget',
@@ -518,11 +749,12 @@ const serviceData: ServiceDataMap = {
                     '99.9% Uptime SLA'
                 ]
             },
-            // 8GB VPS - Ultra
+
+            // 16GB VPS - Budget
             {
-                name: '8GB VPS - Ultra',
+                name: '16GB VPS - Budget',
                 price: 24.00,
-                tier: 'ultra',
+                tier: 'budget',
                 locationPricing: {
                     India: 1600,
                     Singapore: 24.00,
@@ -531,9 +763,54 @@ const serviceData: ServiceDataMap = {
                     Japan: 24.00
                 },
                 features: [
-                    '8GB RAM',
-                    '3 vCPU',
-                    '100GB NVMe SSD',
+                    '16GB RAM',
+                    '4 vCPU',
+                    '200GB NVMe SSD',
+                    'Unlimited Traffic',
+                    'Linux/Windows',
+                    'DDoS Protection'
+                ]
+            },
+            // 16GB VPS - Premium
+            {
+                name: '16GB VPS - Premium',
+                price: 36.00,
+                tier: 'premium',
+                locationPricing: {
+                    India: 2400,
+                    Singapore: 36.00,
+                    US: 36.00,
+                    Europe: 36.00,
+                    Japan: 36.00
+                },
+                features: [
+                    '16GB RAM',
+                    '4 vCPU',
+                    '200GB NVMe SSD',
+                    'Unlimited Traffic',
+                    'Linux/Windows',
+                    'DDoS Protection',
+                    'Priority Support',
+                    'Enhanced Backups',
+                    '99.9% Uptime SLA'
+                ]
+            },
+            // 16GB VPS - Ultra
+            {
+                name: '16GB VPS - Ultra',
+                price: 48.00,
+                tier: 'ultra',
+                locationPricing: {
+                    India: 3200,
+                    Singapore: 48.00,
+                    US: 48.00,
+                    Europe: 48.00,
+                    Japan: 48.00
+                },
+                features: [
+                    '16GB RAM',
+                    '4 vCPU',
+                    '200GB NVMe SSD',
                     'Unlimited Traffic',
                     'Linux/Windows',
                     'DDoS Protection',
@@ -542,12 +819,176 @@ const serviceData: ServiceDataMap = {
                     '99.99% Uptime SLA',
                     'Enhanced Security'
                 ]
+            },
+
+            // 32GB VPS - Budget
+            {
+                name: '32GB VPS - Budget',
+                price: 48.00,
+                tier: 'budget',
+                locationPricing: {
+                    India: 3200,
+                    Singapore: 48.00,
+                    US: 48.00,
+                    Europe: 48.00,
+                    Japan: 48.00
+                },
+                features: [
+                    '32GB RAM',
+                    '6 vCPU',
+                    '400GB NVMe SSD',
+                    'Unlimited Traffic',
+                    'Linux/Windows',
+                    'DDoS Protection'
+                ]
+            },
+            // 32GB VPS - Premium
+            {
+                name: '32GB VPS - Premium',
+                price: 72.00,
+                tier: 'premium',
+                locationPricing: {
+                    India: 4800,
+                    Singapore: 72.00,
+                    US: 72.00,
+                    Europe: 72.00,
+                    Japan: 72.00
+                },
+                features: [
+                    '32GB RAM',
+                    '6 vCPU',
+                    '400GB NVMe SSD',
+                    'Unlimited Traffic',
+                    'Linux/Windows',
+                    'DDoS Protection',
+                    'Priority Support',
+                    'Enhanced Backups',
+                    '99.9% Uptime SLA'
+                ]
+            },
+            // 32GB VPS - Ultra
+            {
+                name: '32GB VPS - Ultra',
+                price: 96.00,
+                tier: 'ultra',
+                locationPricing: {
+                    India: 6400,
+                    Singapore: 96.00,
+                    US: 96.00,
+                    Europe: 96.00,
+                    Japan: 96.00
+                },
+                features: [
+                    '32GB RAM',
+                    '6 vCPU',
+                    '400GB NVMe SSD',
+                    'Unlimited Traffic',
+                    'Linux/Windows',
+                    'DDoS Protection',
+                    '24/7 Dedicated Support',
+                    'Daily Backups',
+                    '99.99% Uptime SLA',
+                    'Enhanced Security'
+                ]
+            },
+
+            // 48GB VPS - Budget
+            {
+                name: '48GB VPS - Budget',
+                price: 72.00,
+                tier: 'budget',
+                locationPricing: {
+                    India: 4800,
+                    Singapore: 72.00,
+                    US: 72.00,
+                    Europe: 72.00,
+                    Japan: 72.00
+                },
+                features: [
+                    '48GB RAM',
+                    '8 vCPU',
+                    '600GB NVMe SSD',
+                    'Unlimited Traffic',
+                    'Linux/Windows',
+                    'DDoS Protection'
+                ]
+            },
+            // 48GB VPS - Premium
+            {
+                name: '48GB VPS - Premium',
+                price: 108.00,
+                tier: 'premium',
+                locationPricing: {
+                    India: 7200,
+                    Singapore: 108.00,
+                    US: 108.00,
+                    Europe: 108.00,
+                    Japan: 108.00
+                },
+                features: [
+                    '48GB RAM',
+                    '8 vCPU',
+                    '600GB NVMe SSD',
+                    'Unlimited Traffic',
+                    'Linux/Windows',
+                    'DDoS Protection',
+                    'Priority Support',
+                    'Enhanced Backups',
+                    '99.9% Uptime SLA'
+                ]
+            },
+
+            // 64GB VPS - Budget
+            {
+                name: '64GB VPS - Budget',
+                price: 96.00,
+                tier: 'budget',
+                locationPricing: {
+                    India: 6400,
+                    Singapore: 96.00,
+                    US: 96.00,
+                    Europe: 96.00,
+                    Japan: 96.00
+                },
+                features: [
+                    '64GB RAM',
+                    '10 vCPU',
+                    '800GB NVMe SSD',
+                    'Unlimited Traffic',
+                    'Linux/Windows',
+                    'DDoS Protection'
+                ]
+            },
+            // 64GB VPS - Premium
+            {
+                name: '64GB VPS - Premium',
+                price: 144.00,
+                tier: 'premium',
+                locationPricing: {
+                    India: 9600,
+                    Singapore: 144.00,
+                    US: 144.00,
+                    Europe: 144.00,
+                    Japan: 144.00
+                },
+                features: [
+                    '64GB RAM',
+                    '10 vCPU',
+                    '800GB NVMe SSD',
+                    'Unlimited Traffic',
+                    'Linux/Windows',
+                    'DDoS Protection',
+                    'Priority Support',
+                    'Enhanced Backups',
+                    '99.9% Uptime SLA'
+                ]
             }
         ]
     },
     web: {
         title: 'Web Hosting Plans',
         description: 'Fast and reliable web hosting solutions',
+        productLink: 'https://panel.hexonode.com/web',
         plans: [
             {
                 name: 'Starter',
@@ -611,6 +1052,7 @@ const serviceData: ServiceDataMap = {
     games: {
         title: 'Game Server Hosting',
         description: 'Host your favorite games with low latency',
+        productLink: 'https://panel.hexonode.com/games',
         plans: [
             // 2GB Game Server - Budget
             {
@@ -822,12 +1264,293 @@ const serviceData: ServiceDataMap = {
                     '99.99% Uptime SLA',
                     'Enhanced Security'
                 ]
+            },
+
+            // 16GB Game Server - Budget
+            {
+                name: '16GB Game Server - Budget',
+                price: 12.80,
+                tier: 'budget',
+                locationPricing: {
+                    India: 800,
+                    Singapore: 12.80,
+                    US: 12.80,
+                    Europe: 12.80,
+                    Japan: 12.80
+                },
+                features: [
+                    '16GB RAM',
+                    '4 vCPU',
+                    '200GB Storage',
+                    'Premium Network',
+                    'Priority Support',
+                    'Custom Mods'
+                ]
+            },
+            // 16GB Game Server - Premium
+            {
+                name: '16GB Game Server - Premium',
+                price: 19.20,
+                tier: 'premium',
+                locationPricing: {
+                    India: 1200,
+                    Singapore: 19.20,
+                    US: 19.20,
+                    Europe: 19.20,
+                    Japan: 19.20
+                },
+                features: [
+                    '16GB RAM',
+                    '4 vCPU',
+                    '200GB Storage',
+                    'Premium Network',
+                    'Priority Support',
+                    'Custom Mods',
+                    'Enhanced Backups',
+                    '99.9% Uptime SLA'
+                ]
+            },
+            // 16GB Game Server - Ultra
+            {
+                name: '16GB Game Server - Ultra',
+                price: 25.60,
+                tier: 'ultra',
+                locationPricing: {
+                    India: 1600,
+                    Singapore: 25.60,
+                    US: 25.60,
+                    Europe: 25.60,
+                    Japan: 25.60
+                },
+                features: [
+                    '16GB RAM',
+                    '4 vCPU',
+                    '200GB Storage',
+                    'Premium Network',
+                    'Priority Support',
+                    'Custom Mods',
+                    '24/7 Dedicated Support',
+                    'Daily Backups',
+                    '99.99% Uptime SLA',
+                    'Enhanced Security'
+                ]
+            },
+
+            // 32GB Game Server - Budget
+            {
+                name: '32GB Game Server - Budget',
+                price: 25.60,
+                tier: 'budget',
+                locationPricing: {
+                    India: 1600,
+                    Singapore: 25.60,
+                    US: 25.60,
+                    Europe: 25.60,
+                    Japan: 25.60
+                },
+                features: [
+                    '32GB RAM',
+                    '6 vCPU',
+                    '400GB Storage',
+                    'Premium Network',
+                    'Priority Support',
+                    'Custom Mods'
+                ]
+            },
+            // 32GB Game Server - Premium
+            {
+                name: '32GB Game Server - Premium',
+                price: 38.40,
+                tier: 'premium',
+                locationPricing: {
+                    India: 2400,
+                    Singapore: 38.40,
+                    US: 38.40,
+                    Europe: 38.40,
+                    Japan: 38.40
+                },
+                features: [
+                    '32GB RAM',
+                    '6 vCPU',
+                    '400GB Storage',
+                    'Premium Network',
+                    'Priority Support',
+                    'Custom Mods',
+                    'Enhanced Backups',
+                    '99.9% Uptime SLA'
+                ]
+            },
+            // 32GB Game Server - Ultra
+            {
+                name: '32GB Game Server - Ultra',
+                price: 51.20,
+                tier: 'ultra',
+                locationPricing: {
+                    India: 3200,
+                    Singapore: 51.20,
+                    US: 51.20,
+                    Europe: 51.20,
+                    Japan: 51.20
+                },
+                features: [
+                    '32GB RAM',
+                    '6 vCPU',
+                    '400GB Storage',
+                    'Premium Network',
+                    'Priority Support',
+                    'Custom Mods',
+                    '24/7 Dedicated Support',
+                    'Daily Backups',
+                    '99.99% Uptime SLA',
+                    'Enhanced Security'
+                ]
+            },
+
+            // 48GB Game Server - Budget
+            {
+                name: '48GB Game Server - Budget',
+                price: 38.40,
+                tier: 'budget',
+                locationPricing: {
+                    India: 2400,
+                    Singapore: 38.40,
+                    US: 38.40,
+                    Europe: 38.40,
+                    Japan: 38.40
+                },
+                features: [
+                    '48GB RAM',
+                    '8 vCPU',
+                    '600GB Storage',
+                    'Premium Network',
+                    'Priority Support',
+                    'Custom Mods'
+                ]
+            },
+            // 48GB Game Server - Premium
+            {
+                name: '48GB Game Server - Premium',
+                price: 57.60,
+                tier: 'premium',
+                locationPricing: {
+                    India: 3600,
+                    Singapore: 57.60,
+                    US: 57.60,
+                    Europe: 57.60,
+                    Japan: 57.60
+                },
+                features: [
+                    '48GB RAM',
+                    '8 vCPU',
+                    '600GB Storage',
+                    'Premium Network',
+                    'Priority Support',
+                    'Custom Mods',
+                    'Enhanced Backups',
+                    '99.9% Uptime SLA'
+                ]
+            },
+            // 48GB Game Server - Ultra
+            {
+                name: '48GB Game Server - Ultra',
+                price: 76.80,
+                tier: 'ultra',
+                locationPricing: {
+                    India: 4800,
+                    Singapore: 76.80,
+                    US: 76.80,
+                    Europe: 76.80,
+                    Japan: 76.80
+                },
+                features: [
+                    '48GB RAM',
+                    '8 vCPU',
+                    '600GB Storage',
+                    'Premium Network',
+                    'Priority Support',
+                    'Custom Mods',
+                    '24/7 Dedicated Support',
+                    'Daily Backups',
+                    '99.99% Uptime SLA',
+                    'Enhanced Security'
+                ]
+            },
+
+            // 64GB Game Server - Budget
+            {
+                name: '64GB Game Server - Budget',
+                price: 51.20,
+                tier: 'budget',
+                locationPricing: {
+                    India: 3200,
+                    Singapore: 51.20,
+                    US: 51.20,
+                    Europe: 51.20,
+                    Japan: 51.20
+                },
+                features: [
+                    '64GB RAM',
+                    '10 vCPU',
+                    '800GB Storage',
+                    'Premium Network',
+                    'Priority Support',
+                    'Custom Mods'
+                ]
+            },
+            // 64GB Game Server - Premium
+            {
+                name: '64GB Game Server - Premium',
+                price: 76.80,
+                tier: 'premium',
+                locationPricing: {
+                    India: 4800,
+                    Singapore: 76.80,
+                    US: 76.80,
+                    Europe: 76.80,
+                    Japan: 76.80
+                },
+                features: [
+                    '64GB RAM',
+                    '10 vCPU',
+                    '800GB Storage',
+                    'Premium Network',
+                    'Priority Support',
+                    'Custom Mods',
+                    'Enhanced Backups',
+                    '99.9% Uptime SLA'
+                ]
+            },
+            // 64GB Game Server - Ultra
+            {
+                name: '64GB Game Server - Ultra',
+                price: 102.40,
+                tier: 'ultra',
+                locationPricing: {
+                    India: 6400,
+                    Singapore: 102.40,
+                    US: 102.40,
+                    Europe: 102.40,
+                    Japan: 102.40
+                },
+                features: [
+                    '64GB RAM',
+                    '10 vCPU',
+                    '800GB Storage',
+                    'Premium Network',
+                    'Priority Support',
+                    'Custom Mods',
+                    '24/7 Dedicated Support',
+                    'Daily Backups',
+                    '99.99% Uptime SLA',
+                    'Enhanced Security'
+                ]
             }
         ]
     },
     discord: {
         title: 'Discord Bot Hosting',
         description: 'Reliable hosting for your Discord bots',
+        productLink: 'https://panel.hexonode.com/discord',
         plans: [
             {
                 name: '1GB Bot',
@@ -891,6 +1614,7 @@ const serviceData: ServiceDataMap = {
     domains: {
         title: 'Domain Registration',
         description: 'Register and manage your domains yearly',
+        productLink: 'https://panel.hexonode.com/domains',
         plans: [
             {
                 name: 'Domain Registration',

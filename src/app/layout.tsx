@@ -1,6 +1,5 @@
 import { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { AuthProvider } from "@/context/AuthContext";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
@@ -91,14 +90,12 @@ export default function RootLayout({
                 <link rel="icon" href="/favicon.ico" sizes="any" />
             </head>
             <body className={`${inter.className} min-h-screen bg-gray-900`}>
-                <AuthProvider>
-                    <Navbar />
-                    <main>{children}</main>
-                    <Footer />
-                    {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
-                        <GoogleAnalytics measurementId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
-                    )}
-                </AuthProvider>
+                <Navbar />
+                <main>{children}</main>
+                <Footer />
+                {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
+                    <GoogleAnalytics measurementId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
+                )}
             </body>
         </html>
     );
