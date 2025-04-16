@@ -1,43 +1,43 @@
 import React from 'react';
-import Link from 'next/link';
 import { Server, Gamepad2, Bot, Globe2, HardDrive, Shield } from 'lucide-react';
+import serviceData from '@/data/serviceData';
 
 const services = [
   {
     icon: <Gamepad2 className="h-8 w-8" />,
     title: 'Minecraft Hosting',
     description: 'High-performance Minecraft servers with instant setup and mod support.',
-    link: '/product/minecraft'
+    link: serviceData.minecraft.productLink
   },
   {
     icon: <Server className="h-8 w-8" />,
     title: 'Game Servers',
     description: 'Host your favorite games with low latency and high uptime.',
-    link: '/product/games'
+    link: serviceData.games.productLink
   },
   {
     icon: <HardDrive className="h-8 w-8" />,
     title: 'VPS Hosting',
     description: 'Powerful virtual private servers with full root access.',
-    link: '/product/vps'
+    link: serviceData.vps.productLink
   },
   {
     icon: <Globe2 className="h-8 w-8" />,
     title: 'Web Hosting',
     description: 'Fast and reliable web hosting for your websites.',
-    link: '/product/web'
+    link: serviceData.web.productLink
   },
   {
     icon: <Bot className="h-8 w-8" />,
     title: 'Discord Bot Hosting',
     description: 'Dedicated hosting for your Discord bots with 24/7 uptime.',
-    link: '/product/discord'
+    link: serviceData.discord.productLink
   },
   {
     icon: <Shield className="h-8 w-8" />,
     title: 'Domain Registration',
     description: 'Register and manage domains with competitive pricing.',
-    link: '/product/domains'
+    link: serviceData.domains.productLink
   }
 ];
 
@@ -54,16 +54,18 @@ const Services = () => {
 
         <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <Link
+            <a
               href={service.link}
               key={index}
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-gray-800 p-6 rounded-xl border border-gray-700 shadow-lg hover:shadow-2xl hover:scale-105 transform transition-all duration-300"
             >
               <div className="text-purple-400">{service.icon}</div>
               <h3 className="mt-4 text-xl font-semibold text-white">{service.title}</h3>
               <p className="mt-2 text-gray-400">{service.description}</p>
               <div className="mt-4 text-purple-400 font-medium">Learn more →</div>
-            </Link>
+            </a>
           ))}
         </div>
       </div>

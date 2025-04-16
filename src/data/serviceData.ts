@@ -1,13 +1,13 @@
 // Define TypeScript interfaces
-export type LocationCode = 'India' | 'Singapore' | 'US' | 'Europe' | 'Japan';
+export type LocationCode = 'India' | 'Singapore' | 'US' | 'Germany' | 'France';
 
 // Define LocationPricing interface without using mapped types
 export interface LocationPricing {
     India: number;
     Singapore: number;
     US: number;
-    Europe: number;
-    Japan: number;
+    Germany: number;
+    France: number;
 }
 
 export interface PlanFeature {
@@ -56,8 +56,8 @@ const serviceData: ServiceDataMap = {
                     India: 200,
                     Singapore: 1.60,
                     US: 1.60,
-                    Europe: 1.60,
-                    Japan: 1.60
+                    Germany: 1.60,
+                    France: 1.60
                 },
                 features: [
                     '2GB RAM',
@@ -77,8 +77,8 @@ const serviceData: ServiceDataMap = {
                     India: 150,
                     Singapore: 2.40,
                     US: 2.40,
-                    Europe: 2.40,
-                    Japan: 2.40
+                    Germany: 2.40,
+                    France: 2.40
                 },
                 features: [
                     '2GB RAM',
@@ -100,8 +100,8 @@ const serviceData: ServiceDataMap = {
                     India: 200,
                     Singapore: 3.20,
                     US: 3.20,
-                    Europe: 3.20,
-                    Japan: 3.20
+                    Germany: 3.20,
+                    France: 3.20
                 },
                 features: [
                     '2GB RAM',
@@ -125,8 +125,8 @@ const serviceData: ServiceDataMap = {
                     India: 200,
                     Singapore: 3.20,
                     US: 3.20,
-                    Europe: 3.20,
-                    Japan: 3.20
+                    Germany: 3.20,
+                    France: 3.20
                 },
                 features: [
                     '4GB RAM',
@@ -146,8 +146,8 @@ const serviceData: ServiceDataMap = {
                     India: 300,
                     Singapore: 4.80,
                     US: 4.80,
-                    Europe: 4.80,
-                    Japan: 4.80
+                    Germany: 4.80,
+                    France: 4.80
                 },
                 features: [
                     '4GB RAM',
@@ -169,8 +169,8 @@ const serviceData: ServiceDataMap = {
                     India: 400,
                     Singapore: 6.40,
                     US: 6.40,
-                    Europe: 6.40,
-                    Japan: 6.40
+                    Germany: 6.40,
+                    France: 6.40
                 },
                 features: [
                     '4GB RAM',
@@ -194,8 +194,8 @@ const serviceData: ServiceDataMap = {
                     India: 400,
                     Singapore: 6.40,
                     US: 6.40,
-                    Europe: 6.40,
-                    Japan: 6.40
+                    Germany: 6.40,
+                    France: 6.40
                 },
                 features: [
                     '8GB RAM',
@@ -215,8 +215,8 @@ const serviceData: ServiceDataMap = {
                     India: 600,
                     Singapore: 9.60,
                     US: 9.60,
-                    Europe: 9.60,
-                    Japan: 9.60
+                    Germany: 9.60,
+                    France: 9.60
                 },
                 features: [
                     '8GB RAM',
@@ -238,8 +238,8 @@ const serviceData: ServiceDataMap = {
                     India: 800,
                     Singapore: 12.80,
                     US: 12.80,
-                    Europe: 12.80,
-                    Japan: 12.80
+                    Germany: 12.80,
+                    France: 12.80
                 },
                 features: [
                     '8GB RAM',
@@ -263,8 +263,8 @@ const serviceData: ServiceDataMap = {
                     India: 800,
                     Singapore: 12.80,
                     US: 12.80,
-                    Europe: 12.80,
-                    Japan: 12.80
+                    Germany: 12.80,
+                    France: 12.80
                 },
                 features: [
                     '16GB RAM',
@@ -284,8 +284,8 @@ const serviceData: ServiceDataMap = {
                     India: 1200,
                     Singapore: 19.20,
                     US: 19.20,
-                    Europe: 19.20,
-                    Japan: 19.20
+                    Germany: 19.20,
+                    France: 19.20
                 },
                 features: [
                     '16GB RAM',
@@ -307,8 +307,8 @@ const serviceData: ServiceDataMap = {
                     India: 1600,
                     Singapore: 25.60,
                     US: 25.60,
-                    Europe: 25.60,
-                    Japan: 25.60
+                    Germany: 25.60,
+                    France: 25.60
                 },
                 features: [
                     '16GB RAM',
@@ -332,8 +332,8 @@ const serviceData: ServiceDataMap = {
                     India: 1600,
                     Singapore: 25.60,
                     US: 25.60,
-                    Europe: 25.60,
-                    Japan: 25.60
+                    Germany: 25.60,
+                    France: 25.60
                 },
                 features: [
                     '32GB RAM',
@@ -353,8 +353,8 @@ const serviceData: ServiceDataMap = {
                     India: 2400,
                     Singapore: 38.40,
                     US: 38.40,
-                    Europe: 38.40,
-                    Japan: 38.40
+                    Germany: 38.40,
+                    France: 38.40
                 },
                 features: [
                     '32GB RAM',
@@ -376,8 +376,8 @@ const serviceData: ServiceDataMap = {
                     India: 3200,
                     Singapore: 51.20,
                     US: 51.20,
-                    Europe: 51.20,
-                    Japan: 51.20
+                    Germany: 51.20,
+                    France: 51.20
                 },
                 features: [
                     '32GB RAM',
@@ -401,8 +401,8 @@ const serviceData: ServiceDataMap = {
                     India: 2400,
                     Singapore: 38.40,
                     US: 38.40,
-                    Europe: 38.40,
-                    Japan: 38.40
+                    Germany: 38.40,
+                    France: 38.40
                 },
                 features: [
                     '48GB RAM',
@@ -422,8 +422,8 @@ const serviceData: ServiceDataMap = {
                     India: 3600,
                     Singapore: 57.60,
                     US: 57.60,
-                    Europe: 57.60,
-                    Japan: 57.60
+                    Germany: 57.60,
+                    France: 57.60
                 },
                 features: [
                     '48GB RAM',
@@ -445,8 +445,8 @@ const serviceData: ServiceDataMap = {
                     India: 4800,
                     Singapore: 76.80,
                     US: 76.80,
-                    Europe: 76.80,
-                    Japan: 76.80
+                    Germany: 76.80,
+                    France: 76.80
                 },
                 features: [
                     '48GB RAM',
@@ -470,8 +470,8 @@ const serviceData: ServiceDataMap = {
                     India: 3200,
                     Singapore: 51.20,
                     US: 51.20,
-                    Europe: 51.20,
-                    Japan: 51.20
+                    Germany: 51.20,
+                    France: 51.20
                 },
                 features: [
                     '64GB RAM',
@@ -491,8 +491,8 @@ const serviceData: ServiceDataMap = {
                     India: 4800,
                     Singapore: 76.80,
                     US: 76.80,
-                    Europe: 76.80,
-                    Japan: 76.80
+                    Germany: 76.80,
+                    France: 76.80
                 },
                 features: [
                     '64GB RAM',
@@ -514,8 +514,8 @@ const serviceData: ServiceDataMap = {
                     India: 6400,
                     Singapore: 102.40,
                     US: 102.40,
-                    Europe: 102.40,
-                    Japan: 102.40
+                    Germany: 102.40,
+                    France: 102.40
                 },
                 features: [
                     '64GB RAM',
@@ -545,8 +545,8 @@ const serviceData: ServiceDataMap = {
                     India: 200,
                     Singapore: 3.00,
                     US: 3.00,
-                    Europe: 3.00,
-                    Japan: 3.00
+                    Germany: 3.00,
+                    France: 3.00
                 },
                 features: [
                     '2GB RAM',
@@ -566,8 +566,8 @@ const serviceData: ServiceDataMap = {
                     India: 300,
                     Singapore: 4.50,
                     US: 4.50,
-                    Europe: 4.50,
-                    Japan: 4.50
+                    Germany: 4.50,
+                    France: 4.50
                 },
                 features: [
                     '2GB RAM',
@@ -590,8 +590,8 @@ const serviceData: ServiceDataMap = {
                     India: 400,
                     Singapore: 6.00,
                     US: 6.00,
-                    Europe: 6.00,
-                    Japan: 6.00
+                    Germany: 6.00,
+                    France: 6.00
                 },
                 features: [
                     '2GB RAM',
@@ -616,8 +616,8 @@ const serviceData: ServiceDataMap = {
                     India: 400,
                     Singapore: 6.00,
                     US: 6.00,
-                    Europe: 6.00,
-                    Japan: 6.00
+                    Germany: 6.00,
+                    France: 6.00
                 },
                 features: [
                     '4GB RAM',
@@ -637,8 +637,8 @@ const serviceData: ServiceDataMap = {
                     India: 600,
                     Singapore: 9.00,
                     US: 9.00,
-                    Europe: 9.00,
-                    Japan: 9.00
+                    Germany: 9.00,
+                    France: 9.00
                 },
                 features: [
                     '4GB RAM',
@@ -661,8 +661,8 @@ const serviceData: ServiceDataMap = {
                     India: 800,
                     Singapore: 12.00,
                     US: 12.00,
-                    Europe: 12.00,
-                    Japan: 12.00
+                    Germany: 12.00,
+                    France: 12.00
                 },
                 features: [
                     '4GB RAM',
@@ -687,8 +687,8 @@ const serviceData: ServiceDataMap = {
                     India: 1200,
                     Singapore: 18.00,
                     US: 18.00,
-                    Europe: 18.00,
-                    Japan: 18.00
+                    Germany: 18.00,
+                    France: 18.00
                 },
                 features: [
                     '6GB RAM',
@@ -713,8 +713,8 @@ const serviceData: ServiceDataMap = {
                     India: 800,
                     Singapore: 12.00,
                     US: 12.00,
-                    Europe: 12.00,
-                    Japan: 12.00
+                    Germany: 12.00,
+                    France: 12.00
                 },
                 features: [
                     '8GB RAM',
@@ -734,8 +734,8 @@ const serviceData: ServiceDataMap = {
                     India: 1200,
                     Singapore: 18.00,
                     US: 18.00,
-                    Europe: 18.00,
-                    Japan: 18.00
+                    Germany: 18.00,
+                    France: 18.00
                 },
                 features: [
                     '8GB RAM',
@@ -759,8 +759,8 @@ const serviceData: ServiceDataMap = {
                     India: 1600,
                     Singapore: 24.00,
                     US: 24.00,
-                    Europe: 24.00,
-                    Japan: 24.00
+                    Germany: 24.00,
+                    France: 24.00
                 },
                 features: [
                     '16GB RAM',
@@ -780,8 +780,8 @@ const serviceData: ServiceDataMap = {
                     India: 2400,
                     Singapore: 36.00,
                     US: 36.00,
-                    Europe: 36.00,
-                    Japan: 36.00
+                    Germany: 36.00,
+                    France: 36.00
                 },
                 features: [
                     '16GB RAM',
@@ -804,8 +804,8 @@ const serviceData: ServiceDataMap = {
                     India: 3200,
                     Singapore: 48.00,
                     US: 48.00,
-                    Europe: 48.00,
-                    Japan: 48.00
+                    Germany: 48.00,
+                    France: 48.00
                 },
                 features: [
                     '16GB RAM',
@@ -830,8 +830,8 @@ const serviceData: ServiceDataMap = {
                     India: 3200,
                     Singapore: 48.00,
                     US: 48.00,
-                    Europe: 48.00,
-                    Japan: 48.00
+                    Germany: 48.00,
+                    France: 48.00
                 },
                 features: [
                     '32GB RAM',
@@ -851,8 +851,8 @@ const serviceData: ServiceDataMap = {
                     India: 4800,
                     Singapore: 72.00,
                     US: 72.00,
-                    Europe: 72.00,
-                    Japan: 72.00
+                    Germany: 72.00,
+                    France: 72.00
                 },
                 features: [
                     '32GB RAM',
@@ -875,8 +875,8 @@ const serviceData: ServiceDataMap = {
                     India: 6400,
                     Singapore: 96.00,
                     US: 96.00,
-                    Europe: 96.00,
-                    Japan: 96.00
+                    Germany: 96.00,
+                    France: 96.00
                 },
                 features: [
                     '32GB RAM',
@@ -901,8 +901,8 @@ const serviceData: ServiceDataMap = {
                     India: 4800,
                     Singapore: 72.00,
                     US: 72.00,
-                    Europe: 72.00,
-                    Japan: 72.00
+                    Germany: 72.00,
+                    France: 72.00
                 },
                 features: [
                     '48GB RAM',
@@ -922,8 +922,8 @@ const serviceData: ServiceDataMap = {
                     India: 7200,
                     Singapore: 108.00,
                     US: 108.00,
-                    Europe: 108.00,
-                    Japan: 108.00
+                    Germany: 108.00,
+                    France: 108.00
                 },
                 features: [
                     '48GB RAM',
@@ -947,8 +947,8 @@ const serviceData: ServiceDataMap = {
                     India: 6400,
                     Singapore: 96.00,
                     US: 96.00,
-                    Europe: 96.00,
-                    Japan: 96.00
+                    Germany: 96.00,
+                    France: 96.00
                 },
                 features: [
                     '64GB RAM',
@@ -968,8 +968,8 @@ const serviceData: ServiceDataMap = {
                     India: 9600,
                     Singapore: 144.00,
                     US: 144.00,
-                    Europe: 144.00,
-                    Japan: 144.00
+                    Germany: 144.00,
+                    France: 144.00
                 },
                 features: [
                     '64GB RAM',
@@ -997,8 +997,8 @@ const serviceData: ServiceDataMap = {
                     India: 199,
                     Singapore: 2.99,
                     US: 2.99,
-                    Europe: 2.99,
-                    Japan: 2.99
+                    Germany: 2.99,
+                    France: 2.99
                 },
                 features: [
                     '10GB Storage',
@@ -1016,8 +1016,8 @@ const serviceData: ServiceDataMap = {
                     India: 399,
                     Singapore: 5.99,
                     US: 5.99,
-                    Europe: 5.99,
-                    Japan: 5.99
+                    Germany: 5.99,
+                    France: 5.99
                 },
                 features: [
                     'Unlimited Storage',
@@ -1035,8 +1035,8 @@ const serviceData: ServiceDataMap = {
                     India: 699,
                     Singapore: 9.99,
                     US: 9.99,
-                    Europe: 9.99,
-                    Japan: 9.99
+                    Germany: 9.99,
+                    France: 9.99
                 },
                 features: [
                     'Unlimited Everything',
@@ -1063,8 +1063,8 @@ const serviceData: ServiceDataMap = {
                     India: 100,
                     Singapore: 1.60,
                     US: 1.60,
-                    Europe: 1.60,
-                    Japan: 1.60
+                    Germany: 1.60,
+                    France: 1.60
                 },
                 features: [
                     '2GB RAM',
@@ -1084,8 +1084,8 @@ const serviceData: ServiceDataMap = {
                     India: 150,
                     Singapore: 2.40,
                     US: 2.40,
-                    Europe: 2.40,
-                    Japan: 2.40
+                    Germany: 2.40,
+                    France: 2.40
                 },
                 features: [
                     '2GB RAM',
@@ -1108,8 +1108,8 @@ const serviceData: ServiceDataMap = {
                     India: 200,
                     Singapore: 3.20,
                     US: 3.20,
-                    Europe: 3.20,
-                    Japan: 3.20
+                    Germany: 3.20,
+                    France: 3.20
                 },
                 features: [
                     '2GB RAM',
@@ -1134,8 +1134,8 @@ const serviceData: ServiceDataMap = {
                     India: 200,
                     Singapore: 3.20,
                     US: 3.20,
-                    Europe: 3.20,
-                    Japan: 3.20
+                    Germany: 3.20,
+                    France: 3.20
                 },
                 features: [
                     '4GB RAM',
@@ -1155,8 +1155,8 @@ const serviceData: ServiceDataMap = {
                     India: 300,
                     Singapore: 4.80,
                     US: 4.80,
-                    Europe: 4.80,
-                    Japan: 4.80
+                    Germany: 4.80,
+                    France: 4.80
                 },
                 features: [
                     '4GB RAM',
@@ -1179,8 +1179,8 @@ const serviceData: ServiceDataMap = {
                     India: 400,
                     Singapore: 6.40,
                     US: 6.40,
-                    Europe: 6.40,
-                    Japan: 6.40
+                    Germany: 6.40,
+                    France: 6.40
                 },
                 features: [
                     '4GB RAM',
@@ -1205,8 +1205,8 @@ const serviceData: ServiceDataMap = {
                     India: 400,
                     Singapore: 6.40,
                     US: 6.40,
-                    Europe: 6.40,
-                    Japan: 6.40
+                    Germany: 6.40,
+                    France: 6.40
                 },
                 features: [
                     '8GB RAM',
@@ -1226,8 +1226,8 @@ const serviceData: ServiceDataMap = {
                     India: 600,
                     Singapore: 9.60,
                     US: 9.60,
-                    Europe: 9.60,
-                    Japan: 9.60
+                    Germany: 9.60,
+                    France: 9.60
                 },
                 features: [
                     '8GB RAM',
@@ -1249,8 +1249,8 @@ const serviceData: ServiceDataMap = {
                     India: 800,
                     Singapore: 12.80,
                     US: 12.80,
-                    Europe: 12.80,
-                    Japan: 12.80
+                    Germany: 12.80,
+                    France: 12.80
                 },
                 features: [
                     '8GB RAM',
@@ -1275,8 +1275,8 @@ const serviceData: ServiceDataMap = {
                     India: 800,
                     Singapore: 12.80,
                     US: 12.80,
-                    Europe: 12.80,
-                    Japan: 12.80
+                    Germany: 12.80,
+                    France: 12.80
                 },
                 features: [
                     '16GB RAM',
@@ -1296,8 +1296,8 @@ const serviceData: ServiceDataMap = {
                     India: 1200,
                     Singapore: 19.20,
                     US: 19.20,
-                    Europe: 19.20,
-                    Japan: 19.20
+                    Germany: 19.20,
+                    France: 19.20
                 },
                 features: [
                     '16GB RAM',
@@ -1319,8 +1319,8 @@ const serviceData: ServiceDataMap = {
                     India: 1600,
                     Singapore: 25.60,
                     US: 25.60,
-                    Europe: 25.60,
-                    Japan: 25.60
+                    Germany: 25.60,
+                    France: 25.60
                 },
                 features: [
                     '16GB RAM',
@@ -1345,8 +1345,8 @@ const serviceData: ServiceDataMap = {
                     India: 1600,
                     Singapore: 25.60,
                     US: 25.60,
-                    Europe: 25.60,
-                    Japan: 25.60
+                    Germany: 25.60,
+                    France: 25.60
                 },
                 features: [
                     '32GB RAM',
@@ -1366,8 +1366,8 @@ const serviceData: ServiceDataMap = {
                     India: 2400,
                     Singapore: 38.40,
                     US: 38.40,
-                    Europe: 38.40,
-                    Japan: 38.40
+                    Germany: 38.40,
+                    France: 38.40
                 },
                 features: [
                     '32GB RAM',
@@ -1389,8 +1389,8 @@ const serviceData: ServiceDataMap = {
                     India: 3200,
                     Singapore: 51.20,
                     US: 51.20,
-                    Europe: 51.20,
-                    Japan: 51.20
+                    Germany: 51.20,
+                    France: 51.20
                 },
                 features: [
                     '32GB RAM',
@@ -1415,8 +1415,8 @@ const serviceData: ServiceDataMap = {
                     India: 2400,
                     Singapore: 38.40,
                     US: 38.40,
-                    Europe: 38.40,
-                    Japan: 38.40
+                    Germany: 38.40,
+                    France: 38.40
                 },
                 features: [
                     '48GB RAM',
@@ -1436,8 +1436,8 @@ const serviceData: ServiceDataMap = {
                     India: 3600,
                     Singapore: 57.60,
                     US: 57.60,
-                    Europe: 57.60,
-                    Japan: 57.60
+                    Germany: 57.60,
+                    France: 57.60
                 },
                 features: [
                     '48GB RAM',
@@ -1459,8 +1459,8 @@ const serviceData: ServiceDataMap = {
                     India: 4800,
                     Singapore: 76.80,
                     US: 76.80,
-                    Europe: 76.80,
-                    Japan: 76.80
+                    Germany: 76.80,
+                    France: 76.80
                 },
                 features: [
                     '48GB RAM',
@@ -1485,8 +1485,8 @@ const serviceData: ServiceDataMap = {
                     India: 3200,
                     Singapore: 51.20,
                     US: 51.20,
-                    Europe: 51.20,
-                    Japan: 51.20
+                    Germany: 51.20,
+                    France: 51.20
                 },
                 features: [
                     '64GB RAM',
@@ -1506,8 +1506,8 @@ const serviceData: ServiceDataMap = {
                     India: 4800,
                     Singapore: 76.80,
                     US: 76.80,
-                    Europe: 76.80,
-                    Japan: 76.80
+                    Germany: 76.80,
+                    France: 76.80
                 },
                 features: [
                     '64GB RAM',
@@ -1529,8 +1529,8 @@ const serviceData: ServiceDataMap = {
                     India: 6400,
                     Singapore: 102.40,
                     US: 102.40,
-                    Europe: 102.40,
-                    Japan: 102.40
+                    Germany: 102.40,
+                    France: 102.40
                 },
                 features: [
                     '64GB RAM',
@@ -1559,8 +1559,8 @@ const serviceData: ServiceDataMap = {
                     India: 30, // 1GB * 30Rs
                     Singapore: 0.40,
                     US: 0.40,
-                    Europe: 0.40,
-                    Japan: 0.40
+                    Germany: 0.40,
+                    France: 0.40
                 },
                 features: [
                     '1GB RAM',
@@ -1578,8 +1578,8 @@ const serviceData: ServiceDataMap = {
                     India: 60, // 2GB * 30Rs
                     Singapore: 0.80,
                     US: 0.80,
-                    Europe: 0.80,
-                    Japan: 0.80
+                    Germany: 0.80,
+                    France: 0.80
                 },
                 features: [
                     '2GB RAM',
@@ -1597,8 +1597,8 @@ const serviceData: ServiceDataMap = {
                     India: 120, // 4GB * 30Rs
                     Singapore: 1.60,
                     US: 1.60,
-                    Europe: 1.60,
-                    Japan: 1.60
+                    Germany: 1.60,
+                    France: 1.60
                 },
                 features: [
                     '4GB RAM',
@@ -1624,8 +1624,8 @@ const serviceData: ServiceDataMap = {
                     India: 1800, // Yearly price
                     Singapore: 24.00,
                     US: 24.00,
-                    Europe: 24.00,
-                    Japan: 24.00
+                    Germany: 24.00,
+                    France: 24.00
                 },
                 features: [
                     'Yearly registration',
@@ -1645,8 +1645,8 @@ const serviceData: ServiceDataMap = {
                     India: 2700,
                     Singapore: 36.00,
                     US: 36.00,
-                    Europe: 36.00,
-                    Japan: 36.00
+                    Germany: 36.00,
+                    France: 36.00
                 },
                 features: [
                     'Yearly registration',
@@ -1668,8 +1668,8 @@ const serviceData: ServiceDataMap = {
                     India: 3600,
                     Singapore: 48.00,
                     US: 48.00,
-                    Europe: 48.00,
-                    Japan: 48.00
+                    Germany: 48.00,
+                    France: 48.00
                 },
                 features: [
                     'Yearly registration',
