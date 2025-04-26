@@ -53,7 +53,8 @@ const locationCurrencySymbols: Record<LocationCode, string> = {
   'Singapore': '$',
   'US': '$',
   'Germany': '€',
-  'France': '€'
+  'France': '€',
+  'UK': '£'
 };
 
 const Pricing: React.FC = () => {
@@ -62,7 +63,7 @@ const Pricing: React.FC = () => {
   const [activeTier, setActiveTier] = useState<string>('Budget Plan');
 
   // Define available locations
-  const locations: LocationCode[] = ['India', 'Singapore', 'US', 'Germany', 'France'];
+  const locations: LocationCode[] = ['India', 'Singapore', 'US', 'Germany', 'France', 'UK'];
 
   // Ensure the service exists with fallback
   const service = serviceData[activeService] || serviceData.minecraft;

@@ -1,5 +1,5 @@
 // Define TypeScript interfaces
-export type LocationCode = 'India' | 'Singapore' | 'US' | 'Germany' | 'France';
+export type LocationCode = 'India' | 'Singapore' | 'US' | 'Germany' | 'France' | 'UK';
 
 // Define LocationPricing interface without using mapped types
 export interface LocationPricing {
@@ -8,6 +8,7 @@ export interface LocationPricing {
     US: number;
     Germany: number;
     France: number;
+    UK: number;
 }
 
 export interface PlanFeature {
@@ -57,7 +58,8 @@ const serviceData: ServiceDataMap = {
                     Singapore: 1.60,
                     US: 1.60,
                     Germany: 1.60,
-                    France: 1.60
+                    France: 1.60,
+                    UK: 1.40
                 },
                 features: [
                     '2GB RAM',
@@ -78,7 +80,8 @@ const serviceData: ServiceDataMap = {
                     Singapore: 2.40,
                     US: 2.40,
                     Germany: 2.40,
-                    France: 2.40
+                    France: 2.40,
+                    UK: 2.10
                 },
                 features: [
                     '2GB RAM',
@@ -101,7 +104,8 @@ const serviceData: ServiceDataMap = {
                     Singapore: 3.20,
                     US: 3.20,
                     Germany: 3.20,
-                    France: 3.20
+                    France: 3.20,
+                    UK: 2.80
                 },
                 features: [
                     '2GB RAM',
@@ -126,7 +130,8 @@ const serviceData: ServiceDataMap = {
                     Singapore: 3.20,
                     US: 3.20,
                     Germany: 3.20,
-                    France: 3.20
+                    France: 3.20,
+                    UK: 2.80
                 },
                 features: [
                     '4GB RAM',
@@ -147,7 +152,8 @@ const serviceData: ServiceDataMap = {
                     Singapore: 4.80,
                     US: 4.80,
                     Germany: 4.80,
-                    France: 4.80
+                    France: 4.80,
+                    UK: 4.20
                 },
                 features: [
                     '4GB RAM',
@@ -170,7 +176,8 @@ const serviceData: ServiceDataMap = {
                     Singapore: 6.40,
                     US: 6.40,
                     Germany: 6.40,
-                    France: 6.40
+                    France: 6.40,
+                    UK: 5.60
                 },
                 features: [
                     '4GB RAM',
@@ -195,7 +202,8 @@ const serviceData: ServiceDataMap = {
                     Singapore: 6.40,
                     US: 6.40,
                     Germany: 6.40,
-                    France: 6.40
+                    France: 6.40,
+                    UK: 5.60
                 },
                 features: [
                     '8GB RAM',
@@ -216,7 +224,8 @@ const serviceData: ServiceDataMap = {
                     Singapore: 9.60,
                     US: 9.60,
                     Germany: 9.60,
-                    France: 9.60
+                    France: 9.60,
+                    UK: 8.40
                 },
                 features: [
                     '8GB RAM',
@@ -239,7 +248,8 @@ const serviceData: ServiceDataMap = {
                     Singapore: 12.80,
                     US: 12.80,
                     Germany: 12.80,
-                    France: 12.80
+                    France: 12.80,
+                    UK: 11.20
                 },
                 features: [
                     '8GB RAM',
@@ -264,7 +274,8 @@ const serviceData: ServiceDataMap = {
                     Singapore: 12.80,
                     US: 12.80,
                     Germany: 12.80,
-                    France: 12.80
+                    France: 12.80,
+                    UK: 11.20
                 },
                 features: [
                     '16GB RAM',
@@ -285,7 +296,8 @@ const serviceData: ServiceDataMap = {
                     Singapore: 19.20,
                     US: 19.20,
                     Germany: 19.20,
-                    France: 19.20
+                    France: 19.20,
+                    UK: 16.80
                 },
                 features: [
                     '16GB RAM',
@@ -308,7 +320,8 @@ const serviceData: ServiceDataMap = {
                     Singapore: 25.60,
                     US: 25.60,
                     Germany: 25.60,
-                    France: 25.60
+                    France: 25.60,
+                    UK: 22.40
                 },
                 features: [
                     '16GB RAM',
@@ -333,7 +346,8 @@ const serviceData: ServiceDataMap = {
                     Singapore: 25.60,
                     US: 25.60,
                     Germany: 25.60,
-                    France: 25.60
+                    France: 25.60,
+                    UK: 22.40
                 },
                 features: [
                     '32GB RAM',
@@ -354,7 +368,8 @@ const serviceData: ServiceDataMap = {
                     Singapore: 38.40,
                     US: 38.40,
                     Germany: 38.40,
-                    France: 38.40
+                    France: 38.40,
+                    UK: 33.60
                 },
                 features: [
                     '32GB RAM',
@@ -377,7 +392,8 @@ const serviceData: ServiceDataMap = {
                     Singapore: 51.20,
                     US: 51.20,
                     Germany: 51.20,
-                    France: 51.20
+                    France: 51.20,
+                    UK: 44.80
                 },
                 features: [
                     '32GB RAM',
@@ -402,7 +418,8 @@ const serviceData: ServiceDataMap = {
                     Singapore: 38.40,
                     US: 38.40,
                     Germany: 38.40,
-                    France: 38.40
+                    France: 38.40,
+                    UK: 33.60
                 },
                 features: [
                     '48GB RAM',
@@ -423,7 +440,8 @@ const serviceData: ServiceDataMap = {
                     Singapore: 57.60,
                     US: 57.60,
                     Germany: 57.60,
-                    France: 57.60
+                    France: 57.60,
+                    UK: 50.40
                 },
                 features: [
                     '48GB RAM',
@@ -446,7 +464,8 @@ const serviceData: ServiceDataMap = {
                     Singapore: 76.80,
                     US: 76.80,
                     Germany: 76.80,
-                    France: 76.80
+                    France: 76.80,
+                    UK: 67.20
                 },
                 features: [
                     '48GB RAM',
@@ -471,7 +490,8 @@ const serviceData: ServiceDataMap = {
                     Singapore: 51.20,
                     US: 51.20,
                     Germany: 51.20,
-                    France: 51.20
+                    France: 51.20,
+                    UK: 44.80
                 },
                 features: [
                     '64GB RAM',
@@ -492,7 +512,8 @@ const serviceData: ServiceDataMap = {
                     Singapore: 76.80,
                     US: 76.80,
                     Germany: 76.80,
-                    France: 76.80
+                    France: 76.80,
+                    UK: 67.20
                 },
                 features: [
                     '64GB RAM',
@@ -515,7 +536,8 @@ const serviceData: ServiceDataMap = {
                     Singapore: 102.40,
                     US: 102.40,
                     Germany: 102.40,
-                    France: 102.40
+                    France: 102.40,
+                    UK: 89.60
                 },
                 features: [
                     '64GB RAM',
@@ -546,7 +568,8 @@ const serviceData: ServiceDataMap = {
                     Singapore: 3.00,
                     US: 3.00,
                     Germany: 3.00,
-                    France: 3.00
+                    France: 3.00,
+                    UK: 2.70
                 },
                 features: [
                     '2GB RAM',
@@ -567,7 +590,8 @@ const serviceData: ServiceDataMap = {
                     Singapore: 4.50,
                     US: 4.50,
                     Germany: 4.50,
-                    France: 4.50
+                    France: 4.50,
+                    UK: 4.05
                 },
                 features: [
                     '2GB RAM',
@@ -591,7 +615,8 @@ const serviceData: ServiceDataMap = {
                     Singapore: 6.00,
                     US: 6.00,
                     Germany: 6.00,
-                    France: 6.00
+                    France: 6.00,
+                    UK: 5.40
                 },
                 features: [
                     '2GB RAM',
@@ -617,7 +642,8 @@ const serviceData: ServiceDataMap = {
                     Singapore: 6.00,
                     US: 6.00,
                     Germany: 6.00,
-                    France: 6.00
+                    France: 6.00,
+                    UK: 5.40
                 },
                 features: [
                     '4GB RAM',
@@ -638,7 +664,8 @@ const serviceData: ServiceDataMap = {
                     Singapore: 9.00,
                     US: 9.00,
                     Germany: 9.00,
-                    France: 9.00
+                    France: 9.00,
+                    UK: 8.10
                 },
                 features: [
                     '4GB RAM',
@@ -662,7 +689,8 @@ const serviceData: ServiceDataMap = {
                     Singapore: 12.00,
                     US: 12.00,
                     Germany: 12.00,
-                    France: 12.00
+                    France: 12.00,
+                    UK: 10.80
                 },
                 features: [
                     '4GB RAM',
@@ -688,7 +716,8 @@ const serviceData: ServiceDataMap = {
                     Singapore: 18.00,
                     US: 18.00,
                     Germany: 18.00,
-                    France: 18.00
+                    France: 18.00,
+                    UK: 16.20
                 },
                 features: [
                     '6GB RAM',
@@ -714,7 +743,8 @@ const serviceData: ServiceDataMap = {
                     Singapore: 12.00,
                     US: 12.00,
                     Germany: 12.00,
-                    France: 12.00
+                    France: 12.00,
+                    UK: 10.80
                 },
                 features: [
                     '8GB RAM',
@@ -735,7 +765,8 @@ const serviceData: ServiceDataMap = {
                     Singapore: 18.00,
                     US: 18.00,
                     Germany: 18.00,
-                    France: 18.00
+                    France: 18.00,
+                    UK: 16.20
                 },
                 features: [
                     '8GB RAM',
@@ -760,7 +791,8 @@ const serviceData: ServiceDataMap = {
                     Singapore: 24.00,
                     US: 24.00,
                     Germany: 24.00,
-                    France: 24.00
+                    France: 24.00,
+                    UK: 21.60
                 },
                 features: [
                     '16GB RAM',
@@ -781,7 +813,8 @@ const serviceData: ServiceDataMap = {
                     Singapore: 36.00,
                     US: 36.00,
                     Germany: 36.00,
-                    France: 36.00
+                    France: 36.00,
+                    UK: 32.40
                 },
                 features: [
                     '16GB RAM',
@@ -805,7 +838,8 @@ const serviceData: ServiceDataMap = {
                     Singapore: 48.00,
                     US: 48.00,
                     Germany: 48.00,
-                    France: 48.00
+                    France: 48.00,
+                    UK: 43.20
                 },
                 features: [
                     '16GB RAM',
@@ -831,7 +865,8 @@ const serviceData: ServiceDataMap = {
                     Singapore: 48.00,
                     US: 48.00,
                     Germany: 48.00,
-                    France: 48.00
+                    France: 48.00,
+                    UK: 43.20
                 },
                 features: [
                     '32GB RAM',
@@ -852,7 +887,8 @@ const serviceData: ServiceDataMap = {
                     Singapore: 72.00,
                     US: 72.00,
                     Germany: 72.00,
-                    France: 72.00
+                    France: 72.00,
+                    UK: 64.80
                 },
                 features: [
                     '32GB RAM',
@@ -876,7 +912,8 @@ const serviceData: ServiceDataMap = {
                     Singapore: 96.00,
                     US: 96.00,
                     Germany: 96.00,
-                    France: 96.00
+                    France: 96.00,
+                    UK: 86.40
                 },
                 features: [
                     '32GB RAM',
@@ -902,7 +939,8 @@ const serviceData: ServiceDataMap = {
                     Singapore: 72.00,
                     US: 72.00,
                     Germany: 72.00,
-                    France: 72.00
+                    France: 72.00,
+                    UK: 64.80
                 },
                 features: [
                     '48GB RAM',
@@ -923,7 +961,8 @@ const serviceData: ServiceDataMap = {
                     Singapore: 108.00,
                     US: 108.00,
                     Germany: 108.00,
-                    France: 108.00
+                    France: 108.00,
+                    UK: 97.20
                 },
                 features: [
                     '48GB RAM',
@@ -948,7 +987,8 @@ const serviceData: ServiceDataMap = {
                     Singapore: 96.00,
                     US: 96.00,
                     Germany: 96.00,
-                    France: 96.00
+                    France: 96.00,
+                    UK: 86.40
                 },
                 features: [
                     '64GB RAM',
@@ -969,7 +1009,8 @@ const serviceData: ServiceDataMap = {
                     Singapore: 144.00,
                     US: 144.00,
                     Germany: 144.00,
-                    France: 144.00
+                    France: 144.00,
+                    UK: 129.60
                 },
                 features: [
                     '64GB RAM',
@@ -998,7 +1039,8 @@ const serviceData: ServiceDataMap = {
                     Singapore: 2.99,
                     US: 2.99,
                     Germany: 2.99,
-                    France: 2.99
+                    France: 2.99,
+                    UK: 2.69
                 },
                 features: [
                     '10GB Storage',
@@ -1017,7 +1059,8 @@ const serviceData: ServiceDataMap = {
                     Singapore: 5.99,
                     US: 5.99,
                     Germany: 5.99,
-                    France: 5.99
+                    France: 5.99,
+                    UK: 5.39
                 },
                 features: [
                     'Unlimited Storage',
@@ -1036,7 +1079,8 @@ const serviceData: ServiceDataMap = {
                     Singapore: 9.99,
                     US: 9.99,
                     Germany: 9.99,
-                    France: 9.99
+                    France: 9.99,
+                    UK: 8.99
                 },
                 features: [
                     'Unlimited Everything',
@@ -1064,7 +1108,8 @@ const serviceData: ServiceDataMap = {
                     Singapore: 1.60,
                     US: 1.60,
                     Germany: 1.60,
-                    France: 1.60
+                    France: 1.60,
+                    UK: 1.40
                 },
                 features: [
                     '2GB RAM',
@@ -1085,7 +1130,8 @@ const serviceData: ServiceDataMap = {
                     Singapore: 2.40,
                     US: 2.40,
                     Germany: 2.40,
-                    France: 2.40
+                    France: 2.40,
+                    UK: 2.10
                 },
                 features: [
                     '2GB RAM',
@@ -1109,7 +1155,8 @@ const serviceData: ServiceDataMap = {
                     Singapore: 3.20,
                     US: 3.20,
                     Germany: 3.20,
-                    France: 3.20
+                    France: 3.20,
+                    UK: 2.80
                 },
                 features: [
                     '2GB RAM',
@@ -1135,7 +1182,8 @@ const serviceData: ServiceDataMap = {
                     Singapore: 3.20,
                     US: 3.20,
                     Germany: 3.20,
-                    France: 3.20
+                    France: 3.20,
+                    UK: 2.80
                 },
                 features: [
                     '4GB RAM',
@@ -1156,7 +1204,8 @@ const serviceData: ServiceDataMap = {
                     Singapore: 4.80,
                     US: 4.80,
                     Germany: 4.80,
-                    France: 4.80
+                    France: 4.80,
+                    UK: 4.20
                 },
                 features: [
                     '4GB RAM',
@@ -1180,7 +1229,8 @@ const serviceData: ServiceDataMap = {
                     Singapore: 6.40,
                     US: 6.40,
                     Germany: 6.40,
-                    France: 6.40
+                    France: 6.40,
+                    UK: 5.60
                 },
                 features: [
                     '4GB RAM',
@@ -1206,7 +1256,8 @@ const serviceData: ServiceDataMap = {
                     Singapore: 6.40,
                     US: 6.40,
                     Germany: 6.40,
-                    France: 6.40
+                    France: 6.40,
+                    UK: 5.60
                 },
                 features: [
                     '8GB RAM',
@@ -1227,7 +1278,8 @@ const serviceData: ServiceDataMap = {
                     Singapore: 9.60,
                     US: 9.60,
                     Germany: 9.60,
-                    France: 9.60
+                    France: 9.60,
+                    UK: 8.40
                 },
                 features: [
                     '8GB RAM',
@@ -1250,7 +1302,8 @@ const serviceData: ServiceDataMap = {
                     Singapore: 12.80,
                     US: 12.80,
                     Germany: 12.80,
-                    France: 12.80
+                    France: 12.80,
+                    UK: 10.80
                 },
                 features: [
                     '8GB RAM',
@@ -1276,7 +1329,8 @@ const serviceData: ServiceDataMap = {
                     Singapore: 12.80,
                     US: 12.80,
                     Germany: 12.80,
-                    France: 12.80
+                    France: 12.80,
+                    UK: 10.80
                 },
                 features: [
                     '16GB RAM',
@@ -1297,7 +1351,8 @@ const serviceData: ServiceDataMap = {
                     Singapore: 19.20,
                     US: 19.20,
                     Germany: 19.20,
-                    France: 19.20
+                    France: 19.20,
+                    UK: 16.80
                 },
                 features: [
                     '16GB RAM',
@@ -1320,7 +1375,8 @@ const serviceData: ServiceDataMap = {
                     Singapore: 25.60,
                     US: 25.60,
                     Germany: 25.60,
-                    France: 25.60
+                    France: 25.60,
+                    UK: 22.40
                 },
                 features: [
                     '16GB RAM',
@@ -1346,7 +1402,8 @@ const serviceData: ServiceDataMap = {
                     Singapore: 25.60,
                     US: 25.60,
                     Germany: 25.60,
-                    France: 25.60
+                    France: 25.60,
+                    UK: 22.40
                 },
                 features: [
                     '32GB RAM',
@@ -1367,7 +1424,8 @@ const serviceData: ServiceDataMap = {
                     Singapore: 38.40,
                     US: 38.40,
                     Germany: 38.40,
-                    France: 38.40
+                    France: 38.40,
+                    UK: 33.60
                 },
                 features: [
                     '32GB RAM',
@@ -1390,7 +1448,8 @@ const serviceData: ServiceDataMap = {
                     Singapore: 51.20,
                     US: 51.20,
                     Germany: 51.20,
-                    France: 51.20
+                    France: 51.20,
+                    UK: 44.80
                 },
                 features: [
                     '32GB RAM',
@@ -1416,7 +1475,8 @@ const serviceData: ServiceDataMap = {
                     Singapore: 38.40,
                     US: 38.40,
                     Germany: 38.40,
-                    France: 38.40
+                    France: 38.40,
+                    UK: 33.60
                 },
                 features: [
                     '48GB RAM',
@@ -1437,7 +1497,8 @@ const serviceData: ServiceDataMap = {
                     Singapore: 57.60,
                     US: 57.60,
                     Germany: 57.60,
-                    France: 57.60
+                    France: 57.60,
+                    UK: 50.40
                 },
                 features: [
                     '48GB RAM',
@@ -1460,7 +1521,8 @@ const serviceData: ServiceDataMap = {
                     Singapore: 76.80,
                     US: 76.80,
                     Germany: 76.80,
-                    France: 76.80
+                    France: 76.80,
+                    UK: 67.20
                 },
                 features: [
                     '48GB RAM',
@@ -1486,7 +1548,8 @@ const serviceData: ServiceDataMap = {
                     Singapore: 51.20,
                     US: 51.20,
                     Germany: 51.20,
-                    France: 51.20
+                    France: 51.20,
+                    UK: 44.80
                 },
                 features: [
                     '64GB RAM',
@@ -1507,7 +1570,8 @@ const serviceData: ServiceDataMap = {
                     Singapore: 76.80,
                     US: 76.80,
                     Germany: 76.80,
-                    France: 76.80
+                    France: 76.80,
+                    UK: 67.20
                 },
                 features: [
                     '64GB RAM',
@@ -1530,7 +1594,8 @@ const serviceData: ServiceDataMap = {
                     Singapore: 102.40,
                     US: 102.40,
                     Germany: 102.40,
-                    France: 102.40
+                    France: 102.40,
+                    UK: 89.60
                 },
                 features: [
                     '64GB RAM',
@@ -1560,7 +1625,8 @@ const serviceData: ServiceDataMap = {
                     Singapore: 0.40,
                     US: 0.40,
                     Germany: 0.40,
-                    France: 0.40
+                    France: 0.40,
+                    UK: 0.35
                 },
                 features: [
                     '1GB RAM',
@@ -1579,7 +1645,8 @@ const serviceData: ServiceDataMap = {
                     Singapore: 0.80,
                     US: 0.80,
                     Germany: 0.80,
-                    France: 0.80
+                    France: 0.80,
+                    UK: 0.70
                 },
                 features: [
                     '2GB RAM',
@@ -1598,7 +1665,8 @@ const serviceData: ServiceDataMap = {
                     Singapore: 1.60,
                     US: 1.60,
                     Germany: 1.60,
-                    France: 1.60
+                    France: 1.60,
+                    UK: 1.40
                 },
                 features: [
                     '4GB RAM',
@@ -1625,7 +1693,8 @@ const serviceData: ServiceDataMap = {
                     Singapore: 24.00,
                     US: 24.00,
                     Germany: 24.00,
-                    France: 24.00
+                    France: 24.00,
+                    UK: 21.60
                 },
                 features: [
                     'Yearly registration',
@@ -1646,7 +1715,8 @@ const serviceData: ServiceDataMap = {
                     Singapore: 36.00,
                     US: 36.00,
                     Germany: 36.00,
-                    France: 36.00
+                    France: 36.00,
+                    UK: 32.40
                 },
                 features: [
                     'Yearly registration',
@@ -1669,7 +1739,8 @@ const serviceData: ServiceDataMap = {
                     Singapore: 48.00,
                     US: 48.00,
                     Germany: 48.00,
-                    France: 48.00
+                    France: 48.00,
+                    UK: 43.20
                 },
                 features: [
                     'Yearly registration',

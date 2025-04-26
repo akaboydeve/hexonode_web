@@ -143,7 +143,13 @@ export default function RootLayout({
                             '@type': 'Organization',
                             name: 'HexoNode',
                             url: 'https://hexonode.com',
-                            logo: 'https://hexonode.com/android-chrome-512x512.png',
+                            logo: {
+                                '@type': 'ImageObject',
+                                url: 'https://hexonode.com/logo.png',
+                                width: 512,
+                                height: 512,
+                                contentUrl: 'https://hexonode.com/logo.png'
+                            },
                             sameAs: [
                                 'https://twitter.com/hexonode',
                                 'https://facebook.com/hexonode',

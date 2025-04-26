@@ -22,6 +22,25 @@ export default function HomePage() {
             <Pricing />
             <Features />
             <Script
+                id="schema-publisher"
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        '@context': 'https://schema.org',
+                        '@type': 'Organization',
+                        '@id': 'https://hexonode.com/#organization',
+                        name: 'HexoNode',
+                        url: 'https://hexonode.com',
+                        logo: {
+                            '@type': 'ImageObject',
+                            url: 'https://hexonode.com/logo.png',
+                            width: 512,
+                            height: 512
+                        }
+                    })
+                }}
+            />
+            <Script
                 id="schema-home"
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
@@ -52,7 +71,13 @@ export default function HomePage() {
                         description: 'Premium hosting solutions for gaming, VPS, dedicated servers and web hosting.',
                         brand: {
                             '@type': 'Brand',
-                            name: 'HexoNode'
+                            name: 'HexoNode',
+                            logo: {
+                                '@type': 'ImageObject',
+                                url: 'https://hexonode.com/logo.png',
+                                width: 512,
+                                height: 512
+                            }
                         },
                         offers: {
                             '@type': 'AggregateOffer',
