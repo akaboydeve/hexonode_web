@@ -2,16 +2,6 @@
 export type LocationCode = 'India' | 'Singapore' | 'US' | 'Germany' | 'France' | 'UK';
 export type TierType = 'budget' | 'premium' | 'ultra';
 
-// Define LocationPricing interface without using mapped types
-export interface LocationPricing {
-    India: number;
-    Singapore: number;
-    US: number;
-    Germany: number;
-    France: number;
-    UK: number;
-}
-
 export interface PlanFeature {
     name: string;
     value: string;
@@ -30,33 +20,33 @@ export interface LocationTierPlans {
     [key: string]: Plan[] | undefined;
 }
 
-export interface ServiceLocations {
+export interface StandardPlans {
+    standard: Plan[];
+    [key: string]: Plan[] | undefined;
+}
+
+export interface LocationBasedService {
+    title: string;
+    description: string;
+    productLink: string;
     India: LocationTierPlans;
     Singapore: LocationTierPlans;
     US: LocationTierPlans;
     Germany: LocationTierPlans;
     France: LocationTierPlans;
     UK: LocationTierPlans;
-    [key: string]: LocationTierPlans;
+    [key: string]: string | LocationTierPlans;
 }
 
-export interface ServiceData {
+export interface LocationIndependentService {
     title: string;
     description: string;
     productLink: string;
-    India: LocationTierPlans | StandardPlans;
-    Singapore: LocationTierPlans | StandardPlans;
-    US: LocationTierPlans | StandardPlans;
-    Germany: LocationTierPlans | StandardPlans;
-    France: LocationTierPlans | StandardPlans;
-    UK: LocationTierPlans | StandardPlans;
-    [key: string]: string | LocationTierPlans | StandardPlans;
+    plans: Plan[];
+    isLocationIndependent: true;
 }
 
-export interface StandardPlans {
-    standard: Plan[];
-    [key: string]: Plan[] | undefined;
-}
+export type ServiceData = LocationBasedService | LocationIndependentService;
 
 export interface ServiceDataMap {
     [key: string]: ServiceData;
@@ -69,7 +59,7 @@ export interface PricingNavProps {
 }
 
 // Create a function to copy minecraft plans to games
-const copyMinecraftToGames = (minecraftData: ServiceData): ServiceData => {
+const copyMinecraftToGames = (minecraftData: LocationBasedService): LocationBasedService => {
     // Deep copy the minecraft data
     const gamesCopy = JSON.parse(JSON.stringify(minecraftData));
 
@@ -2280,1468 +2270,145 @@ const serviceData: ServiceDataMap = {
         title: 'Web Hosting Plans',
         description: 'Fast and reliable web hosting solutions',
         productLink: 'https://panel.hexonode.com/web',
-        India: {
-            standard: [
-                {
-                    name: 'Starter',
-                    price: 199,
-                    features: [
-                        '10GB Storage',
-                        '1 Website',
-                        'Free SSL',
-                        'Daily Backups',
-                        '50 Email Accounts',
-                        'cPanel Access'
-                    ]
-                },
-                {
-                    name: 'Business',
-                    price: 399,
-                    features: [
-                        'Unlimited Storage',
-                        'Unlimited Websites',
-                        'Free SSL',
-                        'Daily Backups',
-                        'Unlimited Emails',
-                        'Premium Support'
-                    ]
-                },
-                {
-                    name: 'Enterprise',
-                    price: 699,
-                    features: [
-                        'Unlimited Everything',
-                        'Dedicated IP',
-                        'Free Domain',
-                        'Advanced Security',
-                        'Priority Support',
-                        'Site Builder'
-                    ]
-                }
-            ]
-        },
-        Singapore: {
-            standard: [
-                {
-                    name: 'Starter',
-                    price: 2.99,
-                    features: [
-                        '10GB Storage',
-                        '1 Website',
-                        'Free SSL',
-                        'Daily Backups',
-                        '50 Email Accounts',
-                        'cPanel Access'
-                    ]
-                },
-                {
-                    name: 'Business',
-                    price: 5.99,
-                    features: [
-                        'Unlimited Storage',
-                        'Unlimited Websites',
-                        'Free SSL',
-                        'Daily Backups',
-                        'Unlimited Emails',
-                        'Premium Support'
-                    ]
-                },
-                {
-                    name: 'Enterprise',
-                    price: 9.99,
-                    features: [
-                        'Unlimited Everything',
-                        'Dedicated IP',
-                        'Free Domain',
-                        'Advanced Security',
-                        'Priority Support',
-                        'Site Builder'
-                    ]
-                }
-            ]
-        },
-        US: {
-            standard: [
-                {
-                    name: 'Starter',
-                    price: 2.99,
-                    features: [
-                        '10GB Storage',
-                        '1 Website',
-                        'Free SSL',
-                        'Daily Backups',
-                        '50 Email Accounts',
-                        'cPanel Access'
-                    ]
-                },
-                {
-                    name: 'Business',
-                    price: 5.99,
-                    features: [
-                        'Unlimited Storage',
-                        'Unlimited Websites',
-                        'Free SSL',
-                        'Daily Backups',
-                        'Unlimited Emails',
-                        'Premium Support'
-                    ]
-                },
-                {
-                    name: 'Enterprise',
-                    price: 9.99,
-                    features: [
-                        'Unlimited Everything',
-                        'Dedicated IP',
-                        'Free Domain',
-                        'Advanced Security',
-                        'Priority Support',
-                        'Site Builder'
-                    ]
-                }
-            ]
-        },
-        Germany: {
-            standard: [
-                {
-                    name: 'Starter',
-                    price: 2.99,
-                    features: [
-                        '10GB Storage',
-                        '1 Website',
-                        'Free SSL',
-                        'Daily Backups',
-                        '50 Email Accounts',
-                        'cPanel Access'
-                    ]
-                },
-                {
-                    name: 'Business',
-                    price: 5.99,
-                    features: [
-                        'Unlimited Storage',
-                        'Unlimited Websites',
-                        'Free SSL',
-                        'Daily Backups',
-                        'Unlimited Emails',
-                        'Premium Support'
-                    ]
-                },
-                {
-                    name: 'Enterprise',
-                    price: 9.99,
-                    features: [
-                        'Unlimited Everything',
-                        'Dedicated IP',
-                        'Free Domain',
-                        'Advanced Security',
-                        'Priority Support',
-                        'Site Builder'
-                    ]
-                }
-            ]
-        },
-        France: {
-            standard: [
-                {
-                    name: 'Starter',
-                    price: 2.99,
-                    features: [
-                        '10GB Storage',
-                        '1 Website',
-                        'Free SSL',
-                        'Daily Backups',
-                        '50 Email Accounts',
-                        'cPanel Access'
-                    ]
-                },
-                {
-                    name: 'Business',
-                    price: 5.99,
-                    features: [
-                        'Unlimited Storage',
-                        'Unlimited Websites',
-                        'Free SSL',
-                        'Daily Backups',
-                        'Unlimited Emails',
-                        'Premium Support'
-                    ]
-                },
-                {
-                    name: 'Enterprise',
-                    price: 9.99,
-                    features: [
-                        'Unlimited Everything',
-                        'Dedicated IP',
-                        'Free Domain',
-                        'Advanced Security',
-                        'Priority Support',
-                        'Site Builder'
-                    ]
-                }
-            ]
-        },
-        UK: {
-            standard: [
-                {
-                    name: 'Starter',
-                    price: 2.69,
-                    features: [
-                        '10GB Storage',
-                        '1 Website',
-                        'Free SSL',
-                        'Daily Backups',
-                        '50 Email Accounts',
-                        'cPanel Access'
-                    ]
-                },
-                {
-                    name: 'Business',
-                    price: 5.39,
-                    features: [
-                        'Unlimited Storage',
-                        'Unlimited Websites',
-                        'Free SSL',
-                        'Daily Backups',
-                        'Unlimited Emails',
-                        'Premium Support'
-                    ]
-                },
-                {
-                    name: 'Enterprise',
-                    price: 8.99,
-                    features: [
-                        'Unlimited Everything',
-                        'Dedicated IP',
-                        'Free Domain',
-                        'Advanced Security',
-                        'Priority Support',
-                        'Site Builder'
-                    ]
-                }
-            ]
-        }
-    },
-    games: {
-        title: 'Game Server Hosting',
-        description: 'Host your favorite games with low latency',
-        productLink: 'https://panel.hexonode.com/games',
-        India: {
-            budget: [
-                {
-                    name: '2GB Game Server - Budget',
-                    price: 1.60,
-                    features: [
-                        '2GB RAM',
-                        '1 vCPU',
-                        '30GB Storage',
-                        'DDoS Protection',
-                        'Mod Support',
-                        'Game Switch'
-                    ]
-                },
-                {
-                    name: '4GB Game Server - Budget',
-                    price: 3.20,
-                    features: [
-                        '4GB RAM',
-                        '1 vCPU',
-                        '50GB Storage',
-                        'DDoS Protection',
-                        'Mod Support',
-                        'Game Switch'
-                    ]
-                },
-                {
-                    name: '8GB Game Server - Budget',
-                    price: 6.40,
-                    features: [
-                        '8GB RAM',
-                        '3 vCPU',
-                        '100GB Storage',
-                        'Premium Network',
-                        'Priority Support',
-                        'Custom Mods'
-                    ]
-                },
-                {
-                    name: '16GB Game Server - Budget',
-                    price: 12.80,
-                    features: [
-                        '16GB RAM',
-                        '4 vCPU',
-                        '200GB Storage',
-                        'Premium Network',
-                        'Priority Support',
-                        'Custom Mods'
-                    ]
-                },
-                {
-                    name: '32GB Game Server - Budget',
-                    price: 25.60,
-                    features: [
-                        '32GB RAM',
-                        '6 vCPU',
-                        '400GB Storage',
-                        'Premium Network',
-                        'Priority Support',
-                        'Custom Mods'
-                    ]
-                }
-            ],
-            premium: [
-                {
-                    name: '2GB Game Server - Premium',
-                    price: 2.40,
-                    features: [
-                        '2GB RAM',
-                        '1 vCPU',
-                        '30GB Storage',
-                        'DDoS Protection',
-                        'Mod Support',
-                        'Game Switch',
-                        'Priority Support',
-                        'Enhanced Backups',
-                        '99.9% Uptime SLA'
-                    ]
-                },
-                {
-                    name: '4GB Game Server - Premium',
-                    price: 4.80,
-                    features: [
-                        '4GB RAM',
-                        '1 vCPU',
-                        '50GB Storage',
-                        'DDoS Protection',
-                        'Mod Support',
-                        'Game Switch',
-                        'Priority Support',
-                        'Enhanced Backups',
-                        '99.9% Uptime SLA'
-                    ]
-                },
-                {
-                    name: '8GB Game Server - Premium',
-                    price: 9.60,
-                    features: [
-                        '8GB RAM',
-                        '3 vCPU',
-                        '100GB Storage',
-                        'Premium Network',
-                        'Priority Support',
-                        'Custom Mods',
-                        'Enhanced Backups',
-                        '99.9% Uptime SLA'
-                    ]
-                },
-                {
-                    name: '16GB Game Server - Premium',
-                    price: 19.20,
-                    features: [
-                        '16GB RAM',
-                        '4 vCPU',
-                        '200GB Storage',
-                        'Premium Network',
-                        'Priority Support',
-                        'Custom Mods',
-                        'Enhanced Backups',
-                        '99.9% Uptime SLA'
-                    ]
-                },
-                {
-                    name: '32GB Game Server - Premium',
-                    price: 38.40,
-                    features: [
-                        '32GB RAM',
-                        '6 vCPU',
-                        '400GB Storage',
-                        'Premium Network',
-                        'Priority Support',
-                        'Custom Mods',
-                        'Enhanced Backups',
-                        '99.9% Uptime SLA'
-                    ]
-                }
-            ],
-            ultra: [
-                {
-                    name: '2GB Game Server - Ultra',
-                    price: 3.20,
-                    features: [
-                        '2GB RAM',
-                        '1 vCPU',
-                        '30GB Storage',
-                        'DDoS Protection',
-                        'Mod Support',
-                        'Game Switch',
-                        '24/7 Dedicated Support',
-                        'Daily Backups',
-                        '99.99% Uptime SLA',
-                        'Enhanced Security'
-                    ]
-                },
-                {
-                    name: '4GB Game Server - Ultra',
-                    price: 6.40,
-                    features: [
-                        '4GB RAM',
-                        '1 vCPU',
-                        '50GB Storage',
-                        'DDoS Protection',
-                        'Mod Support',
-                        'Game Switch',
-                        '24/7 Dedicated Support',
-                        'Daily Backups',
-                        '99.99% Uptime SLA',
-                        'Enhanced Security'
-                    ]
-                },
-                {
-                    name: '8GB Game Server - Ultra',
-                    price: 12.80,
-                    features: [
-                        '8GB RAM',
-                        '3 vCPU',
-                        '100GB Storage',
-                        'Premium Network',
-                        'Priority Support',
-                        'Custom Mods',
-                        '24/7 Dedicated Support',
-                        'Daily Backups',
-                        '99.99% Uptime SLA',
-                        'Enhanced Security'
-                    ]
-                },
-                {
-                    name: '16GB Game Server - Ultra',
-                    price: 25.60,
-                    features: [
-                        '16GB RAM',
-                        '4 vCPU',
-                        '200GB Storage',
-                        'Premium Network',
-                        'Priority Support',
-                        'Custom Mods',
-                        '24/7 Dedicated Support',
-                        'Daily Backups',
-                        '99.99% Uptime SLA',
-                        'Enhanced Security'
-                    ]
-                },
-                {
-                    name: '32GB Game Server - Ultra',
-                    price: 51.20,
-                    features: [
-                        '32GB RAM',
-                        '6 vCPU',
-                        '400GB Storage',
-                        'Premium Network',
-                        'Priority Support',
-                        'Custom Mods',
-                        '24/7 Dedicated Support',
-                        'Daily Backups',
-                        '99.99% Uptime SLA',
-                        'Enhanced Security'
-                    ]
-                }
-            ]
-        },
-        Singapore: {
-            budget: [
-                {
-                    name: '2GB Game Server - Budget',
-                    price: 1.60,
-                    features: [
-                        '2GB RAM',
-                        '1 vCPU',
-                        '30GB Storage',
-                        'DDoS Protection',
-                        'Mod Support',
-                        'Game Switch'
-                    ]
-                },
-                {
-                    name: '4GB Game Server - Budget',
-                    price: 3.20,
-                    features: [
-                        '4GB RAM',
-                        '1 vCPU',
-                        '50GB Storage',
-                        'DDoS Protection',
-                        'Mod Support',
-                        'Game Switch'
-                    ]
-                },
-                {
-                    name: '8GB Game Server - Budget',
-                    price: 6.40,
-                    features: [
-                        '8GB RAM',
-                        '3 vCPU',
-                        '100GB Storage',
-                        'Premium Network',
-                        'Priority Support',
-                        'Custom Mods'
-                    ]
-                },
-                {
-                    name: '16GB Game Server - Budget',
-                    price: 12.80,
-                    features: [
-                        '16GB RAM',
-                        '4 vCPU',
-                        '200GB Storage',
-                        'Premium Network',
-                        'Priority Support',
-                        'Custom Mods'
-                    ]
-                },
-                {
-                    name: '32GB Game Server - Budget',
-                    price: 25.60,
-                    features: [
-                        '32GB RAM',
-                        '6 vCPU',
-                        '400GB Storage',
-                        'Premium Network',
-                        'Priority Support',
-                        'Custom Mods'
-                    ]
-                }
-            ],
-            premium: [
-                {
-                    name: '2GB Game Server - Premium',
-                    price: 2.40,
-                    features: [
-                        '2GB RAM',
-                        '1 vCPU',
-                        '30GB Storage',
-                        'DDoS Protection',
-                        'Mod Support',
-                        'Game Switch',
-                        'Priority Support',
-                        'Enhanced Backups',
-                        '99.9% Uptime SLA'
-                    ]
-                },
-                {
-                    name: '4GB Game Server - Premium',
-                    price: 4.80,
-                    features: [
-                        '4GB RAM',
-                        '1 vCPU',
-                        '50GB Storage',
-                        'DDoS Protection',
-                        'Mod Support',
-                        'Game Switch',
-                        'Priority Support',
-                        'Enhanced Backups',
-                        '99.9% Uptime SLA'
-                    ]
-                },
-                {
-                    name: '8GB Game Server - Premium',
-                    price: 9.60,
-                    features: [
-                        '8GB RAM',
-                        '3 vCPU',
-                        '100GB Storage',
-                        'Premium Network',
-                        'Priority Support',
-                        'Custom Mods',
-                        'Enhanced Backups',
-                        '99.9% Uptime SLA'
-                    ]
-                },
-                {
-                    name: '16GB Game Server - Premium',
-                    price: 19.20,
-                    features: [
-                        '16GB RAM',
-                        '4 vCPU',
-                        '200GB Storage',
-                        'Premium Network',
-                        'Priority Support',
-                        'Custom Mods',
-                        'Enhanced Backups',
-                        '99.9% Uptime SLA'
-                    ]
-                },
-                {
-                    name: '32GB Game Server - Premium',
-                    price: 38.40,
-                    features: [
-                        '32GB RAM',
-                        '6 vCPU',
-                        '400GB Storage',
-                        'Premium Network',
-                        'Priority Support',
-                        'Custom Mods',
-                        'Enhanced Backups',
-                        '99.9% Uptime SLA'
-                    ]
-                }
-            ],
-            ultra: [
-                {
-                    name: '2GB Game Server - Ultra',
-                    price: 3.20,
-                    features: [
-                        '2GB RAM',
-                        '1 vCPU',
-                        '30GB Storage',
-                        'DDoS Protection',
-                        'Mod Support',
-                        'Game Switch',
-                        '24/7 Dedicated Support',
-                        'Daily Backups',
-                        '99.99% Uptime SLA',
-                        'Enhanced Security'
-                    ]
-                },
-                {
-                    name: '4GB Game Server - Ultra',
-                    price: 6.40,
-                    features: [
-                        '4GB RAM',
-                        '1 vCPU',
-                        '50GB Storage',
-                        'DDoS Protection',
-                        'Mod Support',
-                        'Game Switch',
-                        '24/7 Dedicated Support',
-                        'Daily Backups',
-                        '99.99% Uptime SLA',
-                        'Enhanced Security'
-                    ]
-                },
-                {
-                    name: '8GB Game Server - Ultra',
-                    price: 12.80,
-                    features: [
-                        '8GB RAM',
-                        '3 vCPU',
-                        '100GB Storage',
-                        'Premium Network',
-                        'Priority Support',
-                        'Custom Mods',
-                        '24/7 Dedicated Support',
-                        'Daily Backups',
-                        '99.99% Uptime SLA',
-                        'Enhanced Security'
-                    ]
-                },
-                {
-                    name: '16GB Game Server - Ultra',
-                    price: 25.60,
-                    features: [
-                        '16GB RAM',
-                        '4 vCPU',
-                        '200GB Storage',
-                        'Premium Network',
-                        'Priority Support',
-                        'Custom Mods',
-                        '24/7 Dedicated Support',
-                        'Daily Backups',
-                        '99.99% Uptime SLA',
-                        'Enhanced Security'
-                    ]
-                },
-                {
-                    name: '32GB Game Server - Ultra',
-                    price: 51.20,
-                    features: [
-                        '32GB RAM',
-                        '6 vCPU',
-                        '400GB Storage',
-                        'Premium Network',
-                        'Priority Support',
-                        'Custom Mods',
-                        '24/7 Dedicated Support',
-                        'Daily Backups',
-                        '99.99% Uptime SLA',
-                        'Enhanced Security'
-                    ]
-                }
-            ]
-        },
-        US: {
-            budget: [],
-            premium: [],
-            ultra: []
-        },
-        Germany: {
-            budget: [],
-            premium: [],
-            ultra: []
-        },
-        France: {
-            budget: [],
-            premium: [],
-            ultra: []
-        },
-        UK: {
-            budget: [
-                {
-                    name: '2GB Game Server - Budget',
-                    price: 1.60,
-                    features: [
-                        '2GB RAM',
-                        '1 vCPU',
-                        '30GB Storage',
-                        'DDoS Protection',
-                        'Mod Support',
-                        'Game Switch'
-                    ]
-                },
-                {
-                    name: '4GB Game Server - Budget',
-                    price: 3.20,
-                    features: [
-                        '4GB RAM',
-                        '1 vCPU',
-                        '50GB Storage',
-                        'DDoS Protection',
-                        'Mod Support',
-                        'Game Switch'
-                    ]
-                },
-                {
-                    name: '8GB Game Server - Budget',
-                    price: 6.40,
-                    features: [
-                        '8GB RAM',
-                        '3 vCPU',
-                        '100GB Storage',
-                        'Premium Network',
-                        'Priority Support',
-                        'Custom Mods'
-                    ]
-                },
-                {
-                    name: '16GB Game Server - Budget',
-                    price: 12.80,
-                    features: [
-                        '16GB RAM',
-                        '4 vCPU',
-                        '200GB Storage',
-                        'Premium Network',
-                        'Priority Support',
-                        'Custom Mods'
-                    ]
-                },
-                {
-                    name: '32GB Game Server - Budget',
-                    price: 25.60,
-                    features: [
-                        '32GB RAM',
-                        '6 vCPU',
-                        '400GB Storage',
-                        'Premium Network',
-                        'Priority Support',
-                        'Custom Mods'
-                    ]
-                }
-            ],
-            premium: [
-                {
-                    name: '2GB Game Server - Premium',
-                    price: 2.40,
-                    features: [
-                        '2GB RAM',
-                        '1 vCPU',
-                        '30GB Storage',
-                        'DDoS Protection',
-                        'Mod Support',
-                        'Game Switch',
-                        'Priority Support',
-                        'Enhanced Backups',
-                        '99.9% Uptime SLA'
-                    ]
-                },
-                {
-                    name: '4GB Game Server - Premium',
-                    price: 4.80,
-                    features: [
-                        '4GB RAM',
-                        '1 vCPU',
-                        '50GB Storage',
-                        'DDoS Protection',
-                        'Mod Support',
-                        'Game Switch',
-                        'Priority Support',
-                        'Enhanced Backups',
-                        '99.9% Uptime SLA'
-                    ]
-                },
-                {
-                    name: '8GB Game Server - Premium',
-                    price: 9.60,
-                    features: [
-                        '8GB RAM',
-                        '3 vCPU',
-                        '100GB Storage',
-                        'Premium Network',
-                        'Priority Support',
-                        'Custom Mods',
-                        'Enhanced Backups',
-                        '99.9% Uptime SLA'
-                    ]
-                },
-                {
-                    name: '16GB Game Server - Premium',
-                    price: 19.20,
-                    features: [
-                        '16GB RAM',
-                        '4 vCPU',
-                        '200GB Storage',
-                        'Premium Network',
-                        'Priority Support',
-                        'Custom Mods',
-                        'Enhanced Backups',
-                        '99.9% Uptime SLA'
-                    ]
-                },
-                {
-                    name: '32GB Game Server - Premium',
-                    price: 38.40,
-                    features: [
-                        '32GB RAM',
-                        '6 vCPU',
-                        '400GB Storage',
-                        'Premium Network',
-                        'Priority Support',
-                        'Custom Mods',
-                        'Enhanced Backups',
-                        '99.9% Uptime SLA'
-                    ]
-                }
-            ],
-            ultra: [
-                {
-                    name: '2GB Game Server - Ultra',
-                    price: 3.20,
-                    features: [
-                        '2GB RAM',
-                        '1 vCPU',
-                        '30GB Storage',
-                        'DDoS Protection',
-                        'Mod Support',
-                        'Game Switch',
-                        '24/7 Dedicated Support',
-                        'Daily Backups',
-                        '99.99% Uptime SLA',
-                        'Enhanced Security'
-                    ]
-                },
-                {
-                    name: '4GB Game Server - Ultra',
-                    price: 6.40,
-                    features: [
-                        '4GB RAM',
-                        '1 vCPU',
-                        '50GB Storage',
-                        'DDoS Protection',
-                        'Mod Support',
-                        'Game Switch',
-                        '24/7 Dedicated Support',
-                        'Daily Backups',
-                        '99.99% Uptime SLA',
-                        'Enhanced Security'
-                    ]
-                },
-                {
-                    name: '8GB Game Server - Ultra',
-                    price: 12.80,
-                    features: [
-                        '8GB RAM',
-                        '3 vCPU',
-                        '100GB Storage',
-                        'Premium Network',
-                        'Priority Support',
-                        'Custom Mods',
-                        '24/7 Dedicated Support',
-                        'Daily Backups',
-                        '99.99% Uptime SLA',
-                        'Enhanced Security'
-                    ]
-                },
-                {
-                    name: '16GB Game Server - Ultra',
-                    price: 25.60,
-                    features: [
-                        '16GB RAM',
-                        '4 vCPU',
-                        '200GB Storage',
-                        'Premium Network',
-                        'Priority Support',
-                        'Custom Mods',
-                        '24/7 Dedicated Support',
-                        'Daily Backups',
-                        '99.99% Uptime SLA',
-                        'Enhanced Security'
-                    ]
-                },
-                {
-                    name: '32GB Game Server - Ultra',
-                    price: 51.20,
-                    features: [
-                        '32GB RAM',
-                        '6 vCPU',
-                        '400GB Storage',
-                        'Premium Network',
-                        'Priority Support',
-                        'Custom Mods',
-                        '24/7 Dedicated Support',
-                        'Daily Backups',
-                        '99.99% Uptime SLA',
-                        'Enhanced Security'
-                    ]
-                }
-            ]
-        }
+        isLocationIndependent: true,
+        plans: [
+            {
+                name: 'Starter',
+                price: 2.99,
+                features: [
+                    '10GB Storage',
+                    '1 Website',
+                    'Free SSL',
+                    'Daily Backups',
+                    '50 Email Accounts',
+                    'cPanel Access'
+                ]
+            },
+            {
+                name: 'Business',
+                price: 5.99,
+                features: [
+                    'Unlimited Storage',
+                    'Unlimited Websites',
+                    'Free SSL',
+                    'Daily Backups',
+                    'Unlimited Emails',
+                    'Premium Support'
+                ]
+            },
+            {
+                name: 'Enterprise',
+                price: 9.99,
+                features: [
+                    'Unlimited Everything',
+                    'Dedicated IP',
+                    'Free Domain',
+                    'Advanced Security',
+                    'Priority Support',
+                    'Site Builder'
+                ]
+            }
+        ]
     },
     discord: {
         title: 'Discord Bot Hosting',
         description: 'Reliable hosting for your Discord bots',
         productLink: 'https://panel.hexonode.com/discord',
-        India: {
-            standard: [
-                {
-                    name: '1GB Bot',
-                    price: 30,
-                    features: [
-                        '1GB RAM',
-                        '1 vCPU',
-                        '10GB Storage',
-                        '24/7 Uptime',
-                        'Auto Restart',
-                        'Basic Support'
-                    ]
-                },
-                {
-                    name: '2GB Bot',
-                    price: 60,
-                    features: [
-                        '2GB RAM',
-                        '2 vCPU',
-                        '20GB Storage',
-                        'Premium Network',
-                        'Monitoring',
-                        'Priority Support'
-                    ]
-                },
-                {
-                    name: '4GB Bot',
-                    price: 120,
-                    features: [
-                        '4GB RAM',
-                        '4 vCPU',
-                        '40GB Storage',
-                        'Load Balancing',
-                        'Advanced Monitoring',
-                        '24/7 Support'
-                    ]
-                }
-            ]
-        },
-        Singapore: {
-            standard: [
-                {
-                    name: '1GB Bot',
-                    price: 0.40,
-                    features: [
-                        '1GB RAM',
-                        '1 vCPU',
-                        '10GB Storage',
-                        '24/7 Uptime',
-                        'Auto Restart',
-                        'Basic Support'
-                    ]
-                },
-                {
-                    name: '2GB Bot',
-                    price: 0.80,
-                    features: [
-                        '2GB RAM',
-                        '2 vCPU',
-                        '20GB Storage',
-                        'Premium Network',
-                        'Monitoring',
-                        'Priority Support'
-                    ]
-                },
-                {
-                    name: '4GB Bot',
-                    price: 1.60,
-                    features: [
-                        '4GB RAM',
-                        '4 vCPU',
-                        '40GB Storage',
-                        'Load Balancing',
-                        'Advanced Monitoring',
-                        '24/7 Support'
-                    ]
-                }
-            ]
-        },
-        US: {
-            standard: [
-                {
-                    name: '1GB Bot',
-                    price: 0.40,
-                    features: [
-                        '1GB RAM',
-                        '1 vCPU',
-                        '10GB Storage',
-                        '24/7 Uptime',
-                        'Auto Restart',
-                        'Basic Support'
-                    ]
-                },
-                {
-                    name: '2GB Bot',
-                    price: 0.80,
-                    features: [
-                        '2GB RAM',
-                        '2 vCPU',
-                        '20GB Storage',
-                        'Premium Network',
-                        'Monitoring',
-                        'Priority Support'
-                    ]
-                },
-                {
-                    name: '4GB Bot',
-                    price: 1.60,
-                    features: [
-                        '4GB RAM',
-                        '4 vCPU',
-                        '40GB Storage',
-                        'Load Balancing',
-                        'Advanced Monitoring',
-                        '24/7 Support'
-                    ]
-                }
-            ]
-        },
-        Germany: {
-            standard: [
-                {
-                    name: '1GB Bot',
-                    price: 0.40,
-                    features: [
-                        '1GB RAM',
-                        '1 vCPU',
-                        '10GB Storage',
-                        '24/7 Uptime',
-                        'Auto Restart',
-                        'Basic Support'
-                    ]
-                },
-                {
-                    name: '2GB Bot',
-                    price: 0.80,
-                    features: [
-                        '2GB RAM',
-                        '2 vCPU',
-                        '20GB Storage',
-                        'Premium Network',
-                        'Monitoring',
-                        'Priority Support'
-                    ]
-                },
-                {
-                    name: '4GB Bot',
-                    price: 1.60,
-                    features: [
-                        '4GB RAM',
-                        '4 vCPU',
-                        '40GB Storage',
-                        'Load Balancing',
-                        'Advanced Monitoring',
-                        '24/7 Support'
-                    ]
-                }
-            ]
-        },
-        France: {
-            standard: [
-                {
-                    name: '1GB Bot',
-                    price: 0.40,
-                    features: [
-                        '1GB RAM',
-                        '1 vCPU',
-                        '10GB Storage',
-                        '24/7 Uptime',
-                        'Auto Restart',
-                        'Basic Support'
-                    ]
-                },
-                {
-                    name: '2GB Bot',
-                    price: 0.80,
-                    features: [
-                        '2GB RAM',
-                        '2 vCPU',
-                        '20GB Storage',
-                        'Premium Network',
-                        'Monitoring',
-                        'Priority Support'
-                    ]
-                },
-                {
-                    name: '4GB Bot',
-                    price: 1.60,
-                    features: [
-                        '4GB RAM',
-                        '4 vCPU',
-                        '40GB Storage',
-                        'Load Balancing',
-                        'Advanced Monitoring',
-                        '24/7 Support'
-                    ]
-                }
-            ]
-        },
-        UK: {
-            standard: [
-                {
-                    name: '1GB Bot',
-                    price: 0.35,
-                    features: [
-                        '1GB RAM',
-                        '1 vCPU',
-                        '10GB Storage',
-                        '24/7 Uptime',
-                        'Auto Restart',
-                        'Basic Support'
-                    ]
-                },
-                {
-                    name: '2GB Bot',
-                    price: 0.70,
-                    features: [
-                        '2GB RAM',
-                        '2 vCPU',
-                        '20GB Storage',
-                        'Premium Network',
-                        'Monitoring',
-                        'Priority Support'
-                    ]
-                },
-                {
-                    name: '4GB Bot',
-                    price: 1.40,
-                    features: [
-                        '4GB RAM',
-                        '4 vCPU',
-                        '40GB Storage',
-                        'Load Balancing',
-                        'Advanced Monitoring',
-                        '24/7 Support'
-                    ]
-                }
-            ]
-        }
+        isLocationIndependent: true,
+        plans: [
+            {
+                name: '1GB Bot',
+                price: 0.40,
+                features: [
+                    '1GB RAM',
+                    '1 vCPU',
+                    '10GB Storage',
+                    '24/7 Uptime',
+                    'Auto Restart',
+                    'Basic Support'
+                ]
+            },
+            {
+                name: '2GB Bot',
+                price: 0.80,
+                features: [
+                    '2GB RAM',
+                    '2 vCPU',
+                    '20GB Storage',
+                    'Premium Network',
+                    'Monitoring',
+                    'Priority Support'
+                ]
+            },
+            {
+                name: '4GB Bot',
+                price: 1.60,
+                features: [
+                    '4GB RAM',
+                    '4 vCPU',
+                    '40GB Storage',
+                    'Load Balancing',
+                    'Advanced Monitoring',
+                    '24/7 Support'
+                ]
+            }
+        ]
     },
     domains: {
         title: 'Domain Registration',
         description: 'Register and manage your domains yearly',
         productLink: 'https://panel.hexonode.com/domains',
-        India: {
-            standard: [
-                {
-                    name: 'Domain Registration',
-                    price: 1800,
-                    features: [
-                        'Yearly registration',
-                        'DNS Management',
-                        'WHOIS Privacy',
-                        'Email Forwarding',
-                        'Domain Lock',
-                        'Auto Renewal',
-                        'Basic Support'
-                    ]
-                },
-                {
-                    name: 'Premium Domain',
-                    price: 2700,
-                    features: [
-                        'Yearly registration',
-                        'Advanced DNS Management',
-                        'Premium WHOIS Privacy',
-                        'Email Forwarding',
-                        'Domain Lock',
-                        'Auto Renewal',
-                        'Priority Support',
-                        'Advanced Security',
-                        'Free SSL Certificate'
-                    ]
-                },
-                {
-                    name: 'Ultra Domain',
-                    price: 3600,
-                    features: [
-                        'Yearly registration',
-                        'Premium DNS Management',
-                        'Ultimate WHOIS Privacy',
-                        'Enhanced Email Forwarding',
-                        'Domain Lock & Theft Protection',
-                        'Auto Renewal with Discount',
-                        'Dedicated Support',
-                        'Enterprise Security',
-                        'Free Premium SSL Certificate',
-                        'Domain Monitoring'
-                    ]
-                }
-            ]
-        },
-        Singapore: {
-            standard: [
-                {
-                    name: 'Domain Registration',
-                    price: 24.00,
-                    features: [
-                        'Yearly registration',
-                        'DNS Management',
-                        'WHOIS Privacy',
-                        'Email Forwarding',
-                        'Domain Lock',
-                        'Auto Renewal',
-                        'Basic Support'
-                    ]
-                },
-                {
-                    name: 'Premium Domain',
-                    price: 36.00,
-                    features: [
-                        'Yearly registration',
-                        'Advanced DNS Management',
-                        'Premium WHOIS Privacy',
-                        'Email Forwarding',
-                        'Domain Lock',
-                        'Auto Renewal',
-                        'Priority Support',
-                        'Advanced Security',
-                        'Free SSL Certificate'
-                    ]
-                },
-                {
-                    name: 'Ultra Domain',
-                    price: 48.00,
-                    features: [
-                        'Yearly registration',
-                        'Premium DNS Management',
-                        'Ultimate WHOIS Privacy',
-                        'Enhanced Email Forwarding',
-                        'Domain Lock & Theft Protection',
-                        'Auto Renewal with Discount',
-                        'Dedicated Support',
-                        'Enterprise Security',
-                        'Free Premium SSL Certificate',
-                        'Domain Monitoring'
-                    ]
-                }
-            ]
-        },
-        US: {
-            standard: [
-                {
-                    name: 'Domain Registration',
-                    price: 24.00,
-                    features: [
-                        'Yearly registration',
-                        'DNS Management',
-                        'WHOIS Privacy',
-                        'Email Forwarding',
-                        'Domain Lock',
-                        'Auto Renewal',
-                        'Basic Support'
-                    ]
-                },
-                {
-                    name: 'Premium Domain',
-                    price: 36.00,
-                    features: [
-                        'Yearly registration',
-                        'Advanced DNS Management',
-                        'Premium WHOIS Privacy',
-                        'Email Forwarding',
-                        'Domain Lock',
-                        'Auto Renewal',
-                        'Priority Support',
-                        'Advanced Security',
-                        'Free SSL Certificate'
-                    ]
-                },
-                {
-                    name: 'Ultra Domain',
-                    price: 48.00,
-                    features: [
-                        'Yearly registration',
-                        'Premium DNS Management',
-                        'Ultimate WHOIS Privacy',
-                        'Enhanced Email Forwarding',
-                        'Domain Lock & Theft Protection',
-                        'Auto Renewal with Discount',
-                        'Dedicated Support',
-                        'Enterprise Security',
-                        'Free Premium SSL Certificate',
-                        'Domain Monitoring'
-                    ]
-                }
-            ]
-        },
-        Germany: {
-            standard: [
-                {
-                    name: 'Domain Registration',
-                    price: 24.00,
-                    features: [
-                        'Yearly registration',
-                        'DNS Management',
-                        'WHOIS Privacy',
-                        'Email Forwarding',
-                        'Domain Lock',
-                        'Auto Renewal',
-                        'Basic Support'
-                    ]
-                },
-                {
-                    name: 'Premium Domain',
-                    price: 36.00,
-                    features: [
-                        'Yearly registration',
-                        'Advanced DNS Management',
-                        'Premium WHOIS Privacy',
-                        'Email Forwarding',
-                        'Domain Lock',
-                        'Auto Renewal',
-                        'Priority Support',
-                        'Advanced Security',
-                        'Free SSL Certificate'
-                    ]
-                },
-                {
-                    name: 'Ultra Domain',
-                    price: 48.00,
-                    features: [
-                        'Yearly registration',
-                        'Premium DNS Management',
-                        'Ultimate WHOIS Privacy',
-                        'Enhanced Email Forwarding',
-                        'Domain Lock & Theft Protection',
-                        'Auto Renewal with Discount',
-                        'Dedicated Support',
-                        'Enterprise Security',
-                        'Free Premium SSL Certificate',
-                        'Domain Monitoring'
-                    ]
-                }
-            ]
-        },
-        France: {
-            standard: [
-                {
-                    name: 'Domain Registration',
-                    price: 24.00,
-                    features: [
-                        'Yearly registration',
-                        'DNS Management',
-                        'WHOIS Privacy',
-                        'Email Forwarding',
-                        'Domain Lock',
-                        'Auto Renewal',
-                        'Basic Support'
-                    ]
-                },
-                {
-                    name: 'Premium Domain',
-                    price: 36.00,
-                    features: [
-                        'Yearly registration',
-                        'Advanced DNS Management',
-                        'Premium WHOIS Privacy',
-                        'Email Forwarding',
-                        'Domain Lock',
-                        'Auto Renewal',
-                        'Priority Support',
-                        'Advanced Security',
-                        'Free SSL Certificate'
-                    ]
-                },
-                {
-                    name: 'Ultra Domain',
-                    price: 48.00,
-                    features: [
-                        'Yearly registration',
-                        'Premium DNS Management',
-                        'Ultimate WHOIS Privacy',
-                        'Enhanced Email Forwarding',
-                        'Domain Lock & Theft Protection',
-                        'Auto Renewal with Discount',
-                        'Dedicated Support',
-                        'Enterprise Security',
-                        'Free Premium SSL Certificate',
-                        'Domain Monitoring'
-                    ]
-                }
-            ]
-        },
-        UK: {
-            standard: [
-                {
-                    name: 'Domain Registration',
-                    price: 21.60,
-                    features: [
-                        'Yearly registration',
-                        'DNS Management',
-                        'WHOIS Privacy',
-                        'Email Forwarding',
-                        'Domain Lock',
-                        'Auto Renewal',
-                        'Basic Support'
-                    ]
-                },
-                {
-                    name: 'Premium Domain',
-                    price: 32.40,
-                    features: [
-                        'Yearly registration',
-                        'Advanced DNS Management',
-                        'Premium WHOIS Privacy',
-                        'Email Forwarding',
-                        'Domain Lock',
-                        'Auto Renewal',
-                        'Priority Support',
-                        'Advanced Security',
-                        'Free SSL Certificate'
-                    ]
-                },
-                {
-                    name: 'Ultra Domain',
-                    price: 43.20,
-                    features: [
-                        'Yearly registration',
-                        'Premium DNS Management',
-                        'Ultimate WHOIS Privacy',
-                        'Enhanced Email Forwarding',
-                        'Domain Lock & Theft Protection',
-                        'Auto Renewal with Discount',
-                        'Dedicated Support',
-                        'Enterprise Security',
-                        'Free Premium SSL Certificate',
-                        'Domain Monitoring'
-                    ]
-                }
-            ]
-        }
+        isLocationIndependent: true,
+        plans: [
+            {
+                name: 'Domain Registration',
+                price: 24.00,
+                features: [
+                    'Yearly registration',
+                    'DNS Management',
+                    'WHOIS Privacy',
+                    'Email Forwarding',
+                    'Domain Lock',
+                    'Auto Renewal',
+                    'Basic Support'
+                ]
+            },
+            {
+                name: 'Premium Domain',
+                price: 36.00,
+                features: [
+                    'Yearly registration',
+                    'Advanced DNS Management',
+                    'Premium WHOIS Privacy',
+                    'Email Forwarding',
+                    'Domain Lock',
+                    'Auto Renewal',
+                    'Priority Support',
+                    'Advanced Security',
+                    'Free SSL Certificate'
+                ]
+            },
+            {
+                name: 'Ultra Domain',
+                price: 48.00,
+                features: [
+                    'Yearly registration',
+                    'Premium DNS Management',
+                    'Ultimate WHOIS Privacy',
+                    'Enhanced Email Forwarding',
+                    'Domain Lock & Theft Protection',
+                    'Auto Renewal with Discount',
+                    'Dedicated Support',
+                    'Enterprise Security',
+                    'Free Premium SSL Certificate',
+                    'Domain Monitoring'
+                ]
+            }
+        ]
     }
 };
 
 // Copy minecraft plans to games
-serviceData.games = copyMinecraftToGames(serviceData.minecraft);
+serviceData.games = copyMinecraftToGames(serviceData.minecraft as LocationBasedService);
 
 export default serviceData; 

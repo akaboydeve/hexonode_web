@@ -2,7 +2,14 @@
 
 import React, { useState, useEffect } from 'react';
 import { Check, MapPin } from 'lucide-react';
-import serviceData, { PricingNavProps, LocationCode, Plan, PlanFeature, TierType } from '@/data/serviceData';
+import serviceData, {
+  PricingNavProps,
+  LocationCode,
+  Plan,
+  PlanFeature,
+  LocationIndependentService,
+  LocationBasedService
+} from '@/data/serviceData';
 import Link from 'next/link';
 
 const PricingNav: React.FC<PricingNavProps> = ({ activeService, setActiveService }) => {
@@ -61,6 +68,7 @@ const Pricing: React.FC = () => {
   const [selectedLocation, setSelectedLocation] = useState<LocationCode>('India');
   const [activeTier, setActiveTier] = useState<string>('budget');
   const [plans, setPlans] = useState<Plan[]>([]);
+  const [showLocationSelector, setShowLocationSelector] = useState<boolean>(true);
 
   // Define available locations
   const locations: LocationCode[] = ['India', 'Singapore', 'US', 'Germany', 'France', 'UK'];
@@ -68,21 +76,34 @@ const Pricing: React.FC = () => {
   // Ensure the service exists with fallback
   const service = serviceData[activeService] || serviceData.minecraft;
 
-  // Get location data
-  const locationData = service[selectedLocation];
+  // Check if service is location independent
+  const isLocationIndependent = 'isLocationIndependent' in service && service.isLocationIndependent;
+
+  // Update location selector visibility when service changes
+  useEffect(() => {
+    setShowLocationSelector(!isLocationIndependent);
+  }, [isLocationIndependent]);
+
+  // Get location data if service is location-based
+  const locationData = !isLocationIndependent
+    ? (service as LocationBasedService)[selectedLocation]
+    : null;
 
   // Detect if this service uses standard plans or tiered plans
   const usesStandardPlans = locationData && 'standard' in locationData;
 
   // Get available tiers for current service and location if using tiered plans
-  const availableTiers = !usesStandardPlans && locationData ?
+  const availableTiers = !isLocationIndependent && !usesStandardPlans && locationData ?
     Object.keys(locationData).filter(tier =>
       locationData[tier] && locationData[tier].length > 0
     ) : [];
 
   // Update plans when dependencies change
   useEffect(() => {
-    if (usesStandardPlans) {
+    if (isLocationIndependent) {
+      // Location-independent service
+      setPlans((service as LocationIndependentService).plans || []);
+    } else if (usesStandardPlans && locationData) {
       // Using standard plans
       setPlans(locationData.standard || []);
     } else {
@@ -97,11 +118,13 @@ const Pricing: React.FC = () => {
         setPlans([]);
       }
     }
-  }, [activeService, selectedLocation, activeTier, usesStandardPlans, locationData]);
+  }, [activeService, selectedLocation, activeTier, usesStandardPlans, locationData, isLocationIndependent, service]);
 
   // Format price based on location
   const formatPrice = (price: number): string => {
-    const symbol = locationCurrencySymbols[selectedLocation];
+    const symbol = isLocationIndependent ?
+      (activeService === 'domains' ? '$' : '$') : // Use $ for domains and other location-independent services
+      locationCurrencySymbols[selectedLocation];
     return `${symbol}${price.toFixed(2)}`;
   };
 
@@ -131,30 +154,32 @@ const Pricing: React.FC = () => {
 
         <PricingNav activeService={activeService} setActiveService={setActiveService} />
 
-        {/* Location Selector */}
-        <div className="flex flex-col sm:flex-row justify-center items-center gap-2 mb-4">
-          <span className="text-gray-400 flex items-center gap-2">
-            <MapPin size={16} />
-            Select Location:
-          </span>
-          <div className="flex flex-wrap justify-center gap-2">
-            {locations.map((loc) => (
-              <button
-                key={loc}
-                onClick={() => setSelectedLocation(loc)}
-                className={`px-3 py-1.5 rounded-lg font-medium transition-all text-sm ${selectedLocation === loc
-                  ? 'bg-blue-600 text-white'
-                  : 'bg-gray-800 text-gray-400 hover:bg-gray-700'
-                  }`}
-              >
-                {loc}
-              </button>
-            ))}
+        {/* Location Selector - only show for location-based services */}
+        {showLocationSelector && (
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-2 mb-4">
+            <span className="text-gray-400 flex items-center gap-2">
+              <MapPin size={16} />
+              Select Location:
+            </span>
+            <div className="flex flex-wrap justify-center gap-2">
+              {locations.map((loc) => (
+                <button
+                  key={loc}
+                  onClick={() => setSelectedLocation(loc)}
+                  className={`px-3 py-1.5 rounded-lg font-medium transition-all text-sm ${selectedLocation === loc
+                    ? 'bg-blue-600 text-white'
+                    : 'bg-gray-800 text-gray-400 hover:bg-gray-700'
+                    }`}
+                >
+                  {loc}
+                </button>
+              ))}
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Only show tier navigation for tiered plans */}
-        {!usesStandardPlans && availableTiers.length > 0 && (
+        {!isLocationIndependent && !usesStandardPlans && availableTiers.length > 0 && (
           <TierNav
             activeTier={activeTier}
             setActiveTier={setActiveTier}
