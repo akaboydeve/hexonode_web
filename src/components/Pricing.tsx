@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Check, MapPin } from 'lucide-react';
-import serviceData, { PricingNavProps, LocationCode, Plan, PlanFeature } from '@/data/serviceData';
+import serviceData, { PricingNavProps, LocationCode, Plan, PlanFeature, TierType } from '@/data/serviceData';
 import Link from 'next/link';
 
 const PricingNav: React.FC<PricingNavProps> = ({ activeService, setActiveService }) => {
@@ -18,7 +18,7 @@ const PricingNav: React.FC<PricingNavProps> = ({ activeService, setActiveService
           onClick={() => setActiveService(service)}
         >
           {service === 'games'
-            ? 'Other Game Hosting'
+            ? 'Game Hosting'
             : service.charAt(0).toUpperCase() + service.slice(1)}
         </button>
       ))}
@@ -26,26 +26,25 @@ const PricingNav: React.FC<PricingNavProps> = ({ activeService, setActiveService
   );
 };
 
-const TierNav: React.FC<{ activeTier: string; setActiveTier: (tier: string) => void }> = ({ activeTier, setActiveTier }) => {
-  const tiers = ['Budget Plan', 'Premium Plan', 'Ultra Plan'];
-
-  return (
-    <div className="flex flex-wrap justify-center gap-2 mb-6 bg-gray-800 p-2 rounded-xl max-w-4xl mx-auto">
-      {tiers.map((tier) => (
-        <button
-          key={tier}
-          className={`px-4 py-2 text-sm rounded-lg transition-all transform hover:scale-105 ${activeTier === tier
-            ? 'bg-blue-500 text-white shadow-lg'
-            : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
-            }`}
-          onClick={() => setActiveTier(tier)}
-        >
-          {tier}
-        </button>
-      ))}
-    </div>
-  );
-};
+const TierNav: React.FC<{ activeTier: string; setActiveTier: (tier: string) => void; availableTiers: string[] }> =
+  ({ activeTier, setActiveTier, availableTiers }) => {
+    return (
+      <div className="flex flex-wrap justify-center gap-2 mb-6 bg-gray-800 p-2 rounded-xl max-w-4xl mx-auto">
+        {availableTiers.map((tier) => (
+          <button
+            key={tier}
+            className={`px-4 py-2 text-sm rounded-lg transition-all transform hover:scale-105 ${activeTier === tier
+              ? 'bg-blue-500 text-white shadow-lg'
+              : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+              }`}
+            onClick={() => setActiveTier(tier)}
+          >
+            {tier.charAt(0).toUpperCase() + tier.slice(1)} Plan
+          </button>
+        ))}
+      </div>
+    );
+  };
 
 // Currency symbols by location
 const locationCurrencySymbols: Record<LocationCode, string> = {
@@ -60,7 +59,8 @@ const locationCurrencySymbols: Record<LocationCode, string> = {
 const Pricing: React.FC = () => {
   const [activeService, setActiveService] = useState<string>('minecraft');
   const [selectedLocation, setSelectedLocation] = useState<LocationCode>('India');
-  const [activeTier, setActiveTier] = useState<string>('Budget Plan');
+  const [activeTier, setActiveTier] = useState<string>('budget');
+  const [plans, setPlans] = useState<Plan[]>([]);
 
   // Define available locations
   const locations: LocationCode[] = ['India', 'Singapore', 'US', 'Germany', 'France', 'UK'];
@@ -68,23 +68,36 @@ const Pricing: React.FC = () => {
   // Ensure the service exists with fallback
   const service = serviceData[activeService] || serviceData.minecraft;
 
-  // Check if the current service should show tier navigation
-  const shouldShowTierNav = ['minecraft', 'vps', 'games', 'domains'].includes(activeService);
+  // Get location data
+  const locationData = service[selectedLocation];
 
-  // Function to get location-specific price
-  const getLocationPrice = (plan: Plan) => {
-    return plan.locationPricing[selectedLocation] || plan.price;
-  };
+  // Detect if this service uses standard plans or tiered plans
+  const usesStandardPlans = locationData && 'standard' in locationData;
 
-  // Convert tier format from UI (e.g., "Budget Plan") to data format (e.g., "budget")
-  const getTierValue = (displayTier: string): string => {
-    return displayTier.split(' ')[0].toLowerCase();
-  };
+  // Get available tiers for current service and location if using tiered plans
+  const availableTiers = !usesStandardPlans && locationData ?
+    Object.keys(locationData).filter(tier =>
+      locationData[tier] && locationData[tier].length > 0
+    ) : [];
 
-  // Filter plans based on selected tier if tier selection is enabled
-  const filteredPlans = shouldShowTierNav
-    ? service.plans.filter((plan: Plan) => plan.tier === getTierValue(activeTier))
-    : service.plans;
+  // Update plans when dependencies change
+  useEffect(() => {
+    if (usesStandardPlans) {
+      // Using standard plans
+      setPlans(locationData.standard || []);
+    } else {
+      // Using tiered plans
+      // Check if activeTier is in availableTiers, otherwise set to first available
+      if (availableTiers.length > 0) {
+        if (!availableTiers.includes(activeTier)) {
+          setActiveTier(availableTiers[0]);
+        }
+        setPlans(locationData && locationData[activeTier] ? locationData[activeTier] : []);
+      } else {
+        setPlans([]);
+      }
+    }
+  }, [activeService, selectedLocation, activeTier, usesStandardPlans, locationData]);
 
   // Format price based on location
   const formatPrice = (price: number): string => {
@@ -94,7 +107,7 @@ const Pricing: React.FC = () => {
 
   // Calculate discount information
   const getDiscountInfo = (plan: Plan) => {
-    const actualPrice = getLocationPrice(plan);
+    const actualPrice = plan.price;
     // Calculate the original price (25% markup)
     const originalPrice = Math.round(actualPrice * 1.25 * 100) / 100;
     // Calculate discount percentage
@@ -140,10 +153,17 @@ const Pricing: React.FC = () => {
           </div>
         </div>
 
-        {shouldShowTierNav && <TierNav activeTier={activeTier} setActiveTier={setActiveTier} />}
+        {/* Only show tier navigation for tiered plans */}
+        {!usesStandardPlans && availableTiers.length > 0 && (
+          <TierNav
+            activeTier={activeTier}
+            setActiveTier={setActiveTier}
+            availableTiers={availableTiers}
+          />
+        )}
 
         <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-8">
-          {filteredPlans.map((plan: Plan, index: number) => {
+          {plans.map((plan: Plan, index: number) => {
             const { originalPrice, discountPercent } = getDiscountInfo(plan);
             return (
               <div
@@ -154,7 +174,7 @@ const Pricing: React.FC = () => {
                 <div className="mt-4 flex flex-col">
                   <div className="flex items-center gap-2">
                     <span className="text-4xl font-bold text-purple-400">
-                      {formatPrice(getLocationPrice(plan))}
+                      {formatPrice(plan.price)}
                     </span>
                     <span className="text-gray-400">{activeService === 'domains' ? '/year' : '/month'}</span>
                   </div>

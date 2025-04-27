@@ -1,5 +1,6 @@
 // Define TypeScript interfaces
 export type LocationCode = 'India' | 'Singapore' | 'US' | 'Germany' | 'France' | 'UK';
+export type TierType = 'budget' | 'premium' | 'ultra';
 
 // Define LocationPricing interface without using mapped types
 export interface LocationPricing {
@@ -18,17 +19,43 @@ export interface PlanFeature {
 
 export interface Plan {
     name: string;
-    price: number; // Base price in USD
-    tier?: 'budget' | 'premium' | 'ultra'; // Tier classification
-    locationPricing: LocationPricing; // Different prices for different locations
+    price: number; // Base price in location currency
     features: Array<string | PlanFeature>; // Can be either string array or array of name-value objects
+}
+
+export interface LocationTierPlans {
+    budget?: Plan[];
+    premium?: Plan[];
+    ultra?: Plan[];
+    [key: string]: Plan[] | undefined;
+}
+
+export interface ServiceLocations {
+    India: LocationTierPlans;
+    Singapore: LocationTierPlans;
+    US: LocationTierPlans;
+    Germany: LocationTierPlans;
+    France: LocationTierPlans;
+    UK: LocationTierPlans;
+    [key: string]: LocationTierPlans;
 }
 
 export interface ServiceData {
     title: string;
     description: string;
-    plans: Plan[];
-    productLink: string; // Add product link property
+    productLink: string;
+    India: LocationTierPlans | StandardPlans;
+    Singapore: LocationTierPlans | StandardPlans;
+    US: LocationTierPlans | StandardPlans;
+    Germany: LocationTierPlans | StandardPlans;
+    France: LocationTierPlans | StandardPlans;
+    UK: LocationTierPlans | StandardPlans;
+    [key: string]: string | LocationTierPlans | StandardPlans;
+}
+
+export interface StandardPlans {
+    standard: Plan[];
+    [key: string]: Plan[] | undefined;
 }
 
 export interface ServiceDataMap {
@@ -41,1722 +68,3680 @@ export interface PricingNavProps {
     setActiveService: (service: string) => void;
 }
 
+// Create a function to copy minecraft plans to games
+const copyMinecraftToGames = (minecraftData: ServiceData): ServiceData => {
+    // Deep copy the minecraft data
+    const gamesCopy = JSON.parse(JSON.stringify(minecraftData));
+
+    // Update title and description
+    gamesCopy.title = 'Game Server Hosting';
+    gamesCopy.description = 'Host your favorite games with low latency';
+    gamesCopy.productLink = 'https://panel.hexonode.com/games';
+
+    // Rename all plans to "Game Server" instead of "Plan"
+    Object.keys(gamesCopy).forEach(location => {
+        if (location !== 'title' && location !== 'description' && location !== 'productLink') {
+            Object.keys(gamesCopy[location]).forEach(tier => {
+                gamesCopy[location][tier].forEach((plan: Plan) => {
+                    plan.name = plan.name.replace('Plan', 'Game Server');
+                });
+            });
+        }
+    });
+
+    return gamesCopy;
+};
+
 // Export service data
 const serviceData: ServiceDataMap = {
     minecraft: {
         title: 'Minecraft Hosting Plans',
         description: 'High-performance Minecraft server hosting with instant setup',
         productLink: 'https://panel.hexonode.com/minecraft',
-        plans: [
-            // 2GB Plan - Budget
-            {
-                name: '2GB Plan - Budget',
-                price: 1.60,
-                tier: 'budget',
-                locationPricing: {
-                    India: 200,
-                    Singapore: 1.60,
-                    US: 1.60,
-                    Germany: 1.60,
-                    France: 1.60,
-                    UK: 1.40
+        India: {
+            budget: [
+                {
+                    name: '8GB Plan',
+                    price: 400,
+                    features: [
+                        '8GB RAM',
+                        '3 vCPU Cores',
+                        '80GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'DDoS Protection',
+                        'Priority Support'
+                    ]
                 },
-                features: [
-                    '2GB RAM',
-                    '1 vCPU Core',
-                    '30GB SSD Storage',
-                    'Unlimited Bandwidth',
-                    'DDoS Protection',
-                    '24/7 Support'
-                ]
-            },
-            // 2GB Plan - Premium
-            {
-                name: '2GB Plan - Premium',
-                price: 2.40,
-                tier: 'premium',
-                locationPricing: {
-                    India: 150,
-                    Singapore: 2.40,
-                    US: 2.40,
-                    Germany: 2.40,
-                    France: 2.40,
-                    UK: 2.10
+                {
+                    name: '16GB Plan',
+                    price: 800,
+                    features: [
+                        '16GB RAM',
+                        '4 vCPU Cores',
+                        '160GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'DDoS Protection',
+                        'Priority Support'
+                    ]
                 },
-                features: [
-                    '2GB RAM',
-                    '1 vCPU Core',
-                    '30GB SSD Storage',
-                    'Unlimited Bandwidth',
-                    'Advanced DDoS Protection',
-                    'Priority Support',
-                    'Enhanced Backups',
-                    '99.9% Uptime SLA'
-                ]
-            },
-            // 2GB Plan - Ultra
-            {
-                name: '2GB Plan - Ultra',
-                price: 3.20,
-                tier: 'ultra',
-                locationPricing: {
-                    India: 200,
-                    Singapore: 3.20,
-                    US: 3.20,
-                    Germany: 3.20,
-                    France: 3.20,
-                    UK: 2.80
+                {
+                    name: '32GB Plan',
+                    price: 1600,
+                    features: [
+                        '32GB RAM',
+                        '6 vCPU Cores',
+                        '320GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'DDoS Protection',
+                        'Priority Support'
+                    ]
                 },
-                features: [
-                    '2GB RAM',
-                    '1 vCPU Core',
-                    '30GB SSD Storage',
-                    'Unlimited Bandwidth',
-                    'Premium DDoS Protection',
-                    '24/7 Dedicated Support',
-                    'Daily Backups',
-                    '99.99% Uptime SLA',
-                    'Enhanced Security'
-                ]
-            },
-
-            // 4GB Plan - Budget
-            {
-                name: '4GB Plan - Budget',
-                price: 3.20,
-                tier: 'budget',
-                locationPricing: {
-                    India: 200,
-                    Singapore: 3.20,
-                    US: 3.20,
-                    Germany: 3.20,
-                    France: 3.20,
-                    UK: 2.80
+                {
+                    name: '64GB Plan',
+                    price: 3200,
+                    features: [
+                        '64GB RAM',
+                        '10 vCPU Cores',
+                        '640GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'DDoS Protection',
+                        'Priority Support'
+                    ]
+                }
+            ],
+            premium: [
+                {
+                    name: '8GB Plan',
+                    price: 600,
+                    features: [
+                        '8GB RAM',
+                        '3 vCPU Cores',
+                        '80GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'Advanced DDoS Protection',
+                        'Priority Support',
+                        'Enhanced Backups',
+                        '99.9% Uptime SLA'
+                    ]
                 },
-                features: [
-                    '4GB RAM',
-                    '1 vCPU Core',
-                    '50GB SSD Storage',
-                    'Unlimited Bandwidth',
-                    'DDoS Protection',
-                    '24/7 Support'
-                ]
-            },
-            // 4GB Plan - Premium
-            {
-                name: '4GB Plan - Premium',
-                price: 4.80,
-                tier: 'premium',
-                locationPricing: {
-                    India: 300,
-                    Singapore: 4.80,
-                    US: 4.80,
-                    Germany: 4.80,
-                    France: 4.80,
-                    UK: 4.20
+                {
+                    name: '16GB Plan',
+                    price: 1200,
+                    features: [
+                        '16GB RAM',
+                        '4 vCPU Cores',
+                        '160GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'Advanced DDoS Protection',
+                        'Priority Support',
+                        'Enhanced Backups',
+                        '99.9% Uptime SLA'
+                    ]
                 },
-                features: [
-                    '4GB RAM',
-                    '1 vCPU Core',
-                    '50GB SSD Storage',
-                    'Unlimited Bandwidth',
-                    'Advanced DDoS Protection',
-                    'Priority Support',
-                    'Enhanced Backups',
-                    '99.9% Uptime SLA'
-                ]
-            },
-            // 4GB Plan - Ultra
-            {
-                name: '4GB Plan - Ultra',
-                price: 6.40,
-                tier: 'ultra',
-                locationPricing: {
-                    India: 400,
-                    Singapore: 6.40,
-                    US: 6.40,
-                    Germany: 6.40,
-                    France: 6.40,
-                    UK: 5.60
+                {
+                    name: '32GB Plan',
+                    price: 2400,
+                    features: [
+                        '32GB RAM',
+                        '6 vCPU Cores',
+                        '320GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'Advanced DDoS Protection',
+                        'Priority Support',
+                        'Enhanced Backups',
+                        '99.9% Uptime SLA'
+                    ]
                 },
-                features: [
-                    '4GB RAM',
-                    '1 vCPU Core',
-                    '50GB SSD Storage',
-                    'Unlimited Bandwidth',
-                    'Premium DDoS Protection',
-                    '24/7 Dedicated Support',
-                    'Daily Backups',
-                    '99.99% Uptime SLA',
-                    'Enhanced Security'
-                ]
-            },
-
-            // 8GB Plan - Budget
-            {
-                name: '8GB Plan - Budget',
-                price: 6.40,
-                tier: 'budget',
-                locationPricing: {
-                    India: 400,
-                    Singapore: 6.40,
-                    US: 6.40,
-                    Germany: 6.40,
-                    France: 6.40,
-                    UK: 5.60
+                {
+                    name: '64GB Plan',
+                    price: 4800,
+                    features: [
+                        '64GB RAM',
+                        '10 vCPU Cores',
+                        '640GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'Advanced DDoS Protection',
+                        'Priority Support',
+                        'Enhanced Backups',
+                        '99.9% Uptime SLA'
+                    ]
+                }
+            ],
+            ultra: [
+                {
+                    name: '8GB Plan - Ryzen 9',
+                    price: 800,
+                    features: [
+                        '8GB RAM',
+                        '3 vCPU Cores (Ryzen 9)',
+                        '80GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'Premium DDoS Protection',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
                 },
-                features: [
-                    '8GB RAM',
-                    '3 vCPU Cores',
-                    '80GB SSD Storage',
-                    'Unlimited Bandwidth',
-                    'DDoS Protection',
-                    'Priority Support'
-                ]
-            },
-            // 8GB Plan - Premium
-            {
-                name: '8GB Plan - Premium',
-                price: 9.60,
-                tier: 'premium',
-                locationPricing: {
-                    India: 600,
-                    Singapore: 9.60,
-                    US: 9.60,
-                    Germany: 9.60,
-                    France: 9.60,
-                    UK: 8.40
+                {
+                    name: '16GB Plan - Ryzen 9',
+                    price: 1600,
+                    features: [
+                        '16GB RAM',
+                        '4 vCPU Cores (Ryzen 9)',
+                        '160GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'Premium DDoS Protection',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
                 },
-                features: [
-                    '8GB RAM',
-                    '3 vCPU Cores',
-                    '80GB SSD Storage',
-                    'Unlimited Bandwidth',
-                    'Advanced DDoS Protection',
-                    'Priority Support',
-                    'Enhanced Backups',
-                    '99.9% Uptime SLA'
-                ]
-            },
-            // 8GB Plan - Ultra
-            {
-                name: '8GB Plan - Ultra',
-                price: 12.80,
-                tier: 'ultra',
-                locationPricing: {
-                    India: 800,
-                    Singapore: 12.80,
-                    US: 12.80,
-                    Germany: 12.80,
-                    France: 12.80,
-                    UK: 11.20
+                {
+                    name: '32GB Plan - Ryzen 9',
+                    price: 3200,
+                    features: [
+                        '32GB RAM',
+                        '6 vCPU Cores (Ryzen 9)',
+                        '320GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'Premium DDoS Protection',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
                 },
-                features: [
-                    '8GB RAM',
-                    '3 vCPU Cores',
-                    '80GB SSD Storage',
-                    'Unlimited Bandwidth',
-                    'Premium DDoS Protection',
-                    '24/7 Dedicated Support',
-                    'Daily Backups',
-                    '99.99% Uptime SLA',
-                    'Enhanced Security'
-                ]
-            },
-
-            // 16GB Plan - Budget
-            {
-                name: '16GB Plan - Budget',
-                price: 12.80,
-                tier: 'budget',
-                locationPricing: {
-                    India: 800,
-                    Singapore: 12.80,
-                    US: 12.80,
-                    Germany: 12.80,
-                    France: 12.80,
-                    UK: 11.20
+                {
+                    name: '64GB Plan - Ryzen 9',
+                    price: 6400,
+                    features: [
+                        '64GB RAM',
+                        '10 vCPU Cores (Ryzen 9)',
+                        '640GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'Premium DDoS Protection',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
                 },
-                features: [
-                    '16GB RAM',
-                    '4 vCPU Cores',
-                    '160GB SSD Storage',
-                    'Unlimited Bandwidth',
-                    'DDoS Protection',
-                    'Priority Support'
-                ]
-            },
-            // 16GB Plan - Premium
-            {
-                name: '16GB Plan - Premium',
-                price: 19.20,
-                tier: 'premium',
-                locationPricing: {
-                    India: 1200,
-                    Singapore: 19.20,
-                    US: 19.20,
-                    Germany: 19.20,
-                    France: 19.20,
-                    UK: 16.80
+                {
+                    name: '128GB Plan - Ryzen 9',
+                    price: 12800,
+                    features: [
+                        '128GB RAM',
+                        '12 vCPU Cores (Ryzen 9)',
+                        '1280GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'Premium DDoS Protection',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
+                }
+            ]
+        },
+        Singapore: {
+            budget: [
+                {
+                    name: '8GB Plan',
+                    price: 6.40,
+                    features: [
+                        '8GB RAM',
+                        '3 vCPU Cores',
+                        '80GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'DDoS Protection',
+                        'Priority Support'
+                    ]
                 },
-                features: [
-                    '16GB RAM',
-                    '4 vCPU Cores',
-                    '160GB SSD Storage',
-                    'Unlimited Bandwidth',
-                    'Advanced DDoS Protection',
-                    'Priority Support',
-                    'Enhanced Backups',
-                    '99.9% Uptime SLA'
-                ]
-            },
-            // 16GB Plan - Ultra
-            {
-                name: '16GB Plan - Ultra',
-                price: 25.60,
-                tier: 'ultra',
-                locationPricing: {
-                    India: 1600,
-                    Singapore: 25.60,
-                    US: 25.60,
-                    Germany: 25.60,
-                    France: 25.60,
-                    UK: 22.40
+                {
+                    name: '16GB Plan',
+                    price: 12.80,
+                    features: [
+                        '16GB RAM',
+                        '4 vCPU Cores',
+                        '160GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'DDoS Protection',
+                        'Priority Support'
+                    ]
                 },
-                features: [
-                    '16GB RAM',
-                    '4 vCPU Cores',
-                    '160GB SSD Storage',
-                    'Unlimited Bandwidth',
-                    'Premium DDoS Protection',
-                    '24/7 Dedicated Support',
-                    'Daily Backups',
-                    '99.99% Uptime SLA',
-                    'Enhanced Security'
-                ]
-            },
-
-            // 32GB Plan - Budget
-            {
-                name: '32GB Plan - Budget',
-                price: 25.60,
-                tier: 'budget',
-                locationPricing: {
-                    India: 1600,
-                    Singapore: 25.60,
-                    US: 25.60,
-                    Germany: 25.60,
-                    France: 25.60,
-                    UK: 22.40
+                {
+                    name: '32GB Plan',
+                    price: 25.60,
+                    features: [
+                        '32GB RAM',
+                        '6 vCPU Cores',
+                        '320GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'DDoS Protection',
+                        'Priority Support'
+                    ]
                 },
-                features: [
-                    '32GB RAM',
-                    '6 vCPU Cores',
-                    '320GB SSD Storage',
-                    'Unlimited Bandwidth',
-                    'DDoS Protection',
-                    'Priority Support'
-                ]
-            },
-            // 32GB Plan - Premium
-            {
-                name: '32GB Plan - Premium',
-                price: 38.40,
-                tier: 'premium',
-                locationPricing: {
-                    India: 2400,
-                    Singapore: 38.40,
-                    US: 38.40,
-                    Germany: 38.40,
-                    France: 38.40,
-                    UK: 33.60
+                {
+                    name: '64GB Plan',
+                    price: 51.20,
+                    features: [
+                        '64GB RAM',
+                        '10 vCPU Cores',
+                        '640GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'DDoS Protection',
+                        'Priority Support'
+                    ]
+                }
+            ],
+            premium: [
+                {
+                    name: '8GB Plan',
+                    price: 9.60,
+                    features: [
+                        '8GB RAM',
+                        '3 vCPU Cores',
+                        '80GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'Advanced DDoS Protection',
+                        'Priority Support',
+                        'Enhanced Backups',
+                        '99.9% Uptime SLA'
+                    ]
                 },
-                features: [
-                    '32GB RAM',
-                    '6 vCPU Cores',
-                    '320GB SSD Storage',
-                    'Unlimited Bandwidth',
-                    'Advanced DDoS Protection',
-                    'Priority Support',
-                    'Enhanced Backups',
-                    '99.9% Uptime SLA'
-                ]
-            },
-            // 32GB Plan - Ultra
-            {
-                name: '32GB Plan - Ultra',
-                price: 51.20,
-                tier: 'ultra',
-                locationPricing: {
-                    India: 3200,
-                    Singapore: 51.20,
-                    US: 51.20,
-                    Germany: 51.20,
-                    France: 51.20,
-                    UK: 44.80
+                {
+                    name: '16GB Plan',
+                    price: 19.20,
+                    features: [
+                        '16GB RAM',
+                        '4 vCPU Cores',
+                        '160GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'Advanced DDoS Protection',
+                        'Priority Support',
+                        'Enhanced Backups',
+                        '99.9% Uptime SLA'
+                    ]
                 },
-                features: [
-                    '32GB RAM',
-                    '6 vCPU Cores',
-                    '320GB SSD Storage',
-                    'Unlimited Bandwidth',
-                    'Premium DDoS Protection',
-                    '24/7 Dedicated Support',
-                    'Daily Backups',
-                    '99.99% Uptime SLA',
-                    'Enhanced Security'
-                ]
-            },
-
-            // 48GB Plan - Budget
-            {
-                name: '48GB Plan - Budget',
-                price: 38.40,
-                tier: 'budget',
-                locationPricing: {
-                    India: 2400,
-                    Singapore: 38.40,
-                    US: 38.40,
-                    Germany: 38.40,
-                    France: 38.40,
-                    UK: 33.60
+                {
+                    name: '32GB Plan',
+                    price: 38.40,
+                    features: [
+                        '32GB RAM',
+                        '6 vCPU Cores',
+                        '320GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'Advanced DDoS Protection',
+                        'Priority Support',
+                        'Enhanced Backups',
+                        '99.9% Uptime SLA'
+                    ]
                 },
-                features: [
-                    '48GB RAM',
-                    '8 vCPU Cores',
-                    '480GB SSD Storage',
-                    'Unlimited Bandwidth',
-                    'DDoS Protection',
-                    'Priority Support'
-                ]
-            },
-            // 48GB Plan - Premium
-            {
-                name: '48GB Plan - Premium',
-                price: 57.60,
-                tier: 'premium',
-                locationPricing: {
-                    India: 3600,
-                    Singapore: 57.60,
-                    US: 57.60,
-                    Germany: 57.60,
-                    France: 57.60,
-                    UK: 50.40
+                {
+                    name: '64GB Plan',
+                    price: 76.80,
+                    features: [
+                        '64GB RAM',
+                        '10 vCPU Cores',
+                        '640GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'Advanced DDoS Protection',
+                        'Priority Support',
+                        'Enhanced Backups',
+                        '99.9% Uptime SLA'
+                    ]
+                }
+            ],
+            ultra: [
+                {
+                    name: '8GB Plan - Ryzen 9',
+                    price: 12.80,
+                    features: [
+                        '8GB RAM',
+                        '3 vCPU Cores (Ryzen 9)',
+                        '80GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'Premium DDoS Protection',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
                 },
-                features: [
-                    '48GB RAM',
-                    '8 vCPU Cores',
-                    '480GB SSD Storage',
-                    'Unlimited Bandwidth',
-                    'Advanced DDoS Protection',
-                    'Priority Support',
-                    'Enhanced Backups',
-                    '99.9% Uptime SLA'
-                ]
-            },
-            // 48GB Plan - Ultra
-            {
-                name: '48GB Plan - Ultra',
-                price: 76.80,
-                tier: 'ultra',
-                locationPricing: {
-                    India: 4800,
-                    Singapore: 76.80,
-                    US: 76.80,
-                    Germany: 76.80,
-                    France: 76.80,
-                    UK: 67.20
+                {
+                    name: '16GB Plan - Ryzen 9',
+                    price: 25.60,
+                    features: [
+                        '16GB RAM',
+                        '4 vCPU Cores (Ryzen 9)',
+                        '160GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'Premium DDoS Protection',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
                 },
-                features: [
-                    '48GB RAM',
-                    '8 vCPU Cores',
-                    '480GB SSD Storage',
-                    'Unlimited Bandwidth',
-                    'Premium DDoS Protection',
-                    '24/7 Dedicated Support',
-                    'Daily Backups',
-                    '99.99% Uptime SLA',
-                    'Enhanced Security'
-                ]
-            },
-
-            // 64GB Plan - Budget
-            {
-                name: '64GB Plan - Budget',
-                price: 51.20,
-                tier: 'budget',
-                locationPricing: {
-                    India: 3200,
-                    Singapore: 51.20,
-                    US: 51.20,
-                    Germany: 51.20,
-                    France: 51.20,
-                    UK: 44.80
+                {
+                    name: '32GB Plan - Ryzen 9',
+                    price: 51.20,
+                    features: [
+                        '32GB RAM',
+                        '6 vCPU Cores (Ryzen 9)',
+                        '320GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'Premium DDoS Protection',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
                 },
-                features: [
-                    '64GB RAM',
-                    '10 vCPU Cores',
-                    '640GB SSD Storage',
-                    'Unlimited Bandwidth',
-                    'DDoS Protection',
-                    'Priority Support'
-                ]
-            },
-            // 64GB Plan - Premium
-            {
-                name: '64GB Plan - Premium',
-                price: 76.80,
-                tier: 'premium',
-                locationPricing: {
-                    India: 4800,
-                    Singapore: 76.80,
-                    US: 76.80,
-                    Germany: 76.80,
-                    France: 76.80,
-                    UK: 67.20
+                {
+                    name: '64GB Plan - Ryzen 9',
+                    price: 102.40,
+                    features: [
+                        '64GB RAM',
+                        '10 vCPU Cores (Ryzen 9)',
+                        '640GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'Premium DDoS Protection',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
                 },
-                features: [
-                    '64GB RAM',
-                    '10 vCPU Cores',
-                    '640GB SSD Storage',
-                    'Unlimited Bandwidth',
-                    'Advanced DDoS Protection',
-                    'Priority Support',
-                    'Enhanced Backups',
-                    '99.9% Uptime SLA'
-                ]
-            },
-            // 64GB Plan - Ultra
-            {
-                name: '64GB Plan - Ultra',
-                price: 102.40,
-                tier: 'ultra',
-                locationPricing: {
-                    India: 6400,
-                    Singapore: 102.40,
-                    US: 102.40,
-                    Germany: 102.40,
-                    France: 102.40,
-                    UK: 89.60
+                {
+                    name: '128GB Plan - Ryzen 9',
+                    price: 204.80,
+                    features: [
+                        '128GB RAM',
+                        '12 vCPU Cores (Ryzen 9)',
+                        '1280GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'Premium DDoS Protection',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
+                }
+            ]
+        },
+        US: {
+            budget: [
+                {
+                    name: '8GB Plan - Budget',
+                    price: 6.40,
+                    features: [
+                        '8GB RAM',
+                        '3 vCPU Cores',
+                        '80GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'DDoS Protection',
+                        'Priority Support'
+                    ]
                 },
-                features: [
-                    '64GB RAM',
-                    '10 vCPU Cores',
-                    '640GB SSD Storage',
-                    'Unlimited Bandwidth',
-                    'Premium DDoS Protection',
-                    '24/7 Dedicated Support',
-                    'Daily Backups',
-                    '99.99% Uptime SLA',
-                    'Enhanced Security'
-                ]
-            }
-        ]
+                {
+                    name: '16GB Plan - Budget',
+                    price: 12.80,
+                    features: [
+                        '16GB RAM',
+                        '4 vCPU Cores',
+                        '160GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'DDoS Protection',
+                        'Priority Support'
+                    ]
+                },
+                {
+                    name: '32GB Plan - Budget',
+                    price: 25.60,
+                    features: [
+                        '32GB RAM',
+                        '6 vCPU Cores',
+                        '320GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'DDoS Protection',
+                        'Priority Support'
+                    ]
+                },
+                {
+                    name: '64GB Plan - Budget',
+                    price: 51.20,
+                    features: [
+                        '64GB RAM',
+                        '10 vCPU Cores',
+                        '640GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'DDoS Protection',
+                        'Priority Support'
+                    ]
+                },
+                {
+                    name: '128GB Plan - Ultra Ryzen 9',
+                    price: 204.80,
+                    features: [
+                        '128GB RAM',
+                        '12 vCPU Cores (Ryzen 9)',
+                        '1280GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'Premium DDoS Protection',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
+                }
+            ],
+            premium: [
+                {
+                    name: '8GB Plan - Premium',
+                    price: 9.60,
+                    features: [
+                        '8GB RAM',
+                        '3 vCPU Cores',
+                        '80GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'Advanced DDoS Protection',
+                        'Priority Support',
+                        'Enhanced Backups',
+                        '99.9% Uptime SLA'
+                    ]
+                },
+                {
+                    name: '16GB Plan - Premium',
+                    price: 19.20,
+                    features: [
+                        '16GB RAM',
+                        '4 vCPU Cores',
+                        '160GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'Advanced DDoS Protection',
+                        'Priority Support',
+                        'Enhanced Backups',
+                        '99.9% Uptime SLA'
+                    ]
+                },
+                {
+                    name: '32GB Plan - Premium',
+                    price: 38.40,
+                    features: [
+                        '32GB RAM',
+                        '6 vCPU Cores',
+                        '320GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'Advanced DDoS Protection',
+                        'Priority Support',
+                        'Enhanced Backups',
+                        '99.9% Uptime SLA'
+                    ]
+                },
+                {
+                    name: '64GB Plan - Premium',
+                    price: 76.80,
+                    features: [
+                        '64GB RAM',
+                        '10 vCPU Cores',
+                        '640GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'Advanced DDoS Protection',
+                        'Priority Support',
+                        'Enhanced Backups',
+                        '99.9% Uptime SLA'
+                    ]
+                }
+            ],
+            ultra: [
+                {
+                    name: '8GB Plan - Ultra Ryzen 9',
+                    price: 12.80,
+                    features: [
+                        '8GB RAM',
+                        '3 vCPU Cores (Ryzen 9)',
+                        '80GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'Premium DDoS Protection',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
+                },
+                {
+                    name: '16GB Plan - Ultra Ryzen 9',
+                    price: 25.60,
+                    features: [
+                        '16GB RAM',
+                        '4 vCPU Cores (Ryzen 9)',
+                        '160GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'Premium DDoS Protection',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
+                },
+                {
+                    name: '32GB Plan - Ultra Ryzen 9',
+                    price: 51.20,
+                    features: [
+                        '32GB RAM',
+                        '6 vCPU Cores (Ryzen 9)',
+                        '320GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'Premium DDoS Protection',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
+                },
+                {
+                    name: '128GB Plan - Ultra Ryzen 9',
+                    price: 204.80,
+                    features: [
+                        '128GB RAM',
+                        '12 vCPU Cores (Ryzen 9)',
+                        '1280GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'Premium DDoS Protection',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
+                }
+            ]
+        },
+        Germany: {
+            budget: [
+                {
+                    name: '8GB Plan - Budget',
+                    price: 8.00,
+                    features: [
+                        '8GB RAM',
+                        '3 vCPU Cores',
+                        '80GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'DDoS Protection',
+                        'Priority Support'
+                    ]
+                },
+                {
+                    name: '16GB Plan - Budget',
+                    price: 15.00,
+                    features: [
+                        '16GB RAM',
+                        '4 vCPU Cores',
+                        '160GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'DDoS Protection',
+                        'Priority Support'
+                    ]
+                },
+                {
+                    name: '34GB Plan - Budget',
+                    price: 34.00,
+                    features: [
+                        '34GB RAM',
+                        '6 vCPU Cores',
+                        '340GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'DDoS Protection',
+                        'Priority Support'
+                    ]
+                },
+                {
+                    name: '64GB Plan - Budget',
+                    price: 49.90,
+                    features: [
+                        '64GB RAM',
+                        '10 vCPU Cores',
+                        '640GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'DDoS Protection',
+                        'Priority Support'
+                    ]
+                },
+                {
+                    name: '139.99 Plan - Ultra Ryzen 9',
+                    price: 139.99,
+                    features: [
+                        '139.99GB RAM',
+                        '12 vCPU Cores (Ryzen 9)',
+                        '1600GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'Premium DDoS Protection',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
+                }
+            ],
+            premium: [
+                {
+                    name: '9GB Plan - Premium',
+                    price: 9.00,
+                    features: [
+                        '9GB RAM',
+                        '3 vCPU Cores',
+                        '90GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'Advanced DDoS Protection',
+                        'Priority Support',
+                        'Enhanced Backups',
+                        '99.9% Uptime SLA'
+                    ]
+                },
+                {
+                    name: '18GB Plan - Premium',
+                    price: 18.00,
+                    features: [
+                        '18GB RAM',
+                        '4 vCPU Cores',
+                        '180GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'Advanced DDoS Protection',
+                        'Priority Support',
+                        'Enhanced Backups',
+                        '99.9% Uptime SLA'
+                    ]
+                },
+                {
+                    name: '37GB Plan - Premium',
+                    price: 37.00,
+                    features: [
+                        '37GB RAM',
+                        '6 vCPU Cores',
+                        '370GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'Advanced DDoS Protection',
+                        'Priority Support',
+                        'Enhanced Backups',
+                        '99.9% Uptime SLA'
+                    ]
+                },
+                {
+                    name: '64GB Plan - Premium',
+                    price: 64.00,
+                    features: [
+                        '64GB RAM',
+                        '10 vCPU Cores',
+                        '640GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'Advanced DDoS Protection',
+                        'Priority Support',
+                        'Enhanced Backups',
+                        '99.9% Uptime SLA'
+                    ]
+                }
+            ],
+            ultra: [
+                {
+                    name: '15GB Plan - Ultra Ryzen 9',
+                    price: 15.00,
+                    features: [
+                        '15GB RAM',
+                        '4 vCPU Cores (Ryzen 9)',
+                        '150GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'Premium DDoS Protection',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
+                },
+                {
+                    name: '23GB Plan - Ultra Ryzen 9',
+                    price: 23.00,
+                    features: [
+                        '23GB RAM',
+                        '4 vCPU Cores (Ryzen 9)',
+                        '150GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'Premium DDoS Protection',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
+                },
+                {
+                    name: '23GB Plan - Ultra Ryzen 9',
+                    price: 23.00,
+                    features: [
+                        '23GB RAM',
+                        '4 vCPU Cores (Ryzen 9)',
+                        '150GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'Premium DDoS Protection',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
+                },
+                {
+                    name: '139.99 Plan - Ultra Ryzen 9',
+                    price: 139.99,
+                    features: [
+                        '139.99GB RAM',
+                        '12 vCPU Cores (Ryzen 9)',
+                        '1600GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'Premium DDoS Protection',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
+                }
+            ]
+        },
+        France: {
+            budget: [
+                {
+                    name: '8GB Plan - Budget',
+                    price: 6.40,
+                    features: [
+                        '8GB RAM',
+                        '3 vCPU Cores',
+                        '80GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'DDoS Protection',
+                        'Priority Support'
+                    ]
+                },
+                {
+                    name: '16GB Plan - Budget',
+                    price: 12.80,
+                    features: [
+                        '16GB RAM',
+                        '4 vCPU Cores',
+                        '160GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'DDoS Protection',
+                        'Priority Support'
+                    ]
+                },
+                {
+                    name: '25.60 Plan - Budget',
+                    price: 25.60,
+                    features: [
+                        '25.60GB RAM',
+                        '6 vCPU Cores',
+                        '320GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'DDoS Protection',
+                        'Priority Support'
+                    ]
+                },
+                {
+                    name: '51.20 Plan - Budget',
+                    price: 51.20,
+                    features: [
+                        '51.20GB RAM',
+                        '10 vCPU Cores',
+                        '640GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'DDoS Protection',
+                        'Priority Support'
+                    ]
+                },
+                {
+                    name: '139.99 Plan - Ultra Ryzen 9',
+                    price: 139.99,
+                    features: [
+                        '139.99GB RAM',
+                        '12 vCPU Cores (Ryzen 9)',
+                        '1600GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'Premium DDoS Protection',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
+                }
+            ],
+            premium: [
+                {
+                    name: '9GB Plan - Premium',
+                    price: 9.00,
+                    features: [
+                        '9GB RAM',
+                        '3 vCPU Cores',
+                        '90GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'Advanced DDoS Protection',
+                        'Priority Support',
+                        'Enhanced Backups',
+                        '99.9% Uptime SLA'
+                    ]
+                },
+                {
+                    name: '18GB Plan - Premium',
+                    price: 18.00,
+                    features: [
+                        '18GB RAM',
+                        '4 vCPU Cores',
+                        '180GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'Advanced DDoS Protection',
+                        'Priority Support',
+                        'Enhanced Backups',
+                        '99.9% Uptime SLA'
+                    ]
+                },
+                {
+                    name: '37GB Plan - Premium',
+                    price: 37.00,
+                    features: [
+                        '37GB RAM',
+                        '6 vCPU Cores',
+                        '370GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'Advanced DDoS Protection',
+                        'Priority Support',
+                        'Enhanced Backups',
+                        '99.9% Uptime SLA'
+                    ]
+                },
+                {
+                    name: '64GB Plan - Premium',
+                    price: 64.00,
+                    features: [
+                        '64GB RAM',
+                        '10 vCPU Cores',
+                        '640GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'Advanced DDoS Protection',
+                        'Priority Support',
+                        'Enhanced Backups',
+                        '99.9% Uptime SLA'
+                    ]
+                }
+            ],
+            ultra: [
+                {
+                    name: '15GB Plan - Ultra Ryzen 9',
+                    price: 15.00,
+                    features: [
+                        '15GB RAM',
+                        '4 vCPU Cores (Ryzen 9)',
+                        '150GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'Premium DDoS Protection',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
+                },
+                {
+                    name: '23GB Plan - Ultra Ryzen 9',
+                    price: 23.00,
+                    features: [
+                        '23GB RAM',
+                        '4 vCPU Cores (Ryzen 9)',
+                        '150GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'Premium DDoS Protection',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
+                },
+                {
+                    name: '23GB Plan - Ultra Ryzen 9',
+                    price: 23.00,
+                    features: [
+                        '23GB RAM',
+                        '4 vCPU Cores (Ryzen 9)',
+                        '150GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'Premium DDoS Protection',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
+                },
+                {
+                    name: '139.99 Plan - Ultra Ryzen 9',
+                    price: 139.99,
+                    features: [
+                        '139.99GB RAM',
+                        '12 vCPU Cores (Ryzen 9)',
+                        '1600GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'Premium DDoS Protection',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
+                }
+            ]
+        },
+        UK: {
+            budget: [
+                {
+                    name: '8GB Plan - Budget',
+                    price: 5.60,
+                    features: [
+                        '8GB RAM',
+                        '3 vCPU Cores',
+                        '80GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'DDoS Protection',
+                        'Priority Support'
+                    ]
+                },
+                {
+                    name: '16GB Plan - Budget',
+                    price: 11.20,
+                    features: [
+                        '16GB RAM',
+                        '4 vCPU Cores',
+                        '160GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'DDoS Protection',
+                        'Priority Support'
+                    ]
+                },
+                {
+                    name: '22.40 Plan - Budget',
+                    price: 22.40,
+                    features: [
+                        '22.40GB RAM',
+                        '6 vCPU Cores',
+                        '320GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'DDoS Protection',
+                        'Priority Support'
+                    ]
+                },
+                {
+                    name: '44.80 Plan - Budget',
+                    price: 44.80,
+                    features: [
+                        '44.80GB RAM',
+                        '10 vCPU Cores',
+                        '640GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'DDoS Protection',
+                        'Priority Support'
+                    ]
+                },
+                {
+                    name: '179.20 Plan - Ultra Ryzen 9',
+                    price: 179.20,
+                    features: [
+                        '179.20GB RAM',
+                        '12 vCPU Cores (Ryzen 9)',
+                        '1280GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'Premium DDoS Protection',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
+                }
+            ],
+            premium: [
+                {
+                    name: '8.40 Plan - Premium',
+                    price: 8.40,
+                    features: [
+                        '8.40GB RAM',
+                        '3 vCPU Cores',
+                        '80GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'Advanced DDoS Protection',
+                        'Priority Support',
+                        'Enhanced Backups',
+                        '99.9% Uptime SLA'
+                    ]
+                },
+                {
+                    name: '16.80 Plan - Premium',
+                    price: 16.80,
+                    features: [
+                        '16.80GB RAM',
+                        '4 vCPU Cores',
+                        '160GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'Advanced DDoS Protection',
+                        'Priority Support',
+                        'Enhanced Backups',
+                        '99.9% Uptime SLA'
+                    ]
+                },
+                {
+                    name: '33.60 Plan - Premium',
+                    price: 33.60,
+                    features: [
+                        '33.60GB RAM',
+                        '6 vCPU Cores',
+                        '330GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'Advanced DDoS Protection',
+                        'Priority Support',
+                        'Enhanced Backups',
+                        '99.9% Uptime SLA'
+                    ]
+                },
+                {
+                    name: '67.20 Plan - Premium',
+                    price: 67.20,
+                    features: [
+                        '67.20GB RAM',
+                        '10 vCPU Cores',
+                        '670GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'Advanced DDoS Protection',
+                        'Priority Support',
+                        'Enhanced Backups',
+                        '99.9% Uptime SLA'
+                    ]
+                }
+            ],
+            ultra: [
+                {
+                    name: '10.80 Plan - Ultra Ryzen 9',
+                    price: 10.80,
+                    features: [
+                        '10.80GB RAM',
+                        '3 vCPU Cores (Ryzen 9)',
+                        '80GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'Premium DDoS Protection',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
+                },
+                {
+                    name: '22.40 Plan - Ultra Ryzen 9',
+                    price: 22.40,
+                    features: [
+                        '22.40GB RAM',
+                        '6 vCPU Cores (Ryzen 9)',
+                        '320GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'Premium DDoS Protection',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
+                },
+                {
+                    name: '44.80 Plan - Ultra Ryzen 9',
+                    price: 44.80,
+                    features: [
+                        '44.80GB RAM',
+                        '10 vCPU Cores (Ryzen 9)',
+                        '640GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'Premium DDoS Protection',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
+                },
+                {
+                    name: '179.20 Plan - Ultra Ryzen 9',
+                    price: 179.20,
+                    features: [
+                        '179.20GB RAM',
+                        '12 vCPU Cores (Ryzen 9)',
+                        '1280GB SSD Storage',
+                        'Unlimited Bandwidth',
+                        'Premium DDoS Protection',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
+                }
+            ]
+        }
     },
     vps: {
         title: 'VPS Hosting Plans',
         description: 'Powerful virtual private servers with full root access',
         productLink: 'https://panel.hexonode.com/vps',
-        plans: [
-            // 2GB VPS - Budget
-            {
-                name: '2GB VPS - Budget',
-                price: 3.00,
-                tier: 'budget',
-                locationPricing: {
-                    India: 200,
-                    Singapore: 3.00,
-                    US: 3.00,
-                    Germany: 3.00,
-                    France: 3.00,
-                    UK: 2.70
+        India: {
+            budget: [
+                {
+                    name: '8GB VPS - Budget',
+                    price: 12.00,
+                    features: [
+                        '8GB RAM',
+                        '3 vCPU',
+                        '100GB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Linux/Windows',
+                        'DDoS Protection'
+                    ]
                 },
-                features: [
-                    '2GB RAM',
-                    '1 vCPU',
-                    '30GB NVMe SSD',
-                    'Unlimited Traffic',
-                    'Linux/Windows',
-                    '99.9% Uptime'
-                ]
-            },
-            // 2GB VPS - Premium
-            {
-                name: '2GB VPS - Premium',
-                price: 4.50,
-                tier: 'premium',
-                locationPricing: {
-                    India: 300,
-                    Singapore: 4.50,
-                    US: 4.50,
-                    Germany: 4.50,
-                    France: 4.50,
-                    UK: 4.05
+                {
+                    name: '16GB VPS - Budget',
+                    price: 24.00,
+                    features: [
+                        '16GB RAM',
+                        '4 vCPU',
+                        '200GB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Linux/Windows',
+                        'DDoS Protection'
+                    ]
                 },
-                features: [
-                    '2GB RAM',
-                    '1 vCPU',
-                    '30GB NVMe SSD',
-                    'Unlimited Traffic',
-                    'Linux/Windows',
-                    '99.9% Uptime',
-                    'Priority Support',
-                    'Enhanced Backups',
-                    'Weekly Snapshots'
-                ]
-            },
-            // 2GB VPS - Ultra
-            {
-                name: '2GB VPS - Ultra',
-                price: 6.00,
-                tier: 'ultra',
-                locationPricing: {
-                    India: 400,
-                    Singapore: 6.00,
-                    US: 6.00,
-                    Germany: 6.00,
-                    France: 6.00,
-                    UK: 5.40
+                {
+                    name: '32GB VPS - Budget',
+                    price: 48.00,
+                    features: [
+                        '32GB RAM',
+                        '6 vCPU',
+                        '400GB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Linux/Windows',
+                        'DDoS Protection'
+                    ]
                 },
-                features: [
-                    '2GB RAM',
-                    '1 vCPU',
-                    '30GB NVMe SSD',
-                    'Unlimited Traffic',
-                    'Linux/Windows',
-                    '99.99% Uptime',
-                    '24/7 Dedicated Support',
-                    'Daily Backups',
-                    'Enhanced Security',
-                    'Managed Service'
-                ]
-            },
-
-            // 4GB VPS - Budget
-            {
-                name: '4GB VPS - Budget',
-                price: 6.00,
-                tier: 'budget',
-                locationPricing: {
-                    India: 400,
-                    Singapore: 6.00,
-                    US: 6.00,
-                    Germany: 6.00,
-                    France: 6.00,
-                    UK: 5.40
+                {
+                    name: '64GB VPS - Budget',
+                    price: 96.00,
+                    features: [
+                        '64GB RAM',
+                        '10 vCPU',
+                        '800GB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Linux/Windows',
+                        'DDoS Protection'
+                    ]
+                }
+            ],
+            premium: [
+                {
+                    name: '8GB VPS - Premium',
+                    price: 18.00,
+                    features: [
+                        '8GB RAM',
+                        '3 vCPU',
+                        '100GB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Linux/Windows',
+                        'DDoS Protection',
+                        'Priority Support',
+                        'Enhanced Backups',
+                        '99.9% Uptime SLA'
+                    ]
                 },
-                features: [
-                    '4GB RAM',
-                    '1 vCPU',
-                    '50GB NVMe SSD',
-                    'Unlimited Traffic',
-                    'Linux/Windows',
-                    '99.9% Uptime'
-                ]
-            },
-            // 4GB VPS - Premium
-            {
-                name: '4GB VPS - Premium',
-                price: 9.00,
-                tier: 'premium',
-                locationPricing: {
-                    India: 600,
-                    Singapore: 9.00,
-                    US: 9.00,
-                    Germany: 9.00,
-                    France: 9.00,
-                    UK: 8.10
+                {
+                    name: '16GB VPS - Premium',
+                    price: 36.00,
+                    features: [
+                        '16GB RAM',
+                        '4 vCPU',
+                        '200GB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Linux/Windows',
+                        'DDoS Protection',
+                        'Priority Support',
+                        'Enhanced Backups',
+                        '99.9% Uptime SLA'
+                    ]
                 },
-                features: [
-                    '4GB RAM',
-                    '1 vCPU',
-                    '50GB NVMe SSD',
-                    'Unlimited Traffic',
-                    'Linux/Windows',
-                    '99.9% Uptime',
-                    'Priority Support',
-                    'Enhanced Backups',
-                    'Weekly Snapshots'
-                ]
-            },
-            // 4GB VPS - Ultra
-            {
-                name: '4GB VPS - Ultra',
-                price: 12.00,
-                tier: 'ultra',
-                locationPricing: {
-                    India: 800,
-                    Singapore: 12.00,
-                    US: 12.00,
-                    Germany: 12.00,
-                    France: 12.00,
-                    UK: 10.80
+                {
+                    name: '32GB VPS - Premium',
+                    price: 72.00,
+                    features: [
+                        '32GB RAM',
+                        '6 vCPU',
+                        '400GB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Linux/Windows',
+                        'DDoS Protection',
+                        'Priority Support',
+                        'Enhanced Backups',
+                        '99.9% Uptime SLA'
+                    ]
+                }
+            ],
+            ultra: [
+                {
+                    name: '8GB VPS - Ultra Ryzen 9',
+                    price: 15.00,
+                    features: [
+                        '8GB RAM',
+                        '3 vCPU (Ryzen 9)',
+                        '100GB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Linux/Windows',
+                        'Premium DDoS Protection',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
                 },
-                features: [
-                    '4GB RAM',
-                    '1 vCPU',
-                    '50GB NVMe SSD',
-                    'Unlimited Traffic',
-                    'Linux/Windows',
-                    '99.99% Uptime',
-                    '24/7 Dedicated Support',
-                    'Daily Backups',
-                    'Enhanced Security',
-                    'Managed Service'
-                ]
-            },
-
-            // 6GB VPS - Ultra
-            {
-                name: '6GB VPS - Ultra',
-                price: 18.00,
-                tier: 'ultra',
-                locationPricing: {
-                    India: 1200,
-                    Singapore: 18.00,
-                    US: 18.00,
-                    Germany: 18.00,
-                    France: 18.00,
-                    UK: 16.20
+                {
+                    name: '12GB VPS - Ultra Ryzen 9',
+                    price: 23.00,
+                    features: [
+                        '12GB RAM',
+                        '4 vCPU (Ryzen 9)',
+                        '150GB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Linux/Windows',
+                        'Premium DDoS Protection',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
                 },
-                features: [
-                    '6GB RAM',
-                    '2 vCPU',
-                    '75GB NVMe SSD',
-                    'Unlimited Traffic',
-                    'Linux/Windows',
-                    '99.99% Uptime',
-                    '24/7 Dedicated Support',
-                    'Daily Backups',
-                    'Enhanced Security',
-                    'Managed Service'
-                ]
-            },
-
-            // 8GB VPS - Budget
-            {
-                name: '8GB VPS - Budget',
-                price: 12.00,
-                tier: 'budget',
-                locationPricing: {
-                    India: 800,
-                    Singapore: 12.00,
-                    US: 12.00,
-                    Germany: 12.00,
-                    France: 12.00,
-                    UK: 10.80
+                {
+                    name: '16GB VPS - Ultra Ryzen 9',
+                    price: 30.00,
+                    features: [
+                        '16GB RAM',
+                        '4 vCPU (Ryzen 9)',
+                        '200GB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Linux/Windows',
+                        'Premium DDoS Protection',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
                 },
-                features: [
-                    '8GB RAM',
-                    '3 vCPU',
-                    '100GB NVMe SSD',
-                    'Unlimited Traffic',
-                    'Linux/Windows',
-                    'DDoS Protection'
-                ]
-            },
-            // 8GB VPS - Premium
-            {
-                name: '8GB VPS - Premium',
-                price: 18.00,
-                tier: 'premium',
-                locationPricing: {
-                    India: 1200,
-                    Singapore: 18.00,
-                    US: 18.00,
-                    Germany: 18.00,
-                    France: 18.00,
-                    UK: 16.20
+                {
+                    name: '24GB VPS - Ultra Ryzen 9',
+                    price: 45.00,
+                    features: [
+                        '24GB RAM',
+                        '5 vCPU (Ryzen 9)',
+                        '300GB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Linux/Windows',
+                        'Premium DDoS Protection',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
                 },
-                features: [
-                    '8GB RAM',
-                    '3 vCPU',
-                    '100GB NVMe SSD',
-                    'Unlimited Traffic',
-                    'Linux/Windows',
-                    'DDoS Protection',
-                    'Priority Support',
-                    'Enhanced Backups',
-                    '99.9% Uptime SLA'
-                ]
-            },
-
-            // 16GB VPS - Budget
-            {
-                name: '16GB VPS - Budget',
-                price: 24.00,
-                tier: 'budget',
-                locationPricing: {
-                    India: 1600,
-                    Singapore: 24.00,
-                    US: 24.00,
-                    Germany: 24.00,
-                    France: 24.00,
-                    UK: 21.60
+                {
+                    name: '32GB VPS - Ultra Ryzen 9',
+                    price: 54.99,
+                    features: [
+                        '32GB RAM',
+                        '6 vCPU (Ryzen 9)',
+                        '400GB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Linux/Windows',
+                        'Premium DDoS Protection',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
+                }
+            ]
+        },
+        Singapore: {
+            budget: [
+                {
+                    name: '8GB VPS - Budget',
+                    price: 12.00,
+                    features: [
+                        '8GB RAM',
+                        '3 vCPU',
+                        '100GB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Linux/Windows',
+                        'DDoS Protection'
+                    ]
                 },
-                features: [
-                    '16GB RAM',
-                    '4 vCPU',
-                    '200GB NVMe SSD',
-                    'Unlimited Traffic',
-                    'Linux/Windows',
-                    'DDoS Protection'
-                ]
-            },
-            // 16GB VPS - Premium
-            {
-                name: '16GB VPS - Premium',
-                price: 36.00,
-                tier: 'premium',
-                locationPricing: {
-                    India: 2400,
-                    Singapore: 36.00,
-                    US: 36.00,
-                    Germany: 36.00,
-                    France: 36.00,
-                    UK: 32.40
+                {
+                    name: '16GB VPS - Budget',
+                    price: 24.00,
+                    features: [
+                        '16GB RAM',
+                        '4 vCPU',
+                        '200GB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Linux/Windows',
+                        'DDoS Protection'
+                    ]
                 },
-                features: [
-                    '16GB RAM',
-                    '4 vCPU',
-                    '200GB NVMe SSD',
-                    'Unlimited Traffic',
-                    'Linux/Windows',
-                    'DDoS Protection',
-                    'Priority Support',
-                    'Enhanced Backups',
-                    '99.9% Uptime SLA'
-                ]
-            },
-            // 16GB VPS - Ultra
-            {
-                name: '16GB VPS - Ultra',
-                price: 48.00,
-                tier: 'ultra',
-                locationPricing: {
-                    India: 3200,
-                    Singapore: 48.00,
-                    US: 48.00,
-                    Germany: 48.00,
-                    France: 48.00,
-                    UK: 43.20
+                {
+                    name: '32GB VPS - Budget',
+                    price: 48.00,
+                    features: [
+                        '32GB RAM',
+                        '6 vCPU',
+                        '400GB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Linux/Windows',
+                        'DDoS Protection'
+                    ]
                 },
-                features: [
-                    '16GB RAM',
-                    '4 vCPU',
-                    '200GB NVMe SSD',
-                    'Unlimited Traffic',
-                    'Linux/Windows',
-                    'DDoS Protection',
-                    '24/7 Dedicated Support',
-                    'Daily Backups',
-                    '99.99% Uptime SLA',
-                    'Enhanced Security'
-                ]
-            },
-
-            // 32GB VPS - Budget
-            {
-                name: '32GB VPS - Budget',
-                price: 48.00,
-                tier: 'budget',
-                locationPricing: {
-                    India: 3200,
-                    Singapore: 48.00,
-                    US: 48.00,
-                    Germany: 48.00,
-                    France: 48.00,
-                    UK: 43.20
+                {
+                    name: '64GB VPS - Budget',
+                    price: 96.00,
+                    features: [
+                        '64GB RAM',
+                        '10 vCPU',
+                        '800GB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Linux/Windows',
+                        'DDoS Protection'
+                    ]
+                }
+            ],
+            premium: [
+                {
+                    name: '8GB VPS - Premium',
+                    price: 18.00,
+                    features: [
+                        '8GB RAM',
+                        '3 vCPU',
+                        '100GB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Linux/Windows',
+                        'DDoS Protection',
+                        'Priority Support',
+                        'Enhanced Backups',
+                        '99.9% Uptime SLA'
+                    ]
                 },
-                features: [
-                    '32GB RAM',
-                    '6 vCPU',
-                    '400GB NVMe SSD',
-                    'Unlimited Traffic',
-                    'Linux/Windows',
-                    'DDoS Protection'
-                ]
-            },
-            // 32GB VPS - Premium
-            {
-                name: '32GB VPS - Premium',
-                price: 72.00,
-                tier: 'premium',
-                locationPricing: {
-                    India: 4800,
-                    Singapore: 72.00,
-                    US: 72.00,
-                    Germany: 72.00,
-                    France: 72.00,
-                    UK: 64.80
+                {
+                    name: '16GB VPS - Premium',
+                    price: 36.00,
+                    features: [
+                        '16GB RAM',
+                        '4 vCPU',
+                        '200GB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Linux/Windows',
+                        'DDoS Protection',
+                        'Priority Support',
+                        'Enhanced Backups',
+                        '99.9% Uptime SLA'
+                    ]
                 },
-                features: [
-                    '32GB RAM',
-                    '6 vCPU',
-                    '400GB NVMe SSD',
-                    'Unlimited Traffic',
-                    'Linux/Windows',
-                    'DDoS Protection',
-                    'Priority Support',
-                    'Enhanced Backups',
-                    '99.9% Uptime SLA'
-                ]
-            },
-            // 32GB VPS - Ultra
-            {
-                name: '32GB VPS - Ultra',
-                price: 96.00,
-                tier: 'ultra',
-                locationPricing: {
-                    India: 6400,
-                    Singapore: 96.00,
-                    US: 96.00,
-                    Germany: 96.00,
-                    France: 96.00,
-                    UK: 86.40
+                {
+                    name: '32GB VPS - Premium',
+                    price: 72.00,
+                    features: [
+                        '32GB RAM',
+                        '6 vCPU',
+                        '400GB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Linux/Windows',
+                        'DDoS Protection',
+                        'Priority Support',
+                        'Enhanced Backups',
+                        '99.9% Uptime SLA'
+                    ]
+                }
+            ],
+            ultra: [
+                {
+                    name: '8GB VPS - Ultra Ryzen 9',
+                    price: 15.00,
+                    features: [
+                        '8GB RAM',
+                        '3 vCPU (Ryzen 9)',
+                        '100GB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Linux/Windows',
+                        'Premium DDoS Protection',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
                 },
-                features: [
-                    '32GB RAM',
-                    '6 vCPU',
-                    '400GB NVMe SSD',
-                    'Unlimited Traffic',
-                    'Linux/Windows',
-                    'DDoS Protection',
-                    '24/7 Dedicated Support',
-                    'Daily Backups',
-                    '99.99% Uptime SLA',
-                    'Enhanced Security'
-                ]
-            },
-
-            // 48GB VPS - Budget
-            {
-                name: '48GB VPS - Budget',
-                price: 72.00,
-                tier: 'budget',
-                locationPricing: {
-                    India: 4800,
-                    Singapore: 72.00,
-                    US: 72.00,
-                    Germany: 72.00,
-                    France: 72.00,
-                    UK: 64.80
+                {
+                    name: '12GB VPS - Ultra Ryzen 9',
+                    price: 23.00,
+                    features: [
+                        '12GB RAM',
+                        '4 vCPU (Ryzen 9)',
+                        '150GB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Linux/Windows',
+                        'Premium DDoS Protection',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
                 },
-                features: [
-                    '48GB RAM',
-                    '8 vCPU',
-                    '600GB NVMe SSD',
-                    'Unlimited Traffic',
-                    'Linux/Windows',
-                    'DDoS Protection'
-                ]
-            },
-            // 48GB VPS - Premium
-            {
-                name: '48GB VPS - Premium',
-                price: 108.00,
-                tier: 'premium',
-                locationPricing: {
-                    India: 7200,
-                    Singapore: 108.00,
-                    US: 108.00,
-                    Germany: 108.00,
-                    France: 108.00,
-                    UK: 97.20
+                {
+                    name: '16GB VPS - Ultra Ryzen 9',
+                    price: 30.00,
+                    features: [
+                        '16GB RAM',
+                        '4 vCPU (Ryzen 9)',
+                        '200GB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Linux/Windows',
+                        'Premium DDoS Protection',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
                 },
-                features: [
-                    '48GB RAM',
-                    '8 vCPU',
-                    '600GB NVMe SSD',
-                    'Unlimited Traffic',
-                    'Linux/Windows',
-                    'DDoS Protection',
-                    'Priority Support',
-                    'Enhanced Backups',
-                    '99.9% Uptime SLA'
-                ]
-            },
-
-            // 64GB VPS - Budget
-            {
-                name: '64GB VPS - Budget',
-                price: 96.00,
-                tier: 'budget',
-                locationPricing: {
-                    India: 6400,
-                    Singapore: 96.00,
-                    US: 96.00,
-                    Germany: 96.00,
-                    France: 96.00,
-                    UK: 86.40
+                {
+                    name: '24GB VPS - Ultra Ryzen 9',
+                    price: 45.00,
+                    features: [
+                        '24GB RAM',
+                        '5 vCPU (Ryzen 9)',
+                        '300GB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Linux/Windows',
+                        'Premium DDoS Protection',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
                 },
-                features: [
-                    '64GB RAM',
-                    '10 vCPU',
-                    '800GB NVMe SSD',
-                    'Unlimited Traffic',
-                    'Linux/Windows',
-                    'DDoS Protection'
-                ]
-            },
-            // 64GB VPS - Premium
-            {
-                name: '64GB VPS - Premium',
-                price: 144.00,
-                tier: 'premium',
-                locationPricing: {
-                    India: 9600,
-                    Singapore: 144.00,
-                    US: 144.00,
-                    Germany: 144.00,
-                    France: 144.00,
-                    UK: 129.60
+                {
+                    name: '32GB VPS - Ultra Ryzen 9',
+                    price: 54.99,
+                    features: [
+                        '32GB RAM',
+                        '6 vCPU (Ryzen 9)',
+                        '400GB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Linux/Windows',
+                        'Premium DDoS Protection',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
+                }
+            ]
+        },
+        US: {
+            budget: [
+                {
+                    name: '8GB VPS - Budget',
+                    price: 12.00,
+                    features: [
+                        '8GB RAM',
+                        '3 vCPU',
+                        '100GB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Linux/Windows',
+                        'DDoS Protection'
+                    ]
                 },
-                features: [
-                    '64GB RAM',
-                    '10 vCPU',
-                    '800GB NVMe SSD',
-                    'Unlimited Traffic',
-                    'Linux/Windows',
-                    'DDoS Protection',
-                    'Priority Support',
-                    'Enhanced Backups',
-                    '99.9% Uptime SLA'
-                ]
-            }
-        ]
+                {
+                    name: '16GB VPS - Budget',
+                    price: 24.00,
+                    features: [
+                        '16GB RAM',
+                        '4 vCPU',
+                        '200GB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Linux/Windows',
+                        'DDoS Protection'
+                    ]
+                },
+                {
+                    name: '32GB VPS - Budget',
+                    price: 48.00,
+                    features: [
+                        '32GB RAM',
+                        '6 vCPU',
+                        '400GB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Linux/Windows',
+                        'DDoS Protection'
+                    ]
+                },
+                {
+                    name: '64GB VPS - Budget',
+                    price: 96.00,
+                    features: [
+                        '64GB RAM',
+                        '10 vCPU',
+                        '800GB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Linux/Windows',
+                        'DDoS Protection'
+                    ]
+                }
+            ],
+            premium: [
+                {
+                    name: '8GB VPS - Premium',
+                    price: 18.00,
+                    features: [
+                        '8GB RAM',
+                        '3 vCPU',
+                        '100GB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Linux/Windows',
+                        'DDoS Protection',
+                        'Priority Support',
+                        'Enhanced Backups',
+                        '99.9% Uptime SLA'
+                    ]
+                },
+                {
+                    name: '16GB VPS - Premium',
+                    price: 36.00,
+                    features: [
+                        '16GB RAM',
+                        '4 vCPU',
+                        '200GB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Linux/Windows',
+                        'DDoS Protection',
+                        'Priority Support',
+                        'Enhanced Backups',
+                        '99.9% Uptime SLA'
+                    ]
+                },
+                {
+                    name: '32GB VPS - Premium',
+                    price: 72.00,
+                    features: [
+                        '32GB RAM',
+                        '6 vCPU',
+                        '400GB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Linux/Windows',
+                        'DDoS Protection',
+                        'Priority Support',
+                        'Enhanced Backups',
+                        '99.9% Uptime SLA'
+                    ]
+                }
+            ],
+            ultra: [
+                {
+                    name: '8GB VPS - Ultra Ryzen 9',
+                    price: 15.00,
+                    features: [
+                        '8GB RAM',
+                        '3 vCPU (Ryzen 9)',
+                        '100GB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Linux/Windows',
+                        'Premium DDoS Protection',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
+                },
+                {
+                    name: '12GB VPS - Ultra Ryzen 9',
+                    price: 23.00,
+                    features: [
+                        '12GB RAM',
+                        '4 vCPU (Ryzen 9)',
+                        '150GB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Linux/Windows',
+                        'Premium DDoS Protection',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
+                },
+                {
+                    name: '16GB VPS - Ultra Ryzen 9',
+                    price: 30.00,
+                    features: [
+                        '16GB RAM',
+                        '4 vCPU (Ryzen 9)',
+                        '200GB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Linux/Windows',
+                        'Premium DDoS Protection',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
+                },
+                {
+                    name: '24GB VPS - Ultra Ryzen 9',
+                    price: 45.00,
+                    features: [
+                        '24GB RAM',
+                        '5 vCPU (Ryzen 9)',
+                        '300GB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Linux/Windows',
+                        'Premium DDoS Protection',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
+                },
+                {
+                    name: '32GB VPS - Ultra Ryzen 9',
+                    price: 54.99,
+                    features: [
+                        '32GB RAM',
+                        '6 vCPU (Ryzen 9)',
+                        '400GB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Linux/Windows',
+                        'Premium DDoS Protection',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
+                }
+            ]
+        },
+        Germany: {
+            budget: [
+                {
+                    name: '8GB VPS - Budget',
+                    price: 8.00,
+                    features: [
+                        '8GB RAM',
+                        '3 vCPU',
+                        '100GB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Linux/Windows',
+                        'DDoS Protection'
+                    ]
+                },
+                {
+                    name: '16GB VPS - Budget',
+                    price: 15.00,
+                    features: [
+                        '16GB RAM',
+                        '4 vCPU',
+                        '200GB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Linux/Windows',
+                        'DDoS Protection'
+                    ]
+                },
+                {
+                    name: '34GB VPS - Budget',
+                    price: 34.00,
+                    features: [
+                        '34GB RAM',
+                        '6 vCPU',
+                        '340GB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Linux/Windows',
+                        'DDoS Protection'
+                    ]
+                },
+                {
+                    name: '64GB VPS - Budget',
+                    price: 49.90,
+                    features: [
+                        '64GB RAM',
+                        '10 vCPU',
+                        '800GB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Linux/Windows',
+                        'DDoS Protection'
+                    ]
+                }
+            ],
+            premium: [
+                {
+                    name: '9GB VPS - Premium',
+                    price: 9.00,
+                    features: [
+                        '9GB RAM',
+                        '3 vCPU',
+                        '90GB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Linux/Windows',
+                        'DDoS Protection',
+                        'Priority Support',
+                        'Enhanced Backups',
+                        '99.9% Uptime SLA'
+                    ]
+                },
+                {
+                    name: '18GB VPS - Premium',
+                    price: 18.00,
+                    features: [
+                        '18GB RAM',
+                        '4 vCPU',
+                        '180GB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Linux/Windows',
+                        'DDoS Protection',
+                        'Priority Support',
+                        'Enhanced Backups',
+                        '99.9% Uptime SLA'
+                    ]
+                },
+                {
+                    name: '37GB VPS - Premium',
+                    price: 37.00,
+                    features: [
+                        '37GB RAM',
+                        '6 vCPU',
+                        '370GB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Linux/Windows',
+                        'DDoS Protection',
+                        'Priority Support',
+                        'Enhanced Backups',
+                        '99.9% Uptime SLA'
+                    ]
+                },
+                {
+                    name: '64GB VPS - Premium',
+                    price: 64.00,
+                    features: [
+                        '64GB RAM',
+                        '10 vCPU',
+                        '640GB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Linux/Windows',
+                        'DDoS Protection',
+                        'Priority Support',
+                        'Enhanced Backups',
+                        '99.9% Uptime SLA'
+                    ]
+                }
+            ],
+            ultra: [
+                {
+                    name: '15GB VPS - Ultra Ryzen 9',
+                    price: 15.00,
+                    features: [
+                        '15GB RAM',
+                        '4 vCPU (Ryzen 9)',
+                        '150GB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Linux/Windows',
+                        'Premium DDoS Protection',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
+                },
+                {
+                    name: '23GB VPS - Ultra Ryzen 9',
+                    price: 23.00,
+                    features: [
+                        '23GB RAM',
+                        '4 vCPU (Ryzen 9)',
+                        '150GB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Linux/Windows',
+                        'Premium DDoS Protection',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
+                },
+                {
+                    name: '23GB VPS - Ultra Ryzen 9',
+                    price: 23.00,
+                    features: [
+                        '23GB RAM',
+                        '4 vCPU (Ryzen 9)',
+                        '150GB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Linux/Windows',
+                        'Premium DDoS Protection',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
+                },
+                {
+                    name: '139.99 VPS - Ultra Ryzen 9',
+                    price: 139.99,
+                    features: [
+                        '139.99GB RAM',
+                        '12 vCPU (Ryzen 9)',
+                        '1600GB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Premium DDoS Protection',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
+                }
+            ]
+        },
+        France: {
+            budget: [
+                {
+                    name: '8GB VPS - Budget',
+                    price: 12.00,
+                    features: [
+                        '8GB RAM',
+                        '3 vCPU',
+                        '100GB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Linux/Windows',
+                        'DDoS Protection'
+                    ]
+                },
+                {
+                    name: '16GB VPS - Budget',
+                    price: 24.00,
+                    features: [
+                        '16GB RAM',
+                        '4 vCPU',
+                        '200GB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Linux/Windows',
+                        'DDoS Protection'
+                    ]
+                },
+                {
+                    name: '25.60 VPS - Budget',
+                    price: 25.60,
+                    features: [
+                        '25.60GB RAM',
+                        '6 vCPU',
+                        '320GB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Linux/Windows',
+                        'DDoS Protection'
+                    ]
+                },
+                {
+                    name: '51.20 VPS - Budget',
+                    price: 51.20,
+                    features: [
+                        '51.20GB RAM',
+                        '10 vCPU',
+                        '640GB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Linux/Windows',
+                        'DDoS Protection'
+                    ]
+                }
+            ],
+            premium: [
+                {
+                    name: '9GB VPS - Premium',
+                    price: 9.00,
+                    features: [
+                        '9GB RAM',
+                        '3 vCPU',
+                        '90GB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Linux/Windows',
+                        'DDoS Protection',
+                        'Priority Support',
+                        'Enhanced Backups',
+                        '99.9% Uptime SLA'
+                    ]
+                },
+                {
+                    name: '18GB VPS - Premium',
+                    price: 18.00,
+                    features: [
+                        '18GB RAM',
+                        '4 vCPU',
+                        '180GB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Linux/Windows',
+                        'DDoS Protection',
+                        'Priority Support',
+                        'Enhanced Backups',
+                        '99.9% Uptime SLA'
+                    ]
+                },
+                {
+                    name: '37GB VPS - Premium',
+                    price: 37.00,
+                    features: [
+                        '37GB RAM',
+                        '6 vCPU',
+                        '370GB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Linux/Windows',
+                        'DDoS Protection',
+                        'Priority Support',
+                        'Enhanced Backups',
+                        '99.9% Uptime SLA'
+                    ]
+                },
+                {
+                    name: '64GB VPS - Premium',
+                    price: 64.00,
+                    features: [
+                        '64GB RAM',
+                        '10 vCPU',
+                        '640GB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Linux/Windows',
+                        'DDoS Protection',
+                        'Priority Support',
+                        'Enhanced Backups',
+                        '99.9% Uptime SLA'
+                    ]
+                }
+            ],
+            ultra: [
+                {
+                    name: '15GB VPS - Ultra Ryzen 9',
+                    price: 15.00,
+                    features: [
+                        '15GB RAM',
+                        '4 vCPU (Ryzen 9)',
+                        '150GB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Linux/Windows',
+                        'Premium DDoS Protection',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
+                },
+                {
+                    name: '23GB VPS - Ultra Ryzen 9',
+                    price: 23.00,
+                    features: [
+                        '23GB RAM',
+                        '4 vCPU (Ryzen 9)',
+                        '150GB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Linux/Windows',
+                        'Premium DDoS Protection',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
+                },
+                {
+                    name: '23GB VPS - Ultra Ryzen 9',
+                    price: 23.00,
+                    features: [
+                        '23GB RAM',
+                        '4 vCPU (Ryzen 9)',
+                        '150GB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Linux/Windows',
+                        'Premium DDoS Protection',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
+                },
+                {
+                    name: '139.99 VPS - Ultra Ryzen 9',
+                    price: 139.99,
+                    features: [
+                        '139.99GB RAM',
+                        '12 vCPU (Ryzen 9)',
+                        '1600GB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Premium DDoS Protection',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
+                }
+            ]
+        },
+        UK: {
+            budget: [
+                {
+                    name: '8GB VPS - Budget',
+                    price: 10.80,
+                    features: [
+                        '8GB RAM',
+                        '3 vCPU',
+                        '100GB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Linux/Windows',
+                        'DDoS Protection'
+                    ]
+                },
+                {
+                    name: '16GB VPS - Budget',
+                    price: 21.60,
+                    features: [
+                        '16GB RAM',
+                        '4 vCPU',
+                        '200GB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Linux/Windows',
+                        'DDoS Protection'
+                    ]
+                },
+                {
+                    name: '22.40 VPS - Budget',
+                    price: 22.40,
+                    features: [
+                        '22.40GB RAM',
+                        '6 vCPU',
+                        '320GB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Linux/Windows',
+                        'DDoS Protection'
+                    ]
+                },
+                {
+                    name: '44.80 VPS - Budget',
+                    price: 44.80,
+                    features: [
+                        '44.80GB RAM',
+                        '10 vCPU',
+                        '640GB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Linux/Windows',
+                        'DDoS Protection'
+                    ]
+                }
+            ],
+            premium: [
+                {
+                    name: '8.40 VPS - Premium',
+                    price: 8.40,
+                    features: [
+                        '8.40GB RAM',
+                        '3 vCPU',
+                        '80GB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Linux/Windows',
+                        'DDoS Protection',
+                        'Priority Support',
+                        'Enhanced Backups',
+                        '99.9% Uptime SLA'
+                    ]
+                },
+                {
+                    name: '16.80 VPS - Premium',
+                    price: 16.80,
+                    features: [
+                        '16.80GB RAM',
+                        '4 vCPU',
+                        '160GB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Linux/Windows',
+                        'DDoS Protection',
+                        'Priority Support',
+                        'Enhanced Backups',
+                        '99.9% Uptime SLA'
+                    ]
+                },
+                {
+                    name: '33.60 VPS - Premium',
+                    price: 33.60,
+                    features: [
+                        '33.60GB RAM',
+                        '6 vCPU',
+                        '330GB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Linux/Windows',
+                        'DDoS Protection',
+                        'Priority Support',
+                        'Enhanced Backups',
+                        '99.9% Uptime SLA'
+                    ]
+                }
+            ],
+            ultra: [
+                {
+                    name: '10.80 VPS - Ultra Ryzen 9',
+                    price: 10.80,
+                    features: [
+                        '10.80GB RAM',
+                        '3 vCPU',
+                        '80GB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Linux/Windows',
+                        'Premium DDoS Protection',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
+                },
+                {
+                    name: '22.40 VPS - Ultra Ryzen 9',
+                    price: 22.40,
+                    features: [
+                        '22.40GB RAM',
+                        '6 vCPU',
+                        '320GB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Linux/Windows',
+                        'Premium DDoS Protection',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
+                },
+                {
+                    name: '44.80 VPS - Ultra Ryzen 9',
+                    price: 44.80,
+                    features: [
+                        '44.80GB RAM',
+                        '10 vCPU',
+                        '640GB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Linux/Windows',
+                        'Premium DDoS Protection',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
+                }
+            ]
+        }
     },
     web: {
         title: 'Web Hosting Plans',
         description: 'Fast and reliable web hosting solutions',
         productLink: 'https://panel.hexonode.com/web',
-        plans: [
-            {
-                name: 'Starter',
-                price: 2.99,
-                locationPricing: {
-                    India: 199,
-                    Singapore: 2.99,
-                    US: 2.99,
-                    Germany: 2.99,
-                    France: 2.99,
-                    UK: 2.69
+        India: {
+            standard: [
+                {
+                    name: 'Starter',
+                    price: 199,
+                    features: [
+                        '10GB Storage',
+                        '1 Website',
+                        'Free SSL',
+                        'Daily Backups',
+                        '50 Email Accounts',
+                        'cPanel Access'
+                    ]
                 },
-                features: [
-                    '10GB Storage',
-                    '1 Website',
-                    'Free SSL',
-                    'Daily Backups',
-                    '50 Email Accounts',
-                    'cPanel Access'
-                ]
-            },
-            {
-                name: 'Business',
-                price: 5.99,
-                locationPricing: {
-                    India: 399,
-                    Singapore: 5.99,
-                    US: 5.99,
-                    Germany: 5.99,
-                    France: 5.99,
-                    UK: 5.39
+                {
+                    name: 'Business',
+                    price: 399,
+                    features: [
+                        'Unlimited Storage',
+                        'Unlimited Websites',
+                        'Free SSL',
+                        'Daily Backups',
+                        'Unlimited Emails',
+                        'Premium Support'
+                    ]
                 },
-                features: [
-                    'Unlimited Storage',
-                    'Unlimited Websites',
-                    'Free SSL',
-                    'Daily Backups',
-                    'Unlimited Emails',
-                    'Premium Support'
-                ]
-            },
-            {
-                name: 'Enterprise',
-                price: 9.99,
-                locationPricing: {
-                    India: 699,
-                    Singapore: 9.99,
-                    US: 9.99,
-                    Germany: 9.99,
-                    France: 9.99,
-                    UK: 8.99
+                {
+                    name: 'Enterprise',
+                    price: 699,
+                    features: [
+                        'Unlimited Everything',
+                        'Dedicated IP',
+                        'Free Domain',
+                        'Advanced Security',
+                        'Priority Support',
+                        'Site Builder'
+                    ]
+                }
+            ]
+        },
+        Singapore: {
+            standard: [
+                {
+                    name: 'Starter',
+                    price: 2.99,
+                    features: [
+                        '10GB Storage',
+                        '1 Website',
+                        'Free SSL',
+                        'Daily Backups',
+                        '50 Email Accounts',
+                        'cPanel Access'
+                    ]
                 },
-                features: [
-                    'Unlimited Everything',
-                    'Dedicated IP',
-                    'Free Domain',
-                    'Advanced Security',
-                    'Priority Support',
-                    'Site Builder'
-                ]
-            }
-        ]
+                {
+                    name: 'Business',
+                    price: 5.99,
+                    features: [
+                        'Unlimited Storage',
+                        'Unlimited Websites',
+                        'Free SSL',
+                        'Daily Backups',
+                        'Unlimited Emails',
+                        'Premium Support'
+                    ]
+                },
+                {
+                    name: 'Enterprise',
+                    price: 9.99,
+                    features: [
+                        'Unlimited Everything',
+                        'Dedicated IP',
+                        'Free Domain',
+                        'Advanced Security',
+                        'Priority Support',
+                        'Site Builder'
+                    ]
+                }
+            ]
+        },
+        US: {
+            standard: [
+                {
+                    name: 'Starter',
+                    price: 2.99,
+                    features: [
+                        '10GB Storage',
+                        '1 Website',
+                        'Free SSL',
+                        'Daily Backups',
+                        '50 Email Accounts',
+                        'cPanel Access'
+                    ]
+                },
+                {
+                    name: 'Business',
+                    price: 5.99,
+                    features: [
+                        'Unlimited Storage',
+                        'Unlimited Websites',
+                        'Free SSL',
+                        'Daily Backups',
+                        'Unlimited Emails',
+                        'Premium Support'
+                    ]
+                },
+                {
+                    name: 'Enterprise',
+                    price: 9.99,
+                    features: [
+                        'Unlimited Everything',
+                        'Dedicated IP',
+                        'Free Domain',
+                        'Advanced Security',
+                        'Priority Support',
+                        'Site Builder'
+                    ]
+                }
+            ]
+        },
+        Germany: {
+            standard: [
+                {
+                    name: 'Starter',
+                    price: 2.99,
+                    features: [
+                        '10GB Storage',
+                        '1 Website',
+                        'Free SSL',
+                        'Daily Backups',
+                        '50 Email Accounts',
+                        'cPanel Access'
+                    ]
+                },
+                {
+                    name: 'Business',
+                    price: 5.99,
+                    features: [
+                        'Unlimited Storage',
+                        'Unlimited Websites',
+                        'Free SSL',
+                        'Daily Backups',
+                        'Unlimited Emails',
+                        'Premium Support'
+                    ]
+                },
+                {
+                    name: 'Enterprise',
+                    price: 9.99,
+                    features: [
+                        'Unlimited Everything',
+                        'Dedicated IP',
+                        'Free Domain',
+                        'Advanced Security',
+                        'Priority Support',
+                        'Site Builder'
+                    ]
+                }
+            ]
+        },
+        France: {
+            standard: [
+                {
+                    name: 'Starter',
+                    price: 2.99,
+                    features: [
+                        '10GB Storage',
+                        '1 Website',
+                        'Free SSL',
+                        'Daily Backups',
+                        '50 Email Accounts',
+                        'cPanel Access'
+                    ]
+                },
+                {
+                    name: 'Business',
+                    price: 5.99,
+                    features: [
+                        'Unlimited Storage',
+                        'Unlimited Websites',
+                        'Free SSL',
+                        'Daily Backups',
+                        'Unlimited Emails',
+                        'Premium Support'
+                    ]
+                },
+                {
+                    name: 'Enterprise',
+                    price: 9.99,
+                    features: [
+                        'Unlimited Everything',
+                        'Dedicated IP',
+                        'Free Domain',
+                        'Advanced Security',
+                        'Priority Support',
+                        'Site Builder'
+                    ]
+                }
+            ]
+        },
+        UK: {
+            standard: [
+                {
+                    name: 'Starter',
+                    price: 2.69,
+                    features: [
+                        '10GB Storage',
+                        '1 Website',
+                        'Free SSL',
+                        'Daily Backups',
+                        '50 Email Accounts',
+                        'cPanel Access'
+                    ]
+                },
+                {
+                    name: 'Business',
+                    price: 5.39,
+                    features: [
+                        'Unlimited Storage',
+                        'Unlimited Websites',
+                        'Free SSL',
+                        'Daily Backups',
+                        'Unlimited Emails',
+                        'Premium Support'
+                    ]
+                },
+                {
+                    name: 'Enterprise',
+                    price: 8.99,
+                    features: [
+                        'Unlimited Everything',
+                        'Dedicated IP',
+                        'Free Domain',
+                        'Advanced Security',
+                        'Priority Support',
+                        'Site Builder'
+                    ]
+                }
+            ]
+        }
     },
     games: {
         title: 'Game Server Hosting',
         description: 'Host your favorite games with low latency',
         productLink: 'https://panel.hexonode.com/games',
-        plans: [
-            // 2GB Game Server - Budget
-            {
-                name: '2GB Game Server - Budget',
-                price: 1.60,
-                tier: 'budget',
-                locationPricing: {
-                    India: 100,
-                    Singapore: 1.60,
-                    US: 1.60,
-                    Germany: 1.60,
-                    France: 1.60,
-                    UK: 1.40
+        India: {
+            budget: [
+                {
+                    name: '2GB Game Server - Budget',
+                    price: 1.60,
+                    features: [
+                        '2GB RAM',
+                        '1 vCPU',
+                        '30GB Storage',
+                        'DDoS Protection',
+                        'Mod Support',
+                        'Game Switch'
+                    ]
                 },
-                features: [
-                    '2GB RAM',
-                    '1 vCPU',
-                    '30GB Storage',
-                    'DDoS Protection',
-                    'Mod Support',
-                    'Game Switch'
-                ]
-            },
-            // 2GB Game Server - Premium
-            {
-                name: '2GB Game Server - Premium',
-                price: 2.40,
-                tier: 'premium',
-                locationPricing: {
-                    India: 150,
-                    Singapore: 2.40,
-                    US: 2.40,
-                    Germany: 2.40,
-                    France: 2.40,
-                    UK: 2.10
+                {
+                    name: '4GB Game Server - Budget',
+                    price: 3.20,
+                    features: [
+                        '4GB RAM',
+                        '1 vCPU',
+                        '50GB Storage',
+                        'DDoS Protection',
+                        'Mod Support',
+                        'Game Switch'
+                    ]
                 },
-                features: [
-                    '2GB RAM',
-                    '1 vCPU',
-                    '30GB Storage',
-                    'DDoS Protection',
-                    'Mod Support',
-                    'Game Switch',
-                    'Priority Support',
-                    'Enhanced Backups',
-                    '99.9% Uptime SLA'
-                ]
-            },
-            // 2GB Game Server - Ultra
-            {
-                name: '2GB Game Server - Ultra',
-                price: 3.20,
-                tier: 'ultra',
-                locationPricing: {
-                    India: 200,
-                    Singapore: 3.20,
-                    US: 3.20,
-                    Germany: 3.20,
-                    France: 3.20,
-                    UK: 2.80
+                {
+                    name: '8GB Game Server - Budget',
+                    price: 6.40,
+                    features: [
+                        '8GB RAM',
+                        '3 vCPU',
+                        '100GB Storage',
+                        'Premium Network',
+                        'Priority Support',
+                        'Custom Mods'
+                    ]
                 },
-                features: [
-                    '2GB RAM',
-                    '1 vCPU',
-                    '30GB Storage',
-                    'DDoS Protection',
-                    'Mod Support',
-                    'Game Switch',
-                    '24/7 Dedicated Support',
-                    'Daily Backups',
-                    '99.99% Uptime SLA',
-                    'Enhanced Security'
-                ]
-            },
-
-            // 4GB Game Server - Budget
-            {
-                name: '4GB Game Server - Budget',
-                price: 3.20,
-                tier: 'budget',
-                locationPricing: {
-                    India: 200,
-                    Singapore: 3.20,
-                    US: 3.20,
-                    Germany: 3.20,
-                    France: 3.20,
-                    UK: 2.80
+                {
+                    name: '16GB Game Server - Budget',
+                    price: 12.80,
+                    features: [
+                        '16GB RAM',
+                        '4 vCPU',
+                        '200GB Storage',
+                        'Premium Network',
+                        'Priority Support',
+                        'Custom Mods'
+                    ]
                 },
-                features: [
-                    '4GB RAM',
-                    '1 vCPU',
-                    '50GB Storage',
-                    'DDoS Protection',
-                    'Mod Support',
-                    'Game Switch'
-                ]
-            },
-            // 4GB Game Server - Premium
-            {
-                name: '4GB Game Server - Premium',
-                price: 4.80,
-                tier: 'premium',
-                locationPricing: {
-                    India: 300,
-                    Singapore: 4.80,
-                    US: 4.80,
-                    Germany: 4.80,
-                    France: 4.80,
-                    UK: 4.20
+                {
+                    name: '32GB Game Server - Budget',
+                    price: 25.60,
+                    features: [
+                        '32GB RAM',
+                        '6 vCPU',
+                        '400GB Storage',
+                        'Premium Network',
+                        'Priority Support',
+                        'Custom Mods'
+                    ]
+                }
+            ],
+            premium: [
+                {
+                    name: '2GB Game Server - Premium',
+                    price: 2.40,
+                    features: [
+                        '2GB RAM',
+                        '1 vCPU',
+                        '30GB Storage',
+                        'DDoS Protection',
+                        'Mod Support',
+                        'Game Switch',
+                        'Priority Support',
+                        'Enhanced Backups',
+                        '99.9% Uptime SLA'
+                    ]
                 },
-                features: [
-                    '4GB RAM',
-                    '1 vCPU',
-                    '50GB Storage',
-                    'DDoS Protection',
-                    'Mod Support',
-                    'Game Switch',
-                    'Priority Support',
-                    'Enhanced Backups',
-                    '99.9% Uptime SLA'
-                ]
-            },
-            // 4GB Game Server - Ultra
-            {
-                name: '4GB Game Server - Ultra',
-                price: 6.40,
-                tier: 'ultra',
-                locationPricing: {
-                    India: 400,
-                    Singapore: 6.40,
-                    US: 6.40,
-                    Germany: 6.40,
-                    France: 6.40,
-                    UK: 5.60
+                {
+                    name: '4GB Game Server - Premium',
+                    price: 4.80,
+                    features: [
+                        '4GB RAM',
+                        '1 vCPU',
+                        '50GB Storage',
+                        'DDoS Protection',
+                        'Mod Support',
+                        'Game Switch',
+                        'Priority Support',
+                        'Enhanced Backups',
+                        '99.9% Uptime SLA'
+                    ]
                 },
-                features: [
-                    '4GB RAM',
-                    '1 vCPU',
-                    '50GB Storage',
-                    'DDoS Protection',
-                    'Mod Support',
-                    'Game Switch',
-                    '24/7 Dedicated Support',
-                    'Daily Backups',
-                    '99.99% Uptime SLA',
-                    'Enhanced Security'
-                ]
-            },
-
-            // 8GB Game Server - Budget
-            {
-                name: '8GB Game Server - Budget',
-                price: 6.40,
-                tier: 'budget',
-                locationPricing: {
-                    India: 400,
-                    Singapore: 6.40,
-                    US: 6.40,
-                    Germany: 6.40,
-                    France: 6.40,
-                    UK: 5.60
+                {
+                    name: '8GB Game Server - Premium',
+                    price: 9.60,
+                    features: [
+                        '8GB RAM',
+                        '3 vCPU',
+                        '100GB Storage',
+                        'Premium Network',
+                        'Priority Support',
+                        'Custom Mods',
+                        'Enhanced Backups',
+                        '99.9% Uptime SLA'
+                    ]
                 },
-                features: [
-                    '8GB RAM',
-                    '3 vCPU',
-                    '100GB Storage',
-                    'Premium Network',
-                    'Priority Support',
-                    'Custom Mods'
-                ]
-            },
-            // 8GB Game Server - Premium
-            {
-                name: '8GB Game Server - Premium',
-                price: 9.60,
-                tier: 'premium',
-                locationPricing: {
-                    India: 600,
-                    Singapore: 9.60,
-                    US: 9.60,
-                    Germany: 9.60,
-                    France: 9.60,
-                    UK: 8.40
+                {
+                    name: '16GB Game Server - Premium',
+                    price: 19.20,
+                    features: [
+                        '16GB RAM',
+                        '4 vCPU',
+                        '200GB Storage',
+                        'Premium Network',
+                        'Priority Support',
+                        'Custom Mods',
+                        'Enhanced Backups',
+                        '99.9% Uptime SLA'
+                    ]
                 },
-                features: [
-                    '8GB RAM',
-                    '3 vCPU',
-                    '100GB Storage',
-                    'Premium Network',
-                    'Priority Support',
-                    'Custom Mods',
-                    'Enhanced Backups',
-                    '99.9% Uptime SLA'
-                ]
-            },
-            // 8GB Game Server - Ultra
-            {
-                name: '8GB Game Server - Ultra',
-                price: 12.80,
-                tier: 'ultra',
-                locationPricing: {
-                    India: 800,
-                    Singapore: 12.80,
-                    US: 12.80,
-                    Germany: 12.80,
-                    France: 12.80,
-                    UK: 10.80
+                {
+                    name: '32GB Game Server - Premium',
+                    price: 38.40,
+                    features: [
+                        '32GB RAM',
+                        '6 vCPU',
+                        '400GB Storage',
+                        'Premium Network',
+                        'Priority Support',
+                        'Custom Mods',
+                        'Enhanced Backups',
+                        '99.9% Uptime SLA'
+                    ]
+                }
+            ],
+            ultra: [
+                {
+                    name: '2GB Game Server - Ultra',
+                    price: 3.20,
+                    features: [
+                        '2GB RAM',
+                        '1 vCPU',
+                        '30GB Storage',
+                        'DDoS Protection',
+                        'Mod Support',
+                        'Game Switch',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
                 },
-                features: [
-                    '8GB RAM',
-                    '3 vCPU',
-                    '100GB Storage',
-                    'Premium Network',
-                    'Priority Support',
-                    'Custom Mods',
-                    '24/7 Dedicated Support',
-                    'Daily Backups',
-                    '99.99% Uptime SLA',
-                    'Enhanced Security'
-                ]
-            },
-
-            // 16GB Game Server - Budget
-            {
-                name: '16GB Game Server - Budget',
-                price: 12.80,
-                tier: 'budget',
-                locationPricing: {
-                    India: 800,
-                    Singapore: 12.80,
-                    US: 12.80,
-                    Germany: 12.80,
-                    France: 12.80,
-                    UK: 10.80
+                {
+                    name: '4GB Game Server - Ultra',
+                    price: 6.40,
+                    features: [
+                        '4GB RAM',
+                        '1 vCPU',
+                        '50GB Storage',
+                        'DDoS Protection',
+                        'Mod Support',
+                        'Game Switch',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
                 },
-                features: [
-                    '16GB RAM',
-                    '4 vCPU',
-                    '200GB Storage',
-                    'Premium Network',
-                    'Priority Support',
-                    'Custom Mods'
-                ]
-            },
-            // 16GB Game Server - Premium
-            {
-                name: '16GB Game Server - Premium',
-                price: 19.20,
-                tier: 'premium',
-                locationPricing: {
-                    India: 1200,
-                    Singapore: 19.20,
-                    US: 19.20,
-                    Germany: 19.20,
-                    France: 19.20,
-                    UK: 16.80
+                {
+                    name: '8GB Game Server - Ultra',
+                    price: 12.80,
+                    features: [
+                        '8GB RAM',
+                        '3 vCPU',
+                        '100GB Storage',
+                        'Premium Network',
+                        'Priority Support',
+                        'Custom Mods',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
                 },
-                features: [
-                    '16GB RAM',
-                    '4 vCPU',
-                    '200GB Storage',
-                    'Premium Network',
-                    'Priority Support',
-                    'Custom Mods',
-                    'Enhanced Backups',
-                    '99.9% Uptime SLA'
-                ]
-            },
-            // 16GB Game Server - Ultra
-            {
-                name: '16GB Game Server - Ultra',
-                price: 25.60,
-                tier: 'ultra',
-                locationPricing: {
-                    India: 1600,
-                    Singapore: 25.60,
-                    US: 25.60,
-                    Germany: 25.60,
-                    France: 25.60,
-                    UK: 22.40
+                {
+                    name: '16GB Game Server - Ultra',
+                    price: 25.60,
+                    features: [
+                        '16GB RAM',
+                        '4 vCPU',
+                        '200GB Storage',
+                        'Premium Network',
+                        'Priority Support',
+                        'Custom Mods',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
                 },
-                features: [
-                    '16GB RAM',
-                    '4 vCPU',
-                    '200GB Storage',
-                    'Premium Network',
-                    'Priority Support',
-                    'Custom Mods',
-                    '24/7 Dedicated Support',
-                    'Daily Backups',
-                    '99.99% Uptime SLA',
-                    'Enhanced Security'
-                ]
-            },
-
-            // 32GB Game Server - Budget
-            {
-                name: '32GB Game Server - Budget',
-                price: 25.60,
-                tier: 'budget',
-                locationPricing: {
-                    India: 1600,
-                    Singapore: 25.60,
-                    US: 25.60,
-                    Germany: 25.60,
-                    France: 25.60,
-                    UK: 22.40
+                {
+                    name: '32GB Game Server - Ultra',
+                    price: 51.20,
+                    features: [
+                        '32GB RAM',
+                        '6 vCPU',
+                        '400GB Storage',
+                        'Premium Network',
+                        'Priority Support',
+                        'Custom Mods',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
+                }
+            ]
+        },
+        Singapore: {
+            budget: [
+                {
+                    name: '2GB Game Server - Budget',
+                    price: 1.60,
+                    features: [
+                        '2GB RAM',
+                        '1 vCPU',
+                        '30GB Storage',
+                        'DDoS Protection',
+                        'Mod Support',
+                        'Game Switch'
+                    ]
                 },
-                features: [
-                    '32GB RAM',
-                    '6 vCPU',
-                    '400GB Storage',
-                    'Premium Network',
-                    'Priority Support',
-                    'Custom Mods'
-                ]
-            },
-            // 32GB Game Server - Premium
-            {
-                name: '32GB Game Server - Premium',
-                price: 38.40,
-                tier: 'premium',
-                locationPricing: {
-                    India: 2400,
-                    Singapore: 38.40,
-                    US: 38.40,
-                    Germany: 38.40,
-                    France: 38.40,
-                    UK: 33.60
+                {
+                    name: '4GB Game Server - Budget',
+                    price: 3.20,
+                    features: [
+                        '4GB RAM',
+                        '1 vCPU',
+                        '50GB Storage',
+                        'DDoS Protection',
+                        'Mod Support',
+                        'Game Switch'
+                    ]
                 },
-                features: [
-                    '32GB RAM',
-                    '6 vCPU',
-                    '400GB Storage',
-                    'Premium Network',
-                    'Priority Support',
-                    'Custom Mods',
-                    'Enhanced Backups',
-                    '99.9% Uptime SLA'
-                ]
-            },
-            // 32GB Game Server - Ultra
-            {
-                name: '32GB Game Server - Ultra',
-                price: 51.20,
-                tier: 'ultra',
-                locationPricing: {
-                    India: 3200,
-                    Singapore: 51.20,
-                    US: 51.20,
-                    Germany: 51.20,
-                    France: 51.20,
-                    UK: 44.80
+                {
+                    name: '8GB Game Server - Budget',
+                    price: 6.40,
+                    features: [
+                        '8GB RAM',
+                        '3 vCPU',
+                        '100GB Storage',
+                        'Premium Network',
+                        'Priority Support',
+                        'Custom Mods'
+                    ]
                 },
-                features: [
-                    '32GB RAM',
-                    '6 vCPU',
-                    '400GB Storage',
-                    'Premium Network',
-                    'Priority Support',
-                    'Custom Mods',
-                    '24/7 Dedicated Support',
-                    'Daily Backups',
-                    '99.99% Uptime SLA',
-                    'Enhanced Security'
-                ]
-            },
-
-            // 48GB Game Server - Budget
-            {
-                name: '48GB Game Server - Budget',
-                price: 38.40,
-                tier: 'budget',
-                locationPricing: {
-                    India: 2400,
-                    Singapore: 38.40,
-                    US: 38.40,
-                    Germany: 38.40,
-                    France: 38.40,
-                    UK: 33.60
+                {
+                    name: '16GB Game Server - Budget',
+                    price: 12.80,
+                    features: [
+                        '16GB RAM',
+                        '4 vCPU',
+                        '200GB Storage',
+                        'Premium Network',
+                        'Priority Support',
+                        'Custom Mods'
+                    ]
                 },
-                features: [
-                    '48GB RAM',
-                    '8 vCPU',
-                    '600GB Storage',
-                    'Premium Network',
-                    'Priority Support',
-                    'Custom Mods'
-                ]
-            },
-            // 48GB Game Server - Premium
-            {
-                name: '48GB Game Server - Premium',
-                price: 57.60,
-                tier: 'premium',
-                locationPricing: {
-                    India: 3600,
-                    Singapore: 57.60,
-                    US: 57.60,
-                    Germany: 57.60,
-                    France: 57.60,
-                    UK: 50.40
+                {
+                    name: '32GB Game Server - Budget',
+                    price: 25.60,
+                    features: [
+                        '32GB RAM',
+                        '6 vCPU',
+                        '400GB Storage',
+                        'Premium Network',
+                        'Priority Support',
+                        'Custom Mods'
+                    ]
+                }
+            ],
+            premium: [
+                {
+                    name: '2GB Game Server - Premium',
+                    price: 2.40,
+                    features: [
+                        '2GB RAM',
+                        '1 vCPU',
+                        '30GB Storage',
+                        'DDoS Protection',
+                        'Mod Support',
+                        'Game Switch',
+                        'Priority Support',
+                        'Enhanced Backups',
+                        '99.9% Uptime SLA'
+                    ]
                 },
-                features: [
-                    '48GB RAM',
-                    '8 vCPU',
-                    '600GB Storage',
-                    'Premium Network',
-                    'Priority Support',
-                    'Custom Mods',
-                    'Enhanced Backups',
-                    '99.9% Uptime SLA'
-                ]
-            },
-            // 48GB Game Server - Ultra
-            {
-                name: '48GB Game Server - Ultra',
-                price: 76.80,
-                tier: 'ultra',
-                locationPricing: {
-                    India: 4800,
-                    Singapore: 76.80,
-                    US: 76.80,
-                    Germany: 76.80,
-                    France: 76.80,
-                    UK: 67.20
+                {
+                    name: '4GB Game Server - Premium',
+                    price: 4.80,
+                    features: [
+                        '4GB RAM',
+                        '1 vCPU',
+                        '50GB Storage',
+                        'DDoS Protection',
+                        'Mod Support',
+                        'Game Switch',
+                        'Priority Support',
+                        'Enhanced Backups',
+                        '99.9% Uptime SLA'
+                    ]
                 },
-                features: [
-                    '48GB RAM',
-                    '8 vCPU',
-                    '600GB Storage',
-                    'Premium Network',
-                    'Priority Support',
-                    'Custom Mods',
-                    '24/7 Dedicated Support',
-                    'Daily Backups',
-                    '99.99% Uptime SLA',
-                    'Enhanced Security'
-                ]
-            },
-
-            // 64GB Game Server - Budget
-            {
-                name: '64GB Game Server - Budget',
-                price: 51.20,
-                tier: 'budget',
-                locationPricing: {
-                    India: 3200,
-                    Singapore: 51.20,
-                    US: 51.20,
-                    Germany: 51.20,
-                    France: 51.20,
-                    UK: 44.80
+                {
+                    name: '8GB Game Server - Premium',
+                    price: 9.60,
+                    features: [
+                        '8GB RAM',
+                        '3 vCPU',
+                        '100GB Storage',
+                        'Premium Network',
+                        'Priority Support',
+                        'Custom Mods',
+                        'Enhanced Backups',
+                        '99.9% Uptime SLA'
+                    ]
                 },
-                features: [
-                    '64GB RAM',
-                    '10 vCPU',
-                    '800GB Storage',
-                    'Premium Network',
-                    'Priority Support',
-                    'Custom Mods'
-                ]
-            },
-            // 64GB Game Server - Premium
-            {
-                name: '64GB Game Server - Premium',
-                price: 76.80,
-                tier: 'premium',
-                locationPricing: {
-                    India: 4800,
-                    Singapore: 76.80,
-                    US: 76.80,
-                    Germany: 76.80,
-                    France: 76.80,
-                    UK: 67.20
+                {
+                    name: '16GB Game Server - Premium',
+                    price: 19.20,
+                    features: [
+                        '16GB RAM',
+                        '4 vCPU',
+                        '200GB Storage',
+                        'Premium Network',
+                        'Priority Support',
+                        'Custom Mods',
+                        'Enhanced Backups',
+                        '99.9% Uptime SLA'
+                    ]
                 },
-                features: [
-                    '64GB RAM',
-                    '10 vCPU',
-                    '800GB Storage',
-                    'Premium Network',
-                    'Priority Support',
-                    'Custom Mods',
-                    'Enhanced Backups',
-                    '99.9% Uptime SLA'
-                ]
-            },
-            // 64GB Game Server - Ultra
-            {
-                name: '64GB Game Server - Ultra',
-                price: 102.40,
-                tier: 'ultra',
-                locationPricing: {
-                    India: 6400,
-                    Singapore: 102.40,
-                    US: 102.40,
-                    Germany: 102.40,
-                    France: 102.40,
-                    UK: 89.60
+                {
+                    name: '32GB Game Server - Premium',
+                    price: 38.40,
+                    features: [
+                        '32GB RAM',
+                        '6 vCPU',
+                        '400GB Storage',
+                        'Premium Network',
+                        'Priority Support',
+                        'Custom Mods',
+                        'Enhanced Backups',
+                        '99.9% Uptime SLA'
+                    ]
+                }
+            ],
+            ultra: [
+                {
+                    name: '2GB Game Server - Ultra',
+                    price: 3.20,
+                    features: [
+                        '2GB RAM',
+                        '1 vCPU',
+                        '30GB Storage',
+                        'DDoS Protection',
+                        'Mod Support',
+                        'Game Switch',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
                 },
-                features: [
-                    '64GB RAM',
-                    '10 vCPU',
-                    '800GB Storage',
-                    'Premium Network',
-                    'Priority Support',
-                    'Custom Mods',
-                    '24/7 Dedicated Support',
-                    'Daily Backups',
-                    '99.99% Uptime SLA',
-                    'Enhanced Security'
-                ]
-            }
-        ]
+                {
+                    name: '4GB Game Server - Ultra',
+                    price: 6.40,
+                    features: [
+                        '4GB RAM',
+                        '1 vCPU',
+                        '50GB Storage',
+                        'DDoS Protection',
+                        'Mod Support',
+                        'Game Switch',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
+                },
+                {
+                    name: '8GB Game Server - Ultra',
+                    price: 12.80,
+                    features: [
+                        '8GB RAM',
+                        '3 vCPU',
+                        '100GB Storage',
+                        'Premium Network',
+                        'Priority Support',
+                        'Custom Mods',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
+                },
+                {
+                    name: '16GB Game Server - Ultra',
+                    price: 25.60,
+                    features: [
+                        '16GB RAM',
+                        '4 vCPU',
+                        '200GB Storage',
+                        'Premium Network',
+                        'Priority Support',
+                        'Custom Mods',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
+                },
+                {
+                    name: '32GB Game Server - Ultra',
+                    price: 51.20,
+                    features: [
+                        '32GB RAM',
+                        '6 vCPU',
+                        '400GB Storage',
+                        'Premium Network',
+                        'Priority Support',
+                        'Custom Mods',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
+                }
+            ]
+        },
+        US: {
+            budget: [],
+            premium: [],
+            ultra: []
+        },
+        Germany: {
+            budget: [],
+            premium: [],
+            ultra: []
+        },
+        France: {
+            budget: [],
+            premium: [],
+            ultra: []
+        },
+        UK: {
+            budget: [
+                {
+                    name: '2GB Game Server - Budget',
+                    price: 1.60,
+                    features: [
+                        '2GB RAM',
+                        '1 vCPU',
+                        '30GB Storage',
+                        'DDoS Protection',
+                        'Mod Support',
+                        'Game Switch'
+                    ]
+                },
+                {
+                    name: '4GB Game Server - Budget',
+                    price: 3.20,
+                    features: [
+                        '4GB RAM',
+                        '1 vCPU',
+                        '50GB Storage',
+                        'DDoS Protection',
+                        'Mod Support',
+                        'Game Switch'
+                    ]
+                },
+                {
+                    name: '8GB Game Server - Budget',
+                    price: 6.40,
+                    features: [
+                        '8GB RAM',
+                        '3 vCPU',
+                        '100GB Storage',
+                        'Premium Network',
+                        'Priority Support',
+                        'Custom Mods'
+                    ]
+                },
+                {
+                    name: '16GB Game Server - Budget',
+                    price: 12.80,
+                    features: [
+                        '16GB RAM',
+                        '4 vCPU',
+                        '200GB Storage',
+                        'Premium Network',
+                        'Priority Support',
+                        'Custom Mods'
+                    ]
+                },
+                {
+                    name: '32GB Game Server - Budget',
+                    price: 25.60,
+                    features: [
+                        '32GB RAM',
+                        '6 vCPU',
+                        '400GB Storage',
+                        'Premium Network',
+                        'Priority Support',
+                        'Custom Mods'
+                    ]
+                }
+            ],
+            premium: [
+                {
+                    name: '2GB Game Server - Premium',
+                    price: 2.40,
+                    features: [
+                        '2GB RAM',
+                        '1 vCPU',
+                        '30GB Storage',
+                        'DDoS Protection',
+                        'Mod Support',
+                        'Game Switch',
+                        'Priority Support',
+                        'Enhanced Backups',
+                        '99.9% Uptime SLA'
+                    ]
+                },
+                {
+                    name: '4GB Game Server - Premium',
+                    price: 4.80,
+                    features: [
+                        '4GB RAM',
+                        '1 vCPU',
+                        '50GB Storage',
+                        'DDoS Protection',
+                        'Mod Support',
+                        'Game Switch',
+                        'Priority Support',
+                        'Enhanced Backups',
+                        '99.9% Uptime SLA'
+                    ]
+                },
+                {
+                    name: '8GB Game Server - Premium',
+                    price: 9.60,
+                    features: [
+                        '8GB RAM',
+                        '3 vCPU',
+                        '100GB Storage',
+                        'Premium Network',
+                        'Priority Support',
+                        'Custom Mods',
+                        'Enhanced Backups',
+                        '99.9% Uptime SLA'
+                    ]
+                },
+                {
+                    name: '16GB Game Server - Premium',
+                    price: 19.20,
+                    features: [
+                        '16GB RAM',
+                        '4 vCPU',
+                        '200GB Storage',
+                        'Premium Network',
+                        'Priority Support',
+                        'Custom Mods',
+                        'Enhanced Backups',
+                        '99.9% Uptime SLA'
+                    ]
+                },
+                {
+                    name: '32GB Game Server - Premium',
+                    price: 38.40,
+                    features: [
+                        '32GB RAM',
+                        '6 vCPU',
+                        '400GB Storage',
+                        'Premium Network',
+                        'Priority Support',
+                        'Custom Mods',
+                        'Enhanced Backups',
+                        '99.9% Uptime SLA'
+                    ]
+                }
+            ],
+            ultra: [
+                {
+                    name: '2GB Game Server - Ultra',
+                    price: 3.20,
+                    features: [
+                        '2GB RAM',
+                        '1 vCPU',
+                        '30GB Storage',
+                        'DDoS Protection',
+                        'Mod Support',
+                        'Game Switch',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
+                },
+                {
+                    name: '4GB Game Server - Ultra',
+                    price: 6.40,
+                    features: [
+                        '4GB RAM',
+                        '1 vCPU',
+                        '50GB Storage',
+                        'DDoS Protection',
+                        'Mod Support',
+                        'Game Switch',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
+                },
+                {
+                    name: '8GB Game Server - Ultra',
+                    price: 12.80,
+                    features: [
+                        '8GB RAM',
+                        '3 vCPU',
+                        '100GB Storage',
+                        'Premium Network',
+                        'Priority Support',
+                        'Custom Mods',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
+                },
+                {
+                    name: '16GB Game Server - Ultra',
+                    price: 25.60,
+                    features: [
+                        '16GB RAM',
+                        '4 vCPU',
+                        '200GB Storage',
+                        'Premium Network',
+                        'Priority Support',
+                        'Custom Mods',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
+                },
+                {
+                    name: '32GB Game Server - Ultra',
+                    price: 51.20,
+                    features: [
+                        '32GB RAM',
+                        '6 vCPU',
+                        '400GB Storage',
+                        'Premium Network',
+                        'Priority Support',
+                        'Custom Mods',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
+                }
+            ]
+        }
     },
     discord: {
         title: 'Discord Bot Hosting',
         description: 'Reliable hosting for your Discord bots',
         productLink: 'https://panel.hexonode.com/discord',
-        plans: [
-            {
-                name: '1GB Bot',
-                price: 0.40, // Approx equivalent of 30Rs
-                locationPricing: {
-                    India: 30, // 1GB * 30Rs
-                    Singapore: 0.40,
-                    US: 0.40,
-                    Germany: 0.40,
-                    France: 0.40,
-                    UK: 0.35
+        India: {
+            standard: [
+                {
+                    name: '1GB Bot',
+                    price: 30,
+                    features: [
+                        '1GB RAM',
+                        '1 vCPU',
+                        '10GB Storage',
+                        '24/7 Uptime',
+                        'Auto Restart',
+                        'Basic Support'
+                    ]
                 },
-                features: [
-                    '1GB RAM',
-                    '1 vCPU',
-                    '10GB Storage',
-                    '24/7 Uptime',
-                    'Auto Restart',
-                    'Basic Support'
-                ]
-            },
-            {
-                name: '2GB Bot',
-                price: 0.80, // Approx equivalent of 60Rs
-                locationPricing: {
-                    India: 60, // 2GB * 30Rs
-                    Singapore: 0.80,
-                    US: 0.80,
-                    Germany: 0.80,
-                    France: 0.80,
-                    UK: 0.70
+                {
+                    name: '2GB Bot',
+                    price: 60,
+                    features: [
+                        '2GB RAM',
+                        '2 vCPU',
+                        '20GB Storage',
+                        'Premium Network',
+                        'Monitoring',
+                        'Priority Support'
+                    ]
                 },
-                features: [
-                    '2GB RAM',
-                    '2 vCPU',
-                    '20GB Storage',
-                    'Premium Network',
-                    'Monitoring',
-                    'Priority Support'
-                ]
-            },
-            {
-                name: '4GB Bot',
-                price: 1.60, // Approx equivalent of 120Rs
-                locationPricing: {
-                    India: 120, // 4GB * 30Rs
-                    Singapore: 1.60,
-                    US: 1.60,
-                    Germany: 1.60,
-                    France: 1.60,
-                    UK: 1.40
+                {
+                    name: '4GB Bot',
+                    price: 120,
+                    features: [
+                        '4GB RAM',
+                        '4 vCPU',
+                        '40GB Storage',
+                        'Load Balancing',
+                        'Advanced Monitoring',
+                        '24/7 Support'
+                    ]
+                }
+            ]
+        },
+        Singapore: {
+            standard: [
+                {
+                    name: '1GB Bot',
+                    price: 0.40,
+                    features: [
+                        '1GB RAM',
+                        '1 vCPU',
+                        '10GB Storage',
+                        '24/7 Uptime',
+                        'Auto Restart',
+                        'Basic Support'
+                    ]
                 },
-                features: [
-                    '4GB RAM',
-                    '4 vCPU',
-                    '40GB Storage',
-                    'Load Balancing',
-                    'Advanced Monitoring',
-                    '24/7 Support'
-                ]
-            }
-        ]
+                {
+                    name: '2GB Bot',
+                    price: 0.80,
+                    features: [
+                        '2GB RAM',
+                        '2 vCPU',
+                        '20GB Storage',
+                        'Premium Network',
+                        'Monitoring',
+                        'Priority Support'
+                    ]
+                },
+                {
+                    name: '4GB Bot',
+                    price: 1.60,
+                    features: [
+                        '4GB RAM',
+                        '4 vCPU',
+                        '40GB Storage',
+                        'Load Balancing',
+                        'Advanced Monitoring',
+                        '24/7 Support'
+                    ]
+                }
+            ]
+        },
+        US: {
+            standard: [
+                {
+                    name: '1GB Bot',
+                    price: 0.40,
+                    features: [
+                        '1GB RAM',
+                        '1 vCPU',
+                        '10GB Storage',
+                        '24/7 Uptime',
+                        'Auto Restart',
+                        'Basic Support'
+                    ]
+                },
+                {
+                    name: '2GB Bot',
+                    price: 0.80,
+                    features: [
+                        '2GB RAM',
+                        '2 vCPU',
+                        '20GB Storage',
+                        'Premium Network',
+                        'Monitoring',
+                        'Priority Support'
+                    ]
+                },
+                {
+                    name: '4GB Bot',
+                    price: 1.60,
+                    features: [
+                        '4GB RAM',
+                        '4 vCPU',
+                        '40GB Storage',
+                        'Load Balancing',
+                        'Advanced Monitoring',
+                        '24/7 Support'
+                    ]
+                }
+            ]
+        },
+        Germany: {
+            standard: [
+                {
+                    name: '1GB Bot',
+                    price: 0.40,
+                    features: [
+                        '1GB RAM',
+                        '1 vCPU',
+                        '10GB Storage',
+                        '24/7 Uptime',
+                        'Auto Restart',
+                        'Basic Support'
+                    ]
+                },
+                {
+                    name: '2GB Bot',
+                    price: 0.80,
+                    features: [
+                        '2GB RAM',
+                        '2 vCPU',
+                        '20GB Storage',
+                        'Premium Network',
+                        'Monitoring',
+                        'Priority Support'
+                    ]
+                },
+                {
+                    name: '4GB Bot',
+                    price: 1.60,
+                    features: [
+                        '4GB RAM',
+                        '4 vCPU',
+                        '40GB Storage',
+                        'Load Balancing',
+                        'Advanced Monitoring',
+                        '24/7 Support'
+                    ]
+                }
+            ]
+        },
+        France: {
+            standard: [
+                {
+                    name: '1GB Bot',
+                    price: 0.40,
+                    features: [
+                        '1GB RAM',
+                        '1 vCPU',
+                        '10GB Storage',
+                        '24/7 Uptime',
+                        'Auto Restart',
+                        'Basic Support'
+                    ]
+                },
+                {
+                    name: '2GB Bot',
+                    price: 0.80,
+                    features: [
+                        '2GB RAM',
+                        '2 vCPU',
+                        '20GB Storage',
+                        'Premium Network',
+                        'Monitoring',
+                        'Priority Support'
+                    ]
+                },
+                {
+                    name: '4GB Bot',
+                    price: 1.60,
+                    features: [
+                        '4GB RAM',
+                        '4 vCPU',
+                        '40GB Storage',
+                        'Load Balancing',
+                        'Advanced Monitoring',
+                        '24/7 Support'
+                    ]
+                }
+            ]
+        },
+        UK: {
+            standard: [
+                {
+                    name: '1GB Bot',
+                    price: 0.35,
+                    features: [
+                        '1GB RAM',
+                        '1 vCPU',
+                        '10GB Storage',
+                        '24/7 Uptime',
+                        'Auto Restart',
+                        'Basic Support'
+                    ]
+                },
+                {
+                    name: '2GB Bot',
+                    price: 0.70,
+                    features: [
+                        '2GB RAM',
+                        '2 vCPU',
+                        '20GB Storage',
+                        'Premium Network',
+                        'Monitoring',
+                        'Priority Support'
+                    ]
+                },
+                {
+                    name: '4GB Bot',
+                    price: 1.40,
+                    features: [
+                        '4GB RAM',
+                        '4 vCPU',
+                        '40GB Storage',
+                        'Load Balancing',
+                        'Advanced Monitoring',
+                        '24/7 Support'
+                    ]
+                }
+            ]
+        }
     },
     domains: {
         title: 'Domain Registration',
         description: 'Register and manage your domains yearly',
         productLink: 'https://panel.hexonode.com/domains',
-        plans: [
-            {
-                name: 'Domain Registration',
-                price: 24.00, // Yearly price instead of monthly
-                tier: 'budget', // Change to budget tier
-                locationPricing: {
-                    India: 1800, // Yearly price
-                    Singapore: 24.00,
-                    US: 24.00,
-                    Germany: 24.00,
-                    France: 24.00,
-                    UK: 21.60
+        India: {
+            standard: [
+                {
+                    name: 'Domain Registration',
+                    price: 1800,
+                    features: [
+                        'Yearly registration',
+                        'DNS Management',
+                        'WHOIS Privacy',
+                        'Email Forwarding',
+                        'Domain Lock',
+                        'Auto Renewal',
+                        'Basic Support'
+                    ]
                 },
-                features: [
-                    'Yearly registration',
-                    'DNS Management',
-                    'WHOIS Privacy',
-                    'Email Forwarding',
-                    'Domain Lock',
-                    'Auto Renewal',
-                    'Basic Support'
-                ]
-            },
-            {
-                name: 'Premium Domain',
-                price: 36.00, // Premium yearly price
-                tier: 'premium',
-                locationPricing: {
-                    India: 2700,
-                    Singapore: 36.00,
-                    US: 36.00,
-                    Germany: 36.00,
-                    France: 36.00,
-                    UK: 32.40
+                {
+                    name: 'Premium Domain',
+                    price: 2700,
+                    features: [
+                        'Yearly registration',
+                        'Advanced DNS Management',
+                        'Premium WHOIS Privacy',
+                        'Email Forwarding',
+                        'Domain Lock',
+                        'Auto Renewal',
+                        'Priority Support',
+                        'Advanced Security',
+                        'Free SSL Certificate'
+                    ]
                 },
-                features: [
-                    'Yearly registration',
-                    'Advanced DNS Management',
-                    'Premium WHOIS Privacy',
-                    'Email Forwarding',
-                    'Domain Lock',
-                    'Auto Renewal',
-                    'Priority Support',
-                    'Advanced Security',
-                    'Free SSL Certificate'
-                ]
-            },
-            {
-                name: 'Ultra Domain',
-                price: 48.00, // Ultra yearly price
-                tier: 'ultra',
-                locationPricing: {
-                    India: 3600,
-                    Singapore: 48.00,
-                    US: 48.00,
-                    Germany: 48.00,
-                    France: 48.00,
-                    UK: 43.20
+                {
+                    name: 'Ultra Domain',
+                    price: 3600,
+                    features: [
+                        'Yearly registration',
+                        'Premium DNS Management',
+                        'Ultimate WHOIS Privacy',
+                        'Enhanced Email Forwarding',
+                        'Domain Lock & Theft Protection',
+                        'Auto Renewal with Discount',
+                        'Dedicated Support',
+                        'Enterprise Security',
+                        'Free Premium SSL Certificate',
+                        'Domain Monitoring'
+                    ]
+                }
+            ]
+        },
+        Singapore: {
+            standard: [
+                {
+                    name: 'Domain Registration',
+                    price: 24.00,
+                    features: [
+                        'Yearly registration',
+                        'DNS Management',
+                        'WHOIS Privacy',
+                        'Email Forwarding',
+                        'Domain Lock',
+                        'Auto Renewal',
+                        'Basic Support'
+                    ]
                 },
-                features: [
-                    'Yearly registration',
-                    'Premium DNS Management',
-                    'Ultimate WHOIS Privacy',
-                    'Enhanced Email Forwarding',
-                    'Domain Lock & Theft Protection',
-                    'Auto Renewal with Discount',
-                    'Dedicated Support',
-                    'Enterprise Security',
-                    'Free Premium SSL Certificate',
-                    'Domain Monitoring'
-                ]
-            }
-        ]
+                {
+                    name: 'Premium Domain',
+                    price: 36.00,
+                    features: [
+                        'Yearly registration',
+                        'Advanced DNS Management',
+                        'Premium WHOIS Privacy',
+                        'Email Forwarding',
+                        'Domain Lock',
+                        'Auto Renewal',
+                        'Priority Support',
+                        'Advanced Security',
+                        'Free SSL Certificate'
+                    ]
+                },
+                {
+                    name: 'Ultra Domain',
+                    price: 48.00,
+                    features: [
+                        'Yearly registration',
+                        'Premium DNS Management',
+                        'Ultimate WHOIS Privacy',
+                        'Enhanced Email Forwarding',
+                        'Domain Lock & Theft Protection',
+                        'Auto Renewal with Discount',
+                        'Dedicated Support',
+                        'Enterprise Security',
+                        'Free Premium SSL Certificate',
+                        'Domain Monitoring'
+                    ]
+                }
+            ]
+        },
+        US: {
+            standard: [
+                {
+                    name: 'Domain Registration',
+                    price: 24.00,
+                    features: [
+                        'Yearly registration',
+                        'DNS Management',
+                        'WHOIS Privacy',
+                        'Email Forwarding',
+                        'Domain Lock',
+                        'Auto Renewal',
+                        'Basic Support'
+                    ]
+                },
+                {
+                    name: 'Premium Domain',
+                    price: 36.00,
+                    features: [
+                        'Yearly registration',
+                        'Advanced DNS Management',
+                        'Premium WHOIS Privacy',
+                        'Email Forwarding',
+                        'Domain Lock',
+                        'Auto Renewal',
+                        'Priority Support',
+                        'Advanced Security',
+                        'Free SSL Certificate'
+                    ]
+                },
+                {
+                    name: 'Ultra Domain',
+                    price: 48.00,
+                    features: [
+                        'Yearly registration',
+                        'Premium DNS Management',
+                        'Ultimate WHOIS Privacy',
+                        'Enhanced Email Forwarding',
+                        'Domain Lock & Theft Protection',
+                        'Auto Renewal with Discount',
+                        'Dedicated Support',
+                        'Enterprise Security',
+                        'Free Premium SSL Certificate',
+                        'Domain Monitoring'
+                    ]
+                }
+            ]
+        },
+        Germany: {
+            standard: [
+                {
+                    name: 'Domain Registration',
+                    price: 24.00,
+                    features: [
+                        'Yearly registration',
+                        'DNS Management',
+                        'WHOIS Privacy',
+                        'Email Forwarding',
+                        'Domain Lock',
+                        'Auto Renewal',
+                        'Basic Support'
+                    ]
+                },
+                {
+                    name: 'Premium Domain',
+                    price: 36.00,
+                    features: [
+                        'Yearly registration',
+                        'Advanced DNS Management',
+                        'Premium WHOIS Privacy',
+                        'Email Forwarding',
+                        'Domain Lock',
+                        'Auto Renewal',
+                        'Priority Support',
+                        'Advanced Security',
+                        'Free SSL Certificate'
+                    ]
+                },
+                {
+                    name: 'Ultra Domain',
+                    price: 48.00,
+                    features: [
+                        'Yearly registration',
+                        'Premium DNS Management',
+                        'Ultimate WHOIS Privacy',
+                        'Enhanced Email Forwarding',
+                        'Domain Lock & Theft Protection',
+                        'Auto Renewal with Discount',
+                        'Dedicated Support',
+                        'Enterprise Security',
+                        'Free Premium SSL Certificate',
+                        'Domain Monitoring'
+                    ]
+                }
+            ]
+        },
+        France: {
+            standard: [
+                {
+                    name: 'Domain Registration',
+                    price: 24.00,
+                    features: [
+                        'Yearly registration',
+                        'DNS Management',
+                        'WHOIS Privacy',
+                        'Email Forwarding',
+                        'Domain Lock',
+                        'Auto Renewal',
+                        'Basic Support'
+                    ]
+                },
+                {
+                    name: 'Premium Domain',
+                    price: 36.00,
+                    features: [
+                        'Yearly registration',
+                        'Advanced DNS Management',
+                        'Premium WHOIS Privacy',
+                        'Email Forwarding',
+                        'Domain Lock',
+                        'Auto Renewal',
+                        'Priority Support',
+                        'Advanced Security',
+                        'Free SSL Certificate'
+                    ]
+                },
+                {
+                    name: 'Ultra Domain',
+                    price: 48.00,
+                    features: [
+                        'Yearly registration',
+                        'Premium DNS Management',
+                        'Ultimate WHOIS Privacy',
+                        'Enhanced Email Forwarding',
+                        'Domain Lock & Theft Protection',
+                        'Auto Renewal with Discount',
+                        'Dedicated Support',
+                        'Enterprise Security',
+                        'Free Premium SSL Certificate',
+                        'Domain Monitoring'
+                    ]
+                }
+            ]
+        },
+        UK: {
+            standard: [
+                {
+                    name: 'Domain Registration',
+                    price: 21.60,
+                    features: [
+                        'Yearly registration',
+                        'DNS Management',
+                        'WHOIS Privacy',
+                        'Email Forwarding',
+                        'Domain Lock',
+                        'Auto Renewal',
+                        'Basic Support'
+                    ]
+                },
+                {
+                    name: 'Premium Domain',
+                    price: 32.40,
+                    features: [
+                        'Yearly registration',
+                        'Advanced DNS Management',
+                        'Premium WHOIS Privacy',
+                        'Email Forwarding',
+                        'Domain Lock',
+                        'Auto Renewal',
+                        'Priority Support',
+                        'Advanced Security',
+                        'Free SSL Certificate'
+                    ]
+                },
+                {
+                    name: 'Ultra Domain',
+                    price: 43.20,
+                    features: [
+                        'Yearly registration',
+                        'Premium DNS Management',
+                        'Ultimate WHOIS Privacy',
+                        'Enhanced Email Forwarding',
+                        'Domain Lock & Theft Protection',
+                        'Auto Renewal with Discount',
+                        'Dedicated Support',
+                        'Enterprise Security',
+                        'Free Premium SSL Certificate',
+                        'Domain Monitoring'
+                    ]
+                }
+            ]
+        }
     }
 };
+
+// Copy minecraft plans to games
+serviceData.games = copyMinecraftToGames(serviceData.minecraft);
 
 export default serviceData; 
