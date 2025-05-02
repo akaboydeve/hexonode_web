@@ -1,6 +1,7 @@
 # HexoNode Web
 
 This is the web application for HexoNode hosting services. It provides a modern user interface for customers to manage their hosting services and account.
+hosting
 
 ## Features
 
