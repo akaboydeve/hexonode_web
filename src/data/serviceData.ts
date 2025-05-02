@@ -2149,11 +2149,9 @@ const serviceData: ServiceDataMap = {
                     name: '8GB VPS - Budget',
                     price: 1200.00,
                     features: [
-                        'OUT OF STOCK',
-                        
+                        'OUT OF STOCK',  
                     ]
-                },
-               
+                }
             ],
             premium: [
                 {
