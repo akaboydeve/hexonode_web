@@ -87,7 +87,7 @@ const serviceData: ServiceDataMap = {
     minecraft: {
         title: 'Minecraft Hosting Plans',
         description: 'High-performance Minecraft server hosting with instant setup',
-        productLink: 'https://panel.hexonode.com/minecraft',
+        productLink: 'https://billing.hexonode.com/products/minecraft-servers',
         India: {
             budget: [
                 {
@@ -1282,7 +1282,7 @@ const serviceData: ServiceDataMap = {
     vps: {
         title: 'VPS Hosting Plans',
         description: 'Powerful virtual private servers with full root access',
-        productLink: 'https://panel.hexonode.com/vps',
+        productLink: 'https://billing.hexonode.com/products/vps-virtual-private-server',
         India: {
             budget: [
                 {
@@ -2147,14 +2147,10 @@ const serviceData: ServiceDataMap = {
             budget: [
                 {
                     name: '8GB VPS - Budget',
-                    price: 12.00,
+                    price: 1200.00,
                     features: [
-                        '8GB RAM',
-                        '3 vCPU',
-                        '100GB NVMe SSD',
-                        'Unlimited Traffic',
-                        'Linux/Windows',
-                        'DDoS Protection'
+                        'OUT OF STOCK',
+                        
                     ]
                 },
                 {
