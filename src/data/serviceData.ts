@@ -962,67 +962,13 @@ const serviceData: ServiceDataMap = {
             budget: [
                 {
                     name: '8GB Plan - Budget',
-                    price: 6.40,
+                    price: 999.00,
                     features: [
-                        '8GB RAM',
-                        '3 vCPU Cores',
-                        '80GB SSD Storage',
-                        'Unlimited Bandwidth',
-                        'DDoS Protection',
-                        'Priority Support'
-                    ]
-                },
-                {
-                    name: '16GB Plan - Budget',
-                    price: 12.80,
-                    features: [
-                        '16GB RAM',
-                        '4 vCPU Cores',
-                        '160GB SSD Storage',
-                        'Unlimited Bandwidth',
-                        'DDoS Protection',
-                        'Priority Support'
-                    ]
-                },
-                {
-                    name: '25.60 Plan - Budget',
-                    price: 25.60,
-                    features: [
-                        '25.60GB RAM',
-                        '6 vCPU Cores',
-                        '320GB SSD Storage',
-                        'Unlimited Bandwidth',
-                        'DDoS Protection',
-                        'Priority Support'
-                    ]
-                },
-                {
-                    name: '51.20 Plan - Budget',
-                    price: 51.20,
-                    features: [
-                        '51.20GB RAM',
-                        '10 vCPU Cores',
-                        '640GB SSD Storage',
-                        'Unlimited Bandwidth',
-                        'DDoS Protection',
-                        'Priority Support'
-                    ]
-                },
-                {
-                    name: '139.99 Plan - Ultra Ryzen 9',
-                    price: 139.99,
-                    features: [
-                        '139.99GB RAM',
-                        '12 vCPU Cores (Ryzen 9)',
-                        '1600GB SSD Storage',
-                        'Unlimited Bandwidth',
-                        'Premium DDoS Protection',
-                        '24/7 Dedicated Support',
-                        'Daily Backups',
-                        '99.99% Uptime SLA',
-                        'Enhanced Security'
+                        'OUT OF STOCK',
+                        
                     ]
                 }
+              
             ],
             premium: [
                 {
