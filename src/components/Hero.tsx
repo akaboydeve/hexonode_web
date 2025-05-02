@@ -184,7 +184,7 @@ const Hero = () => {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="w-full">
             <h1 className="text-4xl md:text-6xl font-bold leading-tight bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-purple-200 pb-3 inline-block w-auto">
-              ok Premium Hosting Solutions
+              Premium Hosting Solutions
             </h1>
             <p className="mt-6 text-lg text-gray-300">
               Experience lightning-fast Minecraft servers, game hosting, VPS solutions, web hosting,
