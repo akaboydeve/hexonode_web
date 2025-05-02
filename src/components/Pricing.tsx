@@ -8,7 +8,8 @@ import serviceData, {
   Plan,
   PlanFeature,
   LocationIndependentService,
-  LocationBasedService
+  LocationBasedService,
+  StandardPlans
 } from '@/data/serviceData';
 import Link from 'next/link';
 
@@ -60,7 +61,8 @@ const locationCurrencySymbols: Record<LocationCode, string> = {
   'US': '$',
   'Germany': '€',
   'France': '€',
-  'UK': '£'
+  'UK': '£',
+  'Europe': '€'
 };
 
 const Pricing: React.FC = () => {
@@ -71,7 +73,12 @@ const Pricing: React.FC = () => {
   const [showLocationSelector, setShowLocationSelector] = useState<boolean>(true);
 
   // Define available locations
-  const locations: LocationCode[] = ['India', 'Singapore', 'US', 'Germany', 'France', 'UK'];
+  const locations: LocationCode[] = ['India', 'Singapore', 'US', 'Germany', 'France', 'UK', 'Europe'];
+
+  // Map Europe to Germany for data purposes
+  const getLocationForData = (location: LocationCode): LocationCode => {
+    return location === 'Europe' ? 'Germany' : location;
+  };
 
   // Ensure the service exists with fallback
   const service = serviceData[activeService] || serviceData.minecraft;
@@ -86,16 +93,16 @@ const Pricing: React.FC = () => {
 
   // Get location data if service is location-based
   const locationData = !isLocationIndependent
-    ? (service as LocationBasedService)[selectedLocation]
+    ? (service as LocationBasedService)[getLocationForData(selectedLocation)]
     : null;
 
   // Detect if this service uses standard plans or tiered plans
-  const usesStandardPlans = locationData && 'standard' in locationData;
+  const usesStandardPlans = locationData && typeof locationData === 'object' && 'standard' in locationData;
 
   // Get available tiers for current service and location if using tiered plans
-  const availableTiers = !isLocationIndependent && !usesStandardPlans && locationData ?
+  const availableTiers = !isLocationIndependent && !usesStandardPlans && locationData && typeof locationData === 'object' ?
     Object.keys(locationData).filter(tier =>
-      locationData[tier] && locationData[tier].length > 0
+      tier in locationData && Array.isArray((locationData as any)[tier]) && (locationData as any)[tier].length > 0
     ) : [];
 
   // Update plans when dependencies change
@@ -103,9 +110,9 @@ const Pricing: React.FC = () => {
     if (isLocationIndependent) {
       // Location-independent service
       setPlans((service as LocationIndependentService).plans || []);
-    } else if (usesStandardPlans && locationData) {
+    } else if (usesStandardPlans && locationData && typeof locationData === 'object') {
       // Using standard plans
-      setPlans(locationData.standard || []);
+      setPlans((locationData as StandardPlans).standard || []);
     } else {
       // Using tiered plans
       // Check if activeTier is in availableTiers, otherwise set to first available
@@ -113,7 +120,8 @@ const Pricing: React.FC = () => {
         if (!availableTiers.includes(activeTier)) {
           setActiveTier(availableTiers[0]);
         }
-        setPlans(locationData && locationData[activeTier] ? locationData[activeTier] : []);
+        setPlans(locationData && typeof locationData === 'object' && activeTier in locationData ?
+          (locationData as any)[activeTier] : []);
       } else {
         setPlans([]);
       }

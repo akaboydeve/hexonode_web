@@ -1,5 +1,5 @@
 // Define TypeScript interfaces
-export type LocationCode = 'India' | 'Singapore' | 'US' | 'Germany' | 'France' | 'UK';
+export type LocationCode = 'India' | 'Singapore' | 'US' | 'Germany' | 'France' | 'UK' | 'Europe';
 export type TierType = 'budget' | 'premium' | 'ultra';
 
 export interface PlanFeature {
@@ -279,187 +279,220 @@ const serviceData: ServiceDataMap = {
             budget: [
                 {
                     name: '8GB Plan',
-                    price: 6.40,
+                    price: 24.00,
                     features: [
                         '8GB RAM',
-                        '3 vCPU Cores',
-                        '80GB SSD Storage',
-                        'Unlimited Bandwidth',
+                        '2 vCPU Cores (INTEL GOLD/AMD EYPC)',
+                        '150GB NVME SSD Storage',
+                        'Singapore Location',
                         'DDoS Protection',
-                        'Priority Support'
+                        '24/7 Ticket Support',
+                        'FREE SETUP',
+                        '2-3 Hr Delivery Time'
                     ]
                 },
                 {
                     name: '16GB Plan',
-                    price: 12.80,
+                    price: 37.00,
                     features: [
                         '16GB RAM',
-                        '4 vCPU Cores',
-                        '160GB SSD Storage',
-                        'Unlimited Bandwidth',
+                        '4 vCPU Cores (INTEL GOLD/AMD EYPC)',
+                        '300GB NVME SSD Storage',
+                        '8000GB Bandwidth',
+                        'Singapore Location',
                         'DDoS Protection',
-                        'Priority Support'
+                        '24/7 Ticket Support',
+                        'FREE SETUP',
+                        '2-3 Hr Delivery Time'
                     ]
                 },
                 {
                     name: '32GB Plan',
-                    price: 25.60,
+                    price: 58.00,
                     features: [
                         '32GB RAM',
-                        '6 vCPU Cores',
-                        '320GB SSD Storage',
-                        'Unlimited Bandwidth',
+                        '8 vCPU Cores (INTEL GOLD/AMD EYPC)',
+                        '480GB NVME SSD Storage',
+                        '15000GB Bandwidth',
+                        'Singapore Location',
                         'DDoS Protection',
-                        'Priority Support'
+                        '24/7 Ticket Support',
+                        'FREE SETUP',
+                        '2-3 Hr Delivery Time'
                     ]
                 },
                 {
-                    name: '64GB Plan',
-                    price: 51.20,
+                    name: '48GB Plan',
+                    price: 77.00,
+                    features: [
+                        '48GB RAM',
+                        '12 vCPU Cores (INTEL GOLD/AMD EYPC)',
+                        '700GB NVME SSD Storage',
+                        '23000GB Bandwidth',
+                        'Singapore Location',
+                        'DDoS Protection',
+                        '24/7 Ticket Support',
+                        'FREE SETUP',
+                        '2-3 Hr Delivery Time'
+                    ]
+                },
+                {
+                    name: '64GB Plan - Premium',
+                    price: 95.00,
                     features: [
                         '64GB RAM',
-                        '10 vCPU Cores',
-                        '640GB SSD Storage',
-                        'Unlimited Bandwidth',
+                        '12 vCPU Cores (INTEL GOLD/AMD EYPC)',
+                        '1200GB NVME SSD Storage',
+                        '30000GB Bandwidth',
+                        'Singapore Location',
                         'DDoS Protection',
-                        'Priority Support'
+                        '24/7 Ticket Support',
+                        'FREE SETUP',
+                        '2-3 Hr Delivery Time'
                     ]
                 }
             ],
             premium: [
                 {
-                    name: '8GB Plan - Premium',
-                    price: 25.00,
+                    name: '8GB Plan',
+                    price: 24.00,
                     features: [
                         '8GB RAM',
                         '2 vCPU Cores (INTEL GOLD/AMD EYPC)',
-                        '160GB NVME SSD Storage',
-                        '4000GB Bandwidth',
-                        'Advanced DDoS Protection',
+                        '150GB NVME SSD Storage',
+                        'Singapore Location',
+                        'DDoS Protection',
                         '24/7 Ticket Support',
                         'FREE SETUP',
-                        '1-2 Hr Delivery Time',
-                        '99.9% Uptime SLA'
+                        '2-3 Hr Delivery Time'
                     ]
                 },
                 {
-                    name: '16GB Plan - Premium',
-                    price: 38.00,
+                    name: '16GB Plan',
+                    price: 37.00,
                     features: [
                         '16GB RAM',
                         '4 vCPU Cores (INTEL GOLD/AMD EYPC)',
-                        '320GB NVME SSD Storage',
+                        '300GB NVME SSD Storage',
                         '8000GB Bandwidth',
-                        'Advanced DDoS Protection',
+                        'Singapore Location',
+                        'DDoS Protection',
                         '24/7 Ticket Support',
                         'FREE SETUP',
-                        '1-2 Hr Delivery Time',
-                        '99.9% Uptime SLA'
+                        '2-3 Hr Delivery Time'
                     ]
                 },
                 {
                     name: '32GB Plan',
-                    price: 38.40,
+                    price: 58.00,
                     features: [
                         '32GB RAM',
-                        '6 vCPU Cores',
-                        '320GB SSD Storage',
-                        'Unlimited Bandwidth',
-                        'Advanced DDoS Protection',
-                        'Priority Support',
-                        'Enhanced Backups',
-                        '99.9% Uptime SLA'
+                        '8 vCPU Cores (INTEL GOLD/AMD EYPC)',
+                        '480GB NVME SSD Storage',
+                        '15000GB Bandwidth',
+                        'Singapore Location',
+                        'DDoS Protection',
+                        '24/7 Ticket Support',
+                        'FREE SETUP',
+                        '2-3 Hr Delivery Time'
                     ]
                 },
                 {
-                    name: '64GB Plan',
-                    price: 76.80,
+                    name: '48GB Plan',
+                    price: 77.00,
+                    features: [
+                        '48GB RAM',
+                        '12 vCPU Cores (INTEL GOLD/AMD EYPC)',
+                        '700GB NVME SSD Storage',
+                        '23000GB Bandwidth',
+                        'Singapore Location',
+                        'DDoS Protection',
+                        '24/7 Ticket Support',
+                        'FREE SETUP',
+                        '2-3 Hr Delivery Time'
+                    ]
+                },
+                {
+                    name: '64GB Plan - Premium',
+                    price: 95.00,
                     features: [
                         '64GB RAM',
-                        '10 vCPU Cores',
-                        '640GB SSD Storage',
-                        'Unlimited Bandwidth',
-                        'Advanced DDoS Protection',
-                        'Priority Support',
-                        'Enhanced Backups',
-                        '99.9% Uptime SLA'
+                        '12 vCPU Cores (INTEL GOLD/AMD EYPC)',
+                        '1200GB NVME SSD Storage',
+                        '30000GB Bandwidth',
+                        'Singapore Location',
+                        'DDoS Protection',
+                        '24/7 Ticket Support',
+                        'FREE SETUP',
+                        '2-3 Hr Delivery Time'
                     ]
                 }
             ],
             ultra: [
                 {
-                    name: '8GB Plan - Ryzen 9',
-                    price: 12.80,
+                    name: '8GB Plan - Ultra Ryzen 9',
+                    price: 33.00,
                     features: [
-                        '8GB RAM',
-                        '3 vCPU Cores (Ryzen 9)',
-                        '80GB SSD Storage',
-                        'Unlimited Bandwidth',
+                        '8GB DDR5 RAM (5200 MHz)',
+                        '1 Core + 2 Threads (Ryzen 9 7950X)',
+                        '4.5 GHz Base / 5.7 GHz Turbo',
+                        '60GB NVMe SSD',
+                        '1Gbps Up/Down Bandwidth',
+                        'Singapore Location',
                         'Premium DDoS Protection',
-                        '24/7 Dedicated Support',
-                        'Daily Backups',
-                        '99.99% Uptime SLA',
-                        'Enhanced Security'
+                        '24/7 Ticket Support',
+                        'FREE SETUP',
+                        '24-48 Hr Delivery Time'
                     ]
                 },
                 {
-                    name: '16GB Plan - Ryzen 9',
-                    price: 25.60,
+                    name: '16GB Plan - Ultra Ryzen 9',
+                    price: 57.00,
                     features: [
-                        '16GB RAM',
-                        '4 vCPU Cores (Ryzen 9)',
-                        '160GB SSD Storage',
-                        'Unlimited Bandwidth',
+                        '16GB DDR5 RAM (5200 MHz)',
+                        '2 Cores + 4 Threads (Ryzen 9 7950X)',
+                        '4.5 GHz Base / 5.7 GHz Turbo',
+                        '120GB NVMe SSD',
+                        '1Gbps Up/Down Bandwidth',
+                        'Singapore Location',
                         'Premium DDoS Protection',
-                        '24/7 Dedicated Support',
-                        'Daily Backups',
-                        '99.99% Uptime SLA',
-                        'Enhanced Security'
+                        '24/7 Ticket Support',
+                        'FREE SETUP',
+                        '24-48 Hr Delivery Time'
                     ]
                 },
                 {
-                    name: '32GB Plan - Ryzen 9',
-                    price: 51.20,
+                    name: '32GB VPS - Ultra Ryzen 9',
+                    price: 105.00,
                     features: [
-                        '32GB RAM',
-                        '6 vCPU Cores (Ryzen 9)',
-                        '320GB SSD Storage',
-                        'Unlimited Bandwidth',
+                        '32GB DDR5 RAM (5200 MHz)',
+                        '8 Cores (Ryzen 9 7950X)',
+                        '4.5 GHz Base / 5.7 GHz Turbo',
+                        '240GB NVMe SSD',
+                        '1Gbps Up/Down Bandwidth',
+                        'Singapore Location',
                         'Premium DDoS Protection',
-                        '24/7 Dedicated Support',
-                        'Daily Backups',
-                        '99.99% Uptime SLA',
-                        'Enhanced Security'
+                        '24/7 Ticket Support',
+                        'FREE SETUP',
+                        '24-48 Hr Delivery Time',
+                        '99.99% Uptime SLA'
                     ]
                 },
                 {
-                    name: '64GB Plan - Ryzen 9',
-                    price: 102.40,
+                    name: '64GB VPS - Ultra Ryzen 9',
+                    price: 190.00,
                     features: [
-                        '64GB RAM',
-                        '10 vCPU Cores (Ryzen 9)',
-                        '640GB SSD Storage',
-                        'Unlimited Bandwidth',
+                        '64GB DDR5 RAM (5200 MHz)',
+                        '16 Cores (Ryzen 9 7950X)',
+                        '4.5 GHz Base / 5.7 GHz Turbo',
+                        '480GB NVMe SSD',
+                        '1Gbps Up/Down Bandwidth',
+                        'Singapore Location',
                         'Premium DDoS Protection',
-                        '24/7 Dedicated Support',
-                        'Daily Backups',
-                        '99.99% Uptime SLA',
-                        'Enhanced Security'
-                    ]
-                },
-                {
-                    name: '128GB Plan - Ryzen 9',
-                    price: 204.80,
-                    features: [
-                        '128GB RAM',
-                        '12 vCPU Cores (Ryzen 9)',
-                        '1280GB SSD Storage',
-                        'Unlimited Bandwidth',
-                        'Premium DDoS Protection',
-                        '24/7 Dedicated Support',
-                        'Daily Backups',
-                        '99.99% Uptime SLA',
-                        'Enhanced Security'
+                        '24/7 Ticket Support',
+                        'FREE SETUP',
+                        '24-48 Hr Delivery Time',
+                        '99.99% Uptime SLA'
                     ]
                 }
             ]
@@ -654,77 +687,121 @@ const serviceData: ServiceDataMap = {
         Germany: {
             budget: [
                 {
+                    name: '4GB GERMANY BUDGET',
+                    price: 4.00,
+                    features: [
+                        '1 vCores, 2.5-3.4 GHz',
+                        '4GB DDR4 RAM',
+                        '20GB NVMe',
+                        '24/7 Ticket Support',
+                        'Free Setup'
+                    ]
+                },
+                {
                     name: '8GB GERMANY BUDGET',
                     price: 8.00,
                     features: [
-                        '4 vCores, 2.5-3.4 GHz',
+                        '3 vCores, 2.5-3.4 GHz',
                         '8GB DDR4 RAM',
-                        '50GB NVMe',
-                        '2TB Traffic',
-                        '1x IPv4',
-                        '3.2Tbit DDoS',
-                        '1Gbps',
-                        'Linux/Windows'
+                        '40GB NVMe',
+                        '24/7 Ticket Support',
+                        'Free Setup'
+                    ]
+                },
+                {
+                    name: '12GB GERMANY BUDGET',
+                    price: 13.00,
+                    features: [
+                        '4 vCores, 2.5-3.4 GHz',
+                        '12GB DDR4 RAM',
+                        '80GB NVMe',
+                        '24/7 Ticket Support',
+                        'Free Setup'
                     ]
                 },
                 {
                     name: '16GB GERMANY BUDGET',
-                    price: 15.00,
+                    price: 17.00,
                     features: [
                         '6 vCores, 2.5-3.4 GHz',
                         '16GB DDR4 RAM',
                         '100GB NVMe',
-                        '6TB Traffic',
-                        '1x IPv4',
-                        '3.2Tbit DDoS',
-                        '1Gbps',
-                        'Linux/Windows'
+                        '24/7 Ticket Support',
+                        'Free Setup'
+                    ]
+                },
+                {
+                    name: '24GB GERMANY BUDGET',
+                    price: 25.00,
+                    features: [
+                        '8 vCores, 2.5-3.4 GHz',
+                        '24GB DDR4 RAM',
+                        '150GB NVMe',
+                        '24/7 Ticket Support',
+                        'Free Setup'
                     ]
                 },
                 {
                     name: '32GB GERMANY BUDGET',
-                    price: 34.00,
+                    price: 33.00,
                     features: [
                         '8 vCores, 2.5-3.4 GHz',
                         '32GB DDR4 RAM',
                         '200GB NVMe',
-                        '10TB Traffic',
-                        '1x IPv4',
-                        '3.2Tbit DDoS',
-                        '1Gbps',
-                        'Linux/Windows'
+                        '24/7 Ticket Support',
+                        'Free Setup'
                     ]
                 },
                 {
                     name: '64GB GERMANY BUDGET',
-                    price: 49.90,
+                    price: 49.99,
                     features: [
                         '10 vCores, 2.5-3.4 GHz',
                         '64GB DDR4 RAM',
                         '400GB NVMe',
-                        '14TB Traffic',
-                        '1x IPv4',
-                        '3.2Tbit DDoS',
-                        '1Gbps',
-                        'Linux/Windows'
+                        '24/7 Ticket Support',
+                        'Free Setup'
                     ]
                 }
             ],
             premium: [
                 {
+                    name: '4GB GERMANY PREMIUM',
+                    price: 5.00,
+                    features: [
+                        'Intel Xeon Gold 6150',
+                        '1 vCores, 2.80 GHz Base (3.70 GHz Turbo)',
+                        '4 GB DRR4 RAM',
+                        '25 GB NVMe',
+                        '3.2Tbit Premium DDoS Protection',
+                        '24/7 Ticket Support',
+                        'Free Setup'
+                    ]
+                },
+                {
                     name: '8GB GERMANY PREMIUM',
                     price: 9.00,
                     features: [
                         'Intel Xeon Gold 6150',
-                        '4 vCores, 2.8GHz Base (3.7GHz Turbo)',
-                        '8GB DDR4 RAM',
-                        '50GB NVMe',
-                        '4TB Traffic',
-                        '1x IPv4',
-                        'DDoS Protection',
-                        'Priority Support',
-                        'Enhanced Backups',
-                        '99.9% Uptime SLA'
+                        '3 vCores, 2.80 GHz Base (3.70 GHz Turbo)',
+                        '8 GB DRR4 RAM',
+                        '50 GB NVMe',
+                        '3.2Tbit Premium DDoS Protection',
+                        '24/7 Ticket Support',
+                        'Free Setup'
+                    ]
+                },
+                {
+                    name: '12GB GERMANY PREMIUM',
+                    price: 13.00,
+                    features: [
+                        'Intel Xeon Gold 6150',
+                        '4 vCores, 2.80 GHz Base (3.70 GHz Turbo)',
+                        '12 GB DRR4 RAM',
+                        '70 GB NVMe',
+                        '3.2Tbit Premium DDoS Protection',
+                        '24/7 Ticket Support',
+                        'Free Setup'
                     ]
                 },
                 {
@@ -732,31 +809,38 @@ const serviceData: ServiceDataMap = {
                     price: 18.00,
                     features: [
                         'Intel Xeon Gold 6150',
-                        '6 vCores, 2.8GHz Base (3.7GHz Turbo)',
-                        '16GB DDR4 RAM',
-                        '100GB NVMe',
-                        '8TB Traffic',
-                        '1x IPv4',
-                        'DDoS Protection',
-                        'Priority Support',
-                        'Enhanced Backups',
-                        '99.9% Uptime SLA'
+                        '6 vCores, 2.80 GHz Base (3.70 GHz Turbo)',
+                        '16 GB DRR4 RAM',
+                        '100 GB NVMe',
+                        '3.2Tbit Premium DDoS Protection',
+                        '24/7 Ticket Support',
+                        'Free Setup'
                     ]
                 },
                 {
                     name: '32GB GERMANY PREMIUM',
-                    price: 37.00,
+                    price: 36.00,
                     features: [
                         'Intel Xeon Gold 6150',
-                        '8 vCores, 2.8GHz Base (3.7GHz Turbo)',
-                        '32GB DDR4 RAM',
-                        '200GB NVMe',
-                        '12TB Traffic',
-                        '1x IPv4',
-                        'DDoS Protection',
-                        'Priority Support',
-                        'Enhanced Backups',
-                        '99.9% Uptime SLA'
+                        '8 vCores, 2.80 GHz Base (3.70 GHz Turbo)',
+                        '32 GB DRR4 RAM',
+                        '200 GB NVMe',
+                        '3.2Tbit Premium DDoS Protection',
+                        '24/7 Ticket Support',
+                        'Free Setup'
+                    ]
+                },
+                {
+                    name: '48GB GERMANY PREMIUM',
+                    price: 50.00,
+                    features: [
+                        'Intel Xeon Gold 6150',
+                        '9 vCores, 2.80 GHz Base (3.70 GHz Turbo)',
+                        '48 GB DRR4 RAM',
+                        '300 GB NVMe',
+                        '3.2Tbit Premium DDoS Protection',
+                        '24/7 Ticket Support',
+                        'Free Setup'
                     ]
                 },
                 {
@@ -764,128 +848,112 @@ const serviceData: ServiceDataMap = {
                     price: 64.00,
                     features: [
                         'Intel Xeon Gold 6150',
-                        '10 vCores, 2.8GHz Base (3.7GHz Turbo)',
-                        '64GB DDR4 RAM',
-                        '400GB NVMe',
-                        '16TB Traffic',
-                        '1x IPv4',
-                        'DDoS Protection',
-                        'Priority Support',
-                        'Enhanced Backups',
-                        '99.9% Uptime SLA'
-                    ]
-                },
-                {
-                    name: '128GB GERMANY PREMIUM',
-                    price: 128.00,
-                    features: [
-                        'AMD Ryzen 5 3600',
-                        '12 Cores, 3.7GHz Base (4.2GHz Turbo)',
-                        '128GB DDR4 RAM',
-                        '1TB NVMe SSD',
-                        'Delivery 1hr',
-                        'DDoS Protection',
-                        'Priority Support',
-                        'Enhanced Backups',
-                        '99.9% Uptime SLA'
+                        '10 vCores, 2.80 GHz Base (3.70 GHz Turbo)',
+                        '64 GB DRR4 RAM',
+                        '400 GB NVMe',
+                        '3.2Tbit Premium DDoS Protection',
+                        '24/7 Ticket Support',
+                        'Free Setup'
                     ]
                 }
             ],
             ultra: [
                 {
-                    name: '8GB GERMANY ULTRA RYZEN 9',
-                    price: 15.00,
+                    name: '4GB GERMANY ULTRA RYZEN 9',
+                    price: 7.00,
                     features: [
-                        'AMD Ryzen 9 5900X',
-                        '2 vCores, 3.7GHz Base (4.8GHz Turbo)',
-                        '8GB DDR4 RAM',
-                        '50GB NVMe',
-                        '20TB Traffic',
-                        'Premium DDoS Protection',
-                        '24/7 Dedicated Support',
-                        'Daily Backups',
-                        '99.99% Uptime SLA',
-                        'Enhanced Security'
+                        'AMD Ryzen™ 9 5900X',
+                        '3.70 GHz Base (4.80 GHz Turbo)',
+                        '1 Ryzen vCores',
+                        '4 GB DDR4 Memory',
+                        '25 GB 1 NVMe Storage',
+                        'AS203446 DDoS Protection',
+                        '24/7 Free Ticket Support',
+                        'Free Setup'
+                    ]
+                },
+                {
+                    name: '6GB GERMANY ULTRA',
+                    price: 10.00,
+                    features: [
+                        'AMD Ryzen™ 9 5900X',
+                        '3.70 GHz Base (4.80 GHz Turbo)',
+                        '2 Ryzen vCores',
+                        '6 GB DDR4 Memory',
+                        '50 GB 1 NVMe Storage',
+                        'AS203446 DDoS Protection',
+                        '24/7 Free Ticket Support',
+                        'Free Setup'
+                    ]
+                },
+                {
+                    name: '8GB GERMANY ULTRA RYZEN 9',
+                    price: 14.00,
+                    features: [
+                        'AMD Ryzen™ 9 5900X',
+                        '3.70 GHz Base (4.80 GHz Turbo)',
+                        '2 Ryzen vCores',
+                        '8 GB DDR4 Memory',
+                        '50 GB 1 NVMe Storage',
+                        'AS203446 DDoS Protection',
+                        '24/7 Free Ticket Support',
+                        'Free Setup'
                     ]
                 },
                 {
                     name: '12GB GERMANY ULTRA RYZEN 9',
-                    price: 23.00,
+                    price: 22.00,
                     features: [
-                        'AMD Ryzen 9 5900X',
-                        '3 vCores, 3.7GHz Base (4.8GHz Turbo)',
-                        '12GB DDR4 RAM',
-                        '75GB NVMe',
-                        '25TB Traffic',
-                        'Premium DDoS Protection',
-                        '24/7 Dedicated Support',
-                        'Daily Backups',
-                        '99.99% Uptime SLA',
-                        'Enhanced Security'
+                        'AMD Ryzen™ 9 5900X',
+                        '3.70 GHz Base (4.80 GHz Turbo)',
+                        '3 Ryzen vCores',
+                        '12 GB DDR4 Memory',
+                        '75 GB 1 NVMe Storage',
+                        'AS203446 DDoS Protection',
+                        '24/7 Free Ticket Support',
+                        'Free Setup'
                     ]
                 },
                 {
                     name: '16GB GERMANY ULTRA RYZEN 9',
                     price: 30.00,
                     features: [
-                        'AMD Ryzen 9 5900X',
-                        '4 vCores, 3.7GHz Base (4.8GHz Turbo)',
-                        '16GB DDR4 RAM',
-                        '120GB NVMe',
-                        '28TB Traffic',
-                        'Premium DDoS Protection',
-                        '24/7 Dedicated Support',
-                        'Daily Backups',
-                        '99.99% Uptime SLA',
-                        'Enhanced Security'
+                        'AMD Ryzen™ 9 5900X',
+                        '3.70 GHz Base (4.80 GHz Turbo)',
+                        '4 Ryzen vCores',
+                        '16 GB DDR4 Memory',
+                        '110 GB 1 NVMe Storage',
+                        'AS203446 DDoS Protection',
+                        '24/7 Free Ticket Support',
+                        'Free Setup'
                     ]
                 },
                 {
                     name: '24GB GERMANY ULTRA RYZEN 9',
                     price: 45.00,
                     features: [
-                        'AMD Ryzen 9 5900X',
-                        '6 vCores, 3.7GHz Base (4.8GHz Turbo)',
-                        '24GB DDR4 RAM',
-                        '160GB NVMe',
-                        '35TB Traffic',
-                        'Premium DDoS Protection',
-                        '24/7 Dedicated Support',
-                        'Daily Backups',
-                        '99.99% Uptime SLA',
-                        'Enhanced Security'
+                        'AMD Ryzen™ 9 5900X',
+                        '3.70 GHz Base (4.80 GHz Turbo)',
+                        '6 Ryzen vCores',
+                        '24 GB DDR4 Memory',
+                        '150 GB 1 NVMe Storage',
+                        'AS203446 DDoS Protection',
+                        '24/7 Free Ticket Support',
+                        'Free Setup'
                     ]
                 },
                 {
                     name: '32GB GERMANY ULTRA RYZEN 9',
-                    price: 54.99,
+                    price: 55.00,
                     features: [
-                        'AMD Ryzen 9 5900X',
-                        '6 vCores, 3.7GHz Base (4.8GHz Turbo)',
-                        '32GB DDR4 RAM',
-                        '200GB NVMe',
-                        '38TB Traffic',
-                        'Premium DDoS Protection',
-                        '24/7 Dedicated Support',
-                        'Daily Backups',
-                        '99.99% Uptime SLA',
-                        'Enhanced Security'
-                    ]
-                },
-                {
-                    name: '128GB GERMANY ULTRA',
-                    price: 139.99,
-                    features: [
-                        'AMD Ryzen 5 3600',
-                        '12 Cores, 3.7GHz Base (4.2GHz Turbo)',
-                        '128GB DDR4 RAM',
-                        '1TB NVMe SSD',
-                        'Delivery 1hr',
-                        'Premium DDoS Protection',
-                        '24/7 Dedicated Support',
-                        'Daily Backups',
-                        '99.99% Uptime SLA',
-                        'Enhanced Security'
+                        'AMD Ryzen™ 9 5900X',
+                        '3.70 GHz Base (4.80 GHz Turbo)',
+                        '6 Ryzen vCores',
+                        '32 GB DDR4 Memory',
+                        '200 GB 1 NVMe Storage',
+                        'AS203446 DDoS Protection',
+                        '24/7 Free Ticket Support',
+                        'Free Setup'
                     ]
                 }
             ]
