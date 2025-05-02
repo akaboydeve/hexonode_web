@@ -2153,42 +2153,7 @@ const serviceData: ServiceDataMap = {
                         
                     ]
                 },
-                {
-                    name: '16GB VPS - Budget',
-                    price: 24.00,
-                    features: [
-                        '16GB RAM',
-                        '4 vCPU',
-                        '200GB NVMe SSD',
-                        'Unlimited Traffic',
-                        'Linux/Windows',
-                        'DDoS Protection'
-                    ]
-                },
-                {
-                    name: '25.60 VPS - Budget',
-                    price: 25.60,
-                    features: [
-                        '25.60GB RAM',
-                        '6 vCPU',
-                        '320GB NVMe SSD',
-                        'Unlimited Traffic',
-                        'Linux/Windows',
-                        'DDoS Protection'
-                    ]
-                },
-                {
-                    name: '51.20 VPS - Budget',
-                    price: 51.20,
-                    features: [
-                        '51.20GB RAM',
-                        '10 vCPU',
-                        '640GB NVMe SSD',
-                        'Unlimited Traffic',
-                        'Linux/Windows',
-                        'DDoS Protection'
-                    ]
-                }
+               
             ],
             premium: [
                 {
@@ -2205,7 +2170,7 @@ const serviceData: ServiceDataMap = {
                         'Enhanced Backups',
                         '99.9% Uptime SLA'
                     ]
-                },
+                }
                 {
                     name: '18GB VPS - Premium',
                     price: 18.00,
