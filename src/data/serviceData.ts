@@ -2168,7 +2168,7 @@ const serviceData: ServiceDataMap = {
                         'Enhanced Backups',
                         '99.9% Uptime SLA'
                     ]
-                }
+                },
                 {
                     name: '18GB VPS - Premium',
                     price: 18.00,
