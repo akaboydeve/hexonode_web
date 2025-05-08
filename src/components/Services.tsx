@@ -7,7 +7,7 @@ const services = [
     icon: <Gamepad2 className="h-8 w-8 " />,
     title: 'Minecraft Hosting',
     description: 'High-performance Minecraft servers with instant setup and mod support.',
-    link: serviceData.minecraft.productLink,
+    link: '/services/minecraft',
     backgroundImage: 'https://www.pluggedin.com/wp-content/uploads/2020/01/minecraft-review-image-1024x587.jpg'
   },
   {
@@ -21,29 +21,29 @@ const services = [
     icon: <HardDrive className="h-8 w-8" />,
     title: 'VPS Hosting',
     description: 'Powerful virtual private servers with full root access.',
-    link: serviceData.vps.productLink,
+    link: '/services/vps',
     backgroundImage: 'https://maxcloudhost.com/blog/wp-content/uploads/2024/05/windows-vps-hosting.jpg'
   },
   {
     icon: <Globe2 className="h-8 w-8" />,
     title: 'Web Hosting',
     description: 'Fast and reliable web hosting for your websites.',
-    link: serviceData.web.productLink,
+    link: '/services/web',
     backgroundImage: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
   },
   {
     icon: <Bot className="h-8 w-8" />,
     title: 'Discord Bot Hosting',
     description: 'Dedicated hosting for your Discord bots with 24/7 uptime.',
-    link: serviceData.discord.productLink,
+    link: '/services/discord',
     backgroundImage: 'https://blog.n8n.io/content/images/size/w1200/2024/04/discord-bot-1-copy-9.png'
   },
   {
-    icon: <Shield className="h-8 w-8" />,
-    title: 'Domain Registration',
-    description: 'Register and manage domains with competitive pricing.',
-    link: serviceData.domains.productLink,
-    backgroundImage: 'https://extremaatechnologies.com/wp-content/uploads/2022/05/extremaatechnology-domain-registration.png'
+    icon: <Server className="h-8 w-8" />,
+    title: 'Dedicated Servers',
+    description: 'High-performance dedicated servers with full root access and premium hardware.',
+    link: '/services/dedicated',
+    backgroundImage: 'https://cdn.discordapp.com/attachments/1357638139816185916/1369360682360770620/dedicated-server-bg.png?ex=681b9404&is=681a4284&hm=7f7e442a89150db104e9c7f3aaeb8ecc274e70180f447fb13d370dded7f01c5c&'
   }
 ];
 

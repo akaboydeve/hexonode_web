@@ -35,6 +35,7 @@ export interface LocationBasedService {
     Germany: LocationTierPlans;
     France: LocationTierPlans;
     UK: LocationTierPlans;
+    Europe: LocationTierPlans;
     [key: string]: string | LocationTierPlans;
 }
 
@@ -278,77 +279,10 @@ const serviceData: ServiceDataMap = {
         Singapore: {
             budget: [
                 {
-                    name: '8GB Plan',
-                    price: 24.00,
+                    name: 'Budget Plans',
+                    price: 0,
                     features: [
-                        '8GB RAM',
-                        '2 vCPU Cores (INTEL GOLD/AMD EYPC)',
-                        '150GB NVME SSD Storage',
-                        'Singapore Location',
-                        'DDoS Protection',
-                        '24/7 Ticket Support',
-                        'FREE SETUP',
-                        '2-3 Hr Delivery Time'
-                    ]
-                },
-                {
-                    name: '16GB Plan',
-                    price: 37.00,
-                    features: [
-                        '16GB RAM',
-                        '4 vCPU Cores (INTEL GOLD/AMD EYPC)',
-                        '300GB NVME SSD Storage',
-                        '8000GB Bandwidth',
-                        'Singapore Location',
-                        'DDoS Protection',
-                        '24/7 Ticket Support',
-                        'FREE SETUP',
-                        '2-3 Hr Delivery Time'
-                    ]
-                },
-                {
-                    name: '32GB Plan',
-                    price: 58.00,
-                    features: [
-                        '32GB RAM',
-                        '8 vCPU Cores (INTEL GOLD/AMD EYPC)',
-                        '480GB NVME SSD Storage',
-                        '15000GB Bandwidth',
-                        'Singapore Location',
-                        'DDoS Protection',
-                        '24/7 Ticket Support',
-                        'FREE SETUP',
-                        '2-3 Hr Delivery Time'
-                    ]
-                },
-                {
-                    name: '48GB Plan',
-                    price: 77.00,
-                    features: [
-                        '48GB RAM',
-                        '12 vCPU Cores (INTEL GOLD/AMD EYPC)',
-                        '700GB NVME SSD Storage',
-                        '23000GB Bandwidth',
-                        'Singapore Location',
-                        'DDoS Protection',
-                        '24/7 Ticket Support',
-                        'FREE SETUP',
-                        '2-3 Hr Delivery Time'
-                    ]
-                },
-                {
-                    name: '64GB Plan - Premium',
-                    price: 95.00,
-                    features: [
-                        '64GB RAM',
-                        '12 vCPU Cores (INTEL GOLD/AMD EYPC)',
-                        '1200GB NVME SSD Storage',
-                        '30000GB Bandwidth',
-                        'Singapore Location',
-                        'DDoS Protection',
-                        '24/7 Ticket Support',
-                        'FREE SETUP',
-                        '2-3 Hr Delivery Time'
+                        'OUT OF STOCK'
                     ]
                 }
             ],
@@ -1277,12 +1211,289 @@ const serviceData: ServiceDataMap = {
                     ]
                 }
             ]
+        },
+        Europe: {
+            budget: [
+                {
+                    name: '8GB VPS - Budget',
+                    price: 8.00,
+                    features: [
+                        '8GB DDR4 RAM',
+                        '4 vCPU (2.5-3.4 GHz)',
+                        '50GB NVMe SSD',
+                        '2TB Traffic',
+                        'Linux/Windows',
+                        '3.2Tbit DDoS Protection',
+                        '1Gbps Network',
+                        '1x IPv4 Address'
+                    ]
+                },
+                {
+                    name: '16GB VPS - Budget',
+                    price: 15.00,
+                    features: [
+                        '16GB DDR4 RAM',
+                        '6 vCPU (2.5-3.4 GHz)',
+                        '100GB NVMe SSD',
+                        '6TB Traffic',
+                        'Linux/Windows',
+                        '3.2Tbit DDoS Protection',
+                        '1Gbps Network',
+                        '1x IPv4 Address'
+                    ]
+                },
+                {
+                    name: '32GB VPS - Budget',
+                    price: 32.00,
+                    features: [
+                        '32GB DDR4 RAM',
+                        '8 vCPU (2.5-3.4 GHz)',
+                        '200GB NVMe SSD',
+                        '10TB Traffic',
+                        'Linux/Windows',
+                        '3.2Tbit DDoS Protection',
+                        '1Gbps Network',
+                        '1x IPv4 Address'
+                    ]
+                },
+                {
+                    name: '64GB VPS - Budget',
+                    price: 49.90,
+                    features: [
+                        '64GB DDR4 RAM',
+                        '10 vCPU (2.5-3.4 GHz)',
+                        '400GB NVMe SSD',
+                        '14TB Traffic',
+                        'Linux/Windows',
+                        '3.2Tbit DDoS Protection',
+                        '1Gbps Network',
+                        '1x IPv4 Address'
+                    ]
+                }
+            ],
+            premium: [
+                {
+                    name: '8GB VPS - Premium',
+                    price: 9.00,
+                    features: [
+                        '8GB DDR4 RAM',
+                        '4 vCPU (Intel Xeon Gold 6150)',
+                        '2.8GHz Base (3.7GHz Turbo)',
+                        '50GB NVMe SSD',
+                        '4TB Traffic',
+                        'Linux/Windows',
+                        'DDoS Protection',
+                        'Priority Support',
+                        'Enhanced Backups',
+                        '99.9% Uptime SLA',
+                        '1x IPv4 Address'
+                    ]
+                },
+                {
+                    name: '18GB VPS - Premium',
+                    price: 18.00,
+                    features: [
+                        '16GB DDR4 RAM',
+                        '6 vCPU (Intel Xeon Gold 6150)',
+                        '2.8GHz Base (3.7GHz Turbo)',
+                        '100GB NVMe SSD',
+                        '8TB Traffic',
+                        'Linux/Windows',
+                        'DDoS Protection',
+                        'Priority Support',
+                        'Enhanced Backups',
+                        '99.9% Uptime SLA',
+                        '1x IPv4 Address'
+                    ]
+                },
+                {
+                    name: '32GB VPS - Premium',
+                    price: 37.00,
+                    features: [
+                        '32GB DDR4 RAM',
+                        '8 vCPU (Intel Xeon Gold 6150)',
+                        '2.8GHz Base (3.7GHz Turbo)',
+                        '200GB NVMe SSD',
+                        '12TB Traffic',
+                        'Linux/Windows',
+                        'DDoS Protection',
+                        'Priority Support',
+                        'Enhanced Backups',
+                        '99.9% Uptime SLA',
+                        '1x IPv4 Address'
+                    ]
+                },
+                {
+                    name: '64GB VPS - Premium',
+                    price: 64.00,
+                    features: [
+                        '64GB DDR4 RAM',
+                        '10 vCPU (Intel Xeon Gold 6150)',
+                        '2.8GHz Base (3.7GHz Turbo)',
+                        '400GB NVMe SSD',
+                        '16TB Traffic',
+                        'Linux/Windows',
+                        'DDoS Protection',
+                        'Priority Support',
+                        'Enhanced Backups',
+                        '99.9% Uptime SLA',
+                        '1x IPv4 Address'
+                    ]
+                },
+                {
+                    name: '128GB VPS - Premium Ryzen',
+                    price: 110.00,
+                    features: [
+                        '128GB DDR4 RAM',
+                        '12 vCPU (AMD Ryzen 5 3600)',
+                        '3.7GHz Base (4.2GHz Turbo)',
+                        '1TB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Linux/Windows',
+                        'Advanced DDoS Protection',
+                        '24/7 Dedicated Support',
+                        'Enhanced Backups',
+                        '100% Performance Guarantee',
+                        '1x IPv4 Address',
+                        'Free Setup',
+                        'Estimated 1 Hour Delivery'
+                    ]
+                }
+            ],
+            ultra: [
+                {
+                    name: '8GB VPS - Ultra Ryzen 9',
+                    price: 15.00,
+                    features: [
+                        '8GB DDR4 RAM',
+                        '2 vCPU (AMD Ryzen 9 5900X)',
+                        '3.7GHz Base (4.8GHz Turbo)',
+                        '50GB NVMe SSD',
+                        '20TB Traffic',
+                        'Linux/Windows',
+                        'Premium DDoS Protection',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
+                },
+                {
+                    name: '12GB VPS - Ultra Ryzen 9',
+                    price: 23.00,
+                    features: [
+                        '12GB DDR4 RAM',
+                        '3 vCPU (AMD Ryzen 9 5900X)',
+                        '3.7GHz Base (4.8GHz Turbo)',
+                        '75GB NVMe SSD',
+                        '25TB Traffic',
+                        'Linux/Windows',
+                        'Premium DDoS Protection',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
+                },
+                {
+                    name: '16GB VPS - Ultra Ryzen 9',
+                    price: 30.00,
+                    features: [
+                        '16GB DDR4 RAM',
+                        '4 vCPU (AMD Ryzen 9 5900X)',
+                        '3.7GHz Base (4.8GHz Turbo)',
+                        '120GB NVMe SSD',
+                        '28TB Traffic',
+                        'Linux/Windows',
+                        'Premium DDoS Protection',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
+                },
+                {
+                    name: '24GB VPS - Ultra Ryzen 9',
+                    price: 45.00,
+                    features: [
+                        '24GB DDR4 RAM',
+                        '6 vCPU (AMD Ryzen 9 5900X)',
+                        '3.7GHz Base (4.8GHz Turbo)',
+                        '160GB NVMe SSD',
+                        '35TB Traffic',
+                        'Linux/Windows',
+                        'Premium DDoS Protection',
+                        '1 IPv4 Address',
+                        '1 Gbit Uplink',
+                        '24/7 Dedicated Support',
+                        'Free Setup',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
+                },
+                {
+                    name: '32GB VPS - Ultra Ryzen 9',
+                    price: 54.99,
+                    features: [
+                        '32GB DDR4 RAM',
+                        '6 vCPU (AMD Ryzen 9 5900X)',
+                        '3.7GHz Base (4.8GHz Turbo)',
+                        '200GB NVMe SSD',
+                        '38TB Traffic',
+                        'Linux/Windows',
+                        'Premium DDoS Protection',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
+                },
+                {
+                    name: '64GB VPS - Ultra Ryzen 5',
+                    price: 80.00,
+                    features: [
+                        '64GB DDR4 RAM',
+                        '12 vCPU (AMD Ryzen 5 3600)',
+                        '3.7GHz Base (4.2GHz Turbo)',
+                        '1TB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Linux/Windows',
+                        'Premium DDoS Protection',
+                        '24/7 Dedicated Support',
+                        'Free Setup',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security',
+                        '100% Dedicated Performance Guaranteed'
+                    ]
+                },
+                {
+                    name: '128GB VPS - Ultra Ryzen 5',
+                    price: 139.99,
+                    features: [
+                        '128GB DDR4 RAM',
+                        '12 vCPU (AMD Ryzen 5 3600)',
+                        '3.7GHz Base (4.2GHz Turbo)',
+                        '1TB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Linux/Windows',
+                        'Premium DDoS Protection',
+                        '24/7 Dedicated Support',
+                        'Free Setup',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security',
+                        'Delivery in 1 hour'
+                    ]
+                }
+            ]
         }
     },
     vps: {
         title: 'VPS Hosting Plans',
         description: 'Powerful virtual private servers with full root access',
-        productLink: 'https://billing.hexonode.com/products/vps-virtual-private-server',
+        productLink: '',
         India: {
             budget: [
                 {
@@ -2429,6 +2640,283 @@ const serviceData: ServiceDataMap = {
                     ]
                 }
             ]
+        },
+        Europe: {
+            budget: [
+                {
+                    name: '8GB VPS - Budget',
+                    price: 8.00,
+                    features: [
+                        '8GB DDR4 RAM',
+                        '4 vCPU (2.5-3.4 GHz)',
+                        '50GB NVMe SSD',
+                        '2TB Traffic',
+                        'Linux/Windows',
+                        '3.2Tbit DDoS Protection',
+                        '1Gbps Network',
+                        '1x IPv4 Address'
+                    ]
+                },
+                {
+                    name: '16GB VPS - Budget',
+                    price: 15.00,
+                    features: [
+                        '16GB DDR4 RAM',
+                        '6 vCPU (2.5-3.4 GHz)',
+                        '100GB NVMe SSD',
+                        '6TB Traffic',
+                        'Linux/Windows',
+                        '3.2Tbit DDoS Protection',
+                        '1Gbps Network',
+                        '1x IPv4 Address'
+                    ]
+                },
+                {
+                    name: '32GB VPS - Budget',
+                    price: 32.00,
+                    features: [
+                        '32GB DDR4 RAM',
+                        '8 vCPU (2.5-3.4 GHz)',
+                        '200GB NVMe SSD',
+                        '10TB Traffic',
+                        'Linux/Windows',
+                        '3.2Tbit DDoS Protection',
+                        '1Gbps Network',
+                        '1x IPv4 Address'
+                    ]
+                },
+                {
+                    name: '64GB VPS - Budget',
+                    price: 49.90,
+                    features: [
+                        '64GB DDR4 RAM',
+                        '10 vCPU (2.5-3.4 GHz)',
+                        '400GB NVMe SSD',
+                        '14TB Traffic',
+                        'Linux/Windows',
+                        '3.2Tbit DDoS Protection',
+                        '1Gbps Network',
+                        '1x IPv4 Address'
+                    ]
+                }
+            ],
+            premium: [
+                {
+                    name: '8GB VPS - Premium',
+                    price: 9.00,
+                    features: [
+                        '8GB DDR4 RAM',
+                        '4 vCPU (Intel Xeon Gold 6150)',
+                        '2.8GHz Base (3.7GHz Turbo)',
+                        '50GB NVMe SSD',
+                        '4TB Traffic',
+                        'Linux/Windows',
+                        'DDoS Protection',
+                        'Priority Support',
+                        'Enhanced Backups',
+                        '99.9% Uptime SLA',
+                        '1x IPv4 Address'
+                    ]
+                },
+                {
+                    name: '18GB VPS - Premium',
+                    price: 18.00,
+                    features: [
+                        '16GB DDR4 RAM',
+                        '6 vCPU (Intel Xeon Gold 6150)',
+                        '2.8GHz Base (3.7GHz Turbo)',
+                        '100GB NVMe SSD',
+                        '8TB Traffic',
+                        'Linux/Windows',
+                        'DDoS Protection',
+                        'Priority Support',
+                        'Enhanced Backups',
+                        '99.9% Uptime SLA',
+                        '1x IPv4 Address'
+                    ]
+                },
+                {
+                    name: '32GB VPS - Premium',
+                    price: 37.00,
+                    features: [
+                        '32GB DDR4 RAM',
+                        '8 vCPU (Intel Xeon Gold 6150)',
+                        '2.8GHz Base (3.7GHz Turbo)',
+                        '200GB NVMe SSD',
+                        '12TB Traffic',
+                        'Linux/Windows',
+                        'DDoS Protection',
+                        'Priority Support',
+                        'Enhanced Backups',
+                        '99.9% Uptime SLA',
+                        '1x IPv4 Address'
+                    ]
+                },
+                {
+                    name: '64GB VPS - Premium',
+                    price: 64.00,
+                    features: [
+                        '64GB DDR4 RAM',
+                        '10 vCPU (Intel Xeon Gold 6150)',
+                        '2.8GHz Base (3.7GHz Turbo)',
+                        '400GB NVMe SSD',
+                        '16TB Traffic',
+                        'Linux/Windows',
+                        'DDoS Protection',
+                        'Priority Support',
+                        'Enhanced Backups',
+                        '99.9% Uptime SLA',
+                        '1x IPv4 Address'
+                    ]
+                },
+                {
+                    name: '128GB VPS - Premium Ryzen',
+                    price: 110.00,
+                    features: [
+                        '128GB DDR4 RAM',
+                        '12 vCPU (AMD Ryzen 5 3600)',
+                        '3.7GHz Base (4.2GHz Turbo)',
+                        '1TB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Linux/Windows',
+                        'Advanced DDoS Protection',
+                        '24/7 Dedicated Support',
+                        'Enhanced Backups',
+                        '100% Performance Guarantee',
+                        '1x IPv4 Address',
+                        'Free Setup',
+                        'Estimated 1 Hour Delivery'
+                    ]
+                }
+            ],
+            ultra: [
+                {
+                    name: '8GB VPS - Ultra Ryzen 9',
+                    price: 15.00,
+                    features: [
+                        '8GB DDR4 RAM',
+                        '2 vCPU (AMD Ryzen 9 5900X)',
+                        '3.7GHz Base (4.8GHz Turbo)',
+                        '50GB NVMe SSD',
+                        '20TB Traffic',
+                        'Linux/Windows',
+                        'Premium DDoS Protection',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
+                },
+                {
+                    name: '12GB VPS - Ultra Ryzen 9',
+                    price: 23.00,
+                    features: [
+                        '12GB DDR4 RAM',
+                        '3 vCPU (AMD Ryzen 9 5900X)',
+                        '3.7GHz Base (4.8GHz Turbo)',
+                        '75GB NVMe SSD',
+                        '25TB Traffic',
+                        'Linux/Windows',
+                        'Premium DDoS Protection',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
+                },
+                {
+                    name: '16GB VPS - Ultra Ryzen 9',
+                    price: 30.00,
+                    features: [
+                        '16GB DDR4 RAM',
+                        '4 vCPU (AMD Ryzen 9 5900X)',
+                        '3.7GHz Base (4.8GHz Turbo)',
+                        '120GB NVMe SSD',
+                        '28TB Traffic',
+                        'Linux/Windows',
+                        'Premium DDoS Protection',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
+                },
+                {
+                    name: '24GB VPS - Ultra Ryzen 9',
+                    price: 45.00,
+                    features: [
+                        '24GB DDR4 RAM',
+                        '6 vCPU (AMD Ryzen 9 5900X)',
+                        '3.7GHz Base (4.8GHz Turbo)',
+                        '160GB NVMe SSD',
+                        '35TB Traffic',
+                        'Linux/Windows',
+                        'Premium DDoS Protection',
+                        '1 IPv4 Address',
+                        '1 Gbit Uplink',
+                        '24/7 Dedicated Support',
+                        'Free Setup',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
+                },
+                {
+                    name: '32GB VPS - Ultra Ryzen 9',
+                    price: 54.99,
+                    features: [
+                        '32GB DDR4 RAM',
+                        '6 vCPU (AMD Ryzen 9 5900X)',
+                        '3.7GHz Base (4.8GHz Turbo)',
+                        '200GB NVMe SSD',
+                        '38TB Traffic',
+                        'Linux/Windows',
+                        'Premium DDoS Protection',
+                        '24/7 Dedicated Support',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security'
+                    ]
+                },
+                {
+                    name: '64GB VPS - Ultra Ryzen 5',
+                    price: 80.00,
+                    features: [
+                        '64GB DDR4 RAM',
+                        '12 vCPU (AMD Ryzen 5 3600)',
+                        '3.7GHz Base (4.2GHz Turbo)',
+                        '1TB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Linux/Windows',
+                        'Premium DDoS Protection',
+                        '24/7 Dedicated Support',
+                        'Free Setup',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security',
+                        '100% Dedicated Performance Guaranteed'
+                    ]
+                },
+                {
+                    name: '128GB VPS - Ultra Ryzen 5',
+                    price: 139.99,
+                    features: [
+                        '128GB DDR4 RAM',
+                        '12 vCPU (AMD Ryzen 5 3600)',
+                        '3.7GHz Base (4.2GHz Turbo)',
+                        '1TB NVMe SSD',
+                        'Unlimited Traffic',
+                        'Linux/Windows',
+                        'Premium DDoS Protection',
+                        '24/7 Dedicated Support',
+                        'Free Setup',
+                        'Daily Backups',
+                        '99.99% Uptime SLA',
+                        'Enhanced Security',
+                        'Delivery in 1 hour'
+                    ]
+                }
+            ]
         }
     },
     web: {
@@ -2527,46 +3015,16 @@ const serviceData: ServiceDataMap = {
         plans: [
             {
                 name: 'Domain Registration',
-                price: 24.00,
+                price: 2.00,
                 features: [
-                    'Yearly registration',
+                    'Starting from 2 USD',
+                    'Yearly Registration',
                     'DNS Management',
                     'WHOIS Privacy',
                     'Email Forwarding',
                     'Domain Lock',
                     'Auto Renewal',
                     'Basic Support'
-                ]
-            },
-            {
-                name: 'Premium Domain',
-                price: 36.00,
-                features: [
-                    'Yearly registration',
-                    'Advanced DNS Management',
-                    'Premium WHOIS Privacy',
-                    'Email Forwarding',
-                    'Domain Lock',
-                    'Auto Renewal',
-                    'Priority Support',
-                    'Advanced Security',
-                    'Free SSL Certificate'
-                ]
-            },
-            {
-                name: 'Ultra Domain',
-                price: 48.00,
-                features: [
-                    'Yearly registration',
-                    'Premium DNS Management',
-                    'Ultimate WHOIS Privacy',
-                    'Enhanced Email Forwarding',
-                    'Domain Lock & Theft Protection',
-                    'Auto Renewal with Discount',
-                    'Dedicated Support',
-                    'Enterprise Security',
-                    'Free Premium SSL Certificate',
-                    'Domain Monitoring'
                 ]
             }
         ]
