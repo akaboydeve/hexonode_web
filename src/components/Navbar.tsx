@@ -2,10 +2,26 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { Menu, X, Server, CreditCard } from 'lucide-react';
+import { Menu, X, Server, CreditCard, Globe } from 'lucide-react';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    const element = document.getElementById(id);
+    if (element) {
+      const offset = 80; // Adjust this value based on your navbar height
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+    setIsOpen(false); // Close mobile menu after clicking
+  };
 
   return (
     <nav className="bg-gray-800/50 backdrop-blur-lg border-b border-gray-700 fixed w-full z-50" suppressHydrationWarning>
@@ -20,9 +36,34 @@ const Navbar = () => {
 
           <div className="hidden md:flex items-center space-x-8">
             <Link href="/" className="text-gray-300 hover:text-purple-400 transition-colors">Home</Link>
-            <a href="/#services" className="text-gray-300 hover:text-purple-400 transition-colors">Services</a>
-            <a href="/#features" className="text-gray-300 hover:text-purple-400 transition-colors">Features</a>
-            <a href="/#pricing" className="text-gray-300 hover:text-purple-400 transition-colors">Pricing</a>
+            <a 
+              href="/#services" 
+              onClick={(e) => scrollToSection(e, 'services')}
+              className="text-gray-300 hover:text-purple-400 transition-colors"
+            >
+              Services
+            </a>
+            <a 
+              href="/#features" 
+              onClick={(e) => scrollToSection(e, 'features')}
+              className="text-gray-300 hover:text-purple-400 transition-colors"
+            >
+              Features
+            </a>
+            <a 
+              href="/#pricing" 
+              onClick={(e) => scrollToSection(e, 'pricing')}
+              className="text-gray-300 hover:text-purple-400 transition-colors"
+            >
+              Pricing
+            </a>
+            <a 
+              href="/#locations" 
+              onClick={(e) => scrollToSection(e, 'locations')}
+              className="text-gray-300 hover:text-purple-400 transition-colors"
+            >
+              Locations
+            </a>
             <Link href="/contactus" className="text-gray-300 hover:text-purple-400 transition-colors">Contact Us</Link>
             <a
               href="https://billing.hexonode.com"
@@ -47,9 +88,34 @@ const Navbar = () => {
         <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             <Link href="/" className="block px-3 py-2 text-gray-300 hover:text-purple-400">Home</Link>
-            <a href="/#services" className="block px-3 py-2 text-gray-300 hover:text-purple-400">Services</a>
-            <a href="/#features" className="block px-3 py-2 text-gray-300 hover:text-purple-400">Features</a>
-            <a href="/#pricing" className="block px-3 py-2 text-gray-300 hover:text-purple-400">Pricing</a>
+            <a 
+              href="/#services" 
+              onClick={(e) => scrollToSection(e, 'services')}
+              className="block px-3 py-2 text-gray-300 hover:text-purple-400"
+            >
+              Services
+            </a>
+            <a 
+              href="/#features" 
+              onClick={(e) => scrollToSection(e, 'features')}
+              className="block px-3 py-2 text-gray-300 hover:text-purple-400"
+            >
+              Features
+            </a>
+            <a 
+              href="/#pricing" 
+              onClick={(e) => scrollToSection(e, 'pricing')}
+              className="block px-3 py-2 text-gray-300 hover:text-purple-400"
+            >
+              Pricing
+            </a>
+            <a 
+              href="/#locations" 
+              onClick={(e) => scrollToSection(e, 'locations')}
+              className="block px-3 py-2 text-gray-300 hover:text-purple-400"
+            >
+              Locations
+            </a>
             <Link href="/contactus" className="block px-3 py-2 text-gray-300 hover:text-purple-400">Contact Us</Link>
             <a
               href="https://billing.hexonode.com"

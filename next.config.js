@@ -10,6 +10,9 @@ const nextConfig = {
         // your project has type errors.
         ignoreBuildErrors: true,
     },
+    images: {
+        domains: ['i.postimg.cc'],
+    },
 }
 
 export default nextConfig; 

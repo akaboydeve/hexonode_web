@@ -23,8 +23,8 @@ const MinecraftPage = () => {
             <div className="max-w-7xl mx-auto">
                 {/* Header */}
                 <div className="text-center mb-12">
-                    <h1 className="text-4xl font-bold text-white mb-4 animate-fade-in">{minecraftData.title}</h1>
-                    <p className="text-xl text-gray-400 animate-fade-in">{minecraftData.description}</p>
+                    <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 animate-pulse">{minecraftData.title}</h1>
+                    <p className="text-xl text-gray-400 animate-fade-in mt-4">{minecraftData.description}</p>
                 </div>
 
                 {/* Location Tabs */}
@@ -82,9 +82,11 @@ const MinecraftPage = () => {
                 {/* Plans Grid */}
                 <div className="space-y-8">
                     <h2 className="text-2xl font-bold text-white text-center mb-8">Select your plan</h2>
-                    <h2 className="text-2xl font-bold text-white mb-6 animate-fade-in">
-                        {selectedLocation} {selectedTier !== 'all' ? selectedTier.charAt(0).toUpperCase() + selectedTier.slice(1) : ''} Plans
-                    </h2>
+                    <div className="text-center mb-8 p-4 bg-gradient-to-r from-purple-600/30 to-indigo-600/30 rounded-lg border border-purple-500/50 shadow-lg">
+                        <h2 className="text-2xl font-bold text-white animate-fade-in">
+                            {selectedLocation} {selectedTier !== 'all' ? selectedTier.charAt(0).toUpperCase() + selectedTier.slice(1) : ''} Plans
+                        </h2>
+                    </div>
                     
                     {tiers.map((tier) => {
                         // Skip if a specific tier is selected and this isn't it
@@ -95,21 +97,21 @@ const MinecraftPage = () => {
                         if (!plans) return null;
 
                         return (
-                            <div key={tier} className="bg-gray-800 rounded-lg shadow-lg p-6 border border-gray-700 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/20">
-                                <h3 className="text-xl font-semibold text-white mb-4 capitalize">
+                            <div key={tier} className="bg-gray-800/70 backdrop-blur-md rounded-xl p-6 shadow-xl border border-gray-700 hover:border-purple-500/70 transition-all duration-300 transform hover:scale-105 flex flex-col mb-8">
+                                <h3 className="text-xl font-semibold text-purple-400 mb-4 capitalize">
                                     {tier} Tier
                                 </h3>
                                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                                     {plans.map((plan: Plan) => (
                                         <div 
                                             key={plan.name} 
-                                            className="bg-gray-900 rounded-lg p-6 border border-gray-700 transition-all duration-300 transform hover:scale-105 hover:border-purple-500 hover:shadow-lg hover:shadow-purple-500/20"
+                                            className="bg-gray-800/70 backdrop-blur-md rounded-xl p-6 shadow-xl border border-gray-700 hover:border-purple-500/70 transition-all duration-300 transform hover:scale-105 flex flex-col"
                                         >
-                                            <h4 className="text-lg font-medium text-white mb-2">
+                                            <h4 className="text-lg font-medium text-purple-400 mb-2">
                                                 {plan.name}
                                             </h4>
                                             {!isOutOfStock(plan) && (
-                                                <p className="text-2xl font-bold text-purple-400 mb-4 transition-colors duration-300">
+                                                <p className="text-2xl font-bold text-white mb-4 transition-colors duration-300">
                                                     ${plan.price}
                                                 </p>
                                             )}

@@ -14,7 +14,7 @@ const services = [
     icon: <Server className="h-8 w-8" />,
     title: 'Game Servers',
     description: 'Host your favorite games with low latency and high uptime.',
-    link: serviceData.games.productLink,
+    link: '/services/games',
     backgroundImage: 'https://hips.hearstapps.com/digitalspyuk.cdnds.net/16/49/1481196340-multiplayer-games.jpg'
   },
   {
@@ -43,7 +43,7 @@ const services = [
     title: 'Dedicated Servers',
     description: 'High-performance dedicated servers with full root access and premium hardware.',
     link: '/services/dedicated',
-    backgroundImage: 'https://cdn.discordapp.com/attachments/1357638139816185916/1369360682360770620/dedicated-server-bg.png?ex=681b9404&is=681a4284&hm=7f7e442a89150db104e9c7f3aaeb8ecc274e70180f447fb13d370dded7f01c5c&'
+    backgroundImage: 'https://i.postimg.cc/kgMDkd53/image.png'
   }
 ];
 
@@ -63,10 +63,9 @@ const Services = () => {
             <a
               href={service.link}
               key={index}
-              target="_blank"
-              rel="noopener noreferrer"
               className="relative bg-gray-800 p-6 rounded-xl border border-gray-700 shadow-lg hover:shadow-2xl hover:scale-105 transform transition-all duration-300 overflow-hidden group"
               style={service.backgroundImage ? { backgroundImage: `url(${service.backgroundImage})`, backgroundSize: 'cover', backgroundPosition: 'center' } : {}}
+              {...(service.title === 'Game Servers' ? {} : { target: "_blank", rel: "noopener noreferrer" })}
             >
               <div className="absolute inset-0 bg-black bg-opacity-50 group-hover:bg-opacity-70 transition-opacity duration-300"></div>
 

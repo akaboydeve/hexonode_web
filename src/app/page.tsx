@@ -1,9 +1,10 @@
 import React from 'react';
 import { Metadata } from 'next';
 import Hero from '@/components/Hero';
-import Pricing from '@/components/Pricing';
 import Services from '@/components/Services';
 import Features from '@/components/Features';
+import Locations from '@/components/Locations';
+import Reviews from '@/components/Reviews';
 import Script from 'next/script';
 
 export const metadata: Metadata = {
@@ -19,8 +20,9 @@ export default function HomePage() {
         <>
             <Hero />
             <Services />
-            <Pricing />
+            <Locations />
             <Features />
+            <Reviews />
             <Script
                 id="schema-publisher"
                 type="application/ld+json"

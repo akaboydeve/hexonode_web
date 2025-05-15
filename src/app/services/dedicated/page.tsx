@@ -6,35 +6,35 @@ import ParticlesComponent from '@/components/ui/particles';
 const locations = [
   { 
     name: 'Singapore', 
-    image: 'https://cdn.discordapp.com/attachments/1316355543803101205/1369350675347148810/1200px-Flag_of_Singapore.png?ex=681b8ab2&is=681a3932&hm=5849e59f1409169490630ebd78a9f88d37ebf4e7455d6a7911f53d2a21991bf0&'
+    image: 'https://i.postimg.cc/Tw0Q5V5S/image.png'
   },
   { 
     name: 'USA', 
-    image: 'https://cdn.discordapp.com/attachments/1316355543803101205/1369351034518110359/raster-illustration-usa-flag_483040-7328.png?ex=681b8b07&is=681a3987&hm=e587a8bb51538895c16496634fc5cc57e38bb50fab066a8c253495c1e4c3c29e&'
+    image: 'https://i.postimg.cc/Xqw2NRcf/image.png'
   },
   { 
     name: 'UK', 
-    image: 'https://cdn.discordapp.com/attachments/1316355543803101205/1369351255926898828/illustration-uk-flag_53876-18166.png?ex=681b8b3c&is=681a39bc&hm=a4d54e403c44eb27f99accb024c51ecbe88ece5baa0268619642f6131204eafb&'
+    image: 'https://i.postimg.cc/hvfdpThf/image.png'
   },
   { 
     name: 'Germany', 
-    image: 'https://cdn.discordapp.com/attachments/1316355543803101205/1369351772170223666/Germany-Flag.png?ex=681b8bb7&is=681a3a37&hm=5ba693be85ac909606bf7d91b3e1c8fb2be92000239ad8a12181b20ec87fe52c&'
+    image: 'https://i.postimg.cc/DymkFgS8/image.png'
   },
   { 
     name: 'France', 
-    image: 'https://cdn.discordapp.com/attachments/1316355543803101205/1369352949280804944/Flag-France.png?ex=681b8cd0&is=681a3b50&hm=594265e19ad348bcb64ac8881447d557b18d712d53a3357df84261465c5a0fbd&'
+    image: 'https://i.postimg.cc/4NRL2QpD/image.png'
   },
   { 
     name: 'Europe', 
-    image: 'https://cdn.discordapp.com/attachments/1316355543803101205/1369353366756528138/europe-flag-uhd-4k-wallpaper.png?ex=681b8d33&is=681a3bb3&hm=b65c0df28fb0e48f9b2623fb92411917a820b0b3f5c6e207026e70fe0687730a&'
+    image: 'https://i.postimg.cc/yY5dzW8C/image.png'
   },
   { 
     name: 'Netherlands', 
-    image: 'https://cdn.discordapp.com/attachments/1316355543803101205/1369353547015262328/2560px-Flag_of_the_Netherlands.png?ex=681b8d5e&is=681a3bde&hm=fd56215be945e283bd663b471e5adef06a2a82fd3c9106bfa920cd38b749a94f&'
+    image: 'https://i.postimg.cc/Wp0HTZ4M/image.png'
   },
   { 
     name: 'India', 
-    image: 'https://cdn.discordapp.com/attachments/1316355543803101205/1369353702535594154/640px-Flag_of_India.png?ex=681b8d84&is=681a3c04&hm=8ee448e909357b30aedbc4c8ee07a6062f52715298e13ff686a3b37f4ad86871&'
+    image: 'https://i.postimg.cc/rpD72Fs3/image.png'
   }
 ];
 

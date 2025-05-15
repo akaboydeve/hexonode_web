@@ -158,7 +158,10 @@ const Hero = () => {
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
     }
   };
 
@@ -199,11 +202,21 @@ const Hero = () => {
                 Get Started
               </button>
               <button
-                onClick={() => scrollToSection('pricing')}
+                onClick={() => scrollToSection('locations')}
                 className="border-2 border-purple-400 text-purple-400 px-8 py-3 rounded-lg font-semibold hover:bg-purple-400 hover:text-white transition-all transform hover:scale-105"
               >
-                View Plans
+                Our Locations
               </button>
+            </div>
+            <div className="mt-4 flex flex-col sm:flex-row gap-4 text-sm text-gray-400">
+              <div className="flex items-center">
+                <span className="text-green-400 mr-2">●</span>
+                Uptime 99.99%
+              </div>
+              <div className="flex items-center">
+                <span className="text-purple-400 mr-2">●</span>
+                Best Support 24/7
+              </div>
             </div>
           </div>
           <div className="hidden md:flex justify-center overflow-hidden relative h-[400px] w-full">
