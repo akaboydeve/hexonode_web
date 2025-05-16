@@ -56,8 +56,10 @@ const WebPage = () => {
                                         ))}
                                     </ul>
                                     <a
-                                        href={webData.productLink}
+                                        href={plan.link || webData.productLink}
                                         className="block w-full text-center bg-purple-600 text-white py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 hover:bg-purple-700 hover:shadow-lg hover:shadow-purple-500/50"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
                                     >
                                         Get Started
                                     </a>

@@ -137,8 +137,10 @@ const VPSPage = () => {
                                                 </ul>
                                                 {!isOutOfStock(plan) && (
                                                     <a
-                                                        href={vpsData.productLink}
+                                                        href={plan.link || vpsData.productLink}
                                                         className="block w-full text-center bg-purple-600 text-white py-2 px-4 rounded-md transition-all duration-300 transform hover:scale-105 hover:bg-purple-700 hover:shadow-lg hover:shadow-purple-500/50"
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
                                                     >
                                                         Get Started
                                                     </a>

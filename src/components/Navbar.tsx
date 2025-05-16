@@ -51,8 +51,8 @@ const Navbar = () => {
               Features
             </a>
             <a 
-              href="/#pricing" 
-              onClick={(e) => scrollToSection(e, 'pricing')}
+              href="/#services" 
+              onClick={(e) => scrollToSection(e, 'services')}
               className="text-gray-300 hover:text-purple-400 transition-colors"
             >
               Pricing
