@@ -33,18 +33,16 @@ const VPSPage = () => {
                             <button
                                 key={location}
                                 onClick={() => setSelectedLocation(location)}
-                                className={`relative px-6 py-3 rounded-xl transition-all duration-500 transform hover:scale-105 group ${
-                                    selectedLocation === location
+                                className={`relative px-6 py-3 rounded-xl transition-all duration-500 transform hover:scale-105 group ${selectedLocation === location
                                         ? 'bg-gradient-to-r from-purple-600 to-indigo-600 text-white shadow-lg shadow-purple-500/50'
                                         : 'bg-gray-800/50 backdrop-blur-sm text-gray-300 hover:bg-gray-700/80 hover:shadow-md border border-gray-700/50'
-                                }`}
+                                    }`}
                             >
                                 <span className="relative z-10 font-medium">{location}</span>
-                                <div className={`absolute inset-0 rounded-xl transition-all duration-300 ${
-                                    selectedLocation === location
+                                <div className={`absolute inset-0 rounded-xl transition-all duration-300 ${selectedLocation === location
                                         ? 'bg-gradient-to-r from-purple-600 to-indigo-600'
                                         : 'bg-gradient-to-r from-purple-600 to-indigo-600 opacity-0 group-hover:opacity-20'
-                                }`} />
+                                    }`} />
                                 {selectedLocation === location && (
                                     <div className="absolute -inset-0.5 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 opacity-0 group-hover:opacity-100 blur transition-opacity duration-300" />
                                 )}
@@ -56,11 +54,10 @@ const VPSPage = () => {
                     <div className="flex flex-wrap justify-center gap-4 mb-8">
                         <button
                             onClick={() => setSelectedTier('all')}
-                            className={`px-6 py-2 rounded-full transition-all duration-300 transform hover:scale-105 ${
-                                selectedTier === 'all'
+                            className={`px-6 py-2 rounded-full transition-all duration-300 transform hover:scale-105 ${selectedTier === 'all'
                                     ? 'bg-purple-600 text-white shadow-lg shadow-purple-500/50'
                                     : 'bg-gray-800 text-gray-300 hover:bg-gray-700 hover:shadow-md'
-                            }`}
+                                }`}
                         >
                             All Plans
                         </button>
@@ -68,11 +65,10 @@ const VPSPage = () => {
                             <button
                                 key={tier}
                                 onClick={() => setSelectedTier(tier)}
-                                className={`px-6 py-2 rounded-full transition-all duration-300 transform hover:scale-105 ${
-                                    selectedTier === tier
+                                className={`px-6 py-2 rounded-full transition-all duration-300 transform hover:scale-105 ${selectedTier === tier
                                         ? 'bg-purple-600 text-white shadow-lg shadow-purple-500/50'
                                         : 'bg-gray-800 text-gray-300 hover:bg-gray-700 hover:shadow-md'
-                                }`}
+                                    }`}
                             >
                                 {tier.charAt(0).toUpperCase() + tier.slice(1)} Plans
                             </button>
@@ -85,7 +81,7 @@ const VPSPage = () => {
                         <h2 className="text-2xl font-bold text-white mb-6 animate-fade-in">
                             {selectedLocation} {selectedTier !== 'all' ? selectedTier.charAt(0).toUpperCase() + selectedTier.slice(1) : ''} Plans
                         </h2>
-                        
+
                         {tiers.map((tier) => {
                             // Skip if a specific tier is selected and this isn't it
                             if (selectedTier !== 'all' && selectedTier !== tier) return null;
@@ -101,8 +97,8 @@ const VPSPage = () => {
                                     </h3>
                                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                                         {plans.map((plan: Plan) => (
-                                            <div 
-                                                key={plan.name} 
+                                            <div
+                                                key={plan.name}
                                                 className="bg-gray-900 rounded-lg p-6 border border-gray-700 transition-all duration-300 transform hover:scale-105 hover:border-purple-500 hover:shadow-lg hover:shadow-purple-500/20"
                                             >
                                                 <h4 className="text-lg font-medium text-white mb-2">
@@ -110,7 +106,7 @@ const VPSPage = () => {
                                                 </h4>
                                                 {!isOutOfStock(plan) && (
                                                     <p className="text-2xl font-bold text-purple-400 mb-4 transition-colors duration-300">
-                                                        ${plan.price}
+                                                        {selectedLocation === 'India' ? 'Rs' : '$'}{plan.price}
                                                     </p>
                                                 )}
                                                 <ul className="space-y-3 mb-6">

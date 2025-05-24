@@ -93,199 +93,249 @@ const serviceData: ServiceDataMap = {
         India: {
             budget: [
                 {
-                    name: '8GB Plan',
-                    price: 400,
+                    name: '1GB INDIA BUDGET MC',
+                    price: 35.00,
+                    link: 'https://billing.hexonode.com/products/minecraft-servers/india/budget/1gb',
+                    features: [
+                        '1 vCores',
+                        '2.3 to 3.4 Ghz',
+                        '1 GB DRR4 RAM',
+                        '5 GB 1 NVMe',
+                        '24/7 Ticket Support',
+                        'Free Setup'
+                    ]
+                },
+                {
+                    name: '2GB INDIA BUDGET MC',
+                    price: 70.00,
+                    link: 'https://billing.hexonode.com/products/minecraft-servers/india/budget/2gb',
+                    features: [
+                        '1 vCores',
+                        '2.3 to 3.4 Ghz',
+                        '2 GB DRR4 RAM',
+                        '10 GB 1 NVMe',
+                        '24/7 Ticket Support',
+                        'Free Setup'
+                    ]
+                },
+                {
+                    name: '4GB INDIA BUDGET MC',
+                    price: 140.00,
+                    link: 'https://billing.hexonode.com/products/minecraft-servers/india/budget/4gb',
+                    features: [
+                        '2 vCores',
+                        '2.3 to 3.4 Ghz',
+                        '4 GB DRR4 RAM',
+                        '20GB 1 NVMe',
+                        '24/7 Ticket Support',
+                        'Free Setup'
+                    ]
+                },
+                {
+                    name: '8GB INDIA BUDGET MC',
+                    price: 280.00,
                     link: 'https://billing.hexonode.com/products/minecraft-servers/india/budget/8gb',
                     features: [
-                        '8GB RAM',
-                        '3 vCPU Cores',
-                        '80GB SSD Storage',
-                        'Unlimited Bandwidth',
-                        'DDoS Protection',
-                        'Priority Support'
+                        '3 vCores',
+                        '2.3 to 3.4 Ghz',
+                        '8 GB DRR4 RAM',
+                        '40 GB 1 NVMe',
+                        '24/7 Ticket Support',
+                        'Free Setup'
                     ]
                 },
                 {
-                    name: '16GB Plan',
-                    price: 800,
+                    name: '12GB INDIA BUDGET MC',
+                    price: 420.00,
+                    link: 'https://billing.hexonode.com/products/minecraft-servers/india/budget/12gb',
+                    features: [
+                        '3 vCores',
+                        '2.3 to 3.4 Ghz',
+                        '10 GB DRR4 RAM',
+                        '60 GB 1 NVMe',
+                        '24/7 Ticket Support',
+                        'Free Setup'
+                    ]
+                },
+                {
+                    name: '16GB INDIA BUDGET MC',
+                    price: 560.00,
                     link: 'https://billing.hexonode.com/products/minecraft-servers/india/budget/16gb',
                     features: [
-                        '16GB RAM',
-                        '4 vCPU Cores',
-                        '160GB SSD Storage',
-                        'Unlimited Bandwidth',
-                        'DDoS Protection',
-                        'Priority Support'
+                        '4 vCores',
+                        '2.3 to 3.4 Ghz',
+                        '16 GB DRR4 RAM',
+                        '80 GB NVMe',
+                        '24/7 Ticket Support',
+                        'Free Setup'
                     ]
                 },
                 {
-                    name: '32GB Plan',
-                    price: 1600,
+                    name: '24GB INDIA BUDGET MC',
+                    price: 840.00,
+                    link: 'https://billing.hexonode.com/products/minecraft-servers/india/budget/24gb',
+                    features: [
+                        '4 vCores',
+                        '2.3 to 3.4 Ghz',
+                        '24 GB DRR4 RAM',
+                        '100 GB NVMe',
+                        '24/7 Ticket Support',
+                        'Free Setup'
+                    ]
+                },
+                {
+                    name: '32GB INDIA BUDGET MC',
+                    price: 1120.00,
                     link: 'https://billing.hexonode.com/products/minecraft-servers/india/budget/32gb',
                     features: [
-                        '32GB RAM',
-                        '6 vCPU Cores',
-                        '320GB SSD Storage',
-                        'Unlimited Bandwidth',
-                        'DDoS Protection',
-                        'Priority Support'
+                        '8 vCores',
+                        '2.3 to 3.4 Ghz',
+                        '32 GB DRR4 RAM',
+                        '160 GB 1 NVMe',
+                        '24/7 Ticket Support',
+                        'Free Setup'
                     ]
                 },
                 {
-                    name: '64GB Plan',
-                    price: 3200,
-                    link: 'https://billing.hexonode.com/products/minecraft-servers/india/budget/64gb',
+                    name: '48GB INDIA BUDGET MC',
+                    price: 1680.00,
+                    link: 'https://billing.hexonode.com/products/minecraft-servers/india/budget/48gb',
                     features: [
-                        '64GB RAM',
-                        '10 vCPU Cores',
-                        '640GB SSD Storage',
-                        'Unlimited Bandwidth',
-                        'DDoS Protection',
-                        'Priority Support'
+                        '8 vCores',
+                        '2.3 to 3.4 Ghz',
+                        '48 GB DRR4 RAM',
+                        '300 GB 1 NVMe',
+                        '24/7 Ticket Support',
+                        'Free Setup'
                     ]
                 }
             ],
             premium: [
                 {
-                    name: '8GB Plan',
-                    price: 600,
+                    name: '1GB INDIA PREMIUM MC',
+                    price: 50.00,
+                    link: 'https://billing.hexonode.com/products/minecraft-servers/india/premium/1gb',
+                    features: [
+                        '1 vCores',
+                        '3.0 to 4.1 Ghz',
+                        '1 GB DRR4 RAM',
+                        '5 GB NVMe',
+                        '24/7 Ticket Support',
+                        'Free Setup'
+                    ]
+                },
+                {
+                    name: '2GB INDIA PREMIUM MC',
+                    price: 100.00,
+                    link: 'https://billing.hexonode.com/products/minecraft-servers/india/premium/2gb',
+                    features: [
+                        '1 vCores',
+                        '3.0 to 4.1 Ghz',
+                        '2 GB DRR4 RAM',
+                        '10 GB NVMe',
+                        '24/7 Ticket Support',
+                        'Free Setup'
+                    ]
+                },
+                {
+                    name: '4GB INDIA PREMIUM MC',
+                    price: 200.00,
+                    link: 'https://billing.hexonode.com/products/minecraft-servers/india/premium/4gb',
+                    features: [
+                        '2 vCores',
+                        '3.0 to 4.1 Ghz',
+                        '4 GB DRR4 RAM',
+                        '10 GB NVMe',
+                        '24/7 Ticket Support',
+                        'Free Setup'
+                    ]
+                },
+                {
+                    name: '6GB INDIA PREMIUM MC',
+                    price: 300.00,
+                    link: 'https://billing.hexonode.com/products/minecraft-servers/india/premium/6gb',
+                    features: [
+                        '3 vCores',
+                        '3.0 to 4.1 Ghz',
+                        '6 GB DRR4 RAM',
+                        '15 GB NVMe',
+                        '24/7 Ticket Support',
+                        'Free Setup'
+                    ]
+                },
+                {
+                    name: '8GB INDIA PREMIUM MC',
+                    price: 400.00,
                     link: 'https://billing.hexonode.com/products/minecraft-servers/india/premium/8gb',
                     features: [
-                        '8GB RAM',
-                        '3 vCPU Cores',
-                        '80GB SSD Storage',
-                        'Unlimited Bandwidth',
-                        'Advanced DDoS Protection',
-                        'Priority Support',
-                        'Enhanced Backups',
-                        '99.9% Uptime SLA'
+                        '3 vCores',
+                        '3.0 to 4.1 Ghz',
+                        '8 GB DRR4 RAM',
+                        '20 GB NVMe',
+                        '24/7 Ticket Support',
+                        'Free Setup'
                     ]
                 },
                 {
-                    name: '16GB Plan',
-                    price: 1200,
+                    name: '12GB INDIA PREMIUM MC',
+                    price: 600.00,
+                    link: 'https://billing.hexonode.com/products/minecraft-servers/india/premium/12gb',
+                    features: [
+                        '3 vCores',
+                        '3.0 to 4.1 Ghz',
+                        '12 GB DRR4 RAM',
+                        '30 GB NVMe',
+                        '24/7 Ticket Support',
+                        'Free Setup'
+                    ]
+                },
+                {
+                    name: '16GB INDIA PREMIUM MC',
+                    price: 800.00,
                     link: 'https://billing.hexonode.com/products/minecraft-servers/india/premium/16gb',
                     features: [
-                        '16GB RAM',
-                        '4 vCPU Cores',
-                        '160GB SSD Storage',
-                        'Unlimited Bandwidth',
-                        'Advanced DDoS Protection',
-                        'Priority Support',
-                        'Enhanced Backups',
-                        '99.9% Uptime SLA'
+                        '8 vCores',
+                        '3.0 to 4.1 Ghz',
+                        '16 GB DRR4 RAM',
+                        '80 GB NVMe',
+                        '24/7 Ticket Support',
+                        'Free Setup'
                     ]
                 },
                 {
-                    name: '32GB Plan',
-                    price: 2400,
+                    name: '24GB INDIA PREMIUM MC',
+                    price: 1200.00,
+                    link: 'https://billing.hexonode.com/products/minecraft-servers/india/premium/24gb',
+                    features: [
+                        '4 vCores',
+                        '3.0 to 4.1 Ghz',
+                        '24 GB DRR4 RAM',
+                        '100 GB NVMe',
+                        '24/7 Ticket Support',
+                        'Free Setup'
+                    ]
+                },
+                {
+                    name: '32GB INDIA PREMIUM MC',
+                    price: 1600.00,
                     link: 'https://billing.hexonode.com/products/minecraft-servers/india/premium/32gb',
                     features: [
-                        '32GB RAM',
-                        '6 vCPU Cores',
-                        '320GB SSD Storage',
-                        'Unlimited Bandwidth',
-                        'Advanced DDoS Protection',
-                        'Priority Support',
-                        'Enhanced Backups',
-                        '99.9% Uptime SLA'
-                    ]
-                },
-                {
-                    name: '64GB Plan',
-                    price: 4800,
-                    link: 'https://billing.hexonode.com/products/minecraft-servers/india/premium/64gb',
-                    features: [
-                        '64GB RAM',
-                        '10 vCPU Cores',
-                        '640GB SSD Storage',
-                        'Unlimited Bandwidth',
-                        'Advanced DDoS Protection',
-                        'Priority Support',
-                        'Enhanced Backups',
-                        '99.9% Uptime SLA'
+                        '8 vCores',
+                        '3.0 to 4.1 Ghz',
+                        '32 GB DRR4 RAM',
+                        '160 GB NVMe',
+                        '24/7 Ticket Support',
+                        'Free Setup'
                     ]
                 }
             ],
             ultra: [
                 {
                     name: '8GB Plan - Ryzen 9',
-                    price: 800,
+                    price: 9999,
                     link: 'https://billing.hexonode.com/products/minecraft-servers/india/ultra/8gb',
                     features: [
-                        '8GB RAM',
-                        '3 vCPU Cores (Ryzen 9)',
-                        '80GB SSD Storage',
-                        'Unlimited Bandwidth',
-                        'Premium DDoS Protection',
-                        '24/7 Dedicated Support',
-                        'Daily Backups',
-                        '99.99% Uptime SLA',
-                        'Enhanced Security'
-                    ]
-                },
-                {
-                    name: '16GB Plan - Ryzen 9',
-                    price: 1600,
-                    link: 'https://billing.hexonode.com/products/minecraft-servers/india/ultra/16gb',
-                    features: [
-                        '16GB RAM',
-                        '4 vCPU Cores (Ryzen 9)',
-                        '160GB SSD Storage',
-                        'Unlimited Bandwidth',
-                        'Premium DDoS Protection',
-                        '24/7 Dedicated Support',
-                        'Daily Backups',
-                        '99.99% Uptime SLA',
-                        'Enhanced Security'
-                    ]
-                },
-                {
-                    name: '32GB Plan - Ryzen 9',
-                    price: 3200,
-                    link: 'https://billing.hexonode.com/products/minecraft-servers/india/ultra/32gb',
-                    features: [
-                        '32GB RAM',
-                        '6 vCPU Cores (Ryzen 9)',
-                        '320GB SSD Storage',
-                        'Unlimited Bandwidth',
-                        'Premium DDoS Protection',
-                        '24/7 Dedicated Support',
-                        'Daily Backups',
-                        '99.99% Uptime SLA',
-                        'Enhanced Security'
-                    ]
-                },
-                {
-                    name: '64GB Plan - Ryzen 9',
-                    price: 6400,
-                    link: 'https://billing.hexonode.com/products/minecraft-servers/india/ultra/64gb',
-                    features: [
-                        '64GB RAM',
-                        '10 vCPU Cores (Ryzen 9)',
-                        '640GB SSD Storage',
-                        'Unlimited Bandwidth',
-                        'Premium DDoS Protection',
-                        '24/7 Dedicated Support',
-                        'Daily Backups',
-                        '99.99% Uptime SLA',
-                        'Enhanced Security'
-                    ]
-                },
-                {
-                    name: '128GB Plan - Ryzen 9',
-                    price: 12800,
-                    link: 'https://billing.hexonode.com/products/minecraft-servers/india/ultra/128gb',
-                    features: [
-                        '128GB RAM',
-                        '12 vCPU Cores (Ryzen 9)',
-                        '1280GB SSD Storage',
-                        'Unlimited Bandwidth',
-                        'Premium DDoS Protection',
-                        '24/7 Dedicated Support',
-                        'Daily Backups',
-                        '99.99% Uptime SLA',
-                        'Enhanced Security'
+                        'out of stock'
                     ]
                 }
             ]
@@ -1061,8 +1111,8 @@ const serviceData: ServiceDataMap = {
             ]
         },
         UK: {
-             budget: [
-                {       
+            budget: [
+                {
                     name: '8GB Plan - Budget',
                     price: 5.60,
                     link: 'https://billing.hexonode.com/products/minecraft-servers/uk/budget/8gb',
@@ -1471,6 +1521,7 @@ const serviceData: ServiceDataMap = {
                 price: 2.99,
                 link: 'https://panel.hexonode.com/web/starter',
                 features: [
+                    'WordPress Ready',
                     '10GB Storage',
                     '1 Website',
                     'Free SSL',
@@ -1484,6 +1535,7 @@ const serviceData: ServiceDataMap = {
                 price: 5.99,
                 link: 'https://panel.hexonode.com/web/business',
                 features: [
+                    'WordPress Ready',
                     'Unlimited Storage',
                     'Unlimited Websites',
                     'Free SSL',
@@ -1497,6 +1549,7 @@ const serviceData: ServiceDataMap = {
                 price: 9.99,
                 link: 'https://panel.hexonode.com/web/enterprise',
                 features: [
+                    'WordPress Ready',
                     'Unlimited Everything',
                     'Dedicated IP',
                     'Free Domain',
