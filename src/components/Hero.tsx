@@ -1,49 +1,43 @@
 "use client";
 
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
-import { Server, Shield } from 'lucide-react';
+import { Server, Shield, Zap, Globe, Cpu } from 'lucide-react';
 // import { Link } from 'react-router-dom'; // Removed unused import
 import Particles from "react-tsparticles";
 import { loadSlim } from "tsparticles-slim";
 import type { Engine } from "tsparticles-engine";
 import type { ISourceOptions } from "tsparticles-engine";
+import { motion } from 'framer-motion';
 
 const Hero = () => {
-  const images = [
+  const features = [
     {
-      src: "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=800&q=80",
-      alt: "Server Infrastructure"
+      icon: <Server className="w-6 h-6" />,
+      title: "Quantum Infrastructure",
+      description: "Powered by next-gen processors"
     },
     {
-      src: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80",
-      alt: "Gaming Server"
+      icon: <Shield className="w-6 h-6" />,
+      title: "Advanced Security",
+      description: "AI-powered threat detection"
     },
     {
-      src: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=800&q=80",
-      alt: "Data Center"
+      icon: <Zap className="w-6 h-6" />,
+      title: "Lightning Fast",
+      description: "Instant deployment & scaling"
     },
     {
-      src: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&w=800&q=80",
-      alt: "Web Hosting"
-    }
+      icon: <Globe className="w-6 h-6" />,
+      title: "Global Edge Network",
+      description: "Multi-region availability"
+    },
   ];
-
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 5000); // Change image every 5 seconds
-
-    return () => clearInterval(interval);
-  }, [images.length]);
 
   // Particles initialization
   const particlesInit = useCallback(async (engine: Engine) => {
     await loadSlim(engine);
   }, []);
 
-  // Use useMemo to prevent particles options from being recreated on every render
   const particlesOptions = useMemo((): ISourceOptions => {
     return {
       background: {
@@ -54,7 +48,7 @@ const Hero = () => {
       fpsLimit: 120,
       particles: {
         color: {
-          value: "#ffffff",
+          value: ["#ffffff", "#a855f7", "#c084fc"],
         },
         move: {
           direction: "none",
@@ -63,39 +57,65 @@ const Hero = () => {
             default: "out",
           },
           random: true,
-          speed: 0.3,
+          speed: 0.5,
           straight: false,
+          path: {
+            enable: true,
+            delay: {
+              value: 0.1
+            },
+            options: {
+              size: 5,
+              draw: false,
+              increment: 0.001
+            }
+          }
         },
         number: {
           density: {
             enable: true,
             area: 800,
           },
-          value: 80,
+          value: 100,
         },
         opacity: {
-          value: 0.5,
+          value: 0.7,
           random: true,
           animation: {
             enable: true,
-            speed: 0.5,
+            speed: 1,
             minimumValue: 0.1,
             sync: false
           }
         },
         shape: {
-          type: "circle",
+          type: ["circle", "triangle", "polygon"],
+          options: {
+            polygon: {
+              sides: 6
+            }
+          }
         },
         size: {
-          value: { min: 1, max: 3 },
+          value: { min: 1, max: 5 },
           random: true,
+          animation: {
+            enable: true,
+            speed: 2,
+            minimumValue: 0.1,
+            sync: false
+          }
         },
+        glow: {
+          enable: true,
+          color: "#a855f7",
+          radius: 2
+        }
       },
       detectRetina: true,
     };
   }, []);
 
-  // Additional floating shapes configuration
   const floatingShapesOptions = useMemo((): ISourceOptions => {
     return {
       background: {
@@ -110,7 +130,7 @@ const Hero = () => {
       fpsLimit: 60,
       particles: {
         color: {
-          value: ["#9333ea", "#a855f7", "#c084fc", "#6b21a8"],
+          value: ["#9333ea", "#a855f7", "#c084fc", "#6b21a8", "#4c1d95"],
         },
         move: {
           direction: "none",
@@ -119,15 +139,26 @@ const Hero = () => {
             default: "bounce",
           },
           random: false,
-          speed: 0.5,
+          speed: 0.8,
           straight: false,
+          attract: {
+            enable: true,
+            rotateX: 600,
+            rotateY: 1200
+          }
         },
         number: {
-          value: 8,
+          value: 12,
         },
         opacity: {
-          value: 0.7,
+          value: 0.8,
           random: true,
+          animation: {
+            enable: true,
+            speed: 1,
+            minimumValue: 0.1,
+            sync: false
+          }
         },
         shape: {
           type: ["triangle", "polygon", "circle"],
@@ -138,17 +169,28 @@ const Hero = () => {
           }
         },
         size: {
-          value: { min: 15, max: 30 },
+          value: { min: 20, max: 40 },
           random: true,
+          animation: {
+            enable: true,
+            speed: 2,
+            minimumValue: 0.1,
+            sync: false
+          }
         },
         roll: {
           enable: true,
-          speed: 3
+          speed: 4
         },
         wobble: {
           enable: true,
-          distance: 30,
-          speed: 5
+          distance: 40,
+          speed: 6
+        },
+        glow: {
+          enable: true,
+          color: "#a855f7",
+          radius: 4
         }
       },
       detectRetina: true,
@@ -166,7 +208,7 @@ const Hero = () => {
   };
 
   return (
-    <div className="pt-20 bg-gradient-to-b from-gray-900 via-purple-900 to-gray-900 text-white relative overflow-hidden">
+    <div className="min-h-screen pt-16 bg-gradient-to-b from-gray-900 via-purple-900/50 to-gray-900 text-white relative overflow-hidden">
       {/* Star Particles Background */}
       <Particles
         id="tsparticles-stars"
@@ -183,76 +225,139 @@ const Hero = () => {
         options={floatingShapesOptions}
       />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 relative z-10">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="w-full">
-            <h1 className="text-4xl md:text-6xl font-bold leading-tight bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-purple-200 pb-3 inline-block w-auto">
-              Premium Hosting Solutions
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
+        <div className="text-center mb-12">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="relative"
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 via-pink-500/20 to-purple-600/20 blur-3xl -z-10"></div>
+            <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-4">
+              <motion.span
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-purple-400 inline-block"
+              >
+                Next-Gen
+              </motion.span>
+              <br />
+              <motion.span
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="text-white inline-block"
+              >
+                Hosting Solutions
+              </motion.span>
             </h1>
-            <p className="mt-6 text-lg text-gray-300">
-              Experience lightning-fast Minecraft servers, game hosting, VPS solutions, web hosting,
-              Discord bot services, and domain registration. Powered by enterprise hardware and protected
-              by advanced DDoS protection.
-            </p>
-            <div className="mt-8 flex flex-col sm:flex-row gap-4">
-              <button
-                onClick={() => scrollToSection('services')}
-                className="bg-purple-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-purple-500 transition-all transform hover:scale-105"
-              >
-                Get Started
-              </button>
-              <button
-                onClick={() => scrollToSection('locations')}
-                className="border-2 border-purple-400 text-purple-400 px-8 py-3 rounded-lg font-semibold hover:bg-purple-400 hover:text-white transition-all transform hover:scale-105"
-              >
-                Our Locations
-              </button>
-            </div>
-            <div className="mt-4 flex flex-col sm:flex-row gap-4 text-sm text-gray-400">
-              <div className="flex items-center">
-                <span className="text-green-400 mr-2">●</span>
-                Uptime 99.99%
-              </div>
-              <div className="flex items-center">
-                <span className="text-purple-400 mr-2">●</span>
-                Best Support 24/7
-              </div>
-            </div>
-          </div>
-          <div className="hidden md:flex justify-center overflow-hidden relative h-[400px] w-full">
-            <div className="relative w-full h-full">
-              {images.map((image, index) => (
-                <div
-                  key={index}
-                  className={`absolute inset-0 transition-all duration-1000 transform ${index === currentImageIndex
-                    ? 'opacity-100 translate-x-0'
-                    : index < currentImageIndex
-                      ? 'opacity-0 -translate-x-full'
-                      : 'opacity-0 translate-x-full'
-                    }`}
-                >
-                  <img
-                    src={image.src}
-                    alt={image.alt}
-                    className="rounded-lg shadow-2xl ring-2 ring-purple-400/20 w-full h-full object-cover"
-                  />
-                </div>
-              ))}
-            </div>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
+            >
+              Experience the future of hosting with our quantum-powered infrastructure.
+              Unmatched performance, security, and innovation at your fingertips.
+            </motion.p>
+          </motion.div>
+        </div>
 
-            {/* Image navigation dots */}
-            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
-              {images.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentImageIndex(index)}
-                  className={`w-2 h-2 rounded-full ${index === currentImageIndex ? 'bg-purple-400' : 'bg-gray-400'
-                    }`}
-                  aria-label={`Go to slide ${index + 1}`}
-                />
-              ))}
+        <div className="grid md:grid-cols-2 gap-8 items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="space-y-6"
+          >
+            {features.map((feature, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
+                className="group flex items-start space-x-4 bg-gray-800/30 backdrop-blur-xl p-5 rounded-2xl border border-gray-700/50 hover:border-purple-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/10"
+              >
+                <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-purple-600/20 to-pink-600/20 rounded-xl flex items-center justify-center text-purple-400 group-hover:scale-110 transition-transform duration-300">
+                  {feature.icon}
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-white group-hover:text-purple-400 transition-colors duration-300">{feature.title}</h3>
+                  <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">{feature.description}</p>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="relative"
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 via-pink-500/20 to-blue-600/20 rounded-3xl blur-3xl"></div>
+            <div className="relative bg-gray-800/30 backdrop-blur-xl rounded-3xl p-6 border border-gray-700/50 hover:border-purple-500/50 transition-all duration-300">
+              <div className="space-y-6">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-9 h-9 bg-gradient-to-br from-purple-600/20 to-pink-600/20 rounded-lg flex items-center justify-center">
+                      <Cpu className="w-5 h-5 text-purple-400" />
+                    </div>
+                    <span className="text-white font-semibold">System Status</span>
+                  </div>
+                  <span className="px-3 py-1.5 bg-green-500/20 text-green-400 rounded-full text-sm font-medium backdrop-blur-sm">All Systems Operational</span>
+                </div>
+                
+                <div className="grid grid-cols-2 gap-4">
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: 0.6 }}
+                    className="bg-gray-700/30 backdrop-blur-sm rounded-xl p-4 border border-gray-600/50 hover:border-purple-500/50 transition-all duration-300"
+                  >
+                    <div className="text-gray-400 text-sm mb-1">Uptime</div>
+                    <div className="text-2xl font-bold text-white">99.99%</div>
+                    <div className="mt-2 h-1 bg-gray-600/50 rounded-full overflow-hidden">
+                      <div className="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full" style={{ width: '99.99%' }}></div>
+                    </div>
+                  </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: 0.7 }}
+                    className="bg-gray-700/30 backdrop-blur-sm rounded-xl p-4 border border-gray-600/50 hover:border-purple-500/50 transition-all duration-300"
+                  >
+                    <div className="text-gray-400 text-sm mb-1">Response Time</div>
+                    <div className="text-2xl font-bold text-white">&lt;10ms</div>
+                    <div className="mt-2 h-1 bg-gray-600/50 rounded-full overflow-hidden">
+                      <div className="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full" style={{ width: '95%' }}></div>
+                    </div>
+                  </motion.div>
+                </div>
+
+                <div className="pt-4 flex flex-col items-center space-y-3">
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => scrollToSection('services')}
+                    className="w-full max-w-md bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-3 rounded-xl font-semibold hover:from-purple-700 hover:to-pink-700 transition-all duration-300 shadow-lg hover:shadow-purple-500/25"
+                  >
+                    Get Started Now
+                  </motion.button>
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => scrollToSection('location')}
+                    className="w-full max-w-md bg-gray-700/30 backdrop-blur-sm text-white px-6 py-3 rounded-xl font-semibold hover:bg-gray-700/50 transition-all duration-300 border border-gray-600/50 hover:border-purple-500/50"
+                  >
+                    Our Locations
+                  </motion.button>
+                </div>
+              </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>

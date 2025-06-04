@@ -22,7 +22,7 @@ export default function HomePage() {
             <Services />
             <Locations />
             <Features />
-            <Reviews />
+            {/* <Reviews />  */}
             <Script
                 id="schema-publisher"
                 type="application/ld+json"

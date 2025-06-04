@@ -108,7 +108,7 @@ const MinecraftPage = () => {
                                                 </h4>
                                                 {!isOutOfStock(plan) && (
                                                     <p className="text-2xl font-bold text-white mb-4 transition-colors duration-300">
-                                                        {selectedLocation === 'India' ? 'Rs' : '$'}{plan.price}
+                                                        {selectedLocation === 'India' ? 'Rs. ' : '$'}{plan.price}
                                                     </p>
                                                 )}
                                                 <ul className="space-y-3 mb-6">

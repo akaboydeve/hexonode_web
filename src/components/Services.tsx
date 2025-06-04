@@ -60,22 +60,35 @@ const Services = () => {
 
         <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <a
-              href={service.link}
+            <div
               key={index}
               className="relative bg-gray-800 p-6 rounded-xl border border-gray-700 shadow-lg hover:shadow-2xl hover:scale-105 transform transition-all duration-300 overflow-hidden group"
               style={service.backgroundImage ? { backgroundImage: `url(${service.backgroundImage})`, backgroundSize: 'cover', backgroundPosition: 'center' } : {}}
-              {...(service.title === 'Game Servers' ? {} : { target: "_blank", rel: "noopener noreferrer" })}
             >
-              <div className="absolute inset-0 bg-black bg-opacity-50 group-hover:bg-opacity-70 transition-opacity duration-300"></div>
+              <div className="absolute inset-0 bg-black bg-opacity-70 group-hover:bg-opacity-90 transition-opacity duration-300"></div>
 
-              <div className="relative z-10">
+              <div className="relative z-10 flex flex-col h-full">
                 <div className="text-purple-400">{service.icon}</div>
                 <h3 className="mt-4 text-xl font-semibold text-white">{service.title}</h3>
-                <p className="mt-2 text-gray-300">{service.description}</p>
-                <div className="mt-4 text-purple-300 font-medium">Learn more →</div>
+                <p className="mt-2 text-gray-300 flex-grow">{service.description}</p>
+                <div className="mt-auto pt-6 flex flex-col space-y-3">
+                  <a
+                    href={service.link}
+                    className="inline-flex items-center justify-center px-6 py-3 border-2 border-purple-500 text-sm font-bold rounded-lg text-white bg-purple-600/90 hover:bg-purple-700 hover:border-purple-400 transition-all duration-200 shadow-lg hover:shadow-purple-500/20"
+                    {...(service.title === 'Game Servers' ? {} : { target: "_blank", rel: "noopener noreferrer" })}
+                  >
+                    Get Started
+                  </a>
+                  <a
+                    href={service.link}
+                    className="text-purple-300 font-medium text-sm hover:text-purple-400 transition-colors duration-200 text-center"
+                    {...(service.title === 'Game Servers' ? {} : { target: "_blank", rel: "noopener noreferrer" })}
+                  >
+                    Learn more →
+                  </a>
+                </div>
               </div>
-            </a>
+            </div>
           ))}
         </div>
       </div>

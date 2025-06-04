@@ -343,11 +343,10 @@ const serviceData: ServiceDataMap = {
         Singapore: {
             budget: [
                 {
-                    name: 'Budget Plans',
+                    name: 'Coming Soon',
                     price: 0,
-                    link: 'https://billing.hexonode.com/products/minecraft-servers/singapore/budget',
                     features: [
-                        'OUT OF STOCK'
+                        'COMING SOON',
                     ]
                 }
             ],
@@ -527,170 +526,265 @@ const serviceData: ServiceDataMap = {
             budget: [
                 {
                     name: '8GB VPS - Budget',
-                    price: 12.00,
+                    price: 15.00,
                     link: 'https://billing.hexonode.com/products/us-budget-mc/8gb-usa-budget-mc',
                     features: [
-                        '8GB RAM',
-                        '3 vCPU',
-                        '100GB NVMe SSD',
-                        'Unlimited Traffic',
-                        'Linux/Windows',
-                        'DDoS Protection'
+                        'Linux VPS',
+                        'Intel Xeon Gold 6130',
+                        '3 Core',
+                        '8GB RAM (ECC Registered)',
+                        '65GB SSD/NVME',
+                        'Bandwidth: 10TB',
+                        '1x ipv4',
+                        'Premium DDoS Protection',
+                        '24/7 Ticket Support',
+                        'Delivery Time 4 to 5 hours',
+                        'Free Setup'
                     ]
                 },
                 {
                     name: '16GB VPS - Budget',
-                    price: 24.00,
+                    price: 20.00,
                     link: 'https://billing.hexonode.com/products/us-budget-mc/16gb-usa-budget-mc',
                     features: [
-                        '16GB RAM',
-                        '4 vCPU',
-                        '200GB NVMe SSD',
-                        'Unlimited Traffic',
-                        'Linux/Windows',
-                        'DDoS Protection'
+                        'Linux VPS',
+                        'Intel Xeon Gold 6130',
+                        '4 Core',
+                        '16GB RAM (ECC Registered)',
+                        '96GB SSD/NVME',
+                        'Bandwidth: 20TB',
+                        '1x ipv4',
+                        'Premium DDoS Protection',
+                        '24/7 Ticket Support',
+                        'Delivery Time 4 to 5 hours',
+                        'Free Setup'
                     ]
                 },
                 {
                     name: '32GB VPS - Budget',
-                    price: 48.00,
+                    price: 32.00,
                     link: 'https://billing.hexonode.com/products/us-budget-mc/32gb-usa-budget-mc',
                     features: [
-                        '32GB RAM',
-                        '6 vCPU',
-                        '400GB NVMe SSD',
-                        'Unlimited Traffic',
-                        'Linux/Windows',
-                        'DDoS Protection'
+                        'Linux VPS',
+                        'Intel Xeon Gold 6130',
+                        '6 Core',
+                        '32GB RAM (ECC Registered)',
+                        '192GB SSD/NVME',
+                        'Bandwidth: 20TB',
+                        '1x ipv4',
+                        'Premium DDoS Protection',
+                        '24/7 Ticket Support',
+                        'Delivery Time 4 to 5 hours',
+                        'Free Setup'
+                    ]
+                },
+                {
+                    name: '48GB VPS - Budget',
+                    price: 45.00,
+                    link: 'https://billing.hexonode.com/products/us-budget-mc/48gb-usa-budget-mc',
+                    features: [
+                        'Linux VPS',
+                        'Intel Xeon Gold 6130',
+                        '7 Core',
+                        '48GB RAM (ECC Registered)',
+                        '250GB SSD/NVME',
+                        'Bandwidth: 20TB',
+                        '1x ipv4',
+                        'Premium DDoS Protection',
+                        '24/7 Ticket Support',
+                        'Delivery Time 4 to 5 hours',
+                        'Free Setup'
                     ]
                 },
                 {
                     name: '64GB VPS - Budget',
-                    price: 96.00,
+                    price: 55.00,
                     link: 'https://billing.hexonode.com/products/us-budget-mc/64gb-usa-budget-mc',
                     features: [
-                        '64GB RAM',
-                        '10 vCPU',
-                        '800GB NVMe SSD',
-                        'Unlimited Traffic',
-                        'Linux/Windows',
-                        'DDoS Protection'
+                        'Linux VPS',
+                        'Intel Xeon Gold 6130',
+                        '9 Core',
+                        '64GB RAM (ECC Registered)',
+                        '320GB SSD/NVME',
+                        'Bandwidth: 20TB',
+                        '1x ipv4',
+                        'Premium DDoS Protection',
+                        '24/7 Ticket Support',
+                        'Delivery Time 4 to 5 hours',
+                        'Free Setup'
                     ]
                 }
             ],
             premium: [
                 {
                     name: '8GB VPS - Premium',
-                    price: 18.00,
-                    link: 'https://billing.hexonode.com/products/us-premium-mc/8gb-usa-premium-mc',
+                    price: 20.00,
                     features: [
+                        'Linux VPS',
+                        'Xeon Gold 6226R',
+                        '2.90 GHz Base / 3.90 GHz Turbo',
+                        '4 Cores',
                         '8GB RAM',
-                        '3 vCPU',
-                        '100GB NVMe SSD',
-                        'Unlimited Traffic',
-                        'Linux/Windows',
-                        'DDoS Protection',
-                        'Priority Support',
-                        'Enhanced Backups',
-                        '99.9% Uptime SLA'
+                        '60 GB NVME',
+                        'Bandwidth: 3TB',
+                        '1x ipv4',
+                        'Premium DDoS Protection',
+                        '24/7 Ticket Support',
+                        'Delivery Time 4 to 5 hours',
+                        'Free Setup'
                     ]
                 },
                 {
                     name: '16GB VPS - Premium',
-                    price: 36.00,
-                    link: 'https://billing.hexonode.com/products/us-premium-mc/16gb-usa-premium-mc',
+                    price: 35.00,
                     features: [
+                        'Linux VPS',
+                        'Xeon Gold 6226R',
+                        '2.90 GHz Base / 3.90 GHz Turbo',
+                        '8 Cores',
                         '16GB RAM',
-                        '4 vCPU',
-                        '200GB NVMe SSD',
-                        'Unlimited Traffic',
-                        'Linux/Windows',
-                        'DDoS Protection',
-                        'Priority Support',
-                        'Enhanced Backups',
-                        '99.9% Uptime SLA'
+                        '240 GB NVME',
+                        'Bandwidth: 3TB',
+                        '1x ipv4',
+                        'Premium DDoS Protection',
+                        '24/7 Ticket Support',
+                        'Delivery Time 4 to 5 hours',
+                        'Free Setup'
                     ]
                 },
                 {
                     name: '32GB VPS - Premium',
-                    price: 72.00,
-                    link: 'https://billing.hexonode.com/products/us-premium-mc/32gb-usa-premium-mc',
+                    price: 60.00,
                     features: [
+                        'Linux VPS',
+                        'Xeon Gold 6226R',
+                        '2.90 GHz Base / 3.90 GHz Turbo',
+                        '10 Cores',
                         '32GB RAM',
-                        '6 vCPU',
-                        '400GB NVMe SSD',
-                        'Unlimited Traffic',
-                        'Linux/Windows',
-                        'DDoS Protection',
-                        'Priority Support',
-                        'Enhanced Backups',
-                        '99.9% Uptime SLA'
+                        '480 GB NVME',
+                        'Bandwidth: 3TB',
+                        '1x ipv4',
+                        'Premium DDoS Protection',
+                        '24/7 Ticket Support',
+                        'Delivery Time 4 to 5 hours',
+                        'Free Setup'
+                    ]
+                },
+                {
+                    name: '64GB VPS - Premium',
+                    price: 99.99,
+                    features: [
+                        'Linux VPS',
+                        'Intel Xeon-E 2136',
+                        '3.3GHz Base / 4.5GHz Turbo',
+                        '12 Cores',
+                        '64GB RAM DDR4 ECC',
+                        '2× 512GB SSD NVMe Soft RAID',
+                        '1x ipv4',
+                        'Premium DDOS Protection',
+                        '24/7 Ticket Support',
+                        'Delivery Time 4 to 5 hours',
+                        'Free Setup'
+                    ]
+                },
+                {
+                    name: '128GB VPS - Premium',
+                    price: 170.00,
+                    features: [
+                        'Linux VPS',
+                        'Intel Xeon-E 2136',
+                        '3.3GHz Base / 4.5GHz Turbo',
+                        '12 Cores',
+                        '128GB RAM DDR4 ECC',
+                        '2× 512GB SSD NVMe Soft RAID',
+                        'Private Bandwidth: 1Gbit/s unmetered and guaranteed',
+                        '1x ipv4',
+                        'Premium DDOS Protection',
+                        '24/7 Ticket Support',
+                        'Delivery Time 4 to 5 hours',
+                        'Free Setup'
                     ]
                 }
             ],
             ultra: [
                 {
-                    name: '8GB VPS - Ultra Ryzen 9',
-                    price: 12.80,
-                    link: 'https://billing.hexonode.com/products/us-ultra-mc/8gb-usa-ultra-ryzen-9mc',
+                    name: '4GB VPS - Ultra Ryzen 9',
+                    price: 25.00,
                     features: [
-                        '8GB RAM',
-                        '3 vCPU Cores (Ryzen 9)',
-                        '80GB SSD Storage',
-                        'Unlimited Bandwidth',
+                        'AMD Ryzen 9 7950X – 4 Cores',
+                        '4.5GHz (Base) / 5.7GHz (Turbo)',
+                        '4GB DDR5 RAM',
+                        '30GB NVMe Storage',
+                        '3TB Bandwidth',
+                        '1x IPv4',
                         'Premium DDoS Protection',
-                        '24/7 Dedicated Support',
-                        'Daily Backups',
-                        '99.99% Uptime SLA',
-                        'Enhanced Security'
+                        '24/7 Ticket Support',
+                        '4-5 Hours Delivery Time',
+                        'Free Setup'
+                    ]
+                },
+                {
+                    name: '8GB VPS - Ultra Ryzen 9 (2 Cores)',
+                    price: 35.00,
+                    features: [
+                        'AMD Ryzen 9 7950X – 2 Cores',
+                        '4.5GHz (Base) / 5.7GHz (Turbo)',
+                        '8GB DDR5 RAM',
+                        '100GB NVMe Storage',
+                        '3TB Bandwidth',
+                        '1x IPv4',
+                        'Premium DDoS Protection',
+                        '24/7 Ticket Support',
+                        '4-5 Hours Delivery Time',
+                        'Free Setup'
+                    ]
+                },
+                {
+                    name: '8GB VPS - Ultra Ryzen 9 (8 Cores)',
+                    price: 40.00,
+                    features: [
+                        'AMD Ryzen 9 7950X – 8 Cores',
+                        '4.5GHz (Base) / 5.7GHz (Turbo)',
+                        '8GB DDR5 RAM',
+                        '60GB NVMe Storage',
+                        '3TB Bandwidth',
+                        '1x IPv4',
+                        'Premium DDoS Protection',
+                        '24/7 Ticket Support',
+                        '4-5 Hours Delivery Time',
+                        'Free Setup'
                     ]
                 },
                 {
                     name: '16GB VPS - Ultra Ryzen 9',
-                    price: 25.60,
-                    link: 'https://billing.hexonode.com/products/us-ultra-mc/16gb-usa-ultra-ryzen-9mc',
+                    price: 55.00,
                     features: [
-                        '16GB RAM',
-                        '4 vCPU Cores (Ryzen 9)',
-                        '160GB SSD Storage',
-                        'Unlimited Bandwidth',
+                        'AMD Ryzen 9 7950X – 4 Dedicated Cores',
+                        '4.5GHz (Base) / 5.7GHz (Turbo)',
+                        '16GB DDR5 RAM',
+                        '200GB NVMe Storage',
+                        '3TB Bandwidth',
+                        '1x IPv4',
                         'Premium DDoS Protection',
-                        '24/7 Dedicated Support',
-                        'Daily Backups',
-                        '99.99% Uptime SLA',
-                        'Enhanced Security'
+                        '24/7 Ticket Support',
+                        '4-5 Hours Delivery Time',
+                        'Free Setup'
                     ]
                 },
                 {
                     name: '32GB VPS - Ultra Ryzen 9',
-                    price: 51.20,
-                    link: 'https://billing.hexonode.com/products/us-ultra-mc/32gb-usa-ultra-ryzen-9mc',
+                    price: 90.00,
                     features: [
-                        '32GB RAM',
-                        '6 vCPU Cores (Ryzen 9)',
-                        '320GB SSD Storage',
-                        'Unlimited Bandwidth',
+                        'AMD Ryzen 9 7950X – 8 Dedicated Cores',
+                        '4.5GHz (Base) / 5.7GHz (Turbo)',
+                        '32GB DDR5 RAM',
+                        '400GB NVMe Storage',
+                        '3TB Bandwidth',
+                        '1x IPv4',
                         'Premium DDoS Protection',
-                        '24/7 Dedicated Support',
-                        'Daily Backups',
-                        '99.99% Uptime SLA',
-                        'Enhanced Security'
-                    ]
-                },
-                {
-                    name: '128GB Plan - Ultra Ryzen 9',
-                    price: 204.80,
-                    link: 'https://billing.hexonode.com/products/us-ultra-mc/128gb-usa-ultra-ryzen-9mc',
-                    features: [
-                        '128GB RAM',
-                        '12 vCPU Cores (Ryzen 9)',
-                        '1280GB SSD Storage',
-                        'Unlimited Bandwidth',
-                        'Premium DDoS Protection',
-                        '24/7 Dedicated Support',
-                        'Daily Backups',
-                        '99.99% Uptime SLA',
-                        'Enhanced Security'
+                        '24/7 Ticket Support',
+                        '4-5 Hours Delivery Time',
+                        'Free Setup'
                     ]
                 }
             ]
@@ -698,71 +792,50 @@ const serviceData: ServiceDataMap = {
         Germany: {
             budget: [
                 {
-                    name: '4GB GERMANY BUDGET',
-                    price: 4.00,
-                    link: 'https://billing.hexonode.com/products/germany-budget-mc/4gb-germany-budget',
-                    features: [
-                        '1 vCores, 2.5-3.4 GHz',
-                        '4GB DDR4 RAM',
-                        '20GB NVMe',
-                        '24/7 Ticket Support',
-                        'Free Setup'
-                    ]
-                },
-                {
                     name: '8GB GERMANY BUDGET',
                     price: 8.00,
-                    link: 'https://billing.hexonode.com/products/germany-budget-mc/8gb-germany-budget',
+                    link: 'https://billing.hexonode.com/products/germany-budget/8gb-germany-budget',
                     features: [
-                        '3 vCores, 2.5-3.4 GHz',
-                        '8GB DDR4 RAM',
-                        '40GB NVMe',
-                        '24/7 Ticket Support',
-                        'Free Setup'
-                    ]
-                },
-                {
-                    name: '12GB GERMANY BUDGET',
-                    price: 13.00,
-                    link: 'https://billing.hexonode.com/products/germany-budget-mc/12gb-germany-budget',
-                    features: [
-                        '4 vCores, 2.5-3.4 GHz',
-                        '12GB DDR4 RAM',
-                        '80GB NVMe',
+                        'Linux VPS',
+                        '4 vCores',
+                        '2.5 to 3.4 Ghz { TURBO }',
+                        '8 GB DRR4 RAM',
+                        '50 GB 1 NVMe',
+                        '1 Gbit internet speed | 2 TB Traffic',
+                        '1x IPv4',
+                        '3.2Tbit Premium DDoS Protection',
                         '24/7 Ticket Support',
                         'Free Setup'
                     ]
                 },
                 {
                     name: '16GB GERMANY BUDGET',
-                    price: 17.00,
-                    link: 'https://billing.hexonode.com/products/germany-budget-mc/16gb-germany-budget',
+                    price: 15.00,
+                    link: 'https://billing.hexonode.com/products/germany-budget/16gb-germany-budget',
                     features: [
-                        '6 vCores, 2.5-3.4 GHz',
-                        '16GB DDR4 RAM',
-                        '100GB NVMe',
-                        '24/7 Ticket Support',
-                        'Free Setup'
-                    ]
-                },
-                {
-                    name: '24GB GERMANY BUDGET',
-                    price: 25.00,
-                    features: [
-                        '8 vCores, 2.5-3.4 GHz',
-                        '24GB DDR4 RAM',
-                        '150GB NVMe',
+                        '6 vCores',
+                        '2.5 to 3.4 Ghz { TURBO }',
+                        '16 GB DRR4 RAM',
+                        '100GB 1 NVMe',
+                        '1 Gbit internet speed | 6 TB Traffic',
+                        '1x IPv4',
+                        '3.2Tbit Premium DDoS Protection',
                         '24/7 Ticket Support',
                         'Free Setup'
                     ]
                 },
                 {
                     name: '32GB GERMANY BUDGET',
-                    price: 33.00,
+                    price: 34.00,
+                    link: 'https://billing.hexonode.com/products/germany-budget/32gb-germany-budget',
                     features: [
-                        '8 vCores, 2.5-3.4 GHz',
-                        '32GB DDR4 RAM',
-                        '200GB NVMe',
+                        '8 vCores',
+                        '2.5 to 3.4 Ghz { TURBO }',
+                        '32 GB DRR4 RAM',
+                        '200GB 1 NVMe',
+                        '1 Gbit internet speed | 10 TB Traffic',
+                        '1x IPv4',
+                        '3.2Tbit Premium DDoS Protection',
                         '24/7 Ticket Support',
                         'Free Setup'
                     ]
@@ -770,10 +843,15 @@ const serviceData: ServiceDataMap = {
                 {
                     name: '64GB GERMANY BUDGET',
                     price: 49.99,
+                    link: 'https://billing.hexonode.com/products/germany-budget/64gb-germany-budget',
                     features: [
-                        '10 vCores, 2.5-3.4 GHz',
-                        '64GB DDR4 RAM',
-                        '400GB NVMe',
+                        '10 vCores',
+                        '2.5 to 3.4 Ghz { TURBO }',
+                        '64 GB DRR4 RAM',
+                        '400GB 1 NVMe',
+                        '1 Gbit internet speed | 14TB Traffic',
+                        '1x IPv4',
+                        '3.2Tbit Premium DDoS Protection',
                         '24/7 Ticket Support',
                         'Free Setup'
                     ]
@@ -781,205 +859,268 @@ const serviceData: ServiceDataMap = {
             ],
             premium: [
                 {
-                    name: '4GB GERMANY PREMIUM',
-                    price: 5.00,
-                    link: 'https://billing.hexonode.com/products/germany-premium-mc/4gb-germany-premium',
-                    features: [
-                        'Intel Xeon Gold 6150',
-                        '1 vCores, 2.80 GHz Base (3.70 GHz Turbo)',
-                        '4 GB DRR4 RAM',
-                        '25 GB NVMe',
-                        '3.2Tbit Premium DDoS Protection',
-                        '24/7 Ticket Support',
-                        'Free Setup'
-                    ]
-                },
-                {
                     name: '8GB GERMANY PREMIUM',
                     price: 9.00,
-                    link: 'https://billing.hexonode.com/products/germany-premium-mc/8gb-germany-premium',
+                    link: 'https://billing.hexonode.com/products/germany-premium/8gb-germany-premium',
                     features: [
+                        'Linux VPS',
                         'Intel Xeon Gold 6150',
-                        '3 vCores, 2.80 GHz Base (3.70 GHz Turbo)',
+                        '4 vCores',
+                        '2.80 GHz Base (3.70 GHz Turbo)',
                         '8 GB DRR4 RAM',
-                        '50 GB NVMe',
+                        '50 GB 1 NVMe',
+                        '1 Gbit internet speed | 4 TB Traffic',
+                        '1x IPv4',
                         '3.2Tbit Premium DDoS Protection',
                         '24/7 Ticket Support',
-                        'Free Setup'
-                    ]
-                },
-                {
-                    name: '12GB GERMANY PREMIUM',
-                    price: 13.00,
-                    link: 'https://billing.hexonode.com/products/germany-premium-mc/12gb-germany-premium',
-                    features: [
-                        'Intel Xeon Gold 6150',
-                        '4 vCores, 2.80 GHz Base (3.70 GHz Turbo)',
-                        '12 GB DRR4 RAM',
-                        '70 GB NVMe',
-                        '3.2Tbit Premium DDoS Protection',
-                        '24/7 Ticket Support',
-                        'Free Setup'
+                        'Free Setup',
+                        'Delivery Time 2 to 3 hours'
                     ]
                 },
                 {
                     name: '16GB GERMANY PREMIUM',
                     price: 18.00,
-                    link: 'https://billing.hexonode.com/products/germany-premium-mc/16gb-germany-premium',
+                    link: 'https://billing.hexonode.com/products/germany-premium/16gb-germany-premium',
                     features: [
+                        'Linux VPS',
                         'Intel Xeon Gold 6150',
-                        '6 vCores, 2.80 GHz Base (3.70 GHz Turbo)',
+                        '6 vCores',
+                        '2.80 GHz Base (3.70 GHz Turbo)',
                         '16 GB DRR4 RAM',
-                        '100 GB NVMe',
+                        '100 GB 1 NVMe',
+                        '1 Gbit internet speed | 8 TB Traffic',
+                        '1x IPv4',
                         '3.2Tbit Premium DDoS Protection',
                         '24/7 Ticket Support',
-                        'Free Setup'
+                        'Free Setup',
+                        'Delivery Time 2 to 3 hours'
                     ]
                 },
                 {
                     name: '32GB GERMANY PREMIUM',
-                    price: 36.00,
-                    link: 'https://billing.hexonode.com/products/germany-premium-mc/32gb-germany-premium',
+                    price: 37.00,
+                    link: 'https://billing.hexonode.com/products/germany-premium/32gb-germany-premium',
                     features: [
+                        'Linux VPS',
                         'Intel Xeon Gold 6150',
-                        '8 vCores, 2.80 GHz Base (3.70 GHz Turbo)',
+                        '8 vCores',
+                        '2.80 GHz Base (3.70 GHz Turbo)',
                         '32 GB DRR4 RAM',
-                        '200 GB NVMe',
+                        '200 GB 1 NVMe',
+                        '1 Gbit internet speed | 12 TB Traffic',
+                        '1x IPv4',
                         '3.2Tbit Premium DDoS Protection',
                         '24/7 Ticket Support',
-                        'Free Setup'
-                    ]
-                },
-                {
-                    name: '48GB GERMANY PREMIUM',
-                    price: 50.00,
-                    link: 'https://billing.hexonode.com/products/germany-premium-mc/48gb-germany-premium',
-                    features: [
-                        'Intel Xeon Gold 6150',
-                        '9 vCores, 2.80 GHz Base (3.70 GHz Turbo)',
-                        '48 GB DRR4 RAM',
-                        '300 GB NVMe',
-                        '3.2Tbit Premium DDoS Protection',
-                        '24/7 Ticket Support',
-                        'Free Setup'
+                        'Free Setup',
+                        'Delivery Time 2 to 3 hours'
                     ]
                 },
                 {
                     name: '64GB GERMANY PREMIUM',
                     price: 64.00,
-                    link: 'https://billing.hexonode.com/products/germany-premium-mc/64gb-germany-premium',
+                    link: 'https://billing.hexonode.com/products/germany-premium/64gb-germany-premium',
                     features: [
+                        'Linux VPS',
                         'Intel Xeon Gold 6150',
-                        '10 vCores, 2.80 GHz Base (3.70 GHz Turbo)',
+                        '10 vCores',
+                        '2.80 GHz Base (3.70 GHz Turbo)',
                         '64 GB DRR4 RAM',
-                        '400 GB NVMe',
+                        '400 GB 1 NVMe',
+                        '1 Gbit internet speed | 16 TB Traffic',
+                        '1x IPv4',
                         '3.2Tbit Premium DDoS Protection',
                         '24/7 Ticket Support',
-                        'Free Setup'
+                        'Free Setup',
+                        'Delivery Time 2 to 3 hours'
+                    ]
+                },
+                {
+                    name: '128GB GERMANY PREMIUM',
+                    price: 110.00,
+                    link: 'https://billing.hexonode.com/products/germany-premium/128gb-germany-premium',
+                    features: [
+                        'Linux VPS',
+                        'AMD Ryzen™ 5 3600',
+                        '12 DEDICATED RYZEN CORES',
+                        '3.7 GHz Base (4.2 GHz Turbo)',
+                        '128 GB RAM DDR4',
+                        '1 TB NVME SSD',
+                        '1 Gbit internet speed | 20 TB Traffic',
+                        '1x IPv4',
+                        '3.2Tbit Premium DDoS Protection',
+                        '24/7 Ticket Support',
+                        'Free Setup',
+                        'Delivery Time 2 to 3 hours'
                     ]
                 }
             ],
             ultra: [
                 {
-                    name: '4GB GERMANY ULTRA RYZEN 9',
-                    price: 7.00,
-                    link: 'https://billing.hexonode.com/products/germany-ultra-mc/4gb-germany-ultra-ryzen-9mc',
-                    features: [
-                        'AMD Ryzen™ 9 5900X',
-                        '3.70 GHz Base (4.80 GHz Turbo)',
-                        '1 Ryzen vCores',
-                        '4 GB DDR4 Memory',
-                        '25 GB 1 NVMe Storage',
-                        'AS203446 DDoS Protection',
-                        '24/7 Free Ticket Support',
-                        'Free Setup'
-                    ]
-                },
-                {
-                    name: '6GB GERMANY ULTRA',
-                    price: 10.00,
-                    link: 'https://billing.hexonode.com/products/germany-ultra-mc/6gb-germany-ultra-ryzen-9mc',
-                    features: [
-                        'AMD Ryzen™ 9 5900X',
-                        '3.70 GHz Base (4.80 GHz Turbo)',
-                        '2 Ryzen vCores',
-                        '6 GB DDR4 Memory',
-                        '50 GB 1 NVMe Storage',
-                        'AS203446 DDoS Protection',
-                        '24/7 Free Ticket Support',
-                        'Free Setup'
-                    ]
-                },
-                {
                     name: '8GB GERMANY ULTRA RYZEN 9',
-                    price: 14.00,
+                    price: 15.00,
+                    link: 'https://billing.hexonode.com/products/germany-vps-ultra/8gb-germany-ultra-ryzen-9',
                     features: [
+                        'Linux VPS',
                         'AMD Ryzen™ 9 5900X',
                         '3.70 GHz Base (4.80 GHz Turbo)',
                         '2 Ryzen vCores',
                         '8 GB DDR4 Memory',
                         '50 GB 1 NVMe Storage',
-                        'AS203446 DDoS Protection',
+                        '1 Gbit Uplink',
+                        '20 TB Traffic per month',
+                        '1x IPv4',
+                        'DDoS Protection',
                         '24/7 Free Ticket Support',
-                        'Free Setup'
+                        'Free Setup',
+                        'Delivery Time 2 to 3 hours'
                     ]
                 },
                 {
                     name: '12GB GERMANY ULTRA RYZEN 9',
-                    price: 22.00,
+                    price: 23.00,
+                    link: 'https://billing.hexonode.com/products/germany-vps-ultra/12gb-germany-ultra-ryzen-9',
                     features: [
+                        'Linux VPS',
                         'AMD Ryzen™ 9 5900X',
                         '3.70 GHz Base (4.80 GHz Turbo)',
                         '3 Ryzen vCores',
                         '12 GB DDR4 Memory',
                         '75 GB 1 NVMe Storage',
-                        'AS203446 DDoS Protection',
+                        '1 Gbit Uplink',
+                        '25 TB Traffic per month',
+                        '1x IPv4',
+                        'DDoS Protection',
                         '24/7 Free Ticket Support',
-                        'Free Setup'
+                        'Free Setup',
+                        'Delivery Time 2 to 3 hours'
                     ]
                 },
                 {
                     name: '16GB GERMANY ULTRA RYZEN 9',
                     price: 30.00,
+                    link: 'https://billing.hexonode.com/products/germany-vps-ultra/16gb-germany-ultra-ryzen-9',
                     features: [
+                        'Linux VPS',
                         'AMD Ryzen™ 9 5900X',
                         '3.70 GHz Base (4.80 GHz Turbo)',
                         '4 Ryzen vCores',
                         '16 GB DDR4 Memory',
-                        '110 GB 1 NVMe Storage',
-                        'AS203446 DDoS Protection',
+                        '120 GB 1 NVMe Storage',
+                        '1 Gbit Uplink',
+                        '28 TB Traffic per month',
+                        '1x IPv4',
+                        'DDoS Protection',
                         '24/7 Free Ticket Support',
-                        'Free Setup'
+                        'Free Setup',
+                        'Delivery Time 2 to 3 hours'
                     ]
                 },
                 {
                     name: '24GB GERMANY ULTRA RYZEN 9',
                     price: 45.00,
-                    link: 'https://billing.hexonode.com/products/germany-ultra-mc/24gb-germany-ultra-ryzen-9mc',
+                    link: 'https://billing.hexonode.com/products/germany-vps-ultra/24gb-germany-ultra-ryzen-9',
                     features: [
+                        'Linux VPS',
                         'AMD Ryzen™ 9 5900X',
                         '3.70 GHz Base (4.80 GHz Turbo)',
                         '6 Ryzen vCores',
                         '24 GB DDR4 Memory',
-                        '150 GB 1 NVMe Storage',
-                        'AS203446 DDoS Protection',
+                        '160 GB 1 NVMe Storage',
+                        '1 Gbit Uplink',
+                        '35 TB Traffic per month',
+                        '1x IPv4',
+                        'DDoS Protection',
                         '24/7 Free Ticket Support',
-                        'Free Setup'
+                        'Free Setup',
+                        'Delivery Time 2 to 3 hours'
                     ]
                 },
                 {
                     name: '32GB GERMANY ULTRA RYZEN 9',
-                    price: 55.00,
-                    link: 'https://billing.hexonode.com/products/germany-ultra-mc/32gb-germany-ultra-ryzen-9mc',
+                    price: 54.99,
+                    link: 'https://billing.hexonode.com/products/germany-vps-ultra/32gb-germany-ultra-ryzen-9',
                     features: [
+                        'Linux VPS',
                         'AMD Ryzen™ 9 5900X',
                         '3.70 GHz Base (4.80 GHz Turbo)',
                         '6 Ryzen vCores',
                         '32 GB DDR4 Memory',
                         '200 GB 1 NVMe Storage',
-                        'AS203446 DDoS Protection',
+                        '1 Gbit Uplink',
+                        '38 TB Traffic per month',
+                        '1x IPv4',
+                        'DDoS Protection',
                         '24/7 Free Ticket Support',
-                        'Free Setup'
+                        'Free Setup',
+                        'Delivery Time 2 to 3 hours'
+                    ]
+                },
+                {
+                    name: '64GB DEDICATED VPS RYZEN 7',
+                    price: 105.00,
+                    link: 'https://billing.hexonode.com/products/germany-vps-ultra/64gb-dedicated-vps-ryzen-7',
+                    features: [
+                        'Linux VPS',
+                        'AMD Ryzen™ 7 7700',
+                        '3.8 GHz Base (5.3 GHz Turbo)',
+                        '16 RYZEN CORE',
+                        '64GB RAM DDR5',
+                        '2x 1 TB NVME SSD',
+                        '100% GUARANTEED PERFORMANCE',
+                        '24/7 FREE TICKET SUPPORT',
+                        'FREE SETUP',
+                        'Delivery Time 2 to 3 hours'
+                    ]
+                },
+                {
+                    name: '64GB GERMANY ULTRA RYZEN 9',
+                    price: 140.00,
+                    link: 'https://billing.hexonode.com/products/germany-vps-ultra/64gb-germany-ultra-ryzen-9',
+                    features: [
+                        'Linux VPS',
+                        'AMD-RYZEN-9-7900X3D',
+                        'CPU TYPE: AMD Ryzen 9 7900X3D 5.6GHz',
+                        '24 RYZEN CORES',
+                        '64GB RAM DDR5',
+                        '480GB NVMe Storage (More available on request)',
+                        '1 Gbps Unmetered Network',
+                        '24/7 FREE TICKET SUPPORT',
+                        'FREE SETUP',
+                        'Delivery Time 2 to 3 hours'
+                    ]
+                },
+                {
+                    name: '128GB DEDICATED ULTRA RYZEN 7',
+                    price: 149.99,
+                    link: 'https://billing.hexonode.com/products/germany-vps-ultra/128gb-dedicated-ultra-ryzen-7',
+                    features: [
+                        'Linux VPS',
+                        'AMD Ryzen™ 7 7700',
+                        '3.8 GHz Base (5.3 GHz Turbo)',
+                        '12 RYZEN CORE',
+                        '128 GB RAM DDR5',
+                        '2x 1 TB NVME SSD',
+                        '100% GUARANTEED PERFORMANCE',
+                        '24/7 FREE TICKET SUPPORT',
+                        'FREE SETUP',
+                        'Delivery Time 1 to 2 hours'
+                    ]
+                },
+                {
+                    name: '128GB GERMANY ULTRA RYZEN 9',
+                    price: 180.00,
+                    link: 'https://billing.hexonode.com/products/germany-vps-ultra/128gb-germany-ultra-ryzen-9',
+                    features: [
+                        'Linux VPS',
+                        'AMD-RYZEN-9-7900X3D',
+                        'CPU TYPE: AMD Ryzen 9 7900X3D 5.6GHz',
+                        '24 RYZEN CORES',
+                        '128GB RAM DDR5',
+                        '960GB NVMe Storage (More available on request)',
+                        '1 Gbps Unmetered Network',
+                        '24/7 FREE TICKET SUPPORT',
+                        'FREE SETUP',
+                        'Delivery Time 2 to 3 hours'
                     ]
                 }
             ]
@@ -1317,14 +1458,16 @@ const serviceData: ServiceDataMap = {
                     price: 8.00,
                     link: 'https://billing.hexonode.com/products/europe-budget-mc/8gb-europe-budget',
                     features: [
-                        '8GB DDR4 RAM',
-                        '4 vCPU (2.5-3.4 GHz)',
-                        '50GB NVMe SSD',
-                        '2TB Traffic',
-                        'Linux/Windows',
-                        '3.2Tbit DDoS Protection',
-                        '1Gbps Network',
-                        '1x IPv4 Address'
+                        'Linux VPS',
+                        '4 vCores',
+                        '2.5 to 3.4 Ghz { TURBO }',
+                        '8 GB DRR4 RAM',
+                        '50 GB 1 NVMe',
+                        '1 Gbit internet speed | 2 TB Traffic',
+                        '1x IPv4',
+                        '3.2Tbit Premium DDoS Protection',
+                        '24/7 Ticket Support',
+                        'Free Setup'
                     ]
                 },
                 {
@@ -1332,14 +1475,16 @@ const serviceData: ServiceDataMap = {
                     price: 15.00,
                     link: 'https://billing.hexonode.com/products/europe-budget-mc/16gb-europe-budget',
                     features: [
-                        '16GB DDR4 RAM',
-                        '6 vCPU (2.5-3.4 GHz)',
-                        '100GB NVMe SSD',
-                        '6TB Traffic',
-                        'Linux/Windows',
-                        '3.2Tbit DDoS Protection',
-                        '1Gbps Network',
-                        '1x IPv4 Address'
+                        'Linux VPS',
+                        '6 vCores',
+                        '2.5 to 3.4 Ghz { TURBO }',
+                        '16 GB DRR4 RAM',
+                        '100GB 1 NVMe',
+                        '1 Gbit internet speed | 6 TB Traffic',
+                        '1x IPv4',
+                        '3.2Tbit Premium DDoS Protection',
+                        '24/7 Ticket Support',
+                        'Free Setup'
                     ]
                 },
                 {
@@ -1347,167 +1492,300 @@ const serviceData: ServiceDataMap = {
                     price: 32.00,
                     link: 'https://billing.hexonode.com/products/europe-budget-mc/32gb-europe-budget',
                     features: [
-                        '32GB DDR4 RAM',
-                        '8 vCPU (2.5-3.4 GHz)',
-                        '200GB NVMe SSD',
-                        '10TB Traffic',
-                        'Linux/Windows',
-                        '3.2Tbit DDoS Protection',
-                        '1Gbps Network',
-                        '1x IPv4 Address'
+                        'Linux VPS',
+                        '8 vCores',
+                        '2.5 to 3.4 Ghz { TURBO }',
+                        '32 GB DRR4 RAM',
+                        '200GB 1 NVMe',
+                        '1 Gbit internet speed | 10 TB Traffic',
+                        '1x IPv4',
+                        '3.2Tbit Premium DDoS Protection',
+                        '24/7 Ticket Support',
+                        'Free Setup'
                     ]
                 },
                 {
                     name: '64GB VPS - Budget',
-                    price: 49.90,
+                    price: 49.99,
                     link: 'https://billing.hexonode.com/products/europe-budget-mc/64gb-europe-budget',
                     features: [
-                        '64GB DDR4 RAM',
-                        '10 vCPU (2.5-3.4 GHz)',
-                        '400GB NVMe SSD',
-                        '14TB Traffic',
-                        'Linux/Windows',
-                        '3.2Tbit DDoS Protection',
-                        '1Gbps Network',
-                        '1x IPv4 Address'
+                        'Linux VPS',
+                        '10 vCores',
+                        '2.5 to 3.4 Ghz { TURBO }',
+                        '64 GB DRR4 RAM',
+                        '400GB 1 NVMe',
+                        '1 Gbit internet speed | 14TB Traffic',
+                        '1x IPv4',
+                        '3.2Tbit Premium DDoS Protection',
+                        '24/7 Ticket Support',
+                        'Free Setup'
                     ]
                 }
             ],
             premium: [
                 {
                     name: '8GB VPS - Premium',
-                    price: 18.00,
-                    link: 'https://billing.hexonode.com/products/europe-premium-mc/8gb-europe-premium',
+                    price: 9.00,
+                    link: 'https://billing.hexonode.com/products/europe-premium/8gb-europe-premium',
                     features: [
-                        '8GB RAM',
-                        '3 vCPU',
-                        '100GB NVMe SSD',
-                        'Unlimited Traffic',
-                        'Linux/Windows',
-                        'DDoS Protection',
-                        'Priority Support',
-                        'Enhanced Backups',
-                        '99.9% Uptime SLA'
+                        'Linux VPS',
+                        'Intel Xeon Gold 6150',
+                        '4 vCores',
+                        '2.80 GHz Base (3.70 GHz Turbo)',
+                        '8 GB DRR4 RAM',
+                        '50 GB 1 NVMe',
+                        '1 Gbit internet speed | 4 TB Traffic',
+                        '1x IPv4',
+                        '3.2Tbit Premium DDoS Protection',
+                        '24/7 Ticket Support',
+                        'Free Setup',
+                        'Delivery Time 2 to 3 hours'
                     ]
                 },
                 {
                     name: '16GB VPS - Premium',
-                    price: 36.00,
-                    link: 'https://billing.hexonode.com/products/europe-premium-mc/16gb-europe-premium',
+                    price: 18.00,
+                    link: 'https://billing.hexonode.com/products/europe-premium/16gb-europe-premium',
                     features: [
-                        '16GB RAM',
-                        '4 vCPU',
-                        '200GB NVMe SSD',
-                        'Unlimited Traffic',
-                        'Linux/Windows',
-                        'DDoS Protection',
-                        'Priority Support',
-                        'Enhanced Backups',
-                        '99.9% Uptime SLA'
+                        'Linux VPS',
+                        'Intel Xeon Gold 6150',
+                        '6 vCores',
+                        '2.80 GHz Base (3.70 GHz Turbo)',
+                        '16 GB DRR4 RAM',
+                        '100 GB 1 NVMe',
+                        '1 Gbit internet speed | 8 TB Traffic',
+                        '1x IPv4',
+                        '3.2Tbit Premium DDoS Protection',
+                        '24/7 Ticket Support',
+                        'Free Setup',
+                        'Delivery Time 2 to 3 hours'
                     ]
                 },
                 {
                     name: '32GB VPS - Premium',
-                    price: 72.00,
-                    link: 'https://billing.hexonode.com/products/europe-premium-mc/32gb-europe-premium',
+                    price: 37.00,
+                    link: 'https://billing.hexonode.com/products/europe-premium/32gb-europe-premium',
                     features: [
-                        '32GB RAM',
-                        '6 vCPU',
-                        '400GB NVMe SSD',
-                        'Unlimited Traffic',
-                        'Linux/Windows',
-                        'DDoS Protection',
-                        'Priority Support',
-                        'Enhanced Backups',
-                        '99.9% Uptime SLA'
+                        'Linux VPS',
+                        'Intel Xeon Gold 6150',
+                        '8 vCores',
+                        '2.80 GHz Base (3.70 GHz Turbo)',
+                        '32 GB DRR4 RAM',
+                        '200 GB 1 NVMe',
+                        '1 Gbit internet speed | 12 TB Traffic',
+                        '1x IPv4',
+                        '3.2Tbit Premium DDoS Protection',
+                        '24/7 Ticket Support',
+                        'Free Setup',
+                        'Delivery Time 2 to 3 hours'
+                    ]
+                },
+                {
+                    name: '64GB VPS - Premium',
+                    price: 64.00,
+                    link: 'https://billing.hexonode.com/products/europe-premium/64gb-europe-premium',
+                    features: [
+                        'Linux VPS',
+                        'Intel Xeon Gold 6150',
+                        '10 vCores',
+                        '2.80 GHz Base (3.70 GHz Turbo)',
+                        '64 GB DRR4 RAM',
+                        '400 GB 1 NVMe',
+                        '1 Gbit internet speed | 16 TB Traffic',
+                        '1x IPv4',
+                        '3.2Tbit Premium DDoS Protection',
+                        '24/7 Ticket Support',
+                        'Free Setup',
+                        'Delivery Time 2 to 3 hours'
+                    ]
+                },
+                {
+                    name: '128GB VPS PREMIUM',
+                    price: 110.00,
+                    link: 'https://billing.hexonode.com/products/germany-premium/128gb-germany-premium',
+                    features: [
+                        'Linux VPS',
+                        'AMD Ryzen™ 5 3600',
+                        '12 DEDICATED RYZEN CORES',
+                        '3.7 GHz Base (4.2 GHz Turbo)',
+                        '128 GB RAM DDR4',
+                        '1 TB NVME SSD',
+                        '1 Gbit internet speed | 20 TB Traffic',
+                        '1x IPv4',
+                        '3.2Tbit Premium DDoS Protection',
+                        '24/7 Ticket Support',
+                        'Free Setup',
+                        'Delivery Time 2 to 3 hours'
                     ]
                 }
             ],
             ultra: [
                 {
-                    name: '8GB VPS - Ultra Ryzen 9',
+                    name: '8GB EUROPE ULTRA RYZEN 9',
                     price: 15.00,
-                    link: 'https://billing.hexonode.com/products/europe-ultra-mc/8gb-europe-ultra-ryzen-9mc',
+                    link: 'https://billing.hexonode.com/products/germany-vps-ultra/8gb-germany-ultra-ryzen-9',
                     features: [
-                        '8GB RAM',
-                        '3 vCPU (Ryzen 9)',
-                        '100GB NVMe SSD',
-                        'Unlimited Traffic',
-                        'Linux/Windows',
-                        'Premium DDoS Protection',
-                        '24/7 Dedicated Support',
-                        'Daily Backups',
-                        '99.99% Uptime SLA',
-                        'Enhanced Security'
-                    ]
-                },
-                {
-                    name: '12GB VPS - Ultra Ryzen 9',
-                    price: 23.00,
-                    link: 'https://billing.hexonode.com/products/europe-ultra-mc/12gb-europe-ultra-ryzen-9mc',
-                    features: [
-                        '12GB RAM',
-                        '4 vCPU (Ryzen 9)',
-                        '150GB NVMe SSD',
-                        'Unlimited Traffic',
-                        'Linux/Windows',
-                        'Premium DDoS Protection',
-                        '24/7 Dedicated Support',
-                        'Daily Backups',
-                        '99.99% Uptime SLA',
-                        'Enhanced Security'
-                    ]
-                },
-                {
-                    name: '16GB VPS - Ultra Ryzen 9',
-                    price: 30.00,
-                    link: 'https://billing.hexonode.com/products/europe-ultra-mc/16gb-europe-ultra-ryzen-9mc',
-                    features: [
-                        '16GB RAM',
-                        '4 vCPU (Ryzen 9)',
-                        '200GB NVMe SSD',
-                        'Unlimited Traffic',
-                        'Linux/Windows',
-                        'Premium DDoS Protection',
-                        '24/7 Dedicated Support',
-                        'Daily Backups',
-                        '99.99% Uptime SLA',
-                        'Enhanced Security'
-                    ]
-                },
-                {
-                    name: '24GB VPS - Ultra Ryzen 9',
-                    price: 45.00,
-                    features: [
-                        '24GB RAM',
-                        '5 vCPU (Ryzen 9)',
-                        '300GB NVMe SSD',
-                        'Unlimited Traffic',
-                        'Linux/Windows',
-                        'Premium DDoS Protection',
-                        '1 IPv4 Address',
+                        'Linux VPS',
+                        'AMD Ryzen™ 9 5900X',
+                        '3.70 GHz Base (4.80 GHz Turbo)',
+                        '2 Ryzen vCores',
+                        '8 GB DDR4 Memory',
+                        '50 GB 1 NVMe Storage',
                         '1 Gbit Uplink',
-                        '24/7 Dedicated Support',
+                        '20 TB Traffic per month',
+                        '1x IPv4',
+                        'DDoS Protection',
+                        '24/7 Free Ticket Support',
                         'Free Setup',
-                        'Daily Backups',
-                        '99.99% Uptime SLA',
-                        'Enhanced Security'
+                        'Delivery Time 2 to 3 hours'
                     ]
                 },
                 {
-                    name: '32GB VPS - Ultra Ryzen 9',
-                    price: 54.99,
+                    name: '12GB EUROPE ULTRA RYZEN 9',
+                    price: 23.00,
+                    link: 'https://billing.hexonode.com/products/germany-vps-ultra/12gb-germany-ultra-ryzen-9',
                     features: [
-                        '32GB RAM',
-                        '6 vCPU (Ryzen 9)',
-                        '400GB NVMe SSD',
-                        'Unlimited Traffic',
-                        'Linux/Windows',
-                        'Premium DDoS Protection',
-                        '24/7 Dedicated Support',
-                        'Daily Backups',
-                        '99.99% Uptime SLA',
-                        'Enhanced Security'
+                        'Linux VPS',
+                        'AMD Ryzen™ 9 5900X',
+                        '3.70 GHz Base (4.80 GHz Turbo)',
+                        '3 Ryzen vCores',
+                        '12 GB DDR4 Memory',
+                        '75 GB 1 NVMe Storage',
+                        '1 Gbit Uplink',
+                        '25 TB Traffic per month',
+                        '1x IPv4',
+                        'DDoS Protection',
+                        '24/7 Free Ticket Support',
+                        'Free Setup',
+                        'Delivery Time 2 to 3 hours'
+                    ]
+                },
+                {
+                    name: '16GB EUROPE ULTRA RYZEN 9',
+                    price: 30.00,
+                    link: 'https://billing.hexonode.com/products/germany-vps-ultra/16gb-germany-ultra-ryzen-9',
+                    features: [
+                        'Linux VPS',
+                        'AMD Ryzen™ 9 5900X',
+                        '3.70 GHz Base (4.80 GHz Turbo)',
+                        '4 Ryzen vCores',
+                        '16 GB DDR4 Memory',
+                        '120 GB 1 NVMe Storage',
+                        '1 Gbit Uplink',
+                        '28 TB Traffic per month',
+                        '1x IPv4',
+                        'DDoS Protection',
+                        '24/7 Free Ticket Support',
+                        'Free Setup',
+                        'Delivery Time 2 to 3 hours'
+                    ]
+                },
+                {
+                    name: '24GB EUROPE ULTRA RYZEN 9',
+                    price: 45.00,
+                    link: 'https://billing.hexonode.com/products/germany-vps-ultra/24gb-germany-ultra-ryzen-9',
+                    features: [
+                        'Linux VPS',
+                        'AMD Ryzen™ 9 5900X',
+                        '3.70 GHz Base (4.80 GHz Turbo)',
+                        '6 Ryzen vCores',
+                        '24 GB DDR4 Memory',
+                        '160 GB 1 NVMe Storage',
+                        '1 Gbit Uplink',
+                        '35 TB Traffic per month',
+                        '1x IPv4',
+                        'DDoS Protection',
+                        '24/7 Free Ticket Support',
+                        'Free Setup',
+                        'Delivery Time 2 to 3 hours'
+                    ]
+                },
+                {
+                    name: '32GB EUROPE ULTRA RYZEN 9',
+                    price: 54.99,
+                    link: 'https://billing.hexonode.com/products/germany-vps-ultra/32gb-germany-ultra-ryzen-9',
+                    features: [
+                        'Linux VPS',
+                        'AMD Ryzen™ 9 5900X',
+                        '3.70 GHz Base (4.80 GHz Turbo)',
+                        '6 Ryzen vCores',
+                        '32 GB DDR4 Memory',
+                        '200 GB 1 NVMe Storage',
+                        '1 Gbit Uplink',
+                        '38 TB Traffic per month',
+                        '1x IPv4',
+                        'DDoS Protection',
+                        '24/7 Free Ticket Support',
+                        'Free Setup',
+                        'Delivery Time 2 to 3 hours'
+                    ]
+                },
+                {
+                    name: '64GB DEDICATED VPS RYZEN 7',
+                    price: 105.00,
+                    link: 'https://billing.hexonode.com/products/germany-vps-ultra/64gb-dedicated-vps-ryzen-7',
+                    features: [
+                        'Linux VPS',
+                        'AMD Ryzen™ 7 7700',
+                        '3.8 GHz Base (5.3 GHz Turbo)',
+                        '16 RYZEN CORE',
+                        '64GB RAM DDR5',
+                        '2x 1 TB NVME SSD',
+                        '100% GUARANTEED PERFORMANCE',
+                        '24/7 FREE TICKET SUPPORT',
+                        'FREE SETUP',
+                        'Delivery Time 2 to 3 hours'
+                    ]
+                },
+                {
+                    name: '64GB EUROPE ULTRA RYZEN 9',
+                    price: 140.00,
+                    link: 'https://billing.hexonode.com/products/germany-vps-ultra/64gb-germany-ultra-ryzen-9',
+                    features: [
+                        'Linux VPS',
+                        'AMD-RYZEN-9-7900X3D',
+                        'CPU TYPE: AMD Ryzen 9 7900X3D 5.6GHz',
+                        '24 RYZEN CORES',
+                        '64GB RAM DDR5',
+                        '480GB NVMe Storage (More available on request)',
+                        '1 Gbps Unmetered Network',
+                        '24/7 FREE TICKET SUPPORT',
+                        'FREE SETUP',
+                        'Delivery Time 2 to 3 hours'
+                    ]
+                },
+                {
+                    name: '128GB DEDICATED ULTRA RYZEN 7',
+                    price: 149.99,
+                    link: 'https://billing.hexonode.com/products/germany-vps-ultra/128gb-dedicated-ultra-ryzen-7',
+                    features: [
+                        'Linux VPS',
+                        'AMD Ryzen™ 7 7700',
+                        '3.8 GHz Base (5.3 GHz Turbo)',
+                        '12 RYZEN CORE',
+                        '128 GB RAM DDR5',
+                        '2x 1 TB NVME SSD',
+                        '100% GUARANTEED PERFORMANCE',
+                        '24/7 FREE TICKET SUPPORT',
+                        'FREE SETUP',
+                        'Delivery Time 1 to 2 hours'
+                    ]
+                },
+                {
+                    name: '128GB EUROPE ULTRA RYZEN 9',
+                    price: 180.00,
+                    link: 'https://billing.hexonode.com/products/germany-vps-ultra/128gb-germany-ultra-ryzen-9',
+                    features: [
+                        'Linux VPS',
+                        'AMD-RYZEN-9-7900X3D',
+                        'CPU TYPE: AMD Ryzen 9 7900X3D 5.6GHz',
+                        '24 RYZEN CORES',
+                        '128GB RAM DDR5',
+                        '960GB NVMe Storage (More available on request)',
+                        '1 Gbps Unmetered Network',
+                        '24/7 FREE TICKET SUPPORT',
+                        'FREE SETUP',
+                        'Delivery Time 2 to 3 hours'
                     ]
                 }
             ]
@@ -1520,39 +1798,27 @@ const serviceData: ServiceDataMap = {
         India: {
             budget: [
                 {
-                    name: '16GB VPS - Budget',
-                    price: 500,
-                    features: [
-                        '16GB RAM',
-                        '2 vCPU',
-                        '250GB NVMe SSD',
-                        '500Mbps Traffic',
-                        'Linux/Windows',
-                        'DDoS Protection'
-                    ]
-                },
-                {
                     name: '32GB VPS - Budget',
                     price: 900,
                     features: [
                         '32GB RAM',
                         '4 vCPU',
-                        '500GB NVMe SSD',
+                        '300GB NVMe SSD',
                         '500Mbps Traffic',
-                        'Linux/Windows',
-                        'DDoS Protection'
+                        '1x ipv4',
+                        'Linux VPS',
                     ]
                 },
                 {
                     name: '64GB VPS - Budget',
-                    price: 1700,
+                    price: 1500,
                     features: [
                         '64GB RAM',
                         '8 vCPU',
                         '500GB NVMe SSD',
                         '500Mbps Traffic',
-                        'Linux/Windows',
-                        'DDoS Protection'
+                        '1x ipv4',
+                        'Linux VPS',
                     ]
                 }
             ],
@@ -1657,84 +1923,46 @@ const serviceData: ServiceDataMap = {
         Singapore: {
             budget: [
                 {
-                    name: '8GB VPS - Budget',
-                    price: 12.00,
+                    name: 'Coming Soon',
+                    price: 0,
                     features: [
-                        '8GB RAM',
-                        '3 vCPU',
-                        '100GB NVMe SSD',
-                        'Unlimited Traffic',
-                        'Linux/Windows',
-                        'DDoS Protection'
-                    ]
-                },
-                {
-                    name: '16GB VPS - Budget',
-                    price: 24.00,
-                    features: [
-                        '16GB RAM',
-                        '4 vCPU',
-                        '200GB NVMe SSD',
-                        'Unlimited Traffic',
-                        'Linux/Windows',
-                        'DDoS Protection'
-                    ]
-                },
-                {
-                    name: '32GB VPS - Budget',
-                    price: 48.00,
-                    features: [
-                        '32GB RAM',
-                        '6 vCPU',
-                        '400GB NVMe SSD',
-                        'Unlimited Traffic',
-                        'Linux/Windows',
-                        'DDoS Protection'
-                    ]
-                },
-                {
-                    name: '64GB VPS - Budget',
-                    price: 96.00,
-                    features: [
-                        '64GB RAM',
-                        '10 vCPU',
-                        '800GB NVMe SSD',
-                        'Unlimited Traffic',
-                        'Linux/Windows',
-                        'DDoS Protection'
+                        'VPS plans coming soon to Singapore',
+                        'Check Out Premium + Ultra Plans for Singapore'
                     ]
                 }
             ],
             premium: [
                 {
-                    name: '8GB VPS - Premium',
-                    price: 25.00,
+                    name: '12GB VPS - Premium',
+                    price: 19.99,
                     features: [
-                        '8GB RAM',
-                        '2 vCPU Cores (INTEL GOLD/AMD EYPC)',
-                        '160GB NVME SSD Storage',
-                        '4000GB Bandwidth',
-                        'Linux/Windows',
+                        '12GB RAM',
+                        '2.5ghz TO 3.7ghz',
+                        '6 vCPU Cores (INTEL GOLD/AMD EYPC)',
+                        '100Gb NVME SSD Storage',
+                        '32tb Bandwidth',
+                        'Linux VPS',
                         'DDoS Protection',
                         '24/7 Ticket Support',
                         'FREE SETUP',
-                        '1-2 Hr Delivery Time',
+                        '2-3 Hr Delivery Time',
                         '99.9% Uptime SLA'
                     ]
                 },
                 {
-                    name: '16GB VPS - Premium',
+                    name: '20GB VPS - Premium',
                     price: 38.00,
                     features: [
-                        '16GB RAM',
-                        '4 vCPU Cores (INTEL GOLD/AMD EYPC)',
-                        '320GB NVME SSD Storage',
-                        '8000GB Bandwidth',
-                        'Linux/Windows',
+                        '20GB RAM',
+                        '2.5ghz TO 3.7ghz',
+                        '8 vCPU Cores (INTEL GOLD/AMD EYPC)',
+                        '200GB NVME SSD Storage',
+                        '32TB Bandwidth',
+                        'Linux VPS',
                         'DDoS Protection',
                         '24/7 Ticket Support',
                         'FREE SETUP',
-                        '1-2 Hr Delivery Time',
+                        '2-3 Hr Delivery Time',
                         '99.9% Uptime SLA'
                     ]
                 },
@@ -1743,14 +1971,15 @@ const serviceData: ServiceDataMap = {
                     price: 60.00,
                     features: [
                         '32GB RAM',
-                        '8 vCPU Cores (INTEL GOLD/AMD EYPC)',
-                        '480GB NVME SSD Storage',
-                        '15000GB Bandwidth',
-                        'Linux/Windows',
+                        '2.5ghz TO 3.7ghz',
+                        '10 vCPU Cores (INTEL GOLD/AMD EYPC)',
+                        '250GB NVME SSD Storage',
+                        '32TB Bandwidth',
+                        'Linux VPS',
                         'DDoS Protection',
                         '24/7 Ticket Support',
                         'FREE SETUP',
-                        '1-2 Hr Delivery Time',
+                        '2-3 Hr Delivery Time',
                         '99.9% Uptime SLA'
                     ]
                 },
@@ -1759,290 +1988,465 @@ const serviceData: ServiceDataMap = {
                     price: 80.00,
                     features: [
                         '48GB RAM',
-                        '12 vCPU Cores (INTEL GOLD/AMD EYPC)',
-                        '700GB NVME SSD Storage',
-                        '23000GB Bandwidth',
-                        'Linux/Windows',
+                        '2.5ghz TO 3.7ghz',
+                        '14 vCPU Cores (INTEL GOLD/AMD EYPC)',
+                        '300GB NVME SSD Storage',
+                        '32TB Bandwidth',
+                        'Linux VPS',
                         'DDoS Protection',
                         '24/7 Ticket Support',
                         'FREE SETUP',
-                        '1-2 Hr Delivery Time',
+                        '2-3 Hr Delivery Time',
                         '99.9% Uptime SLA'
                     ]
                 },
                 {
                     name: '64GB VPS - Premium',
-                    price: 99.99,
+                    price: 120.00,
                     features: [
                         '64GB RAM',
-                        '12 vCPU Cores (INTEL GOLD/AMD EYPC)',
-                        '1200GB NVME SSD Storage',
-                        '30000GB Bandwidth',
-                        'Linux/Windows',
+                        '2.5ghz TO 3.7ghz',
+                        '16 vCPU Cores (INTEL GOLD/AMD EYPC)',
+                        '600GB NVME SSD Storage',
+                        '32TB Bandwidth',
+                        'Linux VPS',
                         'DDoS Protection',
                         '24/7 Ticket Support',
                         'FREE SETUP',
-                        '1-2 Hr Delivery Time',
+                        '2-3 Hr Delivery Time',
+                        '99.9% Uptime SLA'
+                    ]
+                },
+                {
+                    name: '96GB VPS - Premium',
+                    price: 149.00,
+                    features: [
+                        '96GB RAM',
+                        '2.5ghz TO 3.7ghz',
+                        '19 vCPU Cores (INTEL GOLD/AMD EYPC)',
+                        '800GB NVME SSD Storage',
+                        '32TB Bandwidth',
+                        'Linux VPS',
+                        'DDoS Protection',
+                        '24/7 Ticket Support',
+                        'FREE SETUP',
+                        '2-3 Hr Delivery Time',
                         '99.9% Uptime SLA'
                     ]
                 }
             ],
             ultra: [
                 {
-                    name: '8GB VPS - Ultra Ryzen 9',
-                    price: 34.99,
+                    name: '4GB VPS - Ultra',
+                    price: 19.99,
                     features: [
-                        '8GB DDR5 RAM (5200 MHz)',
-                        '1 Core + 2 Threads (Ryzen 9 7950X)',
-                        '4.5 GHz Base / 5.7 GHz Turbo',
-                        '60GB NVMe SSD',
-                        '1Gbps Up/Down Bandwidth',
-                        'Linux/Windows',
+                        'AMD EPYC™ 4464P 5.4Gz',
+                        '4GB RAM ECC Registered',
+                        '2 Core',
+                        '3.7 GHz Base / 5.4 GHz Turbo',
+                        '32GB NVMe/SSD',
+                        '1Gbps Bandwidth',
+                        'Linux VPS',
                         'Premium DDoS Protection',
                         '24/7 Ticket Support',
                         'FREE SETUP',
-                        '24-48 Hr Delivery Time',
+                        '3-4 Hr Delivery Time',
                         '99.99% Uptime SLA'
                     ]
                 },
                 {
-                    name: '16GB VPS - Ultra Ryzen 9',
-                    price: 60.00,
+                    name: '8GB VPS - Ultra',
+                    price: 30.00,
                     features: [
-                        '16GB DDR5 RAM (5200 MHz)',
-                        '2 Core + 4 Threads (Ryzen 9 7950X)',
-                        '4.5 GHz Base / 5.7 GHz Turbo',
-                        '120GB NVMe SSD',
-                        '1Gbps Up/Down Bandwidth',
-                        'Linux/Windows',
+                       'AMD EPYC™ 4464P 5.4Gz',
+                        '8GB RAM ECC Registered',
+                        '3 Core',
+                        '3.7 GHz Base / 5.4 GHz Turbo',
+                        '50GB NVMe/SSD',
+                        '1Gbps Bandwidth',
+                        'Linux VPS',
                         'Premium DDoS Protection',
                         '24/7 Ticket Support',
                         'FREE SETUP',
-                        '24-48 Hr Delivery Time',
+                        '3-4 Hr Delivery Time',
                         '99.99% Uptime SLA'
                     ]
                 },
                 {
-                    name: '32GB VPS - Ultra Ryzen 9',
-                    price: 110.00,
+                    name: '12GB VPS - Ultra',
+                    price: 39.99,
                     features: [
-                        '32GB DDR5 RAM (5200 MHz)',
-                        '8 Cores (Ryzen 9 7950X)',
-                        '4.5 GHz Base / 5.7 GHz Turbo',
-                        '240GB NVMe SSD',
-                        '1Gbps Up/Down Bandwidth',
-                        'Linux/Windows',
+                        'AMD EPYC™ 4464P 5.4Gz',
+                        '12GB RAM ECC Registered',
+                        '3 Core',
+                        '3.7 GHz Base / 5.4 GHz Turbo',
+                        '80GB NVMe/SSD',
+                        '1Gbps Bandwidth',
+                        'Linux VPS',
                         'Premium DDoS Protection',
                         '24/7 Ticket Support',
                         'FREE SETUP',
-                        '24-48 Hr Delivery Time',
+                        '3-4 Hr Delivery Time',
                         '99.99% Uptime SLA'
                     ]
                 },
                 {
-                    name: '64GB VPS - Ultra Ryzen 9',
-                    price: 199.99,
+                    name: '16GB VPS - Ultra',
+                    price: 48.00,
                     features: [
-                        '64GB DDR5 RAM (5200 MHz)',
-                        '16 Cores (Ryzen 9 7950X)',
-                        '4.5 GHz Base / 5.7 GHz Turbo',
-                        '480GB NVMe SSD',
-                        '1Gbps Up/Down Bandwidth',
-                        'Linux/Windows',
+                        'AMD EPYC™ 4464P 5.4Gz',
+                        '16GB RAM ECC Registered',
+                        '4 Core',
+                        '3.7 GHz Base / 5.4 GHz Turbo',
+                        '100GB NVMe/SSD',
+                        '1Gbps Bandwidth',
+                        'Linux VPS',
                         'Premium DDoS Protection',
                         '24/7 Ticket Support',
                         'FREE SETUP',
-                        '24-48 Hr Delivery Time',
+                        '3-4 Hr Delivery Time',
                         '99.99% Uptime SLA'
                     ]
                 },
                 {
-                    name: '128GB VPS - Ultra Ryzen 9',
-                    price: 349.99,
+                    name: '24GB VPS - Ultra',
+                    price: 75.00,
                     features: [
-                        '128GB DDR5 RAM (5200 MHz)',
-                        '32 Cores (Ryzen 9 7950X)',
-                        '4.5 GHz Base / 5.7 GHz Turbo',
-                        '960GB NVMe SSD',
-                        '1Gbps Up/Down Bandwidth',
-                        'Linux/Windows',
+                        'AMD EPYC™ 4464P 5.4Gz',
+                        '24GB RAM ECC Registered',
+                        '5 Core',
+                        '3.7 GHz Base / 5.4 GHz Turbo',
+                        '150GB NVMe/SSD',
+                        '1Gbps Bandwidth',
+                        'Linux VPS',
                         'Premium DDoS Protection',
                         '24/7 Ticket Support',
                         'FREE SETUP',
-                        '24-48 Hr Delivery Time',
+                        '3-4 Hr Delivery Time',
                         '99.99% Uptime SLA'
                     ]
-                }
+                },
+                {
+                    name: '32GB VPS - Ultra',
+                    price: 99.99,
+                    features: [
+                        'AMD EPYC™ 4464P 5.4Gz',
+                        '32GB RAM ECC Registered',
+                        '6 Core',
+                        '3.7 GHz Base / 5.4 GHz Turbo',
+                        '200GB NVMe/SSD',
+                        '1Gbps Bandwidth',
+                        'Linux VPS',
+                        'Premium DDoS Protection',
+                        '24/7 Ticket Support',
+                        'FREE SETUP',
+                        '3-4 Hr Delivery Time',
+                        '99.99% Uptime SLA'
+                    ]
+                },
+                {
+                    name: '48GB VPS - Ultra',
+                    price: 140.00,
+                    link: 'https://billing.hexonode.com/products/singapore-vps-ultra/48gb-singapore-ultra',
+                    features: [
+                        'AMD EPYC™ 4464P 5.4Gz',
+                        '48GB RAM ECC Registered',
+                        '8 Core',
+                        '3.7 GHz Base / 5.4 GHz Turbo',
+                        '400GB NVMe/SSD',
+                        '1Gbps Bandwidth',
+                        'Linux VPS',
+                        'Premium DDoS Protection',
+                        '24/7 Ticket Support',
+                        'FREE SETUP',
+                        '3-4 Hr Delivery Time',
+                        '99.99% Uptime SLA'
+                    ]
+                },
+                {
+                    name: '64GB VPS - Ultra',
+                    price: 180.00,
+                    link: 'https://billing.hexonode.com/products/singapore-vps-ultra/64gb-singapore-ultra',
+                    features: [
+                        'AMD EPYC™ 4464P 5.4Gz',
+                        '64GB RAM ECC Registered',
+                        '12 Core',
+                        '3.7 GHz Base / 5.4 GHz Turbo',
+                        '500GB NVMe/SSD',
+                        '1Gbps Bandwidth',
+                        'Linux VPS',
+                        'Premium DDoS Protection',
+                        '24/7 Ticket Support',
+                        'FREE SETUP',
+                        '3-4 Hr Delivery Time',
+                        '99.99% Uptime SLA'
+                    ]
+                }                
             ]
         },
         US: {
             budget: [
                 {
                     name: '8GB VPS - Budget',
-                    price: 12.00,
+                    price: 15.00,
                     link: 'https://billing.hexonode.com/products/us-budget-mc/8gb-usa-budget-mc',
                     features: [
-                        '8GB RAM',
-                        '3 vCPU',
-                        '100GB NVMe SSD',
-                        'Unlimited Traffic',
-                        'Linux/Windows',
-                        'DDoS Protection'
+                        'Linux VPS',
+                        'Intel Xeon Gold 6130',
+                        '3 Core',
+                        '8GB RAM (ECC Registered)',
+                        '65GB SSD/NVME',
+                        'Bandwidth: 10TB',
+                        '1x ipv4',
+                        'Premium DDoS Protection',
+                        '24/7 Ticket Support',
+                        'Delivery Time 4 to 5 hours',
+                        'Free Setup'
                     ]
                 },
                 {
                     name: '16GB VPS - Budget',
-                    price: 24.00,
+                    price: 20.00,
                     link: 'https://billing.hexonode.com/products/us-budget-mc/16gb-usa-budget-mc',
                     features: [
-                        '16GB RAM',
-                        '4 vCPU',
-                        '200GB NVMe SSD',
-                        'Unlimited Traffic',
-                        'Linux/Windows',
-                        'DDoS Protection'
+                        'Linux VPS',
+                        'Intel Xeon Gold 6130',
+                        '4 Core',
+                        '16GB RAM (ECC Registered)',
+                        '96GB SSD/NVME',
+                        'Bandwidth: 20TB',
+                        '1x ipv4',
+                        'Premium DDoS Protection',
+                        '24/7 Ticket Support',
+                        'Delivery Time 4 to 5 hours',
+                        'Free Setup'
                     ]
                 },
                 {
                     name: '32GB VPS - Budget',
-                    price: 48.00,
+                    price: 32.00,
                     link: 'https://billing.hexonode.com/products/us-budget-mc/32gb-usa-budget-mc',
                     features: [
-                        '32GB RAM',
-                        '6 vCPU',
-                        '400GB NVMe SSD',
-                        'Unlimited Traffic',
-                        'Linux/Windows',
-                        'DDoS Protection'
+                        'Linux VPS',
+                        'Intel Xeon Gold 6130',
+                        '6 Core',
+                        '32GB RAM (ECC Registered)',
+                        '192GB SSD/NVME',
+                        'Bandwidth: 20TB',
+                        '1x ipv4',
+                        'Premium DDoS Protection',
+                        '24/7 Ticket Support',
+                        'Delivery Time 4 to 5 hours',
+                        'Free Setup'
+                    ]
+                },
+                {
+                    name: '48GB VPS - Budget',
+                    price: 45.00,
+                    link: 'https://billing.hexonode.com/products/us-budget-mc/48gb-usa-budget-mc',
+                    features: [
+                        'Linux VPS',
+                        'Intel Xeon Gold 6130',
+                        '7 Core',
+                        '48GB RAM (ECC Registered)',
+                        '250GB SSD/NVME',
+                        'Bandwidth: 20TB',
+                        '1x ipv4',
+                        'Premium DDoS Protection',
+                        '24/7 Ticket Support',
+                        'Delivery Time 4 to 5 hours',
+                        'Free Setup'
                     ]
                 },
                 {
                     name: '64GB VPS - Budget',
-                    price: 96.00,
+                    price: 55.00,
                     link: 'https://billing.hexonode.com/products/us-budget-mc/64gb-usa-budget-mc',
                     features: [
-                        '64GB RAM',
-                        '10 vCPU',
-                        '800GB NVMe SSD',
-                        'Unlimited Traffic',
-                        'Linux/Windows',
-                        'DDoS Protection'
+                        'Linux VPS',
+                        'Intel Xeon Gold 6130',
+                        '9 Core',
+                        '64GB RAM (ECC Registered)',
+                        '320GB SSD/NVME',
+                        'Bandwidth: 20TB',
+                        '1x ipv4',
+                        'Premium DDoS Protection',
+                        '24/7 Ticket Support',
+                        'Delivery Time 4 to 5 hours',
+                        'Free Setup'
                     ]
                 }
             ],
             premium: [
                 {
                     name: '8GB VPS - Premium',
-                    price: 18.00,
-                    link: 'https://billing.hexonode.com/products/us-premium-mc/8gb-usa-premium-mc',
+                    price: 20.00,
                     features: [
+                        'Linux VPS',
+                        'Xeon Gold 6226R',
+                        '2.90 GHz Base / 3.90 GHz Turbo',
+                        '4 Cores',
                         '8GB RAM',
-                        '3 vCPU',
-                        '100GB NVMe SSD',
-                        'Unlimited Traffic',
-                        'Linux/Windows',
-                        'DDoS Protection',
-                        'Priority Support',
-                        'Enhanced Backups',
-                        '99.9% Uptime SLA'
+                        '60 GB NVME',
+                        'Bandwidth: 3TB',
+                        '1x ipv4',
+                        'Premium DDoS Protection',
+                        '24/7 Ticket Support',
+                        'Delivery Time 4 to 5 hours',
+                        'Free Setup'
                     ]
                 },
                 {
                     name: '16GB VPS - Premium',
-                    price: 36.00,
-                    link: 'https://billing.hexonode.com/products/us-premium-mc/16gb-usa-premium-mc',
+                    price: 35.00,
                     features: [
+                        'Linux VPS',
+                        'Xeon Gold 6226R',
+                        '2.90 GHz Base / 3.90 GHz Turbo',
+                        '8 Cores',
                         '16GB RAM',
-                        '4 vCPU',
-                        '200GB NVMe SSD',
-                        'Unlimited Traffic',
-                        'Linux/Windows',
-                        'DDoS Protection',
-                        'Priority Support',
-                        'Enhanced Backups',
-                        '99.9% Uptime SLA'
+                        '240 GB NVME',
+                        'Bandwidth: 3TB',
+                        '1x ipv4',
+                        'Premium DDoS Protection',
+                        '24/7 Ticket Support',
+                        'Delivery Time 4 to 5 hours',
+                        'Free Setup'
                     ]
                 },
                 {
                     name: '32GB VPS - Premium',
-                    price: 72.00,
-                    link: 'https://billing.hexonode.com/products/us-premium-mc/32gb-usa-premium-mc',
+                    price: 60.00,
                     features: [
+                        'Linux VPS',
+                        'Xeon Gold 6226R',
+                        '2.90 GHz Base / 3.90 GHz Turbo',
+                        '10 Cores',
                         '32GB RAM',
-                        '6 vCPU',
-                        '400GB NVMe SSD',
-                        'Unlimited Traffic',
-                        'Linux/Windows',
-                        'DDoS Protection',
-                        'Priority Support',
-                        'Enhanced Backups',
-                        '99.9% Uptime SLA'
+                        '480 GB NVME',
+                        'Bandwidth: 3TB',
+                        '1x ipv4',
+                        'Premium DDoS Protection',
+                        '24/7 Ticket Support',
+                        'Delivery Time 4 to 5 hours',
+                        'Free Setup'
+                    ]
+                },
+                {
+                    name: '64GB VPS - Premium',
+                    price: 99.99,
+                    features: [
+                        'Linux VPS',
+                        'Intel Xeon-E 2136',
+                        '3.3GHz Base / 4.5GHz Turbo',
+                        '12 Cores',
+                        '64GB RAM DDR4 ECC',
+                        '2× 512GB SSD NVMe Soft RAID',
+                        '1x ipv4',
+                        'Premium DDOS Protection',
+                        '24/7 Ticket Support',
+                        'Delivery Time 4 to 5 hours',
+                        'Free Setup'
+                    ]
+                },
+                {
+                    name: '128GB VPS - Premium',
+                    price: 170.00,
+                    features: [
+                        'Linux VPS',
+                        'Intel Xeon-E 2136',
+                        '3.3GHz Base / 4.5GHz Turbo',
+                        '12 Cores',
+                        '128GB RAM DDR4 ECC',
+                        '2× 512GB SSD NVMe Soft RAID',
+                        'Private Bandwidth: 1Gbit/s unmetered and guaranteed',
+                        '1x ipv4',
+                        'Premium DDOS Protection',
+                        '24/7 Ticket Support',
+                        'Delivery Time 4 to 5 hours',
+                        'Free Setup'
                     ]
                 }
             ],
             ultra: [
                 {
-                    name: '8GB VPS - Ultra Ryzen 9',
-                    price: 12.80,
-                    link: 'https://billing.hexonode.com/products/us-ultra-mc/8gb-usa-ultra-ryzen-9mc',
+                    name: '4GB VPS - Ultra Ryzen 9',
+                    price: 25.00,
                     features: [
-                        '8GB RAM',
-                        '3 vCPU Cores (Ryzen 9)',
-                        '80GB SSD Storage',
-                        'Unlimited Bandwidth',
+                        'AMD Ryzen 9 7950X – 4 Cores',
+                        '4.5GHz (Base) / 5.7GHz (Turbo)',
+                        '4GB DDR5 RAM',
+                        '30GB NVMe Storage',
+                        '3TB Bandwidth',
+                        '1x IPv4',
                         'Premium DDoS Protection',
-                        '24/7 Dedicated Support',
-                        'Daily Backups',
-                        '99.99% Uptime SLA',
-                        'Enhanced Security'
+                        '24/7 Ticket Support',
+                        '4-5 Hours Delivery Time',
+                        'Free Setup'
+                    ]
+                },
+                {
+                    name: '8GB VPS - Ultra Ryzen 9 (2 Cores)',
+                    price: 35.00,
+                    features: [
+                        'AMD Ryzen 9 7950X – 2 Cores',
+                        '4.5GHz (Base) / 5.7GHz (Turbo)',
+                        '8GB DDR5 RAM',
+                        '100GB NVMe Storage',
+                        '3TB Bandwidth',
+                        '1x IPv4',
+                        'Premium DDoS Protection',
+                        '24/7 Ticket Support',
+                        '4-5 Hours Delivery Time',
+                        'Free Setup'
+                    ]
+                },
+                {
+                    name: '8GB VPS - Ultra Ryzen 9 (8 Cores)',
+                    price: 40.00,
+                    features: [
+                        'AMD Ryzen 9 7950X – 8 Cores',
+                        '4.5GHz (Base) / 5.7GHz (Turbo)',
+                        '8GB DDR5 RAM',
+                        '60GB NVMe Storage',
+                        '3TB Bandwidth',
+                        '1x IPv4',
+                        'Premium DDoS Protection',
+                        '24/7 Ticket Support',
+                        '4-5 Hours Delivery Time',
+                        'Free Setup'
                     ]
                 },
                 {
                     name: '16GB VPS - Ultra Ryzen 9',
-                    price: 25.60,
-                    link: 'https://billing.hexonode.com/products/us-ultra-mc/16gb-usa-ultra-ryzen-9mc',
+                    price: 55.00,
                     features: [
-                        '16GB RAM',
-                        '4 vCPU Cores (Ryzen 9)',
-                        '160GB SSD Storage',
-                        'Unlimited Bandwidth',
+                        'AMD Ryzen 9 7950X – 4 Dedicated Cores',
+                        '4.5GHz (Base) / 5.7GHz (Turbo)',
+                        '16GB DDR5 RAM',
+                        '200GB NVMe Storage',
+                        '3TB Bandwidth',
+                        '1x IPv4',
                         'Premium DDoS Protection',
-                        '24/7 Dedicated Support',
-                        'Daily Backups',
-                        '99.99% Uptime SLA',
-                        'Enhanced Security'
+                        '24/7 Ticket Support',
+                        '4-5 Hours Delivery Time',
+                        'Free Setup'
                     ]
                 },
                 {
                     name: '32GB VPS - Ultra Ryzen 9',
-                    price: 51.20,
-                    link: 'https://billing.hexonode.com/products/us-ultra-mc/32gb-usa-ultra-ryzen-9mc',
+                    price: 90.00,
                     features: [
-                        '32GB RAM',
-                        '6 vCPU Cores (Ryzen 9)',
-                        '320GB SSD Storage',
-                        'Unlimited Bandwidth',
+                        'AMD Ryzen 9 7950X – 8 Dedicated Cores',
+                        '4.5GHz (Base) / 5.7GHz (Turbo)',
+                        '32GB DDR5 RAM',
+                        '400GB NVMe Storage',
+                        '3TB Bandwidth',
+                        '1x IPv4',
                         'Premium DDoS Protection',
-                        '24/7 Dedicated Support',
-                        'Daily Backups',
-                        '99.99% Uptime SLA',
-                        'Enhanced Security'
-                    ]
-                },
-                {
-                    name: '128GB Plan - Ultra Ryzen 9',
-                    price: 204.80,
-                    link: 'https://billing.hexonode.com/products/us-ultra-mc/128gb-usa-ultra-ryzen-9mc',
-                    features: [
-                        '128GB RAM',
-                        '12 vCPU Cores (Ryzen 9)',
-                        '1280GB SSD Storage',
-                        'Unlimited Bandwidth',
-                        'Premium DDoS Protection',
-                        '24/7 Dedicated Support',
-                        'Daily Backups',
-                        '99.99% Uptime SLA',
-                        'Enhanced Security'
+                        '24/7 Ticket Support',
+                        '4-5 Hours Delivery Time',
+                        'Free Setup'
                     ]
                 }
             ]
@@ -2050,276 +2454,335 @@ const serviceData: ServiceDataMap = {
         Germany: {
             budget: [
                 {
-                    name: '8GB VPS - Budget',
+                    name: '8GB GERMANY BUDGET',
                     price: 8.00,
+                    link: 'https://billing.hexonode.com/products/germany-budget/8gb-germany-budget',
                     features: [
-                        '8GB DDR4 RAM',
-                        '4 vCPU (2.5-3.4 GHz)',
-                        '50GB NVMe SSD',
-                        '2TB Traffic',
-                        'Linux/Windows',
-                        '3.2Tbit DDoS Protection',
-                        '1Gbps Network',
-                        '1x IPv4 Address'
+                        'Linux VPS',
+                        '4 vCores',
+                        '2.5 to 3.4 Ghz { TURBO }',
+                        '8 GB DRR4 RAM',
+                        '50 GB 1 NVMe',
+                        '1 Gbit internet speed | 2 TB Traffic',
+                        '1x IPv4',
+                        '3.2Tbit Premium DDoS Protection',
+                        '24/7 Ticket Support',
+                        'Free Setup'
                     ]
                 },
                 {
-                    name: '16GB VPS - Budget',
+                    name: '16GB GERMANY BUDGET',
                     price: 15.00,
+                    link: 'https://billing.hexonode.com/products/germany-budget/16gb-germany-budget',
                     features: [
-                        '16GB DDR4 RAM',
-                        '6 vCPU (2.5-3.4 GHz)',
-                        '100GB NVMe SSD',
-                        '6TB Traffic',
-                        'Linux/Windows',
-                        '3.2Tbit DDoS Protection',
-                        '1Gbps Network',
-                        '1x IPv4 Address'
+                        '6 vCores',
+                        '2.5 to 3.4 Ghz { TURBO }',
+                        '16 GB DRR4 RAM',
+                        '100GB 1 NVMe',
+                        '1 Gbit internet speed | 6 TB Traffic',
+                        '1x IPv4',
+                        '3.2Tbit Premium DDoS Protection',
+                        '24/7 Ticket Support',
+                        'Free Setup'
                     ]
                 },
                 {
-                    name: '32GB VPS - Budget',
-                    price: 32.00,
+                    name: '32GB GERMANY BUDGET',
+                    price: 34.00,
+                    link: 'https://billing.hexonode.com/products/germany-budget/32gb-germany-budget',
                     features: [
-                        '32GB DDR4 RAM',
-                        '8 vCPU (2.5-3.4 GHz)',
-                        '200GB NVMe SSD',
-                        '10TB Traffic',
-                        'Linux/Windows',
-                        '3.2Tbit DDoS Protection',
-                        '1Gbps Network',
-                        '1x IPv4 Address'
+                        '8 vCores',
+                        '2.5 to 3.4 Ghz { TURBO }',
+                        '32 GB DRR4 RAM',
+                        '200GB 1 NVMe',
+                        '1 Gbit internet speed | 10 TB Traffic',
+                        '1x IPv4',
+                        '3.2Tbit Premium DDoS Protection',
+                        '24/7 Ticket Support',
+                        'Free Setup'
                     ]
                 },
                 {
-                    name: '64GB VPS - Budget',
-                    price: 49.90,
+                    name: '64GB GERMANY BUDGET',
+                    price: 49.99,
+                    link: 'https://billing.hexonode.com/products/germany-budget/64gb-germany-budget',
                     features: [
-                        '64GB DDR4 RAM',
-                        '10 vCPU (2.5-3.4 GHz)',
-                        '400GB NVMe SSD',
-                        '14TB Traffic',
-                        'Linux/Windows',
-                        '3.2Tbit DDoS Protection',
-                        '1Gbps Network',
-                        '1x IPv4 Address'
+                        '10 vCores',
+                        '2.5 to 3.4 Ghz { TURBO }',
+                        '64 GB DRR4 RAM',
+                        '400GB 1 NVMe',
+                        '1 Gbit internet speed | 14TB Traffic',
+                        '1x IPv4',
+                        '3.2Tbit Premium DDoS Protection',
+                        '24/7 Ticket Support',
+                        'Free Setup'
                     ]
                 }
             ],
             premium: [
                 {
-                    name: '8GB VPS - Premium',
+                    name: '8GB GERMANY PREMIUM',
                     price: 9.00,
+                    link: 'https://billing.hexonode.com/products/germany-premium/8gb-germany-premium',
                     features: [
-                        '8GB DDR4 RAM',
-                        '4 vCPU (Intel Xeon Gold 6150)',
-                        '2.8GHz Base (3.7GHz Turbo)',
-                        '50GB NVMe SSD',
-                        '4TB Traffic',
-                        'Linux/Windows',
-                        'DDoS Protection',
-                        'Priority Support',
-                        'Enhanced Backups',
-                        '99.9% Uptime SLA',
-                        '1x IPv4 Address'
-                    ]
-                },
-                {
-                    name: '18GB VPS - Premium',
-                    price: 18.00,
-                    features: [
-                        '16GB DDR4 RAM',
-                        '6 vCPU (Intel Xeon Gold 6150)',
-                        '2.8GHz Base (3.7GHz Turbo)',
-                        '100GB NVMe SSD',
-                        '8TB Traffic',
-                        'Linux/Windows',
-                        'DDoS Protection',
-                        'Priority Support',
-                        'Enhanced Backups',
-                        '99.9% Uptime SLA',
-                        '1x IPv4 Address'
-                    ]
-                },
-                {
-                    name: '32GB VPS - Premium',
-                    price: 37.00,
-                    features: [
-                        '32GB DDR4 RAM',
-                        '8 vCPU (Intel Xeon Gold 6150)',
-                        '2.8GHz Base (3.7GHz Turbo)',
-                        '200GB NVMe SSD',
-                        '12TB Traffic',
-                        'Linux/Windows',
-                        'DDoS Protection',
-                        'Priority Support',
-                        'Enhanced Backups',
-                        '99.9% Uptime SLA',
-                        '1x IPv4 Address'
-                    ]
-                },
-                {
-                    name: '64GB VPS - Premium',
-                    price: 64.00,
-                    features: [
-                        '64GB DDR4 RAM',
-                        '10 vCPU (Intel Xeon Gold 6150)',
-                        '2.8GHz Base (3.7GHz Turbo)',
-                        '400GB NVMe SSD',
-                        '16TB Traffic',
-                        'Linux/Windows',
-                        'DDoS Protection',
-                        'Priority Support',
-                        'Enhanced Backups',
-                        '99.9% Uptime SLA',
-                        '1x IPv4 Address'
-                    ]
-                },
-                {
-                    name: '128GB VPS - Premium Ryzen',
-                    price: 110.00,
-                    features: [
-                        '128GB DDR4 RAM',
-                        '12 vCPU (AMD Ryzen 5 3600)',
-                        '3.7GHz Base (4.2GHz Turbo)',
-                        '1TB NVMe SSD',
-                        'Unlimited Traffic',
-                        'Linux/Windows',
-                        'Advanced DDoS Protection',
-                        '24/7 Dedicated Support',
-                        'Enhanced Backups',
-                        '100% Performance Guarantee',
-                        '1x IPv4 Address',
+                        'Linux VPS',
+                        'Intel Xeon Gold 6150',
+                        '4 vCores',
+                        '2.80 GHz Base (3.70 GHz Turbo)',
+                        '8 GB DRR4 RAM',
+                        '50 GB 1 NVMe',
+                        '1 Gbit internet speed | 4 TB Traffic',
+                        '1x IPv4',
+                        '3.2Tbit Premium DDoS Protection',
+                        '24/7 Ticket Support',
                         'Free Setup',
-                        'Estimated 1 Hour Delivery'
+                        'Delivery Time 2 to 3 hours'
+                    ]
+                },
+                {
+                    name: '16GB GERMANY PREMIUM',
+                    price: 18.00,
+                    link: 'https://billing.hexonode.com/products/germany-premium/16gb-germany-premium',
+                    features: [
+                        'Linux VPS',
+                        'Intel Xeon Gold 6150',
+                        '6 vCores',
+                        '2.80 GHz Base (3.70 GHz Turbo)',
+                        '16 GB DRR4 RAM',
+                        '100 GB 1 NVMe',
+                        '1 Gbit internet speed | 8 TB Traffic',
+                        '1x IPv4',
+                        '3.2Tbit Premium DDoS Protection',
+                        '24/7 Ticket Support',
+                        'Free Setup',
+                        'Delivery Time 2 to 3 hours'
+                    ]
+                },
+                {
+                    name: '32GB GERMANY PREMIUM',
+                    price: 37.00,
+                    link: 'https://billing.hexonode.com/products/germany-premium/32gb-germany-premium',
+                    features: [
+                        'Linux VPS',
+                        'Intel Xeon Gold 6150',
+                        '8 vCores',
+                        '2.80 GHz Base (3.70 GHz Turbo)',
+                        '32 GB DRR4 RAM',
+                        '200 GB 1 NVMe',
+                        '1 Gbit internet speed | 12 TB Traffic',
+                        '1x IPv4',
+                        '3.2Tbit Premium DDoS Protection',
+                        '24/7 Ticket Support',
+                        'Free Setup',
+                        'Delivery Time 2 to 3 hours'
+                    ]
+                },
+                {
+                    name: '64GB GERMANY PREMIUM',
+                    price: 64.00,
+                    link: 'https://billing.hexonode.com/products/germany-premium/64gb-germany-premium',
+                    features: [
+                        'Linux VPS',
+                        'Intel Xeon Gold 6150',
+                        '10 vCores',
+                        '2.80 GHz Base (3.70 GHz Turbo)',
+                        '64 GB DRR4 RAM',
+                        '400 GB 1 NVMe',
+                        '1 Gbit internet speed | 16 TB Traffic',
+                        '1x IPv4',
+                        '3.2Tbit Premium DDoS Protection',
+                        '24/7 Ticket Support',
+                        'Free Setup',
+                        'Delivery Time 2 to 3 hours'
+                    ]
+                },
+                {
+                    name: '128GB GERMANY PREMIUM',
+                    price: 110.00,
+                    link: 'https://billing.hexonode.com/products/germany-premium/128gb-germany-premium',
+                    features: [
+                        'Linux VPS',
+                        'AMD Ryzen™ 5 3600',
+                        '12 DEDICATED RYZEN CORES',
+                        '3.7 GHz Base (4.2 GHz Turbo)',
+                        '128 GB RAM DDR4',
+                        '1 TB NVME SSD',
+                        '1 Gbit internet speed | 20 TB Traffic',
+                        '1x IPv4',
+                        '3.2Tbit Premium DDoS Protection',
+                        '24/7 Ticket Support',
+                        'Free Setup',
+                        'Delivery Time 2 to 3 hours'
                     ]
                 }
             ],
             ultra: [
                 {
-                    name: '8GB VPS - Ultra Ryzen 9',
+                    name: '8GB GERMANY ULTRA RYZEN 9',
                     price: 15.00,
+                    link: 'https://billing.hexonode.com/products/germany-vps-ultra/8gb-germany-ultra-ryzen-9',
                     features: [
-                        '8GB DDR4 RAM',
-                        '2 vCPU (AMD Ryzen 9 5900X)',
-                        '3.7GHz Base (4.8GHz Turbo)',
-                        '50GB NVMe SSD',
-                        '20TB Traffic',
-                        'Linux/Windows',
-                        'Premium DDoS Protection',
-                        '24/7 Dedicated Support',
-                        'Daily Backups',
-                        '99.99% Uptime SLA',
-                        'Enhanced Security'
-                    ]
-                },
-                {
-                    name: '12GB VPS - Ultra Ryzen 9',
-                    price: 23.00,
-                    features: [
-                        '12GB DDR4 RAM',
-                        '3 vCPU (AMD Ryzen 9 5900X)',
-                        '3.7GHz Base (4.8GHz Turbo)',
-                        '75GB NVMe SSD',
-                        '25TB Traffic',
-                        'Linux/Windows',
-                        'Premium DDoS Protection',
-                        '24/7 Dedicated Support',
-                        'Daily Backups',
-                        '99.99% Uptime SLA',
-                        'Enhanced Security'
-                    ]
-                },
-                {
-                    name: '16GB VPS - Ultra Ryzen 9',
-                    price: 30.00,
-                    features: [
-                        '16GB DDR4 RAM',
-                        '4 vCPU (AMD Ryzen 9 5900X)',
-                        '3.7GHz Base (4.8GHz Turbo)',
-                        '120GB NVMe SSD',
-                        '28TB Traffic',
-                        'Linux/Windows',
-                        'Premium DDoS Protection',
-                        '24/7 Dedicated Support',
-                        'Daily Backups',
-                        '99.99% Uptime SLA',
-                        'Enhanced Security'
-                    ]
-                },
-                {
-                    name: '24GB VPS - Ultra Ryzen 9',
-                    price: 45.00,
-                    features: [
-                        '24GB DDR4 RAM',
-                        '6 vCPU (AMD Ryzen 9 5900X)',
-                        '3.7GHz Base (4.8GHz Turbo)',
-                        '160GB NVMe SSD',
-                        '35TB Traffic',
-                        'Linux/Windows',
-                        'Premium DDoS Protection',
-                        '1 IPv4 Address',
+                        'Linux VPS',
+                        'AMD Ryzen™ 9 5900X',
+                        '3.70 GHz Base (4.80 GHz Turbo)',
+                        '2 Ryzen vCores',
+                        '8 GB DDR4 Memory',
+                        '50 GB 1 NVMe Storage',
                         '1 Gbit Uplink',
-                        '24/7 Dedicated Support',
+                        '20 TB Traffic per month',
+                        '1x IPv4',
+                        'DDoS Protection',
+                        '24/7 Free Ticket Support',
                         'Free Setup',
-                        'Daily Backups',
-                        '99.99% Uptime SLA',
-                        'Enhanced Security'
+                        'Delivery Time 2 to 3 hours'
                     ]
                 },
                 {
-                    name: '32GB VPS - Ultra Ryzen 9',
+                    name: '12GB GERMANY ULTRA RYZEN 9',
+                    price: 23.00,
+                    link: 'https://billing.hexonode.com/products/germany-vps-ultra/12gb-germany-ultra-ryzen-9',
+                    features: [
+                        'Linux VPS',
+                        'AMD Ryzen™ 9 5900X',
+                        '3.70 GHz Base (4.80 GHz Turbo)',
+                        '3 Ryzen vCores',
+                        '12 GB DDR4 Memory',
+                        '75 GB 1 NVMe Storage',
+                        '1 Gbit Uplink',
+                        '25 TB Traffic per month',
+                        '1x IPv4',
+                        'DDoS Protection',
+                        '24/7 Free Ticket Support',
+                        'Free Setup',
+                        'Delivery Time 2 to 3 hours'
+                    ]
+                },
+                {
+                    name: '16GB GERMANY ULTRA RYZEN 9',
+                    price: 30.00,
+                    link: 'https://billing.hexonode.com/products/germany-vps-ultra/16gb-germany-ultra-ryzen-9',
+                    features: [
+                        'Linux VPS',
+                        'AMD Ryzen™ 9 5900X',
+                        '3.70 GHz Base (4.80 GHz Turbo)',
+                        '4 Ryzen vCores',
+                        '16 GB DDR4 Memory',
+                        '120 GB 1 NVMe Storage',
+                        '1 Gbit Uplink',
+                        '28 TB Traffic per month',
+                        '1x IPv4',
+                        'DDoS Protection',
+                        '24/7 Free Ticket Support',
+                        'Free Setup',
+                        'Delivery Time 2 to 3 hours'
+                    ]
+                },
+                {
+                    name: '24GB GERMANY ULTRA RYZEN 9',
+                    price: 45.00,
+                    link: 'https://billing.hexonode.com/products/germany-vps-ultra/24gb-germany-ultra-ryzen-9',
+                    features: [
+                        'Linux VPS',
+                        'AMD Ryzen™ 9 5900X',
+                        '3.70 GHz Base (4.80 GHz Turbo)',
+                        '6 Ryzen vCores',
+                        '24 GB DDR4 Memory',
+                        '160 GB 1 NVMe Storage',
+                        '1 Gbit Uplink',
+                        '35 TB Traffic per month',
+                        '1x IPv4',
+                        'DDoS Protection',
+                        '24/7 Free Ticket Support',
+                        'Free Setup',
+                        'Delivery Time 2 to 3 hours'
+                    ]
+                },
+                {
+                    name: '32GB GERMANY ULTRA RYZEN 9',
                     price: 54.99,
+                    link: 'https://billing.hexonode.com/products/germany-vps-ultra/32gb-germany-ultra-ryzen-9',
                     features: [
-                        '32GB DDR4 RAM',
-                        '6 vCPU (AMD Ryzen 9 5900X)',
-                        '3.7GHz Base (4.8GHz Turbo)',
-                        '200GB NVMe SSD',
-                        '38TB Traffic',
-                        'Linux/Windows',
-                        'Premium DDoS Protection',
-                        '24/7 Dedicated Support',
-                        'Daily Backups',
-                        '99.99% Uptime SLA',
-                        'Enhanced Security'
+                        'Linux VPS',
+                        'AMD Ryzen™ 9 5900X',
+                        '3.70 GHz Base (4.80 GHz Turbo)',
+                        '6 Ryzen vCores',
+                        '32 GB DDR4 Memory',
+                        '200 GB 1 NVMe Storage',
+                        '1 Gbit Uplink',
+                        '38 TB Traffic per month',
+                        '1x IPv4',
+                        'DDoS Protection',
+                        '24/7 Free Ticket Support',
+                        'Free Setup',
+                        'Delivery Time 2 to 3 hours'
                     ]
                 },
                 {
-                    name: '64GB VPS - Ultra Ryzen 5',
-                    price: 80.00,
+                    name: '64GB DEDICATED VPS RYZEN 7',
+                    price: 105.00,
+                    link: 'https://billing.hexonode.com/products/germany-vps-ultra/64gb-dedicated-vps-ryzen-7',
                     features: [
-                        '64GB DDR4 RAM',
-                        '12 vCPU (AMD Ryzen 5 3600)',
-                        '3.7GHz Base (4.2GHz Turbo)',
-                        '1TB NVMe SSD',
-                        'Unlimited Traffic',
-                        'Linux/Windows',
-                        'Premium DDoS Protection',
-                        '24/7 Dedicated Support',
-                        'Free Setup',
-                        'Daily Backups',
-                        '99.99% Uptime SLA',
-                        'Enhanced Security',
-                        '100% Dedicated Performance Guaranteed'
+                        'Linux VPS',
+                        'AMD Ryzen™ 7 7700',
+                        '3.8 GHz Base (5.3 GHz Turbo)',
+                        '16 RYZEN CORE',
+                        '64GB RAM DDR5',
+                        '2x 1 TB NVME SSD',
+                        '100% GUARANTEED PERFORMANCE',
+                        '24/7 FREE TICKET SUPPORT',
+                        'FREE SETUP',
+                        'Delivery Time 2 to 3 hours'
                     ]
                 },
                 {
-                    name: '128GB VPS - Ultra Ryzen 5',
-                    price: 139.99,
+                    name: '64GB GERMANY ULTRA RYZEN 9',
+                    price: 140.00,
+                    link: 'https://billing.hexonode.com/products/germany-vps-ultra/64gb-germany-ultra-ryzen-9',
                     features: [
-                        '128GB DDR4 RAM',
-                        '12 vCPU (AMD Ryzen 5 3600)',
-                        '3.7GHz Base (4.2GHz Turbo)',
-                        '1TB NVMe SSD',
-                        'Unlimited Traffic',
-                        'Linux/Windows',
-                        'Premium DDoS Protection',
-                        '24/7 Dedicated Support',
-                        'Free Setup',
-                        'Daily Backups',
-                        '99.99% Uptime SLA',
-                        'Enhanced Security',
-                        'Delivery in 1 hour'
+                        'Linux VPS',
+                        'AMD-RYZEN-9-7900X3D',
+                        'CPU TYPE: AMD Ryzen 9 7900X3D 5.6GHz',
+                        '24 RYZEN CORES',
+                        '64GB RAM DDR5',
+                        '480GB NVMe Storage (More available on request)',
+                        '1 Gbps Unmetered Network',
+                        '24/7 FREE TICKET SUPPORT',
+                        'FREE SETUP',
+                        'Delivery Time 2 to 3 hours'
+                    ]
+                },
+                {
+                    name: '128GB DEDICATED ULTRA RYZEN 7',
+                    price: 149.99,
+                    link: 'https://billing.hexonode.com/products/germany-vps-ultra/128gb-dedicated-ultra-ryzen-7',
+                    features: [
+                        'Linux VPS',
+                        'AMD Ryzen™ 7 7700',
+                        '3.8 GHz Base (5.3 GHz Turbo)',
+                        '12 RYZEN CORE',
+                        '128 GB RAM DDR5',
+                        '2x 1 TB NVME SSD',
+                        '100% GUARANTEED PERFORMANCE',
+                        '24/7 FREE TICKET SUPPORT',
+                        'FREE SETUP',
+                        'Delivery Time 1 to 2 hours'
+                    ]
+                },
+                {
+                    name: '128GB GERMANY ULTRA RYZEN 9',
+                    price: 180.00,
+                    link: 'https://billing.hexonode.com/products/germany-vps-ultra/128gb-germany-ultra-ryzen-9',
+                    features: [
+                        'Linux VPS',
+                        'AMD-RYZEN-9-7900X3D',
+                        'CPU TYPE: AMD Ryzen 9 7900X3D 5.6GHz',
+                        '24 RYZEN CORES',
+                        '128GB RAM DDR5',
+                        '960GB NVMe Storage (More available on request)',
+                        '1 Gbps Unmetered Network',
+                        '24/7 FREE TICKET SUPPORT',
+                        'FREE SETUP',
+                        'Delivery Time 2 to 3 hours'
                     ]
                 }
             ]
@@ -2327,137 +2790,199 @@ const serviceData: ServiceDataMap = {
         France: {
             budget: [
                 {
-                    name: '8GB VPS - Budget',
-                    price: 1200.00,
+                    name: '8GB Plan - Budget',
+                    price: -1,
+                    link: '',
                     features: [
-                        'OUT OF STOCK',
+                        'COMING SOON',
+                        'Till that check out',
+                        'premium + ultra plans',
+                        'for more information, contact us'
                     ]
                 }
+
             ],
             premium: [
                 {
-                    name: '9GB VPS - Premium',
-                    price: 9.00,
+                    name: '8GB Plan - Premium',
+                    price: 24.99,
+                    link: 'https://billing.hexonode.com/products/france-vps-premium/8gb-france-premium',
                     features: [
-                        '9GB RAM',
-                        '3 vCPU',
-                        '90GB NVMe SSD',
-                        'Unlimited Traffic',
-                        'Linux/Windows',
-                        'DDoS Protection',
-                        'Priority Support',
-                        'Enhanced Backups',
-                        '99.9% Uptime SLA'
+                        'AMD EPYC 9354',
+                        '3.25 Gz {BASE} 3.8 Gz {TURBO}',
+                        '8GB RAM DDR5 ',
+                        '8 vCPU Cores',
+                        '60GB SSD Storage',
+                        '1x IPv4',
+                        'Bandwidth: 3TB',
+                        'Premium DDoS Protection',
+                        '24/7 FREE TICKET SUPPORT',
+                        'Free Setup',
+                        'Delivery Time 2 to 3 hours'
                     ]
                 },
                 {
-                    name: '18GB VPS - Premium',
-                    price: 18.00,
+                    name: '16GB Plan - Premium',
+                    price: 40.00,
+                    link: 'https://billing.hexonode.com/products/france-vps-premium/16gb-france-premium',
                     features: [
-                        '18GB RAM',
-                        '4 vCPU',
-                        '180GB NVMe SSD',
-                        'Unlimited Traffic',
-                        'Linux/Windows',
-                        'DDoS Protection',
-                        'Priority Support',
-                        'Enhanced Backups',
-                        '99.9% Uptime SLA'
+                        'AMD EPYC 9354',
+                        '3.25 Gz {BASE} 3.8 Gz {TURBO}',
+                        '16GB RAM DDR5',
+                        '8 vCPU Cores',
+                        '120GB SSD Storage',
+                        '1x IPv4',
+                        'Bandwidth: 3TB',
+                        'Premium DDoS Protection',
+                        '24/7 FREE TICKET SUPPORT',
+                        'Free Setup',
+                        'Delivery Time 2 to 3 hours'
                     ]
                 },
                 {
-                    name: '37GB VPS - Premium',
-                    price: 37.00,
+                    name: '32GB Plan - Premium',
+                    price: 70.00,
+                    link: 'https://billing.hexonode.com/products/france-vps-premium/32gb-france-premium',
                     features: [
-                        '37GB RAM',
-                        '6 vCPU',
-                        '370GB NVMe SSD',
-                        'Unlimited Traffic',
-                        'Linux/Windows',
-                        'DDoS Protection',
-                        'Priority Support',
-                        'Enhanced Backups',
-                        '99.9% Uptime SLA'
+                        'AMD EPYC 9354',
+                        '3.25 Gz {BASE} 3.8 Gz {TURBO}',
+                        '32GB RAM DDR5',
+                        '8 vCPU Cores',
+                        '250GB SSD Storage',
+                        '1x IPv4',
+                        'Bandwidth: 3TB',
+                        'Premium DDoS Protection',
+                        '24/7 FREE TICKET SUPPORT',
+                        'Free Setup',
+                        'Delivery Time 2 to 3 hours'
                     ]
                 },
                 {
-                    name: '64GB VPS - Premium',
-                    price: 64.00,
+                    name: '64GB Plan - Premium',
+                    price: 105.00,
+                    link: 'https://billing.hexonode.com/products/france-vps-premium/64gb-france-premium',
                     features: [
-                        '64GB RAM',
-                        '10 vCPU',
-                        '640GB NVMe SSD',
-                        'Unlimited Traffic',
-                        'Linux/Windows',
-                        'DDoS Protection',
-                        'Priority Support',
-                        'Enhanced Backups',
-                        '99.9% Uptime SLA'
+                        'Intel Xeon E3-1240 v6',
+                        '3.7 Ghz Base /4.10 Ghz Turbo',
+                        '64GB RAM DDR5',
+                        '8 Core { dedicated }',
+                        '2x 500 gb NVME/SSD { depends on availibility }',
+                        '1x IPv4',
+                        'Bandwidth: Unmetered 1 Gbps',
+                        'Advanced DDoS Protection',
+                        '24/7 FREE TICKET SUPPORT',
+                        'Free Setup',
+                        'Delivery Time 4 to 5 hours'
+                    ]
+                },
+                {
+                    name: '96GB Plan - Premium',
+                    price: 115.00,
+                    link: 'https://billing.hexonode.com/products/france-vps-premium/96gb-france-premium',
+                    features: [
+                        'Intel Xeon E5-1650 v3',
+                        '3.5 Ghz Base /3.80 Ghz Turbo',
+                        '96GB RAM DDR5',
+                        '12 Core { dedicated }',
+                        '3x 500 gb NVME/SSD { depends on availibility }',
+                        '1x IPv4',
+                        'Bandwidth: Unmetered 1 Gbps',
+                        'Advanced DDoS Protection',
+                        '24/7 FREE TICKET SUPPORT',
+                        'Free Setup',
+                        'Delivery Time 4 to 5 hours'
                     ]
                 }
             ],
             ultra: [
                 {
-                    name: '15GB VPS - Ultra Ryzen 9',
-                    price: 15.00,
+                    name: '4GB Plan - Ultra Ryzen 9',
+                    price: 24.00,
+                    link: 'https://billing.hexonode.com/products/france-vps-ultra/4gb-france-ryzen-9',
                     features: [
-                        '15GB RAM',
-                        '4 vCPU (Ryzen 9)',
-                        '150GB NVMe SSD',
-                        'Unlimited Traffic',
-                        'Linux/Windows',
+                        'AMD Ryzen 9 7950x',
+                        '4GB RAM DDR5',
+                        '5.7 Ghz',
+                        '4 vCPU Cores (Ryzen 9)',
+                        '30GB NVME',
+                        'Bandwidth: 3TB',
+                        '1x ipv4',
                         'Premium DDoS Protection',
                         '24/7 Dedicated Support',
-                        'Daily Backups',
-                        '99.99% Uptime SLA',
-                        'Enhanced Security'
+                        'Free Setup',
+                        'Delivery Time 2 to 3 hours',
                     ]
                 },
                 {
-                    name: '23GB VPS - Ultra Ryzen 9',
-                    price: 23.00,
+                    name: '8GB Plan - Ultra Ryzen 9',
+                    price: 33.00,
+                    link: 'https://billing.hexonode.com/products/france-vps-ultra/8gb-france-ryzen-9',
                     features: [
-                        '23GB RAM',
-                        '4 vCPU (Ryzen 9)',
-                        '150GB NVMe SSD',
-                        'Unlimited Traffic',
-                        'Linux/Windows',
+                        'AMD Ryzen 9 7950x',
+                        '8GB RAM DDR5',
+                        '5.7 Ghz',
+                        '2 vCPU Cores (Ryzen 9)',
+                        '100GB NVME',
+                        'Bandwidth: 3TB',
+                        '1x ipv4',
                         'Premium DDoS Protection',
                         '24/7 Dedicated Support',
-                        'Daily Backups',
-                        '99.99% Uptime SLA',
-                        'Enhanced Security'
+                        'Free Setup',
+                        'Delivery Time 2 to 3 hours',
                     ]
                 },
                 {
-                    name: '23GB VPS - Ultra Ryzen 9',
-                    price: 23.00,
+                    name: '16GB Plan - Ultra Ryzen 9',
+                    price: 54.99,
+                    link: 'https://billing.hexonode.com/products/france-vps-ultra/16gb-france-ryzen-9',
                     features: [
-                        '23GB RAM',
-                        '4 vCPU (Ryzen 9)',
-                        '150GB NVMe SSD',
-                        'Unlimited Traffic',
-                        'Linux/Windows',
+                        'AMD Ryzen 9 7950x',
+                        '16GB RAM DDR5',
+                        '5.7 Ghz',
+                        '4 vCPU Cores (Ryzen 9)',
+                        '200GB NVME',
+                        'Bandwidth: 3TB',
+                        '1x ipv4',
                         'Premium DDoS Protection',
                         '24/7 Dedicated Support',
-                        'Daily Backups',
-                        '99.99% Uptime SLA',
-                        'Enhanced Security'
+                        'Free Setup',
+                        'Delivery Time 2 to 3 hours',
                     ]
                 },
                 {
-                    name: '139.99 VPS - Ultra Ryzen 9',
-                    price: 139.99,
+                    name: '32GB Plan - Ultra Ryzen 9',
+                    price: 88.00,
+                    link: 'https://billing.hexonode.com/products/france-vps-ultra/32gb-france-ryzen-9',
                     features: [
-                        '139.99GB RAM',
-                        '12 vCPU (Ryzen 9)',
-                        '1600GB NVMe SSD',
-                        'Unlimited Traffic',
+                        'AMD Ryzen 9 7950x',
+                        '32GB RAM DDR5',
+                        '5.7 Ghz',
+                        '8 core dedicated (Ryzen 9)',
+                        '400GB NVME',
+                        'Bandwidth: 3TB',
+                        '1x ipv4',
                         'Premium DDoS Protection',
                         '24/7 Dedicated Support',
-                        'Daily Backups',
-                        '99.99% Uptime SLA',
-                        'Enhanced Security'
+                        'Free Setup',
+                        'Delivery Time 2 to 3 hours',
+                    ]
+                },
+                {
+                    name: '64GB Plan - Ultra Ryzen 9',
+                    price: 149.99,
+                    link: 'https://billing.hexonode.com/products/france-vps-ultra/64gb-france-ryzen-7-9700x',
+                    features: [
+                        'AMD Ryzen 9700X  ',
+                        '64GB RAM DDR5',
+                        '5.4 Ghz',
+                        '16 core dedicated (Ryzen 9)',
+                        '2x 512GB NVME',
+                        'Bandwidth: 3TB',
+                        '1x ipv4',
+                        'Premium DDoS Protection',
+                        '24/7 Dedicated Support',
+                        'Free Setup',
+                        'Delivery Time 2 to 3 hours',
                     ]
                 }
             ]
@@ -2465,148 +2990,318 @@ const serviceData: ServiceDataMap = {
         UK: {
             budget: [
                 {
-                    name: '8GB VPS - Budget',
-                    price: 10.80,
+                    name: '8GB Plan - Budget',
+                    price: 15.00,
+                    link: 'https://billing.hexonode.com/products/uk-vps-budget/8gb-uk-budget',
                     features: [
+                        'Intel Xeon E5-2683v4',
+                        '3 CORES',
                         '8GB RAM',
-                        '3 vCPU',
-                        '100GB NVMe SSD',
-                        'Unlimited Traffic',
-                        'Linux/Windows',
-                        'DDoS Protection'
+                        '65GB NVME/SSD Storage',
+                        'Bandwidth: 10TB',
+                        '1x IPv4',
+                        'Premium DDoS Protection',
+                        'location: London',
+                        'Priority Support',
+                        'Free Setup',
+                        'Delivery Time 2 to 3 hours'
                     ]
                 },
                 {
-                    name: '16GB VPS - Budget',
-                    price: 21.60,
+                    name: '16GB Plan - Budget',
+                    price: 23.00,
+                    link: 'https://billing.hexonode.com/products/uk-vps-budget/16gb-uk-budget',
                     features: [
+                       'Intel Xeon E5-2683v4',
+                        '4 CORES',
                         '16GB RAM',
-                        '4 vCPU',
-                        '200GB NVMe SSD',
-                        'Unlimited Traffic',
-                        'Linux/Windows',
-                        'DDoS Protection'
+                        '96GB NVME/SSD Storage',
+                        'Bandwidth: 20TB',
+                        '1x IPv4',
+                        'Premium DDoS Protection',
+                        'location: London',
+                        'Priority Support',
+                        'Free Setup',
+                        'Delivery Time 2 to 3 hours'
                     ]
                 },
                 {
-                    name: '22.40 VPS - Budget',
-                    price: 22.40,
+                    name: '32GB Plan - Budget',
+                    price: 35.00,
+                    link: 'https://billing.hexonode.com/products/uk-vps-budget/32gb-uk-budget',
                     features: [
-                        '22.40GB RAM',
-                        '6 vCPU',
-                        '320GB NVMe SSD',
-                        'Unlimited Traffic',
-                        'Linux/Windows',
-                        'DDoS Protection'
+                        'Intel Xeon E5-2683v4',
+                        '6 CORES',
+                        '32GB RAM',
+                        '192GB NVME/SSD Storage',
+                        'Bandwidth: 20TB',
+                        '1x IPv4',
+                        'Premium DDoS Protection',
+                        'location: London',
+                        'Priority Support',
+                        'Free Setup',
+                        'Delivery Time 2 to 3 hours'
                     ]
                 },
                 {
-                    name: '44.80 VPS - Budget',
-                    price: 44.80,
+                    name: '48GB Plan - Budget',
+                    price: 48.00,
+                    link: 'https://billing.hexonode.com/products/uk-vps-budget/48gb-uk-budget',
                     features: [
-                        '44.80GB RAM',
-                        '10 vCPU',
-                        '640GB NVMe SSD',
-                        'Unlimited Traffic',
-                        'Linux/Windows',
-                        'DDoS Protection'
+                        'Intel Xeon E5-2683v4',
+                        '7 CORES',
+                        '48GB RAM',
+                        '250GB NVME/SSD Storage',
+                        'Bandwidth: 20TB',
+                        '1x IPv4',
+                        'Premium DDoS Protection',
+                        'location: London',
+                        'Priority Support',
+                        'Free Setup',
+                        'Delivery Time 2 to 3 hours'
+                    ]
+                },
+                {
+                    name: '64GB Plan - BUDGET',
+                    price: 60.00,
+                    link: 'https://billing.hexonode.com/products/uk-vps-budget/64gb-uk-budget',
+                    features: [
+                        'Intel Xeon E5-2683v4',
+                        '9 CORES',
+                        '64GB RAM',
+                        '320GB NVME/SSD Storage',
+                        'Bandwidth: 20TB',
+                        '1x IPv4',
+                        'Premium DDoS Protection',
+                        'location: London',
+                        'Priority Support',
+                        'Free Setup',
+                        'Delivery Time 2 to 3 hours'
                     ]
                 }
             ],
             premium: [
                 {
-                    name: '8.40 VPS - Premium',
-                    price: 8.40,
+                    name: '8gb Plan - Premium',
+                    price: 28.00,
+                    link: 'https://billing.hexonode.com/products/uk-vps-premium/8gb-uk-premium',
                     features: [
-                        '8.40GB RAM',
-                        '3 vCPU',
-                        '80GB NVMe SSD',
-                        'Unlimited Traffic',
-                        'Linux/Windows',
-                        'DDoS Protection',
-                        'Priority Support',
-                        'Enhanced Backups',
-                        '99.9% Uptime SLA'
+                        'AMD EPYC 9354',
+                        '3.25 Gz {BASE} 3.8 Gz {TURBO}',
+                        '8 Cores',
+                        '8GB RAM',
+                        '60GB NVME',
+                        'Bandwidth: 3TB',
+                        '1x IPv4',
+                        'Premium DDoS Protection',
+                        '24/7 Ticket Support',
+                        'Free Setup',
+                        'Delivery Time 2 to 3 hours'
                     ]
                 },
                 {
-                    name: '16.80 VPS - Premium',
-                    price: 16.80,
+                    name: '16GB Plan - Premium',
+                    price: 45.00,
+                    link: 'https://billing.hexonode.com/products/uk-vps-premium/16gb-uk-premium',
                     features: [
-                        '16.80GB RAM',
-                        '4 vCPU',
-                        '160GB NVMe SSD',
-                        'Unlimited Traffic',
-                        'Linux/Windows',
-                        'DDoS Protection',
-                        'Priority Support',
-                        'Enhanced Backups',
-                        '99.9% Uptime SLA'
+                       'AMD EPYC 9354',
+                        '3.25 Gz {BASE} 3.8 Gz {TURBO}',
+                        '8 Cores',
+                        '16GB RAM',
+                        '120GB NVME',
+                        'Bandwidth: 3TB',
+                        '1x IPv4',
+                        'Premium DDoS Protection',
+                        '24/7 Ticket Support',
+                        'Free Setup',
+                        'Delivery Time 2 to 3 hours'
                     ]
                 },
                 {
-                    name: '33.60 VPS - Premium',
-                    price: 33.60,
+                    name: '32GB Plan - Premium',
+                    price: 75.00,
+                    link: 'https://billing.hexonode.com/products/uk-vps-premium/32gb-uk-premium',
                     features: [
-                        '33.60GB RAM',
-                        '6 vCPU',
-                        '330GB NVMe SSD',
-                        'Unlimited Traffic',
-                        'Linux/Windows',
-                        'DDoS Protection',
-                        'Priority Support',
-                        'Enhanced Backups',
-                        '99.9% Uptime SLA'
+                        'AMD EPYC 9354',
+                        '3.25 Gz {BASE} 3.8 Gz {TURBO}',
+                        '8 Cores',
+                        '32GB RAM',
+                        '250GB NVME',
+                        'Bandwidth: 3TB',
+                        '1x IPv4',
+                        'Premium DDoS Protection',
+                        '24/7 Ticket Support',
+                        'Free Setup',
+                        'Delivery Time 2 to 3 hours'
+                    ]
+                },
+                {
+                    name: '64GB Plan - Premium',
+                    price: 120.00,
+                    link: 'https://billing.hexonode.com/products/uk-vps-premium/64gb-uk-premium',
+                    features: [
+                        'AMD EPYC 9354',
+                        '3.25 Gz {BASE} 3.8 Gz {TURBO}',
+                        '10 Cores',
+                        '64GB RAM',
+                        '500GB NVME',
+                        'Bandwidth: 3TB',
+                        '1x IPv4',
+                        'Premium DDoS Protection',
+                        '24/7 Ticket Support',
+                        'Free Setup',
+                        'Delivery Time 2 to 3 hours'
+                    ]
+                },
+                {
+                    name: '128GB Plan - Premium',
+                    price: 190.00,
+                    link: 'https://billing.hexonode.com/products/uk-vps-premium/128gb-uk-premium',
+                    features: [
+                        'Intel Xeon-E 2386G',
+                        '3.5GHz BASE /4.7GHz TURBO',
+                        '12 Cores { DEDICATED }',
+                        '128GB RAM',
+                        '2x 512GB NVME',
+                        'Public Bandwidth: 1Gbit/s unmetered guaranteed',
+                        'Private Bandwidth: 1Gbit/s unmetered and guaranteed',
+                        '1x IPv4 { more available }',
+                        'Advance DDoS Protection',
+                        '24/7 Ticket Support',
+                        'Free Setup',
+                        'Delivery Time 4 to 5 hours'
                     ]
                 }
             ],
             ultra: [
                 {
-                    name: '10.80 VPS - Ultra Ryzen 9',
-                    price: 10.80,
+                    name: '4GB Plan - Ultra Ryzen 9',
+                    price: 28.00,
+                    link: 'https://billing.hexonode.com/products/uk-vps-ultra/4gb-uk-ryzen-9',
                     features: [
-                        '10.80GB RAM',
-                        '3 vCPU',
-                        '80GB NVMe SSD',
-                        'Unlimited Traffic',
-                        'Linux/Windows',
+                        'AMD Ryzen 9 7950x',
+                        '4.5 Ghz {BASE} 5.7 Ghz {TURBO}',
+                        '4 vCPU Cores (Ryzen 9)',
+                        '4GB RAM DDR5',
+                        '30GB NVME',
+                        'Bandwidth: 3TB',
+                        '1x IPv4',
                         'Premium DDoS Protection',
-                        '24/7 Dedicated Support',
-                        'Daily Backups',
-                        '99.99% Uptime SLA',
-                        'Enhanced Security'
+                        '24/7 Ticket Support',
+                        'Free Setup',
+                        'Delivery Time 2 to 3 hours'
                     ]
                 },
                 {
-                    name: '22.40 VPS - Ultra Ryzen 9',
-                    price: 22.40,
+                    name: '8GB Plan - Ultra Ryzen 9',
+                    price: 35.00,
+                    link: 'https://billing.hexonode.com/products/uk-vps-ultra/8gb-uk-ryzen-9',
                     features: [
-                        '22.40GB RAM',
-                        '6 vCPU',
-                        '320GB NVMe SSD',
-                        'Unlimited Traffic',
-                        'Linux/Windows',
+                        'AMD Ryzen 9 7950x',
+                        '4.5 Ghz {BASE} 5.7 Ghz {TURBO}',
+                        '2 vCPU Cores (Ryzen 9)',
+                        '8GB RAM DDR5',
+                        '100GB NVME',
+                        'Bandwidth: 3TB',
+                        '1x IPv4',
                         'Premium DDoS Protection',
-                        '24/7 Dedicated Support',
-                        'Daily Backups',
-                        '99.99% Uptime SLA',
-                        'Enhanced Security'
+                        '24/7 Ticket Support',
+                        'Free Setup',
+                        'Delivery Time 2 to 3 hours'
                     ]
                 },
                 {
-                    name: '44.80 VPS - Ultra Ryzen 9',
-                    price: 44.80,
+                    name: '8GB Plan - Ultra Ryzen 9',
+                    price: 40.00,
+                    link: 'https://billing.hexonode.com/products/uk-vps-ultra/8gb-uk-ryzen-98CORE',
                     features: [
-                        '44.80GB RAM',
-                        '10 vCPU',
-                        '640GB NVMe SSD',
-                        'Unlimited Traffic',
-                        'Linux/Windows',
+                        'AMD Ryzen 9 7950x',
+                        '4.5 Ghz {BASE} 5.7 Ghz {TURBO}',
+                        '8 vCPU Cores (Ryzen 9)',
+                        '8GB RAM DDR5',
+                        '60GB NVME',
+                        'Bandwidth: 3TB',
+                        '1x IPv4',
                         'Premium DDoS Protection',
-                        '24/7 Dedicated Support',
-                        'Daily Backups',
-                        '99.99% Uptime SLA',
-                        'Enhanced Security'
+                        '24/7 Ticket Support',
+                        'Free Setup',
+                        'Delivery Time 2 to 3 hours'
+                    ]
+                },
+                {
+                    name: '16GB Plan - Ultra Ryzen 9',
+                    price: 65.00,
+                    link: 'https://billing.hexonode.com/products/uk-vps-ultra/16gb-uk-ryzen-9',
+                    features: [
+                        'AMD Ryzen 9 7950x',
+                        '4.5 Ghz {BASE} 5.7 Ghz {TURBO}',
+                        '4 vCPU Cores (Ryzen 9)',
+                        '16GB RAM DDR5',
+                        '200GB NVME',
+                        'Bandwidth: 3TB',
+                        '1x IPv4',
+                        'Premium DDoS Protection',
+                        '24/7 Ticket Support',
+                        'Free Setup',
+                        'Delivery Time 2 to 3 hours'
+                    ]
+                },
+                {
+                    name: '32GB Plan - Ultra Ryzen 9',
+                    price: 99.99,
+                    link: 'https://billing.hexonode.com/products/uk-vps-ultra/32gb-uk-ryzen-9',
+                    features: [
+                        'AMD Ryzen 9 7950x',
+                        '4.5 Ghz {BASE} 5.7 Ghz {TURBO}',
+                        '8 vCPU Cores (Ryzen 9)',
+                        '32GB RAM DDR5',
+                        '400GB NVME',
+                        'Bandwidth: 3TB',
+                        '1x IPv4',
+                        'Premium DDoS Protection',
+                        '24/7 Ticket Support',
+                        'Free Setup',
+                        'Delivery Time 2 to 3 hours'
+                    ]
+                },
+                {
+                    name: '64GB Plan - Ultra Ryzen 9',
+                    price: 170.00,
+                    link: 'https://billing.hexonode.com/products/uk-vps-ultra/64gb-uk-ryzen-9',
+                    features: [
+                        'AMD Ryzen 9 7900',
+                        '3.7 Ghz Base / 5.4 Ghz Turbo',
+                        '20 dedicated CORES { RYZEN 9}',
+                        '64GB RAM DDR5',
+                        '512GB NVME',
+                        'Bandwidth: 100TB',
+                        'Network Speed: 10Gbps',
+                        '1x IPv4 { more available }',
+                        'Premium DDOS Protection { 800 GBPS}',
+                        'Location : Uk, Coventry',
+                        '24/7 Ticket Support',
+                        'Free Setup',
+                        'Delivery Time 30 hours'
+                    ]
+                },
+                {
+                    name: '128GB Plan - Ultra Ryzen 9',
+                    price: 250.00,
+                    link: 'https://billing.hexonode.com/products/uk-vps-ultra/128gb-uk-ryzen-9',
+                    features: [
+                        'AMD Ryzen 9 7900',
+                        '3.7 Ghz Base / 5.4 Ghz Turbo',
+                        '24 dedicated CORES { RYZEN 9}',
+                        '128GB RAM DDR5',
+                        '1TB NVME',
+                        'Bandwidth: 100TB',
+                        'Network Speed: 10Gbps',
+                        '1x IPv4 { more available }',
+                        'Premium DDOS Protection { 800 GBPS}',
+                        'Location : Uk, Coventry',
+                        '24/7 Ticket Support',
+                        'Free Setup',
+                        'Delivery Time 30 hours'
                     ]
                 }
             ]
@@ -2616,57 +3311,69 @@ const serviceData: ServiceDataMap = {
                 {
                     name: '8GB VPS - Budget',
                     price: 8.00,
+                    link: 'https://billing.hexonode.com/products/europe-budget-mc/8gb-europe-budget',
                     features: [
-                        '8GB DDR4 RAM',
-                        '4 vCPU (2.5-3.4 GHz)',
-                        '50GB NVMe SSD',
-                        '2TB Traffic',
-                        'Linux/Windows',
-                        '3.2Tbit DDoS Protection',
-                        '1Gbps Network',
-                        '1x IPv4 Address'
+                        'Linux VPS',
+                        '4 vCores',
+                        '2.5 to 3.4 Ghz { TURBO }',
+                        '8 GB DRR4 RAM',
+                        '50 GB 1 NVMe',
+                        '1 Gbit internet speed | 2 TB Traffic',
+                        '1x IPv4',
+                        '3.2Tbit Premium DDoS Protection',
+                        '24/7 Ticket Support',
+                        'Free Setup'
                     ]
                 },
                 {
                     name: '16GB VPS - Budget',
                     price: 15.00,
+                    link: 'https://billing.hexonode.com/products/europe-budget-mc/16gb-europe-budget',
                     features: [
-                        '16GB DDR4 RAM',
-                        '6 vCPU (2.5-3.4 GHz)',
-                        '100GB NVMe SSD',
-                        '6TB Traffic',
-                        'Linux/Windows',
-                        '3.2Tbit DDoS Protection',
-                        '1Gbps Network',
-                        '1x IPv4 Address'
+                        'Linux VPS',
+                        '6 vCores',
+                        '2.5 to 3.4 Ghz { TURBO }',
+                        '16 GB DRR4 RAM',
+                        '100GB 1 NVMe',
+                        '1 Gbit internet speed | 6 TB Traffic',
+                        '1x IPv4',
+                        '3.2Tbit Premium DDoS Protection',
+                        '24/7 Ticket Support',
+                        'Free Setup'
                     ]
                 },
                 {
                     name: '32GB VPS - Budget',
                     price: 32.00,
+                    link: 'https://billing.hexonode.com/products/europe-budget-mc/32gb-europe-budget',
                     features: [
-                        '32GB DDR4 RAM',
-                        '8 vCPU (2.5-3.4 GHz)',
-                        '200GB NVMe SSD',
-                        '10TB Traffic',
-                        'Linux/Windows',
-                        '3.2Tbit DDoS Protection',
-                        '1Gbps Network',
-                        '1x IPv4 Address'
+                        'Linux VPS',
+                        '8 vCores',
+                        '2.5 to 3.4 Ghz { TURBO }',
+                        '32 GB DRR4 RAM',
+                        '200GB 1 NVMe',
+                        '1 Gbit internet speed | 10 TB Traffic',
+                        '1x IPv4',
+                        '3.2Tbit Premium DDoS Protection',
+                        '24/7 Ticket Support',
+                        'Free Setup'
                     ]
                 },
                 {
                     name: '64GB VPS - Budget',
-                    price: 49.90,
+                    price: 49.99,
+                    link: 'https://billing.hexonode.com/products/europe-budget-mc/64gb-europe-budget',
                     features: [
-                        '64GB DDR4 RAM',
-                        '10 vCPU (2.5-3.4 GHz)',
-                        '400GB NVMe SSD',
-                        '14TB Traffic',
-                        'Linux/Windows',
-                        '3.2Tbit DDoS Protection',
-                        '1Gbps Network',
-                        '1x IPv4 Address'
+                        'Linux VPS',
+                        '10 vCores',
+                        '2.5 to 3.4 Ghz { TURBO }',
+                        '64 GB DRR4 RAM',
+                        '400GB 1 NVMe',
+                        '1 Gbit internet speed | 14TB Traffic',
+                        '1x IPv4',
+                        '3.2Tbit Premium DDoS Protection',
+                        '24/7 Ticket Support',
+                        'Free Setup'
                     ]
                 }
             ],
@@ -2674,216 +3381,266 @@ const serviceData: ServiceDataMap = {
                 {
                     name: '8GB VPS - Premium',
                     price: 9.00,
+                    link: 'https://billing.hexonode.com/products/europe-premium/8gb-europe-premium',
                     features: [
-                        '8GB DDR4 RAM',
-                        '4 vCPU (Intel Xeon Gold 6150)',
-                        '2.8GHz Base (3.7GHz Turbo)',
-                        '50GB NVMe SSD',
-                        '4TB Traffic',
-                        'Linux/Windows',
-                        'DDoS Protection',
-                        'Priority Support',
-                        'Enhanced Backups',
-                        '99.9% Uptime SLA',
-                        '1x IPv4 Address'
+                        'Linux VPS',
+                        'Intel Xeon Gold 6150',
+                        '4 vCores',
+                        '2.80 GHz Base (3.70 GHz Turbo)',
+                        '8 GB DRR4 RAM',
+                        '50 GB 1 NVMe',
+                        '1 Gbit internet speed | 4 TB Traffic',
+                        '1x IPv4',
+                        '3.2Tbit Premium DDoS Protection',
+                        '24/7 Ticket Support',
+                        'Free Setup',
+                        'Delivery Time 2 to 3 hours'
                     ]
                 },
                 {
-                    name: '18GB VPS - Premium',
+                    name: '16GB VPS - Premium',
                     price: 18.00,
+                    link: 'https://billing.hexonode.com/products/europe-premium/16gb-europe-premium',
                     features: [
-                        '16GB DDR4 RAM',
-                        '6 vCPU (Intel Xeon Gold 6150)',
-                        '2.8GHz Base (3.7GHz Turbo)',
-                        '100GB NVMe SSD',
-                        '8TB Traffic',
-                        'Linux/Windows',
-                        'DDoS Protection',
-                        'Priority Support',
-                        'Enhanced Backups',
-                        '99.9% Uptime SLA',
-                        '1x IPv4 Address'
+                        'Linux VPS',
+                        'Intel Xeon Gold 6150',
+                        '6 vCores',
+                        '2.80 GHz Base (3.70 GHz Turbo)',
+                        '16 GB DRR4 RAM',
+                        '100 GB 1 NVMe',
+                        '1 Gbit internet speed | 8 TB Traffic',
+                        '1x IPv4',
+                        '3.2Tbit Premium DDoS Protection',
+                        '24/7 Ticket Support',
+                        'Free Setup',
+                        'Delivery Time 2 to 3 hours'
                     ]
                 },
                 {
                     name: '32GB VPS - Premium',
                     price: 37.00,
+                    link: 'https://billing.hexonode.com/products/europe-premium/32gb-europe-premium',
                     features: [
-                        '32GB DDR4 RAM',
-                        '8 vCPU (Intel Xeon Gold 6150)',
-                        '2.8GHz Base (3.7GHz Turbo)',
-                        '200GB NVMe SSD',
-                        '12TB Traffic',
-                        'Linux/Windows',
-                        'DDoS Protection',
-                        'Priority Support',
-                        'Enhanced Backups',
-                        '99.9% Uptime SLA',
-                        '1x IPv4 Address'
+                        'Linux VPS',
+                        'Intel Xeon Gold 6150',
+                        '8 vCores',
+                        '2.80 GHz Base (3.70 GHz Turbo)',
+                        '32 GB DRR4 RAM',
+                        '200 GB 1 NVMe',
+                        '1 Gbit internet speed | 12 TB Traffic',
+                        '1x IPv4',
+                        '3.2Tbit Premium DDoS Protection',
+                        '24/7 Ticket Support',
+                        'Free Setup',
+                        'Delivery Time 2 to 3 hours'
                     ]
                 },
                 {
                     name: '64GB VPS - Premium',
                     price: 64.00,
+                    link: 'https://billing.hexonode.com/products/europe-premium/64gb-europe-premium',
                     features: [
-                        '64GB DDR4 RAM',
-                        '10 vCPU (Intel Xeon Gold 6150)',
-                        '2.8GHz Base (3.7GHz Turbo)',
-                        '400GB NVMe SSD',
-                        '16TB Traffic',
-                        'Linux/Windows',
-                        'DDoS Protection',
-                        'Priority Support',
-                        'Enhanced Backups',
-                        '99.9% Uptime SLA',
-                        '1x IPv4 Address'
+                        'Linux VPS',
+                        'Intel Xeon Gold 6150',
+                        '10 vCores',
+                        '2.80 GHz Base (3.70 GHz Turbo)',
+                        '64 GB DRR4 RAM',
+                        '400 GB 1 NVMe',
+                        '1 Gbit internet speed | 16 TB Traffic',
+                        '1x IPv4',
+                        '3.2Tbit Premium DDoS Protection',
+                        '24/7 Ticket Support',
+                        'Free Setup',
+                        'Delivery Time 2 to 3 hours'
                     ]
                 },
                 {
-                    name: '128GB VPS - Premium Ryzen',
+                    name: '128GB VPS PREMIUM',
                     price: 110.00,
+                    link: 'https://billing.hexonode.com/products/germany-premium/128gb-germany-premium',
                     features: [
-                        '128GB DDR4 RAM',
-                        '12 vCPU (AMD Ryzen 5 3600)',
-                        '3.7GHz Base (4.2GHz Turbo)',
-                        '1TB NVMe SSD',
-                        'Unlimited Traffic',
-                        'Linux/Windows',
-                        'Advanced DDoS Protection',
-                        '24/7 Dedicated Support',
-                        'Enhanced Backups',
-                        '100% Performance Guarantee',
-                        '1x IPv4 Address',
+                        'Linux VPS',
+                        'AMD Ryzen™ 5 3600',
+                        '12 DEDICATED RYZEN CORES',
+                        '3.7 GHz Base (4.2 GHz Turbo)',
+                        '128 GB RAM DDR4',
+                        '1 TB NVME SSD',
+                        '1 Gbit internet speed | 20 TB Traffic',
+                        '1x IPv4',
+                        '3.2Tbit Premium DDoS Protection',
+                        '24/7 Ticket Support',
                         'Free Setup',
-                        'Estimated 1 Hour Delivery'
+                        'Delivery Time 2 to 3 hours'
                     ]
                 }
             ],
             ultra: [
                 {
-                    name: '8GB VPS - Ultra Ryzen 9',
+                    name: '8GB EUROPE ULTRA RYZEN 9',
                     price: 15.00,
+                    link: 'https://billing.hexonode.com/products/germany-vps-ultra/8gb-germany-ultra-ryzen-9',
                     features: [
-                        '8GB DDR4 RAM',
-                        '2 vCPU (AMD Ryzen 9 5900X)',
-                        '3.7GHz Base (4.8GHz Turbo)',
-                        '50GB NVMe SSD',
-                        '20TB Traffic',
-                        'Linux/Windows',
-                        'Premium DDoS Protection',
-                        '24/7 Dedicated Support',
-                        'Daily Backups',
-                        '99.99% Uptime SLA',
-                        'Enhanced Security'
-                    ]
-                },
-                {
-                    name: '12GB VPS - Ultra Ryzen 9',
-                    price: 23.00,
-                    features: [
-                        '12GB DDR4 RAM',
-                        '3 vCPU (AMD Ryzen 9 5900X)',
-                        '3.7GHz Base (4.8GHz Turbo)',
-                        '75GB NVMe SSD',
-                        '25TB Traffic',
-                        'Linux/Windows',
-                        'Premium DDoS Protection',
-                        '24/7 Dedicated Support',
-                        'Daily Backups',
-                        '99.99% Uptime SLA',
-                        'Enhanced Security'
-                    ]
-                },
-                {
-                    name: '16GB VPS - Ultra Ryzen 9',
-                    price: 30.00,
-                    features: [
-                        '16GB DDR4 RAM',
-                        '4 vCPU (AMD Ryzen 9 5900X)',
-                        '3.7GHz Base (4.8GHz Turbo)',
-                        '120GB NVMe SSD',
-                        '28TB Traffic',
-                        'Linux/Windows',
-                        'Premium DDoS Protection',
-                        '24/7 Dedicated Support',
-                        'Daily Backups',
-                        '99.99% Uptime SLA',
-                        'Enhanced Security'
-                    ]
-                },
-                {
-                    name: '24GB VPS - Ultra Ryzen 9',
-                    price: 45.00,
-                    features: [
-                        '24GB DDR4 RAM',
-                        '6 vCPU (AMD Ryzen 9 5900X)',
-                        '3.7GHz Base (4.8GHz Turbo)',
-                        '160GB NVMe SSD',
-                        '35TB Traffic',
-                        'Linux/Windows',
-                        'Premium DDoS Protection',
-                        '1 IPv4 Address',
+                        'Linux VPS',
+                        'AMD Ryzen™ 9 5900X',
+                        '3.70 GHz Base (4.80 GHz Turbo)',
+                        '2 Ryzen vCores',
+                        '8 GB DDR4 Memory',
+                        '50 GB 1 NVMe Storage',
                         '1 Gbit Uplink',
-                        '24/7 Dedicated Support',
+                        '20 TB Traffic per month',
+                        '1x IPv4',
+                        'DDoS Protection',
+                        '24/7 Free Ticket Support',
                         'Free Setup',
-                        'Daily Backups',
-                        '99.99% Uptime SLA',
-                        'Enhanced Security'
+                        'Delivery Time 2 to 3 hours'
                     ]
                 },
                 {
-                    name: '32GB VPS - Ultra Ryzen 9',
+                    name: '12GB EUROPE ULTRA RYZEN 9',
+                    price: 23.00,
+                    link: 'https://billing.hexonode.com/products/germany-vps-ultra/12gb-germany-ultra-ryzen-9',
+                    features: [
+                        'Linux VPS',
+                        'AMD Ryzen™ 9 5900X',
+                        '3.70 GHz Base (4.80 GHz Turbo)',
+                        '3 Ryzen vCores',
+                        '12 GB DDR4 Memory',
+                        '75 GB 1 NVMe Storage',
+                        '1 Gbit Uplink',
+                        '25 TB Traffic per month',
+                        '1x IPv4',
+                        'DDoS Protection',
+                        '24/7 Free Ticket Support',
+                        'Free Setup',
+                        'Delivery Time 2 to 3 hours'
+                    ]
+                },
+                {
+                    name: '16GB EUROPE ULTRA RYZEN 9',
+                    price: 30.00,
+                    link: 'https://billing.hexonode.com/products/germany-vps-ultra/16gb-germany-ultra-ryzen-9',
+                    features: [
+                        'Linux VPS',
+                        'AMD Ryzen™ 9 5900X',
+                        '3.70 GHz Base (4.80 GHz Turbo)',
+                        '4 Ryzen vCores',
+                        '16 GB DDR4 Memory',
+                        '120 GB 1 NVMe Storage',
+                        '1 Gbit Uplink',
+                        '28 TB Traffic per month',
+                        '1x IPv4',
+                        'DDoS Protection',
+                        '24/7 Free Ticket Support',
+                        'Free Setup',
+                        'Delivery Time 2 to 3 hours'
+                    ]
+                },
+                {
+                    name: '24GB EUROPE ULTRA RYZEN 9',
+                    price: 45.00,
+                    link: 'https://billing.hexonode.com/products/germany-vps-ultra/24gb-germany-ultra-ryzen-9',
+                    features: [
+                        'Linux VPS',
+                        'AMD Ryzen™ 9 5900X',
+                        '3.70 GHz Base (4.80 GHz Turbo)',
+                        '6 Ryzen vCores',
+                        '24 GB DDR4 Memory',
+                        '160 GB 1 NVMe Storage',
+                        '1 Gbit Uplink',
+                        '35 TB Traffic per month',
+                        '1x IPv4',
+                        'DDoS Protection',
+                        '24/7 Free Ticket Support',
+                        'Free Setup',
+                        'Delivery Time 2 to 3 hours'
+                    ]
+                },
+                {
+                    name: '32GB EUROPE ULTRA RYZEN 9',
                     price: 54.99,
+                    link: 'https://billing.hexonode.com/products/germany-vps-ultra/32gb-germany-ultra-ryzen-9',
                     features: [
-                        '32GB DDR4 RAM',
-                        '6 vCPU (AMD Ryzen 9 5900X)',
-                        '3.7GHz Base (4.8GHz Turbo)',
-                        '200GB NVMe SSD',
-                        '38TB Traffic',
-                        'Linux/Windows',
-                        'Premium DDoS Protection',
-                        '24/7 Dedicated Support',
-                        'Daily Backups',
-                        '99.99% Uptime SLA',
-                        'Enhanced Security'
+                        'Linux VPS',
+                        'AMD Ryzen™ 9 5900X',
+                        '3.70 GHz Base (4.80 GHz Turbo)',
+                        '6 Ryzen vCores',
+                        '32 GB DDR4 Memory',
+                        '200 GB 1 NVMe Storage',
+                        '1 Gbit Uplink',
+                        '38 TB Traffic per month',
+                        '1x IPv4',
+                        'DDoS Protection',
+                        '24/7 Free Ticket Support',
+                        'Free Setup',
+                        'Delivery Time 2 to 3 hours'
                     ]
                 },
                 {
-                    name: '64GB VPS - Ultra Ryzen 5',
-                    price: 80.00,
+                    name: '64GB DEDICATED VPS RYZEN 7',
+                    price: 105.00,
+                    link: 'https://billing.hexonode.com/products/germany-vps-ultra/64gb-dedicated-vps-ryzen-7',
                     features: [
-                        '64GB DDR4 RAM',
-                        '12 vCPU (AMD Ryzen 5 3600)',
-                        '3.7GHz Base (4.2GHz Turbo)',
-                        '1TB NVMe SSD',
-                        'Unlimited Traffic',
-                        'Linux/Windows',
-                        'Premium DDoS Protection',
-                        '24/7 Dedicated Support',
-                        'Free Setup',
-                        'Daily Backups',
-                        '99.99% Uptime SLA',
-                        'Enhanced Security',
-                        '100% Dedicated Performance Guaranteed'
+                        'Linux VPS',
+                        'AMD Ryzen™ 7 7700',
+                        '3.8 GHz Base (5.3 GHz Turbo)',
+                        '16 RYZEN CORE',
+                        '64GB RAM DDR5',
+                        '2x 1 TB NVME SSD',
+                        '100% GUARANTEED PERFORMANCE',
+                        '24/7 FREE TICKET SUPPORT',
+                        'FREE SETUP',
+                        'Delivery Time 2 to 3 hours'
                     ]
                 },
                 {
-                    name: '128GB VPS - Ultra Ryzen 5',
-                    price: 139.99,
+                    name: '64GB EUROPE ULTRA RYZEN 9',
+                    price: 140.00,
+                    link: 'https://billing.hexonode.com/products/germany-vps-ultra/64gb-germany-ultra-ryzen-9',
                     features: [
-                        '128GB DDR4 RAM',
-                        '12 vCPU (AMD Ryzen 5 3600)',
-                        '3.7GHz Base (4.2GHz Turbo)',
-                        '1TB NVMe SSD',
-                        'Unlimited Traffic',
-                        'Linux/Windows',
-                        'Premium DDoS Protection',
-                        '24/7 Dedicated Support',
-                        'Free Setup',
-                        'Daily Backups',
-                        '99.99% Uptime SLA',
-                        'Enhanced Security',
-                        'Delivery in 1 hour'
+                        'Linux VPS',
+                        'AMD-RYZEN-9-7900X3D',
+                        'CPU TYPE: AMD Ryzen 9 7900X3D 5.6GHz',
+                        '24 RYZEN CORES',
+                        '64GB RAM DDR5',
+                        '480GB NVMe Storage (More available on request)',
+                        '1 Gbps Unmetered Network',
+                        '24/7 FREE TICKET SUPPORT',
+                        'FREE SETUP',
+                        'Delivery Time 2 to 3 hours'
+                    ]
+                },
+                {
+                    name: '128GB DEDICATED ULTRA RYZEN 7',
+                    price: 149.99,
+                    link: 'https://billing.hexonode.com/products/germany-vps-ultra/128gb-dedicated-ultra-ryzen-7',
+                    features: [
+                        'Linux VPS',
+                        'AMD Ryzen™ 7 7700',
+                        '3.8 GHz Base (5.3 GHz Turbo)',
+                        '12 RYZEN CORE',
+                        '128 GB RAM DDR5',
+                        '2x 1 TB NVME SSD',
+                        '100% GUARANTEED PERFORMANCE',
+                        '24/7 FREE TICKET SUPPORT',
+                        'FREE SETUP',
+                        'Delivery Time 1 to 2 hours'
+                    ]
+                },
+                {
+                    name: '128GB EUROPE ULTRA RYZEN 9',
+                    price: 180.00,
+                    link: 'https://billing.hexonode.com/products/germany-vps-ultra/128gb-germany-ultra-ryzen-9',
+                    features: [
+                        'Linux VPS',
+                        'AMD-RYZEN-9-7900X3D',
+                        'CPU TYPE: AMD Ryzen 9 7900X3D 5.6GHz',
+                        '24 RYZEN CORES',
+                        '128GB RAM DDR5',
+                        '960GB NVMe Storage (More available on request)',
+                        '1 Gbps Unmetered Network',
+                        '24/7 FREE TICKET SUPPORT',
+                        'FREE SETUP',
+                        'Delivery Time 2 to 3 hours'
                     ]
                 }
             ]
