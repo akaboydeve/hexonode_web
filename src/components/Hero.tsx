@@ -200,7 +200,7 @@ const Hero = () => {
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ 
+      element.scrollIntoView({
         behavior: 'smooth',
         block: 'start'
       });
@@ -263,6 +263,26 @@ const Hero = () => {
               Unmatched performance, security, and innovation at your fingertips.
             </motion.p>
           </motion.div>
+          <div className='md:hidden'>
+            <div className="pt-4 flex flex-col items-center space-y-3">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => scrollToSection('services')}
+                className="w-full max-w-md bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-3 rounded-xl font-semibold hover:from-purple-700 hover:to-pink-700 transition-all duration-300 shadow-lg hover:shadow-purple-500/25"
+              >
+                Get Started Now
+              </motion.button>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => scrollToSection('location')}
+                className="w-full max-w-md bg-gray-700/30 backdrop-blur-sm text-white px-6 py-3 rounded-xl font-semibold hover:bg-gray-700/50 transition-all duration-300 border border-gray-600/50 hover:border-purple-500/50"
+              >
+                Our Locations
+              </motion.button>
+            </div>
+          </div>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 items-center">
@@ -309,7 +329,7 @@ const Hero = () => {
                   </div>
                   <span className="px-3 py-1.5 bg-green-500/20 text-green-400 rounded-full text-sm font-medium backdrop-blur-sm">All Systems Operational</span>
                 </div>
-                
+
                 <div className="grid grid-cols-2 gap-4">
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
