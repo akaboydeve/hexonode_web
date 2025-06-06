@@ -58,13 +58,6 @@ const Reviews = () => {
       rating: 5,
       text: "Our community bot has been running flawlessly for months. The hosting is reliable, and the support team is always available when we need them.",
       service: "Discord Bot Hosting"
-    },
-    {
-      name: "Ryan Cooper",
-      role: "Web Agency Owner",
-      rating: 5,
-      text: "We host multiple client websites on their platform. The performance is consistently excellent, and the security features give our clients peace of mind.",
-      service: "Web Hosting"
     }
   ];
 
