@@ -24,6 +24,9 @@ export const metadata: Metadata = {
     description: "Premium hosting solutions for gaming, VPS, dedicated servers and web hosting. Get high-performance hosting with 24/7 support, DDoS protection and instant deployment.",
     applicationName: "HexoNode",
     keywords: [
+        "HexoNode",
+        "Hexo Node",
+        "HexoNode Hosting",
         "game hosting",
         "VPS hosting",
         "dedicated servers",
@@ -36,7 +39,6 @@ export const metadata: Metadata = {
         "24/7 support",
         "web hosting",
         "discord bot hosting",
-        "domain registration"
     ],
     authors: [{ name: "HexoNode", url: "https://hexonode.com" }],
     creator: "HexoNode",

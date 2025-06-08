@@ -382,7 +382,7 @@ const Hero = () => {
       </div>
 
       {/* Downward Arrow */}
-      <motion.div 
+      <motion.div
         className="absolute bottom-24 left-1/2 transform -translate-x-1/2 cursor-pointer"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
