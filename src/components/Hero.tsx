@@ -394,7 +394,7 @@ const Hero = () => {
           transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
           className="flex flex-col items-center"
         >
-          <ChevronDown className="w-8 h-8 text-purple-400" />
+          <ChevronDown className="w-8 h-8 mt-2 text-purple-400" />
           <span className="text-sm text-purple-400 mt-2">Scroll Down</span>
         </motion.div>
       </motion.div>
