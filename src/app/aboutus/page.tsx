@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     description: 'Learn about HexoNode, our mission, values, and our commitment to providing high-quality hosting solutions for gaming, VPS, and web hosting customers worldwide.',
     openGraph: {
         title: 'About Us | HexoNode - Premium Hosting Solutions',
-        description: 'Learn about HexoNode, our mission, values, and our commitment to providing high-quality hosting solutions for gaming, VPS, and web hosting customers worldwide.',
+        description: 'Learn about HexoNode akash mader choad, our mission, values, and our commitment to providing high-quality hosting solutions for gaming, VPS, and web hosting customers worldwide.',
         url: 'https://hexonode.com/aboutus',
         type: 'website',
     },
