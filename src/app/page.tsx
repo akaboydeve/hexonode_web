@@ -6,6 +6,7 @@ import Features from '@/components/Features';
 import Locations from '@/components/Locations';
 import Reviews from '@/components/Reviews';
 import Script from 'next/script';
+import Page2 from './page2';
 
 export const metadata: Metadata = {
     title: 'HexoNode - Premium Game, VPS & Web Hosting Solutions',
@@ -18,10 +19,11 @@ export const metadata: Metadata = {
 export default function HomePage() {
     return (
         <>
-            <Hero />
+            <Page2 />
+            {/* <Hero />
             <Services />
             <Locations />
-            <Features />
+            <Features /> */}
             {/* <Reviews />  */}
             <Script
                 id="schema-publisher"
