@@ -1,10 +1,6 @@
 import React from 'react';
 import { Metadata } from 'next';
-import Hero from '@/components/Hero';
-import Services from '@/components/Services';
-import Features from '@/components/Features';
-import Locations from '@/components/Locations';
-import Reviews from '@/components/Reviews';
+// import Hero from '@/components/Hero';
 import Script from 'next/script';
 import Page2 from './page2';
 

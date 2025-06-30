@@ -1,6 +1,6 @@
 import { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
-import Navbar from "@/components/Navbar";
+// import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import Script from "next/script";
@@ -130,7 +130,7 @@ export default function RootLayout({
                 {/* Favicon declarations are already handled by the metadata object above */}
             </head>
             <body className={`${inter.className} min-h-screen bg-gray-900`}>
-                <Navbar />
+                {/* <Navbar /> */}
                 <main>{children}</main>
                 <Footer />
                 {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (

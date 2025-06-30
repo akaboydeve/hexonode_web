@@ -21,12 +21,23 @@ import {
     HeadphonesIcon,
     ChevronDown
 } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
-function Page2() {
+function HomePage() {
+    const router = useRouter();
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-    const [statusModal, setStatusModal] = React.useState({ isOpen: false, location: null });
+    const [statusModal, setStatusModal] = React.useState<{ isOpen: boolean; location: LocationType | null }>({ isOpen: false, location: null });
+    const [vpsLocationModal, setVpsLocationModal] = React.useState(false);
+    const [minecraftLocationModal, setMinecraftLocationModal] = React.useState(false);
     const [loadingProgress, setLoadingProgress] = React.useState(0);
     const [isImportantDropdownOpen, setIsImportantDropdownOpen] = React.useState(false);
+
+    // Define a type for the location object
+    type LocationType = {
+        name: string;
+        flag: string;
+        status: string;
+    };
 
     const scrollToServices = () => {
         document.getElementById('services')?.scrollIntoView({
@@ -57,7 +68,7 @@ function Page2() {
         setIsImportantDropdownOpen(!isImportantDropdownOpen);
     };
 
-    const openStatusModal = (location) => {
+    const openStatusModal = (location: LocationType) => {
         setStatusModal({ isOpen: true, location });
         setLoadingProgress(0);
 
@@ -82,12 +93,97 @@ function Page2() {
         setLoadingProgress(0);
     };
 
+    const handleVPSClick = () => {
+        setVpsLocationModal(true);
+    };
+
+    const closeVpsLocationModal = () => {
+        setVpsLocationModal(false);
+    };
+
+    const handleMinecraftClick = () => {
+        setMinecraftLocationModal(true);
+    };
+
+    const closeMinecraftLocationModal = () => {
+        setMinecraftLocationModal(false);
+    };
+
+    const handleDiscordBotClick = () => {
+        router.push('/discord-bot-hosting');
+    };
+
+    const handleLocationClick = (location: any) => {
+        if (location.name === 'India') {
+            setVpsLocationModal(false);
+            router.push('/india-vps');
+        } else if (location.link) {
+            window.open(location.link, '_blank');
+            setVpsLocationModal(false);
+        }
+    };
+
+    const handleMinecraftLocationClick = () => {
+        setMinecraftLocationModal(false);
+        router.push('/minecraft-india');
+    };
+
+    const vpsLocations = [
+        {
+            name: "India",
+            flag: "🇮🇳",
+            status: "online",
+            description: "Mumbai Data Center",
+            backgroundImage: "https://i.postimg.cc/mDsjvV87/image.png"
+        },
+        {
+            name: "Singapore",
+            flag: "🇸🇬",
+            status: "online",
+            description: "Asia Pacific Hub",
+            link: "https://billing.hexonode.com/products/singapore-location-vps",
+            backgroundImage: "https://i.postimg.cc/9fwRd75S/image.png"
+        },
+        {
+            name: "Germany",
+            flag: "🇩🇪",
+            status: "online",
+            description: "Frankfurt Data Center",
+            link: "https://billing.hexonode.com/products/germany-location-vps",
+            backgroundImage: "https://i.postimg.cc/KYd2TKx0/image.png"
+        },
+        {
+            name: "Europe",
+            flag: "🇪🇺",
+            status: "online",
+            description: "European Network",
+            link: "https://billing.hexonode.com/products/europe-location-vps",
+            backgroundImage: "https://i.postimg.cc/Cx9hGr4C/europe-flag.jpg"
+        },
+        {
+            name: "USA",
+            flag: "🇺🇸",
+            status: "online",
+            description: "New York Data Center",
+            link: "https://billing.hexonode.com/products/usa-location-vps",
+            backgroundImage: "https://i.postimg.cc/90j50vC0/image.png"
+        },
+        {
+            name: "UK",
+            flag: "🇬🇧",
+            status: "online",
+            description: "London Data Center",
+            link: "https://billing.hexonode.com/products/uk-location-vps",
+            backgroundImage: "https://i.postimg.cc/t4zhMPYM/image.png"
+        }
+    ];
+
     const services = [
         {
             icon: Server,
             title: "VPS Hosting",
             description: "High-performance virtual private servers with full root access and dedicated resources for maximum control.",
-            link: "https://billing.hexonode.com/products/vps-virtual-private-server",
+            onClick: handleVPSClick,
             features: ["Full Root Access", "SSD Storage", "24/7 Support"],
             iconColor: "from-orange-400 to-red-500",
             shadowColor: "shadow-orange-500/25"
@@ -96,7 +192,7 @@ function Page2() {
             icon: Gamepad2,
             title: "Minecraft Hosting",
             description: "Lag-free gaming servers with high uptime and instant mod support for the ultimate gaming experience.",
-            link: "https://billing.hexonode.com/products/minecraft-servers",
+            onClick: handleMinecraftClick,
             features: ["Instant Setup", "Mod Support", "DDoS Protection"],
             iconColor: "from-green-400 to-emerald-500",
             shadowColor: "shadow-green-500/25"
@@ -114,7 +210,7 @@ function Page2() {
             icon: Bot,
             title: "Discord Bot Hosting",
             description: "Seamless bot hosting with instant deployment and 24/7 monitoring for uninterrupted service.",
-            link: "https://billing.hexonode.com/products/discord-bot",
+            onClick: handleDiscordBotClick,
             features: ["Auto Restart", "24/7 Online", "Easy Deploy"],
             iconColor: "from-blue-400 to-indigo-500",
             shadowColor: "shadow-blue-500/25"
@@ -196,11 +292,11 @@ function Page2() {
     ];
 
     const importantLinks = [
-        { name: "About Us", url: "https://billing.hexonode.com/" },
-        { name: "Contact Us", url: "https://billing.hexonode.com/" },
-        { name: "Refund Policy", url: "https://billing.hexonode.com/" },
-        { name: "Terms and Conditions", url: "https://billing.hexonode.com/" },
-        { name: "Privacy Policy", url: "https://billing.hexonode.com/" }
+        { name: "About Us", url: "https://www.hexonode.com/aboutus" },
+        { name: "Contact Us", url: "https://www.hexonode.com/contactus" },
+        { name: "Refund Policy", url: "https://www.hexonode.com/refundandcancellation" },
+        { name: "Terms and Conditions", url: "https://www.hexonode.com/termsandconditions" },
+        { name: "Privacy Policy", url: "https://www.hexonode.com/privacypolicy" }
     ];
 
     return (
@@ -240,14 +336,12 @@ function Page2() {
                             </a>
 
                             {/* Minecraft Hosting Link */}
-                            <a
-                                href="https://billing.hexonode.com/products/minecraft-servers"
-                                target="_blank"
-                                rel="noopener noreferrer"
+                            <button
+                                onClick={handleMinecraftClick}
                                 className="text-slate-300 hover:text-white transition-all duration-300 hover:scale-105"
                             >
                                 Minecraft Hosting
-                            </a>
+                            </button>
 
                             {/* Important Dropdown */}
                             <div className="relative">
@@ -305,14 +399,12 @@ function Page2() {
                                 Discord
                             </a>
 
-                            <a
-                                href="https://billing.hexonode.com/products/minecraft-servers"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="block text-slate-300 hover:text-white transition-colors"
+                            <button
+                                onClick={handleMinecraftClick}
+                                className="block text-slate-300 hover:text-white transition-colors w-full text-left"
                             >
                                 Minecraft Hosting
-                            </a>
+                            </button>
 
                             {/* Mobile Important Links */}
                             <div className="border-t border-slate-700 pt-4">
@@ -336,9 +428,18 @@ function Page2() {
 
             {/* Hero Section */}
             <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-                {/* Animated Background */}
+                {/* Background Image */}
                 <div className="absolute inset-0">
-                    <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-purple-900/20 to-slate-900"></div>
+                    <div
+                        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+                        style={{
+                            backgroundImage: 'url(https://i.postimg.cc/pTYc03Qw/image.png)'
+                        }}
+                    ></div>
+                    {/* Dark overlay to ensure text readability */}
+                    <div className="absolute inset-0 bg-slate-900/80"></div>
+                    {/* Additional gradient overlays for better visual effect */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-slate-900/60 via-purple-900/40 to-slate-900/60"></div>
                     <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-violet-500/10 rounded-full blur-3xl animate-pulse"></div>
                     <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-fuchsia-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
                     <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-500/5 rounded-full blur-3xl animate-pulse delay-500"></div>
@@ -378,7 +479,7 @@ function Page2() {
                         ))}
                     </div>
 
-                    <div className="flex flex-col sm:flex-row justify-center gap-4">
+                    <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8">
                         <button
                             onClick={scrollToServices}
                             className="group bg-gradient-to-r from-violet-500 to-purple-600 text-white px-12 py-4 rounded-xl font-semibold hover:from-violet-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-2xl shadow-purple-500/25"
@@ -396,6 +497,51 @@ function Page2() {
                             <span className="flex items-center justify-center space-x-2">
                                 <span>Our Locations</span>
                                 <MapPin className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                            </span>
+                        </button>
+                    </div>
+
+                    {/* Additional Service Buttons */}
+                    <div className="flex flex-wrap justify-center gap-3">
+                        <button
+                            onClick={handleVPSClick}
+                            className="group bg-gradient-to-r from-orange-500/20 to-red-600/20 border border-orange-500/30 text-orange-300 font-medium px-6 py-2 rounded-lg hover:from-orange-500 hover:to-red-600 hover:text-white hover:border-transparent transition-all duration-300 text-sm"
+                        >
+                            <span className="flex items-center space-x-2">
+                                <Server className="w-4 h-4" />
+                                <span>VPS Hosting</span>
+                            </span>
+                        </button>
+
+                        <button
+                            onClick={handleMinecraftClick}
+                            className="group bg-gradient-to-r from-green-500/20 to-emerald-600/20 border border-green-500/30 text-green-300 font-medium px-6 py-2 rounded-lg hover:from-green-500 hover:to-emerald-600 hover:text-white hover:border-transparent transition-all duration-300 text-sm"
+                        >
+                            <span className="flex items-center space-x-2">
+                                <Gamepad2 className="w-4 h-4" />
+                                <span>Minecraft Hosting</span>
+                            </span>
+                        </button>
+
+                        <a
+                            href="https://billing.hexonode.com/products/web-hosting-supports-wordpress"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group bg-gradient-to-r from-cyan-500/20 to-teal-600/20 border border-cyan-500/30 text-cyan-300 font-medium px-6 py-2 rounded-lg hover:from-cyan-500 hover:to-teal-600 hover:text-white hover:border-transparent transition-all duration-300 text-sm"
+                        >
+                            <span className="flex items-center space-x-2">
+                                <Globe className="w-4 h-4" />
+                                <span>Web Hosting</span>
+                            </span>
+                        </a>
+
+                        <button
+                            onClick={handleDiscordBotClick}
+                            className="group bg-gradient-to-r from-blue-500/20 to-indigo-600/20 border border-blue-500/30 text-blue-300 font-medium px-6 py-2 rounded-lg hover:from-blue-500 hover:to-indigo-600 hover:text-white hover:border-transparent transition-all duration-300 text-sm"
+                        >
+                            <span className="flex items-center space-x-2">
+                                <Bot className="w-4 h-4" />
+                                <span>Discord Bot Hosting</span>
                             </span>
                         </button>
                     </div>
@@ -454,15 +600,25 @@ function Page2() {
                                         </div>
                                     </div>
 
-                                    <a
-                                        href={service.link}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="inline-flex items-center justify-center w-full bg-gradient-to-r from-violet-500/20 to-purple-600/20 border border-violet-500/30 text-violet-300 font-semibold py-3 px-6 rounded-xl hover:from-violet-500 hover:to-purple-600 hover:text-white hover:border-transparent transition-all duration-300 group/button"
-                                    >
-                                        <span>View Plans</span>
-                                        <ArrowRight className="w-4 h-4 ml-2 group-hover/button:translate-x-1 transition-transform" />
-                                    </a>
+                                    {service.onClick ? (
+                                        <button
+                                            onClick={service.onClick}
+                                            className="inline-flex items-center justify-center w-full bg-gradient-to-r from-violet-500/20 to-purple-600/20 border border-violet-500/30 text-violet-300 font-semibold py-3 px-6 rounded-xl hover:from-violet-500 hover:to-purple-600 hover:text-white hover:border-transparent transition-all duration-300 group/button"
+                                        >
+                                            <span>View Plans</span>
+                                            <ArrowRight className="w-4 h-4 ml-2 group-hover/button:translate-x-1 transition-transform" />
+                                        </button>
+                                    ) : (
+                                        <a
+                                            href={service.link}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="inline-flex items-center justify-center w-full bg-gradient-to-r from-violet-500/20 to-purple-600/20 border border-violet-500/30 text-violet-300 font-semibold py-3 px-6 rounded-xl hover:from-violet-500 hover:to-purple-600 hover:text-white hover:border-transparent transition-all duration-300 group/button"
+                                        >
+                                            <span>View Plans</span>
+                                            <ArrowRight className="w-4 h-4 ml-2 group-hover/button:translate-x-1 transition-transform" />
+                                        </a>
+                                    )}
                                 </div>
                             </div>
                         ))}
@@ -574,6 +730,172 @@ function Page2() {
                 </div>
             </section>
 
+            {/* VPS Location Selection Modal */}
+            {vpsLocationModal && (
+                <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4 animate-fade-in">
+                    <div className="bg-gradient-to-br from-slate-800/95 to-slate-900/95 backdrop-blur-xl border border-slate-700/50 rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl animate-scale-in">
+                        {/* Modal Header */}
+                        <div className="sticky top-0 bg-gradient-to-r from-slate-800/90 to-slate-900/90 backdrop-blur-xl border-b border-slate-700/50 p-6 rounded-t-3xl">
+                            <div className="flex items-center justify-between">
+                                <div className="flex items-center space-x-4">
+                                    <div className="w-12 h-12 bg-gradient-to-br from-violet-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg shadow-violet-500/25">
+                                        <Server className="w-6 h-6 text-white" />
+                                    </div>
+                                    <div>
+                                        <h2 className="text-2xl font-bold bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent">
+                                            Select VPS Location
+                                        </h2>
+                                        <p className="text-slate-400 text-sm">Choose the server location closest to your audience</p>
+                                    </div>
+                                </div>
+                                <button
+                                    onClick={closeVpsLocationModal}
+                                    className="w-10 h-10 bg-slate-700/50 hover:bg-slate-600/50 rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110"
+                                >
+                                    <X className="w-5 h-5 text-slate-300" />
+                                </button>
+                            </div>
+                        </div>
+
+                        {/* Modal Content */}
+                        <div className="p-8">
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                {vpsLocations.map((location, index) => (
+                                    <div
+                                        key={index}
+                                        onClick={() => handleLocationClick(location)}
+                                        className="group relative bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-6 hover:border-violet-500/50 transition-all duration-500 transform hover:-translate-y-1 hover:shadow-xl hover:shadow-violet-500/10 cursor-pointer animate-slide-up overflow-hidden"
+                                        style={{ animationDelay: `${index * 100}ms` }}
+                                    >
+                                        {/* Background Image */}
+                                        <div
+                                            className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20 group-hover:opacity-30 transition-opacity duration-500"
+                                            style={{
+                                                backgroundImage: `url(${location.backgroundImage})`
+                                            }}
+                                        ></div>
+
+                                        {/* Animated background glow */}
+                                        <div className="absolute inset-0 bg-gradient-to-br from-violet-500/5 via-purple-500/5 to-fuchsia-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                                        <div className="relative z-10">
+                                            {/* Header with flag and status */}
+                                            <div className="flex items-center justify-between mb-4">
+                                                <div className="text-3xl group-hover:scale-110 transition-transform duration-300">
+                                                    {location.flag}
+                                                </div>
+                                                <div className="flex items-center space-x-2">
+                                                    <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse shadow-lg shadow-emerald-400/50"></div>
+                                                    <span className="text-xs text-emerald-400 uppercase tracking-wider font-bold">
+                                                        {location.status}
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                            {/* Location info */}
+                                            <div className="mb-4">
+                                                <h3 className="text-lg font-bold text-white mb-1 group-hover:text-violet-300 transition-colors">
+                                                    {location.name}
+                                                </h3>
+                                                <p className="text-slate-400 text-sm group-hover:text-slate-300 transition-colors">
+                                                    {location.description}
+                                                </p>
+                                            </div>
+
+                                            {/* Select indicator */}
+                                            <div className="flex items-center justify-center space-x-2 text-violet-300 group-hover:text-white transition-colors">
+                                                <span className="text-sm font-medium">Select Location</span>
+                                                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {/* Minecraft Location Selection Modal */}
+            {minecraftLocationModal && (
+                <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4 animate-fade-in">
+                    <div className="bg-gradient-to-br from-slate-800/95 to-slate-900/95 backdrop-blur-xl border border-slate-700/50 rounded-3xl max-w-md w-full shadow-2xl animate-scale-in overflow-hidden">
+                        {/* Modal Header */}
+                        <div className="bg-gradient-to-r from-slate-800/90 to-slate-900/90 backdrop-blur-xl border-b border-slate-700/50 p-6 rounded-t-3xl">
+                            <div className="flex items-center justify-between">
+                                <div className="flex items-center space-x-4">
+                                    <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center shadow-lg shadow-green-500/25">
+                                        <Gamepad2 className="w-6 h-6 text-white" />
+                                    </div>
+                                    <div>
+                                        <h2 className="text-2xl font-bold bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent">
+                                            Select Minecraft Location
+                                        </h2>
+                                        <p className="text-slate-400 text-sm">Choose your server location</p>
+                                    </div>
+                                </div>
+                                <button
+                                    onClick={closeMinecraftLocationModal}
+                                    className="w-10 h-10 bg-slate-700/50 hover:bg-slate-600/50 rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110"
+                                >
+                                    <X className="w-5 h-5 text-slate-300" />
+                                </button>
+                            </div>
+                        </div>
+
+                        {/* Modal Content */}
+                        <div className="p-8">
+                            <div
+                                onClick={handleMinecraftLocationClick}
+                                className="group relative bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-sm border border-green-500/50 rounded-2xl p-6 hover:border-green-400/70 transition-all duration-500 transform hover:-translate-y-1 hover:shadow-xl hover:shadow-green-500/20 cursor-pointer overflow-hidden"
+                            >
+                                {/* Background Image */}
+                                <div
+                                    className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20 group-hover:opacity-30 transition-opacity duration-500"
+                                    style={{
+                                        backgroundImage: 'url(https://i.postimg.cc/mDsjvV87/image.png)'
+                                    }}
+                                ></div>
+
+                                {/* Highlighted background glow */}
+                                <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 via-emerald-500/10 to-teal-500/10 rounded-2xl opacity-100 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                                <div className="relative z-10">
+                                    {/* Header with flag and status */}
+                                    <div className="flex items-center justify-between mb-4">
+                                        <div className="text-4xl group-hover:scale-110 transition-transform duration-300">
+                                            🇮🇳
+                                        </div>
+                                        <div className="flex items-center space-x-2">
+                                            <div className="w-3 h-3 bg-emerald-400 rounded-full animate-pulse shadow-lg shadow-emerald-400/50"></div>
+                                            <span className="text-xs text-emerald-400 uppercase tracking-wider font-bold">
+                                                online
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    {/* Location info */}
+                                    <div className="mb-4">
+                                        <h3 className="text-xl font-bold text-white mb-1 group-hover:text-green-300 transition-colors">
+                                            India
+                                        </h3>
+                                        <p className="text-slate-400 text-sm group-hover:text-slate-300 transition-colors">
+                                            Mumbai Gaming Data Center
+                                        </p>
+                                    </div>
+
+                                    {/* Select indicator */}
+                                    <div className="flex items-center justify-center space-x-2 text-green-300 group-hover:text-white transition-colors">
+                                        <span className="text-sm font-medium">Select Location</span>
+                                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
+
             {/* Status Check Modal */}
             {statusModal.isOpen && (
                 <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
@@ -624,54 +946,32 @@ function Page2() {
                 </div>
             )}
 
-            {/* Footer */}
-            {/* <footer className="bg-slate-900 border-t border-slate-800 py-16">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center">
-                        <button
-                            onClick={scrollToTop}
-                            className="flex items-center justify-center space-x-3 mb-6 mx-auto hover:scale-105 transition-transform duration-300"
-                        >
-                            <div className="relative">
-                                <div className="w-12 h-12 bg-gradient-to-br from-violet-500 via-purple-500 to-fuchsia-500 rounded-xl flex items-center justify-center shadow-lg shadow-purple-500/25">
-                                    <Server className="w-7 h-7 text-white" />
-                                </div>
-                                <div className="absolute -top-1 -right-1 w-4 h-4 bg-emerald-400 rounded-full animate-pulse"></div>
-                            </div>
-                            <span className="text-2xl font-bold bg-gradient-to-r from-violet-400 to-fuchsia-400 bg-clip-text text-transparent">
-                                Hexonode
-                            </span>
-                        </button>
-
-                        <p className="text-slate-400 mb-8 text-lg max-w-md mx-auto">
-                            Powering the web with reliable and fast hosting solutions
-                        </p>
-
-                        <div className="flex flex-wrap justify-center gap-8 text-slate-400 mb-8">
-                            <a href="https://billing.hexonode.com/" target="_blank" rel="noopener noreferrer" className="hover:text-violet-400 transition-colors">Privacy Policy</a>
-                            <a href="https://billing.hexonode.com/" target="_blank" rel="noopener noreferrer" className="hover:text-violet-400 transition-colors">Terms of Service</a>
-                            <a href="https://billing.hexonode.com/" target="_blank" rel="noopener noreferrer" className="hover:text-violet-400 transition-colors">Support</a>
-                            <a href="https://billing.hexonode.com/" target="_blank" rel="noopener noreferrer" className="hover:text-violet-400 transition-colors">Contact</a>
-                        </div>
-
-                        <div className="pt-8 border-t border-slate-800 text-slate-500">
-                            <p>&copy; 2024 Hexonode. All rights reserved.</p>
-                        </div>
-                    </div>
-                </div>
-            </footer> */}
 
             <style jsx>{`
         @keyframes fade-in {
           from { opacity: 0; transform: translateY(10px); }
           to { opacity: 1; transform: translateY(0); }
         }
+        @keyframes scale-in {
+          from { opacity: 0; transform: scale(0.95); }
+          to { opacity: 1; transform: scale(1); }
+        }
+        @keyframes slide-up {
+          from { opacity: 0; transform: translateY(20px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
         .animate-fade-in {
           animation: fade-in 0.5s ease-out;
+        }
+        .animate-scale-in {
+          animation: scale-in 0.3s ease-out;
+        }
+        .animate-slide-up {
+          animation: slide-up 0.6s ease-out both;
         }
       `}</style>
         </div>
     );
 }
 
-export default Page2;
+export default HomePage;
