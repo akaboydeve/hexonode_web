@@ -22,6 +22,8 @@ import {
     ChevronDown
 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
+import axios from 'axios';
+
 
 function HomePage() {
     const router = useRouter();
@@ -31,12 +33,17 @@ function HomePage() {
     const [minecraftLocationModal, setMinecraftLocationModal] = React.useState(false);
     const [loadingProgress, setLoadingProgress] = React.useState(0);
     const [isImportantDropdownOpen, setIsImportantDropdownOpen] = React.useState(false);
+    const [pingMs, setPingMs] = React.useState<number | string | null>(null);
+    const [pingLoading, setPingLoading] = React.useState(false);
+    const [pingError, setPingError] = React.useState<string | null>(null);
+    const [showVideo, setShowVideo] = React.useState(false);
 
     // Define a type for the location object
     type LocationType = {
         name: string;
         flag: string;
         status: string;
+        ip: string;
     };
 
     const scrollToServices = () => {
@@ -71,10 +78,76 @@ function HomePage() {
     const openStatusModal = (location: LocationType) => {
         setStatusModal({ isOpen: true, location });
         setLoadingProgress(0);
+        setPingMs(null);
+        setPingLoading(true);
+        setPingError(null);
+
+        const url = `http://${location.ip}:1235/ping`;
+        let apiDuration = [
+            {
+                start: 0,
+                end: 0,
+                delay: 0
+            },
+            {
+                start: 0,
+                end: 0,
+                delay: 0
+            },
+
+            {
+                start: 0,
+                end: 0,
+                delay: 0
+            },
+            {
+                start: 0,
+                end: 0,
+                delay: 0
+            },
+        ]
+
+        const getPing = async () => {
+            try {
+                apiDuration[0].start = performance.now();
+                const response = await fetch(url, { mode: 'no-cors' });
+                apiDuration[0].end = performance.now();
+                apiDuration[0].delay = apiDuration[0].end - apiDuration[0].start;
+                console.log(response);
+
+                apiDuration[1].start = performance.now();
+                const response2 = await fetch(url, { mode: 'no-cors' });
+                apiDuration[1].end = performance.now();
+                apiDuration[1].delay = apiDuration[1].end - apiDuration[1].start;
+                console.log(response2);
+
+                apiDuration[2].start = performance.now();
+                const response3 = await fetch(url, { mode: 'no-cors' });
+                apiDuration[2].end = performance.now();
+                apiDuration[2].delay = apiDuration[2].end - apiDuration[2].start;
+                console.log(response3);
+
+                apiDuration[3].start = performance.now();
+                const response4 = await fetch(url, { mode: 'no-cors' });
+                apiDuration[3].end = performance.now();
+                apiDuration[3].delay = apiDuration[3].end - apiDuration[3].start;
+                console.log(response4);
+
+                setPingMs(Math.round(Math.min(apiDuration[0].delay, apiDuration[1].delay, apiDuration[2].delay, apiDuration[3].delay)));
+
+            } catch (error) {
+                console.log(error);
+            }
+            finally {
+                setPingLoading(false);
+            }
+        };
+        getPing();
+
 
         // Animate loading bar from 0% to 100%
-        const duration = 3000; // 3 seconds
-        const interval = 50; // Update every 50ms
+        const duration = 1000; // 1 second
+        const interval = 80; // Update every 80ms
         const increment = 100 / (duration / interval);
 
         const timer = setInterval(() => {
@@ -86,11 +159,17 @@ function HomePage() {
                 return Math.min(prev + increment, 100);
             });
         }, interval);
+
+        // Client-side HTTP(S) ping
+
     };
 
     const closeStatusModal = () => {
         setStatusModal({ isOpen: false, location: null });
         setLoadingProgress(0);
+        setPingMs(null);
+        setPingLoading(false);
+        setPingError(null);
     };
 
     const handleVPSClick = () => {
@@ -221,27 +300,32 @@ function HomePage() {
         {
             name: "India",
             flag: "🇮🇳",
-            status: "online"
+            status: "online",
+            ip: "in1.hexonode.com"
         },
         {
             name: "Germany",
             flag: "🇩🇪",
-            status: "online"
+            status: "online",
+            ip: "de1.hexonode.com"
         },
         {
             name: "USA",
             flag: "🇺🇸",
-            status: "online"
+            status: "online",
+            ip: "us1.hexonode.com"
         },
         {
             name: "Singapore",
             flag: "🇸🇬",
-            status: "online"
+            status: "online",
+            ip: "sg1.hexonode.com"
         },
         {
             name: "Europe",
             flag: "🇪🇺",
-            status: "online"
+            status: "online",
+            ip: "eu1.hexonode.com"
         }
     ];
 
@@ -298,6 +382,11 @@ function HomePage() {
         { name: "Terms and Conditions", url: "https://www.hexonode.com/termsandconditions" },
         { name: "Privacy Policy", url: "https://www.hexonode.com/privacypolicy" }
     ];
+
+    React.useEffect(() => {
+        const timer = setTimeout(() => setShowVideo(true), 2000);
+        return () => clearTimeout(timer);
+    }, []);
 
     return (
         <div className="min-h-screen bg-slate-900 text-white overflow-x-hidden">
@@ -430,14 +519,24 @@ function HomePage() {
             <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
                 {/* Background Image */}
                 <div className="absolute inset-0">
+                    {/* Background Image (visible until video shows) */}
                     <div
-                        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+                        className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-700 ${showVideo ? 'opacity-0' : 'opacity-100'}`}
                         style={{
                             backgroundImage: 'url(https://i.postimg.cc/pTYc03Qw/image.png)'
                         }}
                     ></div>
+                    {/* Background Video (fades in after 2s) */}
+                    <video
+                        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${showVideo ? 'opacity-100' : 'opacity-0'}`}
+                        src="https://aiclassroomin.s3.eu-north-1.amazonaws.com/uploads/0703.mp4 "
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                    />
                     {/* Dark overlay to ensure text readability */}
-                    <div className="absolute inset-0 bg-slate-900/80"></div>
+                    <div className="absolute inset-0 bg-slate-900/60"></div>
                     {/* Additional gradient overlays for better visual effect */}
                     <div className="absolute inset-0 bg-gradient-to-br from-slate-900/60 via-purple-900/40 to-slate-900/60"></div>
                     <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-violet-500/10 rounded-full blur-3xl animate-pulse"></div>
@@ -453,7 +552,7 @@ function HomePage() {
                         </div>
 
                         <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-                            <span className="bg-gradient-to-r from-white via-violet-200 to-fuchsia-200 bg-clip-text text-transparent">
+                            <span className="bg-gradient-to-r from-white via-violet-200 to-fuchsia-200 bg-clip-text text-transparent animate-gradient-move">
                                 Hexonode
                             </span>
                             <br />
@@ -929,9 +1028,19 @@ function HomePage() {
                             <div className="text-center mb-6 animate-fade-in">
                                 <div className="flex items-center justify-center space-x-2 text-emerald-400 mb-2">
                                     <CheckCircle className="w-6 h-6" />
-                                    <span className="font-semibold">All Systems Operational</span>
+                                    <span className="font-semibold"> {pingMs === null ? "Loading..." : pingLoading ? "Loading..." : pingError ? pingError : "All Systems Operational"}</span>
                                 </div>
-                                <p className="text-slate-400 text-sm">Server is running perfectly with 99.9% uptime</p>
+                                <p className="text-slate-400 text-sm">{pingMs === null ? "Loading..." : pingLoading ? "Loading..." : pingError ? pingError : "Server is running perfectly with 99.9% uptime"}</p>
+                                <div className="mt-4">
+                                    <span className="text-slate-400 text-sm">Ping: </span>
+                                    {pingLoading ? (
+                                        <span className="text-slate-300 font-mono">Loading...</span>
+                                    ) : pingError ? (
+                                        <span className="text-red-400 font-mono">{pingError}</span>
+                                    ) : pingMs !== null ? (
+                                        <span className="text-emerald-400 font-mono">{pingMs} ms</span>
+                                    ) : null}
+                                </div>
                             </div>
                         )}
 
@@ -968,6 +1077,26 @@ function HomePage() {
         }
         .animate-slide-up {
           animation: slide-up 0.6s ease-out both;
+        }
+        @keyframes gradient-move {
+          0% {
+            background-position: 0% 50%;
+          }
+          50% {
+            background-position: 100% 50%;
+          }
+          100% {
+            background-position: 0% 50%;
+          }
+        }
+        .animate-gradient-move {
+          background: linear-gradient(90deg, #fff, #a78bfa, #f0abfc, #f472b6, #fff);
+          background-size: 300% 300%;
+          animation: gradient-move 4s ease-in-out infinite;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          color: transparent;
         }
       `}</style>
         </div>
