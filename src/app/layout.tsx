@@ -133,7 +133,9 @@ export default function RootLayout({
                 {/* <Navbar /> */}
                 <main>{children}</main>
                 <Footer />
-                <GoogleAnalytics measurementId="G-M5LM84KM60" />
+                {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
+                    <GoogleAnalytics measurementId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
+                )}
                 <Script
                     id="schema-org-graph"
                     type="application/ld+json"
