@@ -23,6 +23,7 @@ import {
 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
+import './globals.css';
 
 
 function HomePage() {
@@ -37,6 +38,7 @@ function HomePage() {
     const [pingLoading, setPingLoading] = React.useState(false);
     const [pingError, setPingError] = React.useState<string | null>(null);
     const [showVideo, setShowVideo] = React.useState(false);
+    const [isPaymentModalOpen, setIsPaymentModalOpen] = React.useState(false);
 
     // Define a type for the location object
     type LocationType = {
@@ -44,6 +46,14 @@ function HomePage() {
         flag: string;
         status: string;
         ip: string;
+    };
+
+    const openPaymentModal = () => {
+        setIsPaymentModalOpen(true);
+    };
+
+    const closePaymentModal = () => {
+        setIsPaymentModalOpen(false);
     };
 
     const scrollToServices = () => {
@@ -461,6 +471,14 @@ function HomePage() {
                         </div>
 
                         <div className="flex items-center space-x-4">
+                            {/* Payment Methods Button */}
+                            <button
+                                onClick={openPaymentModal}
+                                className="hidden md:block bg-gradient-to-r from-emerald-500 to-teal-600 text-white px-6 py-2 rounded-xl font-semibold hover:from-emerald-600 hover:to-teal-700 transition-all duration-300 transform hover:scale-105 shadow-lg shadow-emerald-500/25"
+                            >
+                                Payment Methods
+                            </button>
+
                             <button
                                 className="md:hidden text-slate-300 hover:text-white"
                                 onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -514,6 +532,150 @@ function HomePage() {
                     </div>
                 )}
             </nav>
+
+            {/* Payment Methods Modal */}
+            {isPaymentModalOpen && (
+                <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4 animate-fade-in">
+                    <div className="bg-gradient-to-br from-slate-800/95 to-slate-900/95 backdrop-blur-xl border border-slate-700/50 rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl animate-scale-in">
+                        {/* Modal Header */}
+                        <div className="sticky top-0 bg-gradient-to-r from-slate-800/90 to-slate-900/90 backdrop-blur-xl border-b border-slate-700/50 p-6 rounded-t-3xl">
+                            <div className="flex items-center justify-between">
+                                <div className="flex items-center space-x-4">
+                                    <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl flex items-center justify-center shadow-lg shadow-emerald-500/25">
+                                        <span className="text-2xl">💳</span>
+                                    </div>
+                                    <div>
+                                        <h2 className="text-2xl font-bold bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent">
+                                            Payment Methods
+                                        </h2>
+                                        <p className="text-slate-400 text-sm">Choose your preferred payment option</p>
+                                    </div>
+                                </div>
+                                <button
+                                    onClick={closePaymentModal}
+                                    className="w-10 h-10 bg-slate-700/50 hover:bg-slate-600/50 rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110"
+                                >
+                                    <X className="w-5 h-5 text-slate-300" />
+                                </button>
+                            </div>
+                        </div>
+
+                        {/* Modal Content */}
+                        <div className="p-8 space-y-8">
+                            {/* Indian Payment Methods */}
+                            <div className="group">
+                                <div className="flex items-center space-x-3 mb-4">
+                                    <span className="text-2xl">🇮🇳</span>
+                                    <h3 className="text-xl font-bold text-white">INDIAN PAYMENT METHODS</h3>
+                                </div>
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                    <div className="bg-gradient-to-r from-slate-700/50 to-slate-800/50 border border-slate-600/50 rounded-xl p-4 hover:border-emerald-500/50 transition-all duration-300">
+                                        <div className="flex items-center space-x-3">
+                                            <span className="text-2xl">📱</span>
+                                            <span className="text-white font-medium">UPI</span>
+                                        </div>
+                                    </div>
+                                    <div className="bg-gradient-to-r from-slate-700/50 to-slate-800/50 border border-slate-600/50 rounded-xl p-4 hover:border-emerald-500/50 transition-all duration-300">
+                                        <div className="flex items-center space-x-3">
+                                            <span className="text-2xl">🏦</span>
+                                            <span className="text-white font-medium">Bank Transfer</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Pakistani Payment Methods */}
+                            <div className="group">
+                                <div className="flex items-center space-x-3 mb-4">
+                                    <span className="text-2xl">🇵🇰</span>
+                                    <h3 className="text-xl font-bold text-white">PAKISTANI PAYMENT METHODS</h3>
+                                </div>
+                                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                                    <div className="bg-gradient-to-r from-slate-700/50 to-slate-800/50 border border-slate-600/50 rounded-xl p-4 hover:border-emerald-500/50 transition-all duration-300">
+                                        <div className="flex items-center space-x-3">
+                                            <span className="text-2xl">📱</span>
+                                            <span className="text-white font-medium">JazzCash</span>
+                                        </div>
+                                    </div>
+                                    <div className="bg-gradient-to-r from-slate-700/50 to-slate-800/50 border border-slate-600/50 rounded-xl p-4 hover:border-emerald-500/50 transition-all duration-300">
+                                        <div className="flex items-center space-x-3">
+                                            <span className="text-2xl">💳</span>
+                                            <span className="text-white font-medium">EasyPaisa</span>
+                                        </div>
+                                    </div>
+                                    <div className="bg-gradient-to-r from-slate-700/50 to-slate-800/50 border border-slate-600/50 rounded-xl p-4 hover:border-emerald-500/50 transition-all duration-300">
+                                        <div className="flex items-center space-x-3">
+                                            <span className="text-2xl">🏦</span>
+                                            <span className="text-white font-medium">Bank Transfer</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* International Payment Methods */}
+                            <div className="group">
+                                <div className="flex items-center space-x-3 mb-4">
+                                    <span className="text-2xl">🌍</span>
+                                    <h3 className="text-xl font-bold text-white">INTERNATIONAL PAYMENT METHODS</h3>
+                                </div>
+                                <div className="grid grid-cols-1 gap-3">
+                                    <div className="bg-gradient-to-r from-slate-700/50 to-slate-800/50 border border-slate-600/50 rounded-xl p-4 hover:border-emerald-500/50 transition-all duration-300">
+                                        <div className="flex items-center space-x-3">
+                                            <span className="text-2xl">💰</span>
+                                            <span className="text-white font-medium">PayPal</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Crypto Payment Methods */}
+                            <div className="group">
+                                <div className="flex items-center space-x-3 mb-4">
+                                    <span className="text-2xl">₿</span>
+                                    <h3 className="text-xl font-bold text-white">CRYPTO METHODS</h3>
+                                </div>
+                                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                                    <div className="bg-gradient-to-r from-slate-700/50 to-slate-800/50 border border-slate-600/50 rounded-xl p-4 hover:border-emerald-500/50 transition-all duration-300">
+                                        <div className="flex items-center space-x-3">
+                                            <span className="text-2xl">💎</span>
+                                            <span className="text-white font-medium">USDT</span>
+                                        </div>
+                                    </div>
+                                    <div className="bg-gradient-to-r from-slate-700/50 to-slate-800/50 border border-slate-600/50 rounded-xl p-4 hover:border-emerald-500/50 transition-all duration-300">
+                                        <div className="flex items-center space-x-3">
+                                            <span className="text-2xl">🪙</span>
+                                            <span className="text-white font-medium">Litecoin</span>
+                                        </div>
+                                    </div>
+                                    <div className="bg-gradient-to-r from-slate-700/50 to-slate-800/50 border border-slate-600/50 rounded-xl p-4 hover:border-emerald-500/50 transition-all duration-300">
+                                        <div className="flex items-center space-x-3">
+                                            <span className="text-2xl">🐕</span>
+                                            <span className="text-white font-medium">Dogecoin</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Modal Footer */}
+                        <div className="border-t border-slate-700/50 p-6">
+                            {/* Disclaimer */}
+                            <div className="mb-4 p-4 bg-amber-500/10 border border-amber-500/20 rounded-xl">
+                                <p className="text-amber-300 text-sm text-center">
+                                    <span className="font-semibold">Disclaimer:</span> Only Indian and International payment methods are available on the website. For Pakistani and Crypto payments, please create a ticket on Discord.
+                                </p>
+                            </div>
+
+                            <button
+                                onClick={closePaymentModal}
+                                className="w-full bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-semibold py-3 px-6 rounded-xl hover:from-emerald-600 hover:to-teal-700 transition-all duration-300"
+                            >
+                                Close
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
 
             {/* Hero Section */}
             <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -825,6 +987,193 @@ function HomePage() {
                                 </div>
                             </div>
                         ))}
+                    </div>
+                </div>
+            </section>
+
+
+            {/* Client Reviews Section */}
+            <section className="py-20 relative bg-gradient-to-b from-slate-900 to-slate-800 overflow-hidden">
+                <div className="absolute inset-0">
+                    <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl animate-pulse"></div>
+                    <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-rose-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+                </div>
+
+                <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="text-center mb-16">
+                        <div className="inline-flex items-center space-x-2 bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-full px-4 py-2 mb-6">
+                            <span className="text-2xl">⭐</span>
+                            <span className="text-slate-300 text-sm">Client Reviews</span>
+                            <span>From Discord</span>
+                        </div>
+
+                        <h2 className="text-4xl sm:text-5xl font-bold mb-6 leading-tight">
+                            <span className="bg-gradient-to-r from-white via-pink-200 to-rose-200 bg-clip-text text-transparent">
+                                What Our Clients
+                            </span>
+                            <br />
+                            <span className="bg-gradient-to-r from-pink-400 via-rose-400 to-red-400 bg-clip-text text-transparent">
+                                Say About Us
+                            </span>
+                        </h2>
+
+                        <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
+                            Trusted by thousands of developers and businesses worldwide
+                        </p>
+                    </div>
+
+                    {/* Reviews Slider */}
+                    <div className="relative">
+                        <div className="overflow-hidden">
+                            <div className="flex space-x-6 animate-scroll">
+                                {/* Review 1 */}
+                                <div className="flex-shrink-0 w-80 bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-6 hover:border-pink-500/50 transition-all duration-500 transform hover:-translate-y-1 hover:shadow-xl hover:shadow-pink-500/10">
+                                    <div className="flex items-center mb-4">
+                                        <div className="w-12 h-12 bg-gradient-to-br from-pink-500 to-rose-600 rounded-full flex items-center justify-center mr-4">
+                                            <span className="text-white font-bold text-lg">N</span>
+                                        </div>
+                                        <div>
+                                            <h4 className="text-white font-semibold">NotLegend</h4>
+                                            <p className="text-slate-400 text-sm">YOUTUBER</p>
+                                        </div>
+                                    </div>
+                                    <div className="flex mb-4">
+                                        {[...Array(5)].map((_, i) => (
+                                            <span key={i} className="text-yellow-400 text-lg">⭐</span>
+                                        ))}
+                                    </div>
+                                    <p className="text-slate-300 leading-relaxed">
+                                        "Best hosting ever ❤️The server has Greate performance 99.99% uptime and high performance ever"
+                                    </p>
+                                </div>
+
+                                {/* Review 2 */}
+                                <div className="flex-shrink-0 w-80 bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-6 hover:border-pink-500/50 transition-all duration-500 transform hover:-translate-y-1 hover:shadow-xl hover:shadow-pink-500/10">
+                                    <div className="flex items-center mb-4">
+                                        <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center mr-4">
+                                            <span className="text-white font-bold text-lg">S</span>
+                                        </div>
+                                        <div>
+                                            <h4 className="text-white font-semibold">Satnam Singh</h4>
+                                            <p className="text-slate-400 text-sm">Discord bot hosting</p>
+                                        </div>
+                                    </div>
+                                    <div className="flex mb-4">
+                                        {[...Array(5)].map((_, i) => (
+                                            <span key={i} className="text-yellow-400 text-lg">⭐</span>
+                                        ))}
+                                    </div>
+                                    <p className="text-slate-300 leading-relaxed">
+                                        "I have purchased 6x discord bot hosting from them them, the uptime is 99.99 percent and Unbelievable support "
+                                    </p>
+                                </div>
+
+                                {/* Review 3 */}
+                                <div className="flex-shrink-0 w-80 bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-6 hover:border-pink-500/50 transition-all duration-500 transform hover:-translate-y-1 hover:shadow-xl hover:shadow-pink-500/10">
+                                    <div className="flex items-center mb-4">
+                                        <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center mr-4">
+                                            <span className="text-white font-bold text-lg">E</span>
+                                        </div>
+                                        <div>
+                                            <h4 className="text-white font-semibold">ELITE PLAYZ</h4>
+                                            <p className="text-slate-400 text-sm">VPS OWNER</p>
+                                        </div>
+                                    </div>
+                                    <div className="flex mb-4">
+                                        {[...Array(5)].map((_, i) => (
+                                            <span key={i} className="text-yellow-400 text-lg">⭐</span>
+                                        ))}
+                                    </div>
+                                    <p className="text-slate-300 leading-relaxed">
+                                        "99.9% UPTIME WITH HIGH PERFORMANCE HOSTING I LOVE IT ❤️."
+                                    </p>
+                                </div>
+
+                                {/* Review 4 */}
+                                <div className="flex-shrink-0 w-80 bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-6 hover:border-pink-500/50 transition-all duration-500 transform hover:-translate-y-1 hover:shadow-xl hover:shadow-pink-500/10">
+                                    <div className="flex items-center mb-4">
+                                        <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-violet-600 rounded-full flex items-center justify-center mr-4">
+                                            <span className="text-white font-bold text-lg">R</span>
+                                        </div>
+                                        <div>
+                                            <h4 className="text-white font-semibold">REAL GAMING</h4>
+                                            <p className="text-slate-400 text-sm">YOUTUBER</p>
+                                        </div>
+                                    </div>
+                                    <div className="flex mb-4">
+                                        {[...Array(5)].map((_, i) => (
+                                            <span key={i} className="text-yellow-400 text-lg">⭐</span>
+                                        ))}
+                                    </div>
+                                    <p className="text-slate-300 leading-relaxed">
+                                        "Outstanding Minecraft Server performance for our Network and 10/10 very supporting and loving
+                                    </p>
+                                </div>
+
+                                {/* Review 5 */}
+                                <div className="flex-shrink-0 w-80 bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-6 hover:border-pink-500/50 transition-all duration-500 transform hover:-translate-y-1 hover:shadow-xl hover:shadow-pink-500/10">
+                                    <div className="flex items-center mb-4">
+                                        <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-600 rounded-full flex items-center justify-center mr-4">
+                                            <span className="text-white font-bold text-lg">D</span>
+                                        </div>
+                                        <div>
+                                            <h4 className="text-white font-semibold">David Kumar</h4>
+                                            <p className="text-slate-400 text-sm">DEVELOPER</p>
+                                        </div>
+                                    </div>
+                                    <div className="flex mb-4">
+                                        {[...Array(5)].map((_, i) => (
+                                            <span key={i} className="text-yellow-400 text-lg">⭐</span>
+                                        ))}
+                                    </div>
+                                    <p className="text-slate-300 leading-relaxed">
+                                        "Incredible value for money. The India VPS servers are blazing fast and their uptime is 99.99 % Highly satisfied customer."
+                                    </p>
+                                </div>
+
+                                {/* Review 6 */}
+                                <div className="flex-shrink-0 w-80 bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-6 hover:border-pink-500/50 transition-all duration-500 transform hover:-translate-y-1 hover:shadow-xl hover:shadow-pink-500/10">
+                                    <div className="flex items-center mb-4">
+                                        <div className="w-12 h-12 bg-gradient-to-br from-teal-500 to-cyan-600 rounded-full flex items-center justify-center mr-4">
+                                            <span className="text-white font-bold text-lg">H</span>
+                                        </div>
+                                        <div>
+                                            <h4 className="text-white font-semibold">Haider</h4>
+                                            <p className="text-slate-400 text-sm">Network Owner</p>
+                                        </div>
+                                    </div>
+                                    <div className="flex mb-4">
+                                        {[...Array(5)].map((_, i) => (
+                                            <span key={i} className="text-yellow-400 text-lg">⭐</span>
+                                        ))}
+                                    </div>
+                                    <p className="text-slate-300 leading-relaxed">
+                                        "I’m from Pakistan and I purchased their 32GB premium Minecraft plan. I made the payment through Discord, and my ping stays between 40 to 50 — no other Indian host gives such low ping. On all other hosts, my ping used to be at least 200, but here it’s just 40 to 50. Best host ever!."
+                                    </p>
+                                </div>
+
+                                {/* Duplicate reviews for continuous scroll */}
+                                <div className="flex-shrink-0 w-80 bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-6 hover:border-pink-500/50 transition-all duration-500 transform hover:-translate-y-1 hover:shadow-xl hover:shadow-pink-500/10">
+                                    <div className="flex items-center mb-4">
+                                        <div className="w-12 h-12 bg-gradient-to-br from-pink-500 to-rose-600 rounded-full flex items-center justify-center mr-4">
+                                            <span className="text-white font-bold text-lg">A</span>
+                                        </div>
+                                        <div>
+                                            <h4 className="text-white font-semibold">Joedaloser</h4>
+                                            <p className="text-slate-400 text-sm">NETWORK OWNER</p>
+                                        </div>
+                                    </div>
+                                    <div className="flex mb-4">
+                                        {[...Array(5)].map((_, i) => (
+                                            <span key={i} className="text-yellow-400 text-lg">⭐</span>
+                                        ))}
+                                    </div>
+                                    <p className="text-slate-300 leading-relaxed">
+                                        "I have bought a silver plan and the staff at hexonode was very helpfull in setting the server up. got the server setup with in 3 to 4 mins. This will surely be my goto server hosting site from now on, for sure."
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>

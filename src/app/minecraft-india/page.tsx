@@ -1,18 +1,19 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import { ArrowLeft, Server, Cpu, HardDrive, Zap, Shield, CheckCircle, Home, Gamepad2 } from 'lucide-react';
-import { useRouter } from 'next/navigation';
+import { Server, Cpu, Zap, Shield, Home, Gamepad2, X } from 'lucide-react';
+import { useRouter } from 'next/navigation';;
 
 function MinecraftIndia() {
   const router = useRouter();
   const [selectedSection, setSelectedSection] = useState('Intel Budget');
+  const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
 
   // Scroll to top when component mounts
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const sections = ['Intel Budget', 'Intel Performance', 'Ryzen 9'];
+  const sections = ['Intel Budget', 'AMD EPYC PERFORMANCE', 'Ryzen 9'];
 
   const plans = {
     'Intel Budget': [
@@ -22,7 +23,7 @@ function MinecraftIndia() {
         period: "/month",
         specs: [
           "Unlimited Player Slots",
-          "3.3 GHz",
+          "2.4 to 3.3 GHz",
           "100% CPU",
           "1GB DDR4 RAM",
           "5GB NVMe SSD Storage",
@@ -39,7 +40,7 @@ function MinecraftIndia() {
         period: "/month",
         specs: [
           "Unlimited Player Slots",
-          "3.3 GHz",
+          "2.4 to 3.3 GHz",
           "100% CPU",
           "2GB DDR4 RAM",
           "10GB NVMe SSD Storage",
@@ -56,7 +57,7 @@ function MinecraftIndia() {
         period: "/month",
         specs: [
           "Unlimited Player Slots",
-          "3.3 GHz",
+          "2.4 to 3.3 GHz",
           "200% CPU",
           "4GB DDR4 RAM",
           "20GB NVMe SSD Storage",
@@ -73,7 +74,7 @@ function MinecraftIndia() {
         period: "/month",
         specs: [
           "Unlimited Player Slots",
-          "3.3 GHz",
+          "2.4 to 3.3 GHz",
           "200% CPU",
           "8GB DDR4 RAM",
           "50GB NVMe SSD Storage",
@@ -90,7 +91,7 @@ function MinecraftIndia() {
         period: "/month",
         specs: [
           "Unlimited Player Slots",
-          "3.3 GHz",
+          "2.4 to 3.3 GHz",
           "300% CPU",
           "12GB DDR4 RAM",
           "80GB NVMe SSD Storage",
@@ -107,7 +108,7 @@ function MinecraftIndia() {
         period: "/month",
         specs: [
           "Unlimited Player Slots",
-          "3.3 GHz",
+          "2.4 to 3.3 GHz",
           "400% CPU",
           "16GB DDR4 RAM",
           "100GB NVMe SSD Storage",
@@ -124,7 +125,7 @@ function MinecraftIndia() {
         period: "/month",
         specs: [
           "Unlimited Player Slots",
-          "3.3 GHz",
+          "2.4 to 3.3 GHz",
           "500% CPU",
           "24GB DDR4 RAM",
           "150GB NVMe SSD Storage",
@@ -141,7 +142,7 @@ function MinecraftIndia() {
         period: "/month",
         specs: [
           "Unlimited Player Slots",
-          "3.3 GHz",
+          "2.4 to 3.3 GHz",
           "Unlimited CPU { NO LIMIT} FAIR USAGE",
           "32GB DDR4 RAM",
           "200GB NVMe SSD Storage",
@@ -158,7 +159,7 @@ function MinecraftIndia() {
         period: "/month",
         specs: [
           "Unlimited Player Slots",
-          "3.3 GHz",
+          "2.4 to 3.3 GHz",
           "Unlimited CPU { NO LIMIT} FAIR USAGE",
           "48GB DDR4 RAM",
           "300GB NVMe SSD Storage",
@@ -170,15 +171,14 @@ function MinecraftIndia() {
         orderLink: "https://billing.hexonode.com/products/india-budget-mc/48gb-india-budget-mc"
       }
     ],
-    'Intel Performance': [
+    'AMD EPYC PERFORMANCE': [
       {
         name: "1GB PROXY",
         price: "₹50",
         period: "/month",
         specs: [
           "Unlimited Player Slots",
-          "Intel® Xeon® Processor E5-2667 v4",
-          "3.6 GHz",
+          "3.7 GHz",
           "100% CPU",
           "1GB DDR4 RAM",
           "5GB NVMe SSD Storage",
@@ -195,8 +195,7 @@ function MinecraftIndia() {
         period: "/month",
         specs: [
           "Unlimited Player Slots",
-          "Intel® Xeon® Processor E5-2667 v4",
-          "3.6 GHz",
+          "3.7 GHz",
           "100% CPU",
           "2GB DDR4 RAM",
           "5GB NVMe SSD Storage",
@@ -213,8 +212,7 @@ function MinecraftIndia() {
         period: "/month",
         specs: [
           "Unlimited Player Slots",
-          "Intel® Xeon® Processor E5-2667 v4",
-          "3.6 GHz",
+          "3.7 GHz",
           "100% CPU",
           "4GB DDR4 RAM",
           "10GB NVMe SSD Storage",
@@ -227,12 +225,11 @@ function MinecraftIndia() {
       },
       {
         name: "6GB GOLD",
-        price: "₹300",
+        price: "₹350",
         period: "/month",
         specs: [
           "Unlimited Player Slots",
-          "Intel® Xeon® Processor E5-2667 v4",
-          "3.6 GHz",
+          "3.7 GHz",
           "200% CPU",
           "6GB DDR4 RAM",
           "15GB NVMe SSD Storage",
@@ -245,12 +242,11 @@ function MinecraftIndia() {
       },
       {
         name: "8GB PLATINUM",
-        price: "₹400",
+        price: "₹450",
         period: "/month",
         specs: [
           "Unlimited Player Slots",
-          "Intel® Xeon® Processor E5-2667 v4",
-          "3.6 GHz",
+          "3.7 GHz",
           "200% CPU",
           "8GB DDR4 RAM",
           "20GB NVMe SSD Storage",
@@ -263,12 +259,11 @@ function MinecraftIndia() {
       },
       {
         name: "12GB DIAMOND",
-        price: "₹600",
+        price: "₹650",
         period: "/month",
         specs: [
           "Unlimited Player Slots",
-          "Intel® Xeon® Processor E5-2667 v4",
-          "3.6 GHz",
+          "3.7 GHz",
           "300% CPU",
           "12GB DDR4 RAM",
           "30GB NVMe SSD Storage",
@@ -281,12 +276,11 @@ function MinecraftIndia() {
       },
       {
         name: "16GB EMERALD",
-        price: "₹800",
+        price: "₹900",
         period: "/month",
         specs: [
           "Unlimited Player Slots",
-          "Intel® Xeon® Processor E5-2667 v4",
-          "3.6 GHz",
+          "3.7 GHz",
           "400% CPU",
           "16GB DDR4 RAM",
           "80GB NVMe SSD Storage",
@@ -299,12 +293,11 @@ function MinecraftIndia() {
       },
       {
         name: "24GB RUBY",
-        price: "₹1200",
+        price: "₹1400",
         period: "/month",
         specs: [
           "Unlimited Player Slots",
-          "Intel® Xeon® Processor E5-2667 v4",
-          "3.6 GHz",
+          "3.7 GHz",
           "600% CPU",
           "24GB DDR4 RAM",
           "100GB NVMe SSD Storage",
@@ -317,12 +310,11 @@ function MinecraftIndia() {
       },
       {
         name: "32GB SAPPHIRE",
-        price: "₹1600",
+        price: "₹1700",
         period: "/month",
         specs: [
           "Unlimited Player Slots",
-          "Intel® Xeon® Processor E5-2667 v4",
-          "3.6 GHz",
+          "3.7 GHz",
           "Unlimited CPU { NO LIMIT} FAIR USAGE",
           "32GB DDR4 RAM",
           "150GB NVMe SSD Storage",
@@ -335,12 +327,11 @@ function MinecraftIndia() {
       },
       {
         name: "48GB OBSIDIAN",
-        price: "₹1999",
+        price: "₹2300",
         period: "/month",
         specs: [
           "Unlimited Player Slots",
-          "Intel® Xeon® Processor E5-2667 v4",
-          "3.6 GHz",
+          "3.7 GHz",
           "Unlimited CPU { NO LIMIT} FAIR USAGE",
           "48GB DDR4 RAM",
           "160GB NVMe SSD Storage",
@@ -436,6 +427,14 @@ function MinecraftIndia() {
     });
   };
 
+  const openPaymentModal = () => {
+    setIsPaymentModalOpen(true);
+  };
+
+  const closePaymentModal = () => {
+    setIsPaymentModalOpen(false);
+  };
+
   const getSectionIcon = (section: string) => {
     switch (section) {
       case 'Intel Budget':
@@ -453,8 +452,8 @@ function MinecraftIndia() {
     switch (section) {
       case 'Intel Budget':
         return 'from-blue-500 to-cyan-500';
-      case 'Intel Performance':
-        return 'from-purple-500 to-violet-500';
+      case 'AMD EPYC PERFORMANCE':
+        return 'from-red-500 to-rose-500';
       case 'Ryzen 9':
         return 'from-red-500 to-orange-500';
       default:
@@ -490,9 +489,161 @@ function MinecraftIndia() {
               <Home className="w-5 h-5" />
               <span>Back to Home</span>
             </button>
+
+            {/* Payment Methods Button */}
+            <button
+              onClick={openPaymentModal}
+              className="bg-gradient-to-r from-emerald-500 to-teal-600 text-white px-6 py-2 rounded-xl font-semibold hover:from-emerald-600 hover:to-teal-700 transition-all duration-300 transform hover:scale-105 shadow-lg shadow-emerald-500/25"
+            >
+              Payment Methods
+            </button>
           </div>
         </div>
       </nav>
+
+      {/* Payment Methods Modal */}
+      {isPaymentModalOpen && (
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4 animate-fade-in">
+          <div className="bg-gradient-to-br from-slate-800/95 to-slate-900/95 backdrop-blur-xl border border-slate-700/50 rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl animate-scale-in">
+            {/* Modal Header */}
+            <div className="sticky top-0 bg-gradient-to-r from-slate-800/90 to-slate-900/90 backdrop-blur-xl border-b border-slate-700/50 p-6 rounded-t-3xl">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center space-x-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl flex items-center justify-center shadow-lg shadow-emerald-500/25">
+                    <span className="text-2xl">💳</span>
+                  </div>
+                  <div>
+                    <h2 className="text-2xl font-bold bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent">
+                      Payment Methods
+                    </h2>
+                    <p className="text-slate-400 text-sm">Choose your preferred payment option</p>
+                  </div>
+                </div>
+                <button
+                  onClick={closePaymentModal}
+                  className="w-10 h-10 bg-slate-700/50 hover:bg-slate-600/50 rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110"
+                >
+                  <X className="w-5 h-5 text-slate-300" />
+                </button>
+              </div>
+            </div>
+
+            {/* Modal Content */}
+            <div className="p-8 space-y-8">
+              {/* Indian Payment Methods */}
+              <div className="group">
+                <div className="flex items-center space-x-3 mb-4">
+                  <span className="text-2xl">🇮🇳</span>
+                  <h3 className="text-xl font-bold text-white">INDIAN PAYMENT METHODS</h3>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div className="bg-gradient-to-r from-slate-700/50 to-slate-800/50 border border-slate-600/50 rounded-xl p-4 hover:border-emerald-500/50 transition-all duration-300">
+                    <div className="flex items-center space-x-3">
+                      <span className="text-2xl">📱</span>
+                      <span className="text-white font-medium">UPI</span>
+                    </div>
+                  </div>
+                  <div className="bg-gradient-to-r from-slate-700/50 to-slate-800/50 border border-slate-600/50 rounded-xl p-4 hover:border-emerald-500/50 transition-all duration-300">
+                    <div className="flex items-center space-x-3">
+                      <span className="text-2xl">🏦</span>
+                      <span className="text-white font-medium">Bank Transfer</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Pakistani Payment Methods */}
+              <div className="group">
+                <div className="flex items-center space-x-3 mb-4">
+                  <span className="text-2xl">🇵🇰</span>
+                  <h3 className="text-xl font-bold text-white">PAKISTANI PAYMENT METHODS</h3>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  <div className="bg-gradient-to-r from-slate-700/50 to-slate-800/50 border border-slate-600/50 rounded-xl p-4 hover:border-emerald-500/50 transition-all duration-300">
+                    <div className="flex items-center space-x-3">
+                      <span className="text-2xl">📱</span>
+                      <span className="text-white font-medium">JazzCash</span>
+                    </div>
+                  </div>
+                  <div className="bg-gradient-to-r from-slate-700/50 to-slate-800/50 border border-slate-600/50 rounded-xl p-4 hover:border-emerald-500/50 transition-all duration-300">
+                    <div className="flex items-center space-x-3">
+                      <span className="text-2xl">💳</span>
+                      <span className="text-white font-medium">EasyPaisa</span>
+                    </div>
+                  </div>
+                  <div className="bg-gradient-to-r from-slate-700/50 to-slate-800/50 border border-slate-600/50 rounded-xl p-4 hover:border-emerald-500/50 transition-all duration-300">
+                    <div className="flex items-center space-x-3">
+                      <span className="text-2xl">🏦</span>
+                      <span className="text-white font-medium">Bank Transfer</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* International Payment Methods */}
+              <div className="group">
+                <div className="flex items-center space-x-3 mb-4">
+                  <span className="text-2xl">🌍</span>
+                  <h3 className="text-xl font-bold text-white">INTERNATIONAL PAYMENT METHODS</h3>
+                </div>
+                <div className="grid grid-cols-1 gap-3">
+                  <div className="bg-gradient-to-r from-slate-700/50 to-slate-800/50 border border-slate-600/50 rounded-xl p-4 hover:border-emerald-500/50 transition-all duration-300">
+                    <div className="flex items-center space-x-3">
+                      <span className="text-2xl">💰</span>
+                      <span className="text-white font-medium">PayPal</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Crypto Payment Methods */}
+              <div className="group">
+                <div className="flex items-center space-x-3 mb-4">
+                  <span className="text-2xl">₿</span>
+                  <h3 className="text-xl font-bold text-white">CRYPTO METHODS</h3>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  <div className="bg-gradient-to-r from-slate-700/50 to-slate-800/50 border border-slate-600/50 rounded-xl p-4 hover:border-emerald-500/50 transition-all duration-300">
+                    <div className="flex items-center space-x-3">
+                      <span className="text-2xl">💎</span>
+                      <span className="text-white font-medium">USDT</span>
+                    </div>
+                  </div>
+                  <div className="bg-gradient-to-r from-slate-700/50 to-slate-800/50 border border-slate-600/50 rounded-xl p-4 hover:border-emerald-500/50 transition-all duration-300">
+                    <div className="flex items-center space-x-3">
+                      <span className="text-2xl">🪙</span>
+                      <span className="text-white font-medium">Litecoin</span>
+                    </div>
+                  </div>
+                  <div className="bg-gradient-to-r from-slate-700/50 to-slate-800/50 border border-slate-600/50 rounded-xl p-4 hover:border-emerald-500/50 transition-all duration-300">
+                    <div className="flex items-center space-x-3">
+                      <span className="text-2xl">🐕</span>
+                      <span className="text-white font-medium">Dogecoin</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Modal Footer */}
+            <div className="border-t border-slate-700/50 p-6">
+              {/* Disclaimer */}
+              <div className="mb-4 p-4 bg-amber-500/10 border border-amber-500/20 rounded-xl">
+                <p className="text-amber-300 text-sm text-center">
+                  <span className="font-semibold">Disclaimer:</span> Only Indian and International payment methods are available on the website. For Pakistani and Crypto payments, please create a ticket on Discord.
+                </p>
+              </div>
+
+              <button
+                onClick={closePaymentModal}
+                className="w-full bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-semibold py-3 px-6 rounded-xl hover:from-emerald-600 hover:to-teal-700 transition-all duration-300"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Hero Section */}
       <section className="relative pt-24 pb-16 overflow-hidden">
@@ -561,7 +712,7 @@ function MinecraftIndia() {
 
           {/* Plans Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {plans[selectedSection as keyof typeof plans].map((plan, index) => (
+            {(plans as Record<string, typeof plans["Intel Budget"]>)[selectedSection].map((plan: typeof plans["Intel Budget"][0], index: number) => (
               <div
                 key={index}
                 className="group relative bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-6 hover:border-green-500/50 transition-all duration-500 transform hover:-translate-y-1 hover:shadow-xl hover:shadow-green-500/10"

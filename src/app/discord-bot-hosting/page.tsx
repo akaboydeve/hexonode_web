@@ -1,10 +1,11 @@
 'use client';
-import React, { useEffect } from 'react';
-import { Server, Bot, Cpu, HardDrive, Zap, CheckCircle, Home, Activity } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Server, Bot, Cpu, HardDrive, Zap, CheckCircle, Home, Activity, X } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
 function DiscordBotHosting() {
   const router = useRouter();
+  const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
 
   // Scroll to top when component mounts
   useEffect(() => {
@@ -86,6 +87,14 @@ function DiscordBotHosting() {
     });
   };
 
+  const openPaymentModal = () => {
+    setIsPaymentModalOpen(true);
+  };
+
+  const closePaymentModal = () => {
+    setIsPaymentModalOpen(false);
+  };
+
   const features = [
     {
       icon: Zap,
@@ -135,9 +144,161 @@ function DiscordBotHosting() {
               <Home className="w-5 h-5" />
               <span>Back to Home</span>
             </button>
+
+            {/* Payment Methods Button */}
+            <button
+              onClick={openPaymentModal}
+              className="bg-gradient-to-r from-emerald-500 to-teal-600 text-white px-6 py-2 rounded-xl font-semibold hover:from-emerald-600 hover:to-teal-700 transition-all duration-300 transform hover:scale-105 shadow-lg shadow-emerald-500/25"
+            >
+              Payment Methods
+            </button>
           </div>
         </div>
       </nav>
+
+      {/* Payment Methods Modal */}
+      {isPaymentModalOpen && (
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4 animate-fade-in">
+          <div className="bg-gradient-to-br from-slate-800/95 to-slate-900/95 backdrop-blur-xl border border-slate-700/50 rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl animate-scale-in">
+            {/* Modal Header */}
+            <div className="sticky top-0 bg-gradient-to-r from-slate-800/90 to-slate-900/90 backdrop-blur-xl border-b border-slate-700/50 p-6 rounded-t-3xl">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center space-x-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl flex items-center justify-center shadow-lg shadow-emerald-500/25">
+                    <span className="text-2xl">💳</span>
+                  </div>
+                  <div>
+                    <h2 className="text-2xl font-bold bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent">
+                      Payment Methods
+                    </h2>
+                    <p className="text-slate-400 text-sm">Choose your preferred payment option</p>
+                  </div>
+                </div>
+                <button
+                  onClick={closePaymentModal}
+                  className="w-10 h-10 bg-slate-700/50 hover:bg-slate-600/50 rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110"
+                >
+                  <X className="w-5 h-5 text-slate-300" />
+                </button>
+              </div>
+            </div>
+
+            {/* Modal Content */}
+            <div className="p-8 space-y-8">
+              {/* Indian Payment Methods */}
+              <div className="group">
+                <div className="flex items-center space-x-3 mb-4">
+                  <span className="text-2xl">🇮🇳</span>
+                  <h3 className="text-xl font-bold text-white">INDIAN PAYMENT METHODS</h3>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div className="bg-gradient-to-r from-slate-700/50 to-slate-800/50 border border-slate-600/50 rounded-xl p-4 hover:border-emerald-500/50 transition-all duration-300">
+                    <div className="flex items-center space-x-3">
+                      <span className="text-2xl">📱</span>
+                      <span className="text-white font-medium">UPI</span>
+                    </div>
+                  </div>
+                  <div className="bg-gradient-to-r from-slate-700/50 to-slate-800/50 border border-slate-600/50 rounded-xl p-4 hover:border-emerald-500/50 transition-all duration-300">
+                    <div className="flex items-center space-x-3">
+                      <span className="text-2xl">🏦</span>
+                      <span className="text-white font-medium">Bank Transfer</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Pakistani Payment Methods */}
+              <div className="group">
+                <div className="flex items-center space-x-3 mb-4">
+                  <span className="text-2xl">🇵🇰</span>
+                  <h3 className="text-xl font-bold text-white">PAKISTANI PAYMENT METHODS</h3>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  <div className="bg-gradient-to-r from-slate-700/50 to-slate-800/50 border border-slate-600/50 rounded-xl p-4 hover:border-emerald-500/50 transition-all duration-300">
+                    <div className="flex items-center space-x-3">
+                      <span className="text-2xl">📱</span>
+                      <span className="text-white font-medium">JazzCash</span>
+                    </div>
+                  </div>
+                  <div className="bg-gradient-to-r from-slate-700/50 to-slate-800/50 border border-slate-600/50 rounded-xl p-4 hover:border-emerald-500/50 transition-all duration-300">
+                    <div className="flex items-center space-x-3">
+                      <span className="text-2xl">💳</span>
+                      <span className="text-white font-medium">EasyPaisa</span>
+                    </div>
+                  </div>
+                  <div className="bg-gradient-to-r from-slate-700/50 to-slate-800/50 border border-slate-600/50 rounded-xl p-4 hover:border-emerald-500/50 transition-all duration-300">
+                    <div className="flex items-center space-x-3">
+                      <span className="text-2xl">🏦</span>
+                      <span className="text-white font-medium">Bank Transfer</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* International Payment Methods */}
+              <div className="group">
+                <div className="flex items-center space-x-3 mb-4">
+                  <span className="text-2xl">🌍</span>
+                  <h3 className="text-xl font-bold text-white">INTERNATIONAL PAYMENT METHODS</h3>
+                </div>
+                <div className="grid grid-cols-1 gap-3">
+                  <div className="bg-gradient-to-r from-slate-700/50 to-slate-800/50 border border-slate-600/50 rounded-xl p-4 hover:border-emerald-500/50 transition-all duration-300">
+                    <div className="flex items-center space-x-3">
+                      <span className="text-2xl">💰</span>
+                      <span className="text-white font-medium">PayPal</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Crypto Payment Methods */}
+              <div className="group">
+                <div className="flex items-center space-x-3 mb-4">
+                  <span className="text-2xl">₿</span>
+                  <h3 className="text-xl font-bold text-white">CRYPTO METHODS</h3>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  <div className="bg-gradient-to-r from-slate-700/50 to-slate-800/50 border border-slate-600/50 rounded-xl p-4 hover:border-emerald-500/50 transition-all duration-300">
+                    <div className="flex items-center space-x-3">
+                      <span className="text-2xl">💎</span>
+                      <span className="text-white font-medium">USDT</span>
+                    </div>
+                  </div>
+                  <div className="bg-gradient-to-r from-slate-700/50 to-slate-800/50 border border-slate-600/50 rounded-xl p-4 hover:border-emerald-500/50 transition-all duration-300">
+                    <div className="flex items-center space-x-3">
+                      <span className="text-2xl">🪙</span>
+                      <span className="text-white font-medium">Litecoin</span>
+                    </div>
+                  </div>
+                  <div className="bg-gradient-to-r from-slate-700/50 to-slate-800/50 border border-slate-600/50 rounded-xl p-4 hover:border-emerald-500/50 transition-all duration-300">
+                    <div className="flex items-center space-x-3">
+                      <span className="text-2xl">🐕</span>
+                      <span className="text-white font-medium">Dogecoin</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Modal Footer */}
+            <div className="border-t border-slate-700/50 p-6">
+              {/* Disclaimer */}
+              <div className="mb-4 p-4 bg-amber-500/10 border border-amber-500/20 rounded-xl">
+                <p className="text-amber-300 text-sm text-center">
+                  <span className="font-semibold">Disclaimer:</span> Only Indian and International payment methods are available on the website. For Pakistani and Crypto payments, please create a ticket on Discord.
+                </p>
+              </div>
+
+              <button
+                onClick={closePaymentModal}
+                className="w-full bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-semibold py-3 px-6 rounded-xl hover:from-emerald-600 hover:to-teal-700 transition-all duration-300"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Hero Section */}
       <section className="relative pt-24 pb-16 overflow-hidden">

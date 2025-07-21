@@ -1,21 +1,44 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import { ArrowLeft, Server, Cpu, HardDrive, Zap, Shield, CheckCircle, Home } from 'lucide-react';
+import { Server, Cpu, Zap, Shield, CheckCircle, Home, X } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
 function IndiaVPS() {
   const router = useRouter();
   const [selectedSection, setSelectedSection] = useState('Intel Budget');
+  const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
 
   // Scroll to top when component mounts
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const sections = ['Intel Budget', 'Intel Performance', 'Ryzen 9'];
+  const sections = ['Intel Budget', 'Intel/AMD Performance', 'Ryzen 9'];
 
   const plans = {
     'Intel Budget': [
+      {
+        name: "Budget Mini",
+        price: "₹750",
+        period: "/month",
+        specs: [
+          "2 vCores",
+          "2.4 GHz to 3 GHz Intel XEON V4",
+          "8 GB DDR4 RAM",
+          "80 GB NVMe SSD Storage",
+          "1GBPS Network Speed",
+          "1 IPv4 Address",
+          "Full Root Access",
+          "KVM Virtualization",
+          "99.9% Uptime SLA",
+          "Mumbai Data Center",
+          "Basic Ddos Protection",
+          "24/7 Ticket Support",
+          "Free Setup"
+        ],
+        features: ["Full Root Access", "99.9% Uptime", "24/7 Support", "DDoS Protection"],
+        orderLink: "https://billing.hexonode.com/products/india-vps-budget/8gb-vps-india-budget"
+      },
       {
         name: "Budget Starter",
         price: "₹1,200",
@@ -31,7 +54,7 @@ function IndiaVPS() {
           "KVM Virtualization",
           "99.9% Uptime SLA",
           "Mumbai Data Center",
-          "OVH DDoS Protection",
+          "Basic Ddos Protection",
           "24/7 Ticket Support",
           "Free Setup"
         ],
@@ -40,7 +63,7 @@ function IndiaVPS() {
       },
       {
         name: "Budget Standard",
-        price: "₹1,700",
+        price: "₹1,800",
         period: "/month",
         specs: [
           "8 vCores",
@@ -53,21 +76,23 @@ function IndiaVPS() {
           "KVM Virtualization",
           "99.9% Uptime SLA",
           "Mumbai Data Center",
-          "OVH DDoS Protection",
+          "Basic Ddos Protection",
           "24/7 Ticket Support",
           "Free Setup"
         ],
-        features: ["Full Root Access", "99.9% Uptime", "24/7 Support", "DDoS Protection", "Free SSL"],
+        features: ["Full Root Access", "99.9% Uptime", "24/7 Support", "Basic DDoS Protection", "Free SSL"],
         orderLink: "https://billing.hexonode.com/products/india-vps-budget/64gb-vps-india-budeget"
       }
     ],
-    'Intel Performance': [
+    'Intel/AMD Performance': [
       {
         name: "Performance Basic",
         price: "₹1,199",
         period: "/month",
         specs: [
           "Intel Xeon E5-2667 V4",
+          "or",
+          "AMD EPYC 9B45",
           "4 vCores",
           "3.20 to 3.60 GHz",
           "16 GB DDR4 RAM",
@@ -78,12 +103,12 @@ function IndiaVPS() {
           "KVM Virtualization",
           "99.9% Uptime SLA",
           "Mumbai Data Center",
-          "Advanced DDoS Protection",
+          "Basic DDoS Protection",
           "24/7 Ticket Support",
           "Free Setup",
           "Delivery Time 2 to 3 Hours"
         ],
-        features: ["Full Root Access", "99.9% Uptime", "Priority Support", "Advanced DDoS Protection", "Free SSL"],
+        features: ["Full Root Access", "99.9% Uptime", "Priority Support", "Basic DDoS Protection", "Free SSL"],
         orderLink: "https://billing.hexonode.com/products/india-vps-premium/16gb-vps-india-premium"
       },
       {
@@ -92,6 +117,8 @@ function IndiaVPS() {
         period: "/month",
         specs: [
           "Intel Xeon E5-2667 V4",
+          "or",
+          "AMD EPYC 9B45",
           "4 vCores",
           "3.20 to 3.60 GHz CPU",
           "32 GB DDR4 RAM",
@@ -102,36 +129,38 @@ function IndiaVPS() {
           "KVM Virtualization",
           "99.9% Uptime SLA",
           "Mumbai Data Center",
-          "Advanced DDoS Protection",
+          "Basic DDoS Protection",
           "24/7 Ticket Support",
           "Free Setup",
           "Delivery Time 2 to 3 Hours"
         ],
-        features: ["Full Root Access", "99.9% Uptime", "Priority Support", "Advanced DDoS Protection", "Free SSL", "Daily Backups"],
+        features: ["Full Root Access", "99.9% Uptime", "Priority Support", "Basic DDoS Protection", "Free SSL", "Daily Backups"],
         orderLink: "https://billing.hexonode.com/products/india-vps-premium/32gb-vps-india-premium"
       },
       {
         name: "Performance Elite",
-        price: "₹2,900",
+        price: "₹2,999",
         period: "/month",
         specs: [
           "Intel Xeon E5-2667 V4",
+          "or",
+          "AMD EPYC 9B45",
           "8 vCores",
           "3.60 GHz CPU",
           "64 GB DDR4 RAM",
           "200 GB NVMe/SSD Storage",
-          "500 Mbps Network Speed",
+          "Bandwidth: Unmetered",
           "1 IPv4 Address",
           "Full Root Access",
           "KVM Virtualization",
           "99.9% Uptime SLA",
           "Mumbai Data Center",
-          "Enterprise DDoS Protection",
+          "Basic DDoS Protection",
           "24/7 Ticket Support",
           "Free Setup",
           "Delivery Time 2 to 3 Hours"
         ],
-        features: ["Full Root Access", "99.9% Uptime", "Dedicated Support", "Enterprise DDoS Protection", "Free SSL", "Daily Backups", "Priority Support"],
+        features: ["Full Root Access", "99.9% Uptime", "Dedicated Support", "Basic DDoS Protection", "Free SSL", "Daily Backups", "Priority Support"],
         orderLink: "https://billing.hexonode.com/products/india-vps-premium/64gb-vps-india-premium"
       }
     ],
@@ -220,6 +249,14 @@ function IndiaVPS() {
     });
   };
 
+  const openPaymentModal = () => {
+    setIsPaymentModalOpen(true);
+  };
+
+  const closePaymentModal = () => {
+    setIsPaymentModalOpen(false);
+  };
+
   const getSectionIcon = (section: string) => {
     switch (section) {
       case 'Intel Budget':
@@ -237,8 +274,8 @@ function IndiaVPS() {
     switch (section) {
       case 'Intel Budget':
         return 'from-blue-500 to-cyan-500';
-      case 'Intel Performance':
-        return 'from-purple-500 to-violet-500';
+      case 'Intel/AMD Performance':
+        return 'from-red-500 to-rose-500';
       case 'Ryzen 9':
         return 'from-red-500 to-orange-500';
       default:
@@ -274,9 +311,161 @@ function IndiaVPS() {
               <Home className="w-5 h-5" />
               <span>Back to Home</span>
             </button>
+
+            {/* Payment Methods Button */}
+            <button
+              onClick={openPaymentModal}
+              className="bg-gradient-to-r from-emerald-500 to-teal-600 text-white px-6 py-2 rounded-xl font-semibold hover:from-emerald-600 hover:to-teal-700 transition-all duration-300 transform hover:scale-105 shadow-lg shadow-emerald-500/25"
+            >
+              Payment Methods
+            </button>
           </div>
         </div>
       </nav>
+
+      {/* Payment Methods Modal */}
+      {isPaymentModalOpen && (
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4 animate-fade-in">
+          <div className="bg-gradient-to-br from-slate-800/95 to-slate-900/95 backdrop-blur-xl border border-slate-700/50 rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl animate-scale-in">
+            {/* Modal Header */}
+            <div className="sticky top-0 bg-gradient-to-r from-slate-800/90 to-slate-900/90 backdrop-blur-xl border-b border-slate-700/50 p-6 rounded-t-3xl">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center space-x-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl flex items-center justify-center shadow-lg shadow-emerald-500/25">
+                    <span className="text-2xl">💳</span>
+                  </div>
+                  <div>
+                    <h2 className="text-2xl font-bold bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent">
+                      Payment Methods
+                    </h2>
+                    <p className="text-slate-400 text-sm">Choose your preferred payment option</p>
+                  </div>
+                </div>
+                <button
+                  onClick={closePaymentModal}
+                  className="w-10 h-10 bg-slate-700/50 hover:bg-slate-600/50 rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110"
+                >
+                  <X className="w-5 h-5 text-slate-300" />
+                </button>
+              </div>
+            </div>
+
+            {/* Modal Content */}
+            <div className="p-8 space-y-8">
+              {/* Indian Payment Methods */}
+              <div className="group">
+                <div className="flex items-center space-x-3 mb-4">
+                  <span className="text-2xl">🇮🇳</span>
+                  <h3 className="text-xl font-bold text-white">INDIAN PAYMENT METHODS</h3>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div className="bg-gradient-to-r from-slate-700/50 to-slate-800/50 border border-slate-600/50 rounded-xl p-4 hover:border-emerald-500/50 transition-all duration-300">
+                    <div className="flex items-center space-x-3">
+                      <span className="text-2xl">📱</span>
+                      <span className="text-white font-medium">UPI</span>
+                    </div>
+                  </div>
+                  <div className="bg-gradient-to-r from-slate-700/50 to-slate-800/50 border border-slate-600/50 rounded-xl p-4 hover:border-emerald-500/50 transition-all duration-300">
+                    <div className="flex items-center space-x-3">
+                      <span className="text-2xl">🏦</span>
+                      <span className="text-white font-medium">Bank Transfer</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Pakistani Payment Methods */}
+              <div className="group">
+                <div className="flex items-center space-x-3 mb-4">
+                  <span className="text-2xl">🇵🇰</span>
+                  <h3 className="text-xl font-bold text-white">PAKISTANI PAYMENT METHODS</h3>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  <div className="bg-gradient-to-r from-slate-700/50 to-slate-800/50 border border-slate-600/50 rounded-xl p-4 hover:border-emerald-500/50 transition-all duration-300">
+                    <div className="flex items-center space-x-3">
+                      <span className="text-2xl">📱</span>
+                      <span className="text-white font-medium">JazzCash</span>
+                    </div>
+                  </div>
+                  <div className="bg-gradient-to-r from-slate-700/50 to-slate-800/50 border border-slate-600/50 rounded-xl p-4 hover:border-emerald-500/50 transition-all duration-300">
+                    <div className="flex items-center space-x-3">
+                      <span className="text-2xl">💳</span>
+                      <span className="text-white font-medium">EasyPaisa</span>
+                    </div>
+                  </div>
+                  <div className="bg-gradient-to-r from-slate-700/50 to-slate-800/50 border border-slate-600/50 rounded-xl p-4 hover:border-emerald-500/50 transition-all duration-300">
+                    <div className="flex items-center space-x-3">
+                      <span className="text-2xl">🏦</span>
+                      <span className="text-white font-medium">Bank Transfer</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* International Payment Methods */}
+              <div className="group">
+                <div className="flex items-center space-x-3 mb-4">
+                  <span className="text-2xl">🌍</span>
+                  <h3 className="text-xl font-bold text-white">INTERNATIONAL PAYMENT METHODS</h3>
+                </div>
+                <div className="grid grid-cols-1 gap-3">
+                  <div className="bg-gradient-to-r from-slate-700/50 to-slate-800/50 border border-slate-600/50 rounded-xl p-4 hover:border-emerald-500/50 transition-all duration-300">
+                    <div className="flex items-center space-x-3">
+                      <span className="text-2xl">💰</span>
+                      <span className="text-white font-medium">PayPal</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Crypto Payment Methods */}
+              <div className="group">
+                <div className="flex items-center space-x-3 mb-4">
+                  <span className="text-2xl">₿</span>
+                  <h3 className="text-xl font-bold text-white">CRYPTO METHODS</h3>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  <div className="bg-gradient-to-r from-slate-700/50 to-slate-800/50 border border-slate-600/50 rounded-xl p-4 hover:border-emerald-500/50 transition-all duration-300">
+                    <div className="flex items-center space-x-3">
+                      <span className="text-2xl">💎</span>
+                      <span className="text-white font-medium">USDT</span>
+                    </div>
+                  </div>
+                  <div className="bg-gradient-to-r from-slate-700/50 to-slate-800/50 border border-slate-600/50 rounded-xl p-4 hover:border-emerald-500/50 transition-all duration-300">
+                    <div className="flex items-center space-x-3">
+                      <span className="text-2xl">🪙</span>
+                      <span className="text-white font-medium">Litecoin</span>
+                    </div>
+                  </div>
+                  <div className="bg-gradient-to-r from-slate-700/50 to-slate-800/50 border border-slate-600/50 rounded-xl p-4 hover:border-emerald-500/50 transition-all duration-300">
+                    <div className="flex items-center space-x-3">
+                      <span className="text-2xl">🐕</span>
+                      <span className="text-white font-medium">Dogecoin</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Modal Footer */}
+            <div className="border-t border-slate-700/50 p-6">
+              {/* Disclaimer */}
+              <div className="mb-4 p-4 bg-amber-500/10 border border-amber-500/20 rounded-xl">
+                <p className="text-amber-300 text-sm text-center">
+                  <span className="font-semibold">Disclaimer:</span> Only Indian and International payment methods are available on the website. For Pakistani and Crypto payments, please create a ticket on Discord.
+                </p>
+              </div>
+
+              <button
+                onClick={closePaymentModal}
+                className="w-full bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-semibold py-3 px-6 rounded-xl hover:from-emerald-600 hover:to-teal-700 transition-all duration-300"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Hero Section */}
       <section className="relative pt-24 pb-16 overflow-hidden">
@@ -343,8 +532,8 @@ function IndiaVPS() {
           </div>
 
           {/* Plans Grid */}
-          <div className={`grid gap-8 ${selectedSection === 'Intel Budget' ? 'grid-cols-1 lg:grid-cols-2' : 'grid-cols-1 lg:grid-cols-3'}`}>
-            {plans[selectedSection as keyof typeof plans].map((plan, index) => (
+          <div className={`grid gap-8 ${selectedSection === 'Intel Budget' ? 'grid-cols-1 lg:grid-cols-3' : 'grid-cols-1 lg:grid-cols-3'}`}>
+            {(plans as Record<string, typeof plans["Intel Budget"]>)[selectedSection].map((plan: typeof plans["Intel Budget"][0], index: number) => (
               <div
                 key={index}
                 className="group relative bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-sm border border-slate-700/50 rounded-3xl p-8 hover:border-violet-500/50 transition-all duration-500 transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-violet-500/10"
@@ -374,8 +563,17 @@ function IndiaVPS() {
                     <div className="space-y-3">
                       {plan.specs.map((spec: string, specIndex: number) => (
                         <div key={specIndex} className="flex items-start space-x-3">
-                          <CheckCircle className="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" />
-                          <span className="text-slate-300 text-base leading-relaxed">{spec}</span>
+                          {spec !== 'or' && (
+                            <>
+                              <CheckCircle className="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" />
+                              <span className="text-slate-300 text-base leading-relaxed">{spec}</span>
+                            </>
+                          )}
+                          {spec === 'or' && (
+                            <>
+                              <span className="text-slate-300 text-base leading-relaxed text-center ml-auto mr-auto">{spec}</span>
+                            </>
+                          )}
                         </div>
                       ))}
                     </div>

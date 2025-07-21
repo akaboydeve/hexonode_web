@@ -7,6 +7,7 @@
     opacity: 0;
     transform: translateY(10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -17,4 +18,22 @@
   animation: fadeIn 0.5s ease-out forwards;
 }
 
-/* ... rest of your existing CSS ... */ 
+/* ... rest of your existing CSS ... */
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 30s linear infinite;
+}
+
+.animate-scroll:hover {
+  animation-play-state: paused;
+}
