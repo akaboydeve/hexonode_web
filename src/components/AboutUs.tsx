@@ -19,7 +19,7 @@ const AboutUs: React.FC = () => {
                             We pride ourselves on offering flexible, scalable solutions designed to help individuals, businesses, and game enthusiasts get the most out of their online presence. With our cutting-edge technology, 24/7 support, and a customer-first approach, Hexonode.com is here to make sure your hosting experience is smooth, fast, and secure.
                         </p>
                         <p className="text-gray-300 leading-relaxed">
-                            Founded by Akash Sardar, Hexonode.com strives to empower users with the tools and services they need to build, manage, and grow their online projects.
+                            Founded by Akash Sardar and Rehan Haider, Hexonode.com strives to empower users with the tools and services they need to build, manage, and grow their online projects.
                         </p>
                     </div>
                 </div>
