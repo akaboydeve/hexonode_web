@@ -92,7 +92,6 @@ function IndiaVPS() {
         specs: [
           "Intel Xeon E5-2667 V4",
           "or",
-          "AMD EPYC 9B45",
           "4 vCores",
           "3.20 to 3.60 GHz",
           "16 GB DDR4 RAM",
@@ -118,7 +117,6 @@ function IndiaVPS() {
         specs: [
           "Intel Xeon E5-2667 V4",
           "or",
-          "AMD EPYC 9B45",
           "4 vCores",
           "3.20 to 3.60 GHz CPU",
           "32 GB DDR4 RAM",
@@ -144,7 +142,6 @@ function IndiaVPS() {
         specs: [
           "Intel Xeon E5-2667 V4",
           "or",
-          "AMD EPYC 9B45",
           "8 vCores",
           "3.60 GHz CPU",
           "64 GB DDR4 RAM",
