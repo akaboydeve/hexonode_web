@@ -138,7 +138,7 @@ function IndiaVPS() {
         price: "₹2,999",
         period: "/month",
         specs: [
-          "GET FREE 1 MONTH XBOX GAME PASS"
+          "GET FREE 1 MONTH XBOX GAME PASS",
           "Intel Xeon E5-2667 V4",
           "8 vCores",
           "3.60 GHz CPU",
@@ -189,7 +189,7 @@ function IndiaVPS() {
         price: "₹3,500",
         period: "/month",
         specs: [
-          "GET FREE 1 MONTH XBOX GAME PASS"
+          "GET FREE 1 MONTH XBOX GAME PASS",
           "AMD Ryzen™ 9 9950X",
           "6 vCores",
           "5.7 GHz",
@@ -213,7 +213,7 @@ function IndiaVPS() {
         price: "₹6,500",
         period: "/month",
         specs: [
-          "GET FREE 1 MONTH XBOX GAME PASS"
+          "GET FREE 1 MONTH XBOX GAME PASS",
           "AMD Ryzen™ 9 9950X",
           "8 vCores",
           "5.7 GHz",
