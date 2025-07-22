@@ -125,6 +125,7 @@ function MinecraftIndia() {
         period: "/month",
         specs: [
           "Unlimited Player Slots",
+          "GET 2GB SERVER FOR FREE",
           "2.4 to 3.3 GHz",
           "500% CPU",
           "24GB DDR4 RAM",
@@ -142,6 +143,7 @@ function MinecraftIndia() {
         period: "/month",
         specs: [
           "Unlimited Player Slots",
+          "GET 4GB SERVER FOR FREE",
           "2.4 to 3.3 GHz",
           "Unlimited CPU { NO LIMIT} FAIR USAGE",
           "32GB DDR4 RAM",
@@ -159,6 +161,7 @@ function MinecraftIndia() {
         period: "/month",
         specs: [
           "Unlimited Player Slots",
+          "GET 6GB SERVER FOR FREE",
           "2.4 to 3.3 GHz",
           "Unlimited CPU { NO LIMIT} FAIR USAGE",
           "48GB DDR4 RAM",
@@ -280,6 +283,7 @@ function MinecraftIndia() {
         period: "/month",
         specs: [
           "Unlimited Player Slots",
+          "GET 2GB SERVER FOR FREE",
           "3.7 GHz",
           "400% CPU",
           "16GB DDR4 RAM",
@@ -297,6 +301,7 @@ function MinecraftIndia() {
         period: "/month",
         specs: [
           "Unlimited Player Slots",
+          "GET 4GB SERVER FOR FREE",
           "3.7 GHz",
           "600% CPU",
           "24GB DDR4 RAM",
@@ -314,6 +319,7 @@ function MinecraftIndia() {
         period: "/month",
         specs: [
           "Unlimited Player Slots",
+          "GET 6GB SERVER FOR FREE",
           "3.7 GHz",
           "Unlimited CPU { NO LIMIT} FAIR USAGE",
           "32GB DDR4 RAM",
@@ -331,6 +337,7 @@ function MinecraftIndia() {
         period: "/month",
         specs: [
           "Unlimited Player Slots",
+          "GET 8GB SERVER FOR FREE",
           "3.7 GHz",
           "Unlimited CPU { NO LIMIT} FAIR USAGE",
           "48GB DDR4 RAM",
