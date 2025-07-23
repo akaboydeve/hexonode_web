@@ -41,7 +41,7 @@ function IndiaVPS() {
       },
       {
         name: "Budget Starter",
-        price: "₹1,200",
+        price: "₹1,100",
         period: "/month",
         specs: [
           "4 vCores",
@@ -63,7 +63,7 @@ function IndiaVPS() {
       },
       {
         name: "Budget Standard",
-        price: "₹1,800",
+        price: "₹1,700",
         period: "/month",
         specs: [
           "8 vCores",
@@ -90,9 +90,10 @@ function IndiaVPS() {
         price: "₹1,199",
         period: "/month",
         specs: [
-          "Intel Xeon E5-2667 V4",
+          "DEDICATED PERFORMANCE",
+          "AMD EPYC Millan",
           "4 vCores",
-          "3.20 to 3.60 GHz",
+          "3.60 GHz",
           "16 GB DDR4 RAM",
           "50 GB NVMe/SSD Storage",
           "Bandwidth: Unmetered",
@@ -114,9 +115,10 @@ function IndiaVPS() {
         price: "₹1,800",
         period: "/month",
         specs: [
-          "Intel Xeon E5-2667 V4",
-          "4 vCores",
-          "3.20 to 3.60 GHz CPU",
+          "DEDICATED PERFORMANCE",
+          "AMD EPYC Millan",
+          "8 vCores",
+          "3.60 GHz CPU",
           "32 GB DDR4 RAM",
           "100 GB NVMe/SSD Storage",
           "Bandwidth: Unmetered",
@@ -135,12 +137,13 @@ function IndiaVPS() {
       },
       {
         name: "Performance Elite",
-        price: "₹2,999",
+        price: "₹3,500",
         period: "/month",
         specs: [
           "GET FREE 1 MONTH XBOX GAME PASS",
-          "Intel Xeon E5-2667 V4",
-          "8 vCores",
+          "DEDICATED PERFORMANCE",
+          "AMD EPYC Millan",
+          "16 vCores",
           "3.60 GHz CPU",
           "64 GB DDR4 RAM",
           "200 GB NVMe/SSD Storage",
