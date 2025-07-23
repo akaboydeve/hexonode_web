@@ -2,7 +2,10 @@ import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
 export async function middleware(req: NextRequest) {
-    // Basic middleware - just passing through all requests
+    // Normalize pathname to lowercase for case-insensitive matching
+    const url = req.nextUrl.clone();
+    url.pathname = url.pathname.toLowerCase();
+    req.nextUrl.pathname = url.pathname;
     return NextResponse.next();
 }
 

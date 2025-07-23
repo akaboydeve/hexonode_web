@@ -24,6 +24,7 @@ import {
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
 import './globals.css';
+import GlobalHighlightBar from '@/components/GlobalHighlightBar';
 
 
 function HomePage() {
@@ -202,6 +203,10 @@ function HomePage() {
         router.push('/discord-bot-hosting');
     };
 
+    const handleDatabaseHostingClick = () => {
+        router.push('/database-hosting');
+    };
+
     const handleLocationClick = (location: any) => {
         if (location.name === 'India') {
             setVpsLocationModal(false);
@@ -269,6 +274,15 @@ function HomePage() {
 
     const services = [
         {
+            icon: Shield,
+            title: "DDoS Protection",
+            description: "Enterprise-grade DDoS protection with 17 Tbps mitigation powered by OVH's global network infrastructure.",
+            onClick: () => router.push('/ddos-protection'),
+            features: ["17 Tbps Protection", "OVH Powered", "Instant Setup"],
+            iconColor: "from-blue-400 to-cyan-500",
+            shadowColor: "shadow-blue-500/25"
+        },
+        {
             icon: Server,
             title: "VPS Hosting",
             description: "High-performance virtual private servers with full root access and dedicated resources for maximum control.",
@@ -301,6 +315,15 @@ function HomePage() {
             description: "Seamless bot hosting with instant deployment and 24/7 monitoring for uninterrupted service.",
             onClick: handleDiscordBotClick,
             features: ["Auto Restart", "24/7 Online", "Easy Deploy"],
+            iconColor: "from-blue-400 to-indigo-500",
+            shadowColor: "shadow-blue-500/25"
+        },
+        {
+            icon: Server,
+            title: "Database Hosting",
+            description: "Seamless database hosting with instant deployment and 24/7 monitoring for uninterrupted service.",
+            onClick: handleDatabaseHostingClick,
+            features: ["MongoDB", "PostgreSQL", "Redis", "Other DB Available", "Easy Deploy"],
             iconColor: "from-blue-400 to-indigo-500",
             shadowColor: "shadow-blue-500/25"
         }
@@ -400,9 +423,11 @@ function HomePage() {
 
     return (
         <div className="min-h-screen bg-slate-900 text-white overflow-x-hidden">
+
             {/* Navigation */}
             <nav className="fixed top-0 w-full bg-slate-900/80 backdrop-blur-xl border-b border-slate-800/50 z-50">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <GlobalHighlightBar />
+                <div className=" mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between items-center h-16">
                         <button
                             onClick={scrollToTop}
@@ -424,15 +449,25 @@ function HomePage() {
                             <button onClick={scrollToLocations} className="text-slate-300 hover:text-white transition-all duration-300 hover:scale-105">Locations</button>
                             <button onClick={scrollToWhyChoose} className="text-slate-300 hover:text-white transition-all duration-300 hover:scale-105">Why Choose Us</button>
 
-                            {/* Discord Link */}
-                            <a
-                                href="https://discord.hexonode.com/"
-                                target="_blank"
-                                rel="noopener noreferrer"
+
+                            {/* DDoS Protection Link */}
+                            <button
+                                onClick={() => router.push('/ddos-protection')}
                                 className="text-slate-300 hover:text-white transition-all duration-300 hover:scale-105"
                             >
-                                Discord
-                            </a>
+                                DDoS Protection
+                            </button>
+
+                            {/* Hosting Dropdown */}
+
+
+                            {/* VPS Hosting Link */}
+                            <button
+                                onClick={handleVPSClick}
+                                className="text-slate-300 hover:text-white transition-all duration-300 hover:scale-105"
+                            >
+                                VPS Hosting
+                            </button>
 
                             {/* Minecraft Hosting Link */}
                             <button
@@ -468,6 +503,16 @@ function HomePage() {
                                     </div>
                                 )}
                             </div>
+
+                            {/* Discord Link */}
+                            <a
+                                href="https://discord.hexonode.com/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-slate-300 hover:text-white transition-all duration-300 hover:scale-105"
+                            >
+                                Discord
+                            </a>
                         </div>
 
                         <div className="flex items-center space-x-4">
@@ -764,22 +809,33 @@ function HomePage() {
 
                     {/* Additional Service Buttons */}
                     <div className="flex flex-wrap justify-center gap-3">
+
                         <button
-                            onClick={handleVPSClick}
-                            className="group bg-gradient-to-r from-orange-500/20 to-red-600/20 border border-orange-500/30 text-orange-300 font-medium px-6 py-2 rounded-lg hover:from-orange-500 hover:to-red-600 hover:text-white hover:border-transparent transition-all duration-300 text-sm"
+                            onClick={() => router.push('/ddos-protection')}
+                            className="group bg-gradient-to-r from-purple-500/20 to-violet-600/20 border border-purple-500/30 text-purple-300 font-medium px-6 py-2 rounded-lg hover:from-purple-500 hover:to-violet-600 hover:text-white hover:border-transparent transition-all duration-300 text-md"
                         >
                             <span className="flex items-center space-x-2">
-                                <Server className="w-4 h-4" />
+                                <Zap className="w-5 h-5" />
+                                <span>DDOS Protection</span>
+                            </span>
+                        </button>
+
+                        <button
+                            onClick={handleVPSClick}
+                            className="group bg-gradient-to-r from-orange-500/20 to-red-600/20 border border-orange-500/30 text-orange-300 font-medium px-6 py-2 rounded-lg hover:from-orange-500 hover:to-red-600 hover:text-white hover:border-transparent transition-all duration-300 text-md"
+                        >
+                            <span className="flex items-center space-x-2">
+                                <Server className="w-5 h-5" />
                                 <span>VPS Hosting</span>
                             </span>
                         </button>
 
                         <button
                             onClick={handleMinecraftClick}
-                            className="group bg-gradient-to-r from-green-500/20 to-emerald-600/20 border border-green-500/30 text-green-300 font-medium px-6 py-2 rounded-lg hover:from-green-500 hover:to-emerald-600 hover:text-white hover:border-transparent transition-all duration-300 text-sm"
+                            className="group bg-gradient-to-r from-green-500/20 to-emerald-600/20 border border-green-500/30 text-green-300 font-medium px-6 py-2 rounded-lg hover:from-green-500 hover:to-emerald-600 hover:text-white hover:border-transparent transition-all duration-300 text-md"
                         >
                             <span className="flex items-center space-x-2">
-                                <Gamepad2 className="w-4 h-4" />
+                                <Gamepad2 className="w-5 h-5" />
                                 <span>Minecraft Hosting</span>
                             </span>
                         </button>
@@ -788,20 +844,20 @@ function HomePage() {
                             href="https://billing.hexonode.com/products/web-hosting-supports-wordpress"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="group bg-gradient-to-r from-cyan-500/20 to-teal-600/20 border border-cyan-500/30 text-cyan-300 font-medium px-6 py-2 rounded-lg hover:from-cyan-500 hover:to-teal-600 hover:text-white hover:border-transparent transition-all duration-300 text-sm"
+                            className="group bg-gradient-to-r from-cyan-500/20 to-teal-600/20 border border-cyan-500/30 text-cyan-300 font-medium px-6 py-2 rounded-lg hover:from-cyan-500 hover:to-teal-600 hover:text-white hover:border-transparent transition-all duration-300 text-md"
                         >
                             <span className="flex items-center space-x-2">
-                                <Globe className="w-4 h-4" />
+                                <Globe className="w-5 h-5" />
                                 <span>Web Hosting</span>
                             </span>
                         </a>
 
                         <button
                             onClick={handleDiscordBotClick}
-                            className="group bg-gradient-to-r from-blue-500/20 to-indigo-600/20 border border-blue-500/30 text-blue-300 font-medium px-6 py-2 rounded-lg hover:from-blue-500 hover:to-indigo-600 hover:text-white hover:border-transparent transition-all duration-300 text-sm"
+                            className="group bg-gradient-to-r from-blue-500/20 to-indigo-600/20 border border-blue-500/30 text-blue-300 font-medium px-6 py-2 rounded-lg hover:from-blue-500 hover:to-indigo-600 hover:text-white hover:border-transparent transition-all duration-300 text-md"
                         >
                             <span className="flex items-center space-x-2">
-                                <Bot className="w-4 h-4" />
+                                <Bot className="w-5 h-5" />
                                 <span>Discord Bot Hosting</span>
                             </span>
                         </button>
