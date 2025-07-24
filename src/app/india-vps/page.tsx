@@ -1,10 +1,9 @@
-'use client';
 import React, { useState, useEffect } from 'react';
-import { Server, Cpu, Zap, Shield, CheckCircle, Home, X } from 'lucide-react';
-import { useRouter } from 'next/navigation';
+import { ArrowLeft, Server, Cpu, HardDrive, Zap, Shield, CheckCircle, Home, X } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 function IndiaVPS() {
-  const router = useRouter();
+  const navigate = useNavigate();
   const [selectedSection, setSelectedSection] = useState('Intel Budget');
   const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
 
@@ -13,7 +12,7 @@ function IndiaVPS() {
     window.scrollTo(0, 0);
   }, []);
 
-  const sections = ['Intel Budget', 'Intel/AMD Performance', 'Ryzen 9'];
+  const sections = ['Intel Budget', 'Intel Performance', 'AMD Performance', 'Ryzen 9'];
 
   const plans = {
     'Intel Budget': [
@@ -37,11 +36,11 @@ function IndiaVPS() {
           "Free Setup"
         ],
         features: ["Full Root Access", "99.9% Uptime", "24/7 Support", "DDoS Protection"],
-        orderLink: "https://billing.hexonode.com/products/india-vps-budget/8gb-vps-india-budget"
+        orderLink: "https://billing.hexonode.com/products/india-vps-budget/8gb-budget-vps/checkout?plan=257&options="
       },
       {
         name: "Budget Starter",
-        price: "₹1,100",
+        price: "₹1,200",
         period: "/month",
         specs: [
           "4 vCores",
@@ -63,7 +62,7 @@ function IndiaVPS() {
       },
       {
         name: "Budget Standard",
-        price: "₹1,700",
+        price: "₹1,800",
         period: "/month",
         specs: [
           "8 vCores",
@@ -84,16 +83,15 @@ function IndiaVPS() {
         orderLink: "https://billing.hexonode.com/products/india-vps-budget/64gb-vps-india-budeget"
       }
     ],
-    'Intel/AMD Performance': [
+    'Intel Performance': [
       {
         name: "Performance Basic",
         price: "₹1,199",
         period: "/month",
         specs: [
-          "DEDICATED PERFORMANCE",
-          "AMD EPYC Millan",
+          "Intel Xeon E5-2667 V4",
           "4 vCores",
-          "3.60 GHz",
+          "3.20 to 3.60 GHz",
           "16 GB DDR4 RAM",
           "50 GB NVMe/SSD Storage",
           "Bandwidth: Unmetered",
@@ -115,10 +113,9 @@ function IndiaVPS() {
         price: "₹1,800",
         period: "/month",
         specs: [
-          "DEDICATED PERFORMANCE",
-          "AMD EPYC Millan",
+          "Intel Xeon E5-2667 V4",
           "8 vCores",
-          "3.60 GHz CPU",
+          "3.20 to 3.60 GHz CPU",
           "32 GB DDR4 RAM",
           "100 GB NVMe/SSD Storage",
           "Bandwidth: Unmetered",
@@ -137,13 +134,11 @@ function IndiaVPS() {
       },
       {
         name: "Performance Elite",
-        price: "₹3,500",
+        price: "₹2,999",
         period: "/month",
         specs: [
-          "GET FREE 1 MONTH XBOX GAME PASS",
-          "DEDICATED PERFORMANCE",
-          "AMD EPYC Millan",
-          "16 vCores",
+          "Intel Xeon E5-2667 V4",
+          "10 vCores",
           "3.60 GHz CPU",
           "64 GB DDR4 RAM",
           "200 GB NVMe/SSD Storage",
@@ -160,6 +155,80 @@ function IndiaVPS() {
         ],
         features: ["Full Root Access", "99.9% Uptime", "Dedicated Support", "Basic DDoS Protection", "Free SSL", "Daily Backups", "Priority Support"],
         orderLink: "https://billing.hexonode.com/products/india-vps-premium/64gb-vps-india-premium"
+      }
+    ],
+    'AMD Performance': [
+      {
+        name: "Performance Basic",
+        price: "₹1,400",
+        period: "/month",
+        specs: [
+          "DEDICATED PERFORMANCE 100%",
+          "AMD EPYC Millan",
+          "4 vCores",
+          "16 GB DDR4 RAM",
+          "50 GB NVMe/SSD Storage",
+          "Bandwidth: Unmetered",
+          "1 IPv4 Address",
+          "Full Root Access",
+          "KVM Virtualization",
+          "99.9% Uptime SLA",
+          "Mumbai Data Center",
+          "Basic DDoS Protection",
+          "24/7 Ticket Support",
+          "Free Setup",
+          "Delivery Time 2 to 3 Hours"
+        ],
+        features: ["Full Root Access", "99.9% Uptime", "Priority Support", "Basic DDoS Protection", "Free SSL"],
+        orderLink: "https://billing.hexonode.com/products/india-amd-performance-vps/16gb-amd-performance-vps/checkout?plan=254&options="
+      },
+      {
+        name: "Performance Advanced",
+        price: "₹2,200",
+        period: "/month",
+        specs: [
+          "DEDICATED PERFORMANCE 100%",
+          "AMD EPYC Millan",
+          "8 vCores",
+          "32 GB DDR4 RAM",
+          "100 GB NVMe/SSD Storage",
+          "Bandwidth: Unmetered",
+          "1 IPv4 Address",
+          "Full Root Access",
+          "KVM Virtualization",
+          "99.9% Uptime SLA",
+          "Mumbai Data Center",
+          "Basic DDoS Protection",
+          "24/7 Ticket Support",
+          "Free Setup",
+          "Delivery Time 2 to 3 Hours"
+        ],
+        features: ["Full Root Access", "99.9% Uptime", "Priority Support", "Basic DDoS Protection", "Free SSL", "Daily Backups"],
+        orderLink: "https://billing.hexonode.com/products/india-amd-performance-vps/32gb-amd-performance-vps/checkout?plan=255&options="
+      },
+      {
+        name: "Performance Elite",
+        price: "₹3,300",
+        period: "/month",
+        specs: [
+          "DEDICATED PERFORMANCE 100%",
+          "AMD EPYC Millan",
+          "16 vCores",
+          "64 GB DDR4 RAM",
+          "200 GB NVMe/SSD Storage",
+          "Bandwidth: Unmetered",
+          "1 IPv4 Address",
+          "Full Root Access",
+          "KVM Virtualization",
+          "99.9% Uptime SLA",
+          "Mumbai Data Center",
+          "Basic DDoS Protection",
+          "24/7 Ticket Support",
+          "Free Setup",
+          "Delivery Time 2 to 3 Hours"
+        ],
+        features: ["Full Root Access", "99.9% Uptime", "Dedicated Support", "Basic DDoS Protection", "Free SSL", "Daily Backups", "Priority Support"],
+        orderLink: "https://billing.hexonode.com/products/india-amd-performance-vps/64gb-amd-performance-vps/checkout?plan=256&options="
       }
     ],
     'Ryzen 9': [
@@ -192,7 +261,6 @@ function IndiaVPS() {
         price: "₹3,500",
         period: "/month",
         specs: [
-          "GET FREE 1 MONTH XBOX GAME PASS",
           "AMD Ryzen™ 9 9950X",
           "6 vCores",
           "5.7 GHz",
@@ -216,7 +284,6 @@ function IndiaVPS() {
         price: "₹6,500",
         period: "/month",
         specs: [
-          "GET FREE 1 MONTH XBOX GAME PASS",
           "AMD Ryzen™ 9 9950X",
           "8 vCores",
           "5.7 GHz",
@@ -239,13 +306,13 @@ function IndiaVPS() {
   };
 
   const goBackToHome = () => {
-    router.push('/');
+    navigate('/');
   };
 
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
+    window.scrollTo({ 
+      top: 0, 
+      behavior: 'smooth' 
     });
   };
 
@@ -257,12 +324,14 @@ function IndiaVPS() {
     setIsPaymentModalOpen(false);
   };
 
-  const getSectionIcon = (section: string) => {
+  const getSectionIcon = (section) => {
     switch (section) {
       case 'Intel Budget':
         return <Cpu className="w-5 h-5" />;
       case 'Intel Performance':
         return <Zap className="w-5 h-5" />;
+      case 'AMD Performance':
+        return <HardDrive className="w-5 h-5" />;
       case 'Ryzen 9':
         return <Shield className="w-5 h-5" />;
       default:
@@ -270,12 +339,14 @@ function IndiaVPS() {
     }
   };
 
-  const getSectionColor = (section: string) => {
+  const getSectionColor = (section) => {
     switch (section) {
       case 'Intel Budget':
         return 'from-blue-500 to-cyan-500';
-      case 'Intel/AMD Performance':
+      case 'Intel Performance':
         return 'from-red-500 to-rose-500';
+      case 'AMD Performance':
+        return 'from-green-500 to-emerald-500';
       case 'Ryzen 9':
         return 'from-red-500 to-orange-500';
       default:
@@ -289,7 +360,7 @@ function IndiaVPS() {
       <nav className="fixed top-0 w-full bg-slate-900/80 backdrop-blur-xl border-b border-slate-800/50 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <button
+            <button 
               onClick={scrollToTop}
               className="flex items-center space-x-3 hover:scale-105 transition-transform duration-300"
             >
@@ -303,17 +374,17 @@ function IndiaVPS() {
                 Hexonode
               </span>
             </button>
-
-            <button
+            
+            <button 
               onClick={goBackToHome}
               className="flex items-center space-x-2 text-slate-300 hover:text-white transition-all duration-300 hover:scale-105"
             >
               <Home className="w-5 h-5" />
               <span>Back to Home</span>
             </button>
-
+            
             {/* Payment Methods Button */}
-            <button
+            <button 
               onClick={openPaymentModal}
               className="bg-gradient-to-r from-emerald-500 to-teal-600 text-white px-6 py-2 rounded-xl font-semibold hover:from-emerald-600 hover:to-teal-700 transition-all duration-300 transform hover:scale-105 shadow-lg shadow-emerald-500/25"
             >
@@ -341,7 +412,7 @@ function IndiaVPS() {
                     <p className="text-slate-400 text-sm">Choose your preferred payment option</p>
                   </div>
                 </div>
-                <button
+                <button 
                   onClick={closePaymentModal}
                   className="w-10 h-10 bg-slate-700/50 hover:bg-slate-600/50 rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110"
                 >
@@ -455,7 +526,7 @@ function IndiaVPS() {
                   <span className="font-semibold">Disclaimer:</span> Only Indian and International payment methods are available on the website. For Pakistani and Crypto payments, please create a ticket on Discord.
                 </p>
               </div>
-
+              
               <button
                 onClick={closePaymentModal}
                 className="w-full bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-semibold py-3 px-6 rounded-xl hover:from-emerald-600 hover:to-teal-700 transition-all duration-300"
@@ -471,7 +542,7 @@ function IndiaVPS() {
       <section className="relative pt-24 pb-16 overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0">
-          <div
+          <div 
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{
               backgroundImage: 'url(https://i.postimg.cc/qRXGTkHM/image.png)'
@@ -490,7 +561,7 @@ function IndiaVPS() {
             <span className="text-3xl">🇮🇳</span>
             <span className="text-slate-300 text-sm">India VPS Hosting</span>
           </div>
-
+          
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
             <span className="bg-gradient-to-r from-white via-violet-200 to-fuchsia-200 bg-clip-text text-transparent">
               India VPS
@@ -500,7 +571,7 @@ function IndiaVPS() {
               Choose Your Plan
             </span>
           </h1>
-
+          
           <p className="text-xl text-slate-300 mb-12 max-w-3xl mx-auto leading-relaxed">
             High-performance VPS hosting in India with different processor categories to match your needs
           </p>
@@ -519,10 +590,11 @@ function IndiaVPS() {
                 <button
                   key={section}
                   onClick={() => setSelectedSection(section)}
-                  className={`flex items-center space-x-2 px-8 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 ${selectedSection === section
-                    ? `bg-gradient-to-r ${getSectionColor(section)} text-white shadow-2xl`
-                    : 'bg-slate-800/60 text-slate-300 hover:bg-slate-700/60 border border-slate-700/50'
-                    }`}
+                  className={`flex items-center space-x-2 px-8 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 ${
+                    selectedSection === section
+                      ? `bg-gradient-to-r ${getSectionColor(section)} text-white shadow-2xl`
+                      : 'bg-slate-800/60 text-slate-300 hover:bg-slate-700/60 border border-slate-700/50'
+                  }`}
                 >
                   {getSectionIcon(section)}
                   <span>{section}</span>
@@ -532,14 +604,14 @@ function IndiaVPS() {
           </div>
 
           {/* Plans Grid */}
-          <div className={`grid gap-8 ${selectedSection === 'Intel Budget' ? 'grid-cols-1 lg:grid-cols-3' : 'grid-cols-1 lg:grid-cols-3'}`}>
-            {(plans as Record<string, typeof plans["Intel Budget"]>)[selectedSection].map((plan: typeof plans["Intel Budget"][0], index: number) => (
-              <div
+          <div className="grid gap-8 grid-cols-1 lg:grid-cols-3">
+            {plans[selectedSection].map((plan, index) => (
+              <div 
                 key={index}
                 className="group relative bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-sm border border-slate-700/50 rounded-3xl p-8 hover:border-violet-500/50 transition-all duration-500 transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-violet-500/10"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-violet-500/5 via-purple-500/5 to-fuchsia-500/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
+                
                 <div className="relative z-10">
                   {/* Plan Header */}
                   <div className="text-center mb-8">
@@ -561,19 +633,10 @@ function IndiaVPS() {
                   <div className="mb-8">
                     <h4 className="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-4">Detailed Specifications</h4>
                     <div className="space-y-3">
-                      {plan.specs.map((spec: string, specIndex: number) => (
+                      {plan.specs.map((spec, specIndex) => (
                         <div key={specIndex} className="flex items-start space-x-3">
-                          {spec !== 'or' && (
-                            <>
-                              <CheckCircle className="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" />
-                              <span className="text-slate-300 text-base leading-relaxed">{spec}</span>
-                            </>
-                          )}
-                          {spec === 'or' && (
-                            <>
-                              <span className="text-slate-300 text-base leading-relaxed text-center ml-auto mr-auto">{spec}</span>
-                            </>
-                          )}
+                          <CheckCircle className="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" />
+                          <span className="text-slate-300 text-base leading-relaxed">{spec}</span>
                         </div>
                       ))}
                     </div>
@@ -583,8 +646,8 @@ function IndiaVPS() {
                   <div className="mb-8">
                     <h4 className="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-4">Key Features</h4>
                     <div className="flex flex-wrap gap-2">
-                      {plan.features.map((feature: string, featureIndex: number) => (
-                        <span
+                      {plan.features.map((feature, featureIndex) => (
+                        <span 
                           key={featureIndex}
                           className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-violet-500/10 text-violet-300 border border-violet-500/20"
                         >
@@ -595,7 +658,7 @@ function IndiaVPS() {
                   </div>
 
                   {/* Order Button */}
-                  <a
+                  <a 
                     href={plan.orderLink}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -614,7 +677,7 @@ function IndiaVPS() {
       <footer className="bg-slate-900 border-t border-slate-800 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <button
+            <button 
               onClick={scrollToTop}
               className="flex items-center justify-center space-x-3 mb-6 mx-auto hover:scale-105 transition-transform duration-300"
             >
@@ -628,11 +691,11 @@ function IndiaVPS() {
                 Hexonode
               </span>
             </button>
-
+            
             <p className="text-slate-400 mb-8 text-lg max-w-md mx-auto">
               Powering the web with reliable and fast hosting solutions
             </p>
-
+            
             <div className="pt-8 border-t border-slate-800 text-slate-500">
               <p>&copy; 2024 Hexonode. All rights reserved.</p>
             </div>
