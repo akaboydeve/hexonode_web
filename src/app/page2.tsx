@@ -25,6 +25,7 @@ import { useRouter } from 'next/navigation';
 import axios from 'axios';
 import './globals.css';
 import GlobalHighlightBar from '@/components/GlobalHighlightBar';
+import OfferModal from '@/components/OfferPopUp';
 
 
 function HomePage() {
@@ -423,6 +424,8 @@ function HomePage() {
 
     return (
         <div className="min-h-screen bg-slate-900 text-white overflow-x-hidden">
+
+            <OfferModal />
 
             {/* Navigation */}
             <nav className="fixed top-0 w-full bg-slate-900/80 backdrop-blur-xl border-b border-slate-800/50 z-50">

@@ -1,10 +1,11 @@
+'use client'
 import React, { useState, useEffect } from 'react';
-import { ArrowLeft, Server, Cpu, HardDrive, Zap, Shield, CheckCircle, Home, X } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { Server, Cpu, HardDrive, Zap, Shield, CheckCircle, Home, X } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 function IndiaVPS() {
-  const navigate = useNavigate();
-  const [selectedSection, setSelectedSection] = useState('Intel Budget');
+  const router = useRouter();
+  const [selectedSection, setSelectedSection] = useState<string>('Intel Budget');
   const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
 
   // Scroll to top when component mounts
@@ -14,7 +15,20 @@ function IndiaVPS() {
 
   const sections = ['Intel Budget', 'Intel Performance', 'AMD Performance', 'Ryzen 9'];
 
-  const plans = {
+  type Plan = {
+    name: string;
+    price: string;
+    period: string;
+    specs: string[];
+    features: string[];
+    orderLink: string;
+  };
+
+  type PlansType = {
+    [key: string]: Plan[];
+  };
+
+  const plans: PlansType = {
     'Intel Budget': [
       {
         name: "Budget Mini",
@@ -306,13 +320,13 @@ function IndiaVPS() {
   };
 
   const goBackToHome = () => {
-    navigate('/');
+    router.push('/');
   };
 
   const scrollToTop = () => {
-    window.scrollTo({ 
-      top: 0, 
-      behavior: 'smooth' 
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
     });
   };
 
@@ -324,7 +338,7 @@ function IndiaVPS() {
     setIsPaymentModalOpen(false);
   };
 
-  const getSectionIcon = (section) => {
+  const getSectionIcon = (section: string) => {
     switch (section) {
       case 'Intel Budget':
         return <Cpu className="w-5 h-5" />;
@@ -339,7 +353,7 @@ function IndiaVPS() {
     }
   };
 
-  const getSectionColor = (section) => {
+  const getSectionColor = (section: string) => {
     switch (section) {
       case 'Intel Budget':
         return 'from-blue-500 to-cyan-500';
@@ -360,7 +374,7 @@ function IndiaVPS() {
       <nav className="fixed top-0 w-full bg-slate-900/80 backdrop-blur-xl border-b border-slate-800/50 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <button 
+            <button
               onClick={scrollToTop}
               className="flex items-center space-x-3 hover:scale-105 transition-transform duration-300"
             >
@@ -374,17 +388,17 @@ function IndiaVPS() {
                 Hexonode
               </span>
             </button>
-            
-            <button 
+
+            <button
               onClick={goBackToHome}
               className="flex items-center space-x-2 text-slate-300 hover:text-white transition-all duration-300 hover:scale-105"
             >
               <Home className="w-5 h-5" />
               <span>Back to Home</span>
             </button>
-            
+
             {/* Payment Methods Button */}
-            <button 
+            <button
               onClick={openPaymentModal}
               className="bg-gradient-to-r from-emerald-500 to-teal-600 text-white px-6 py-2 rounded-xl font-semibold hover:from-emerald-600 hover:to-teal-700 transition-all duration-300 transform hover:scale-105 shadow-lg shadow-emerald-500/25"
             >
@@ -412,7 +426,7 @@ function IndiaVPS() {
                     <p className="text-slate-400 text-sm">Choose your preferred payment option</p>
                   </div>
                 </div>
-                <button 
+                <button
                   onClick={closePaymentModal}
                   className="w-10 h-10 bg-slate-700/50 hover:bg-slate-600/50 rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110"
                 >
@@ -526,7 +540,7 @@ function IndiaVPS() {
                   <span className="font-semibold">Disclaimer:</span> Only Indian and International payment methods are available on the website. For Pakistani and Crypto payments, please create a ticket on Discord.
                 </p>
               </div>
-              
+
               <button
                 onClick={closePaymentModal}
                 className="w-full bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-semibold py-3 px-6 rounded-xl hover:from-emerald-600 hover:to-teal-700 transition-all duration-300"
@@ -542,7 +556,7 @@ function IndiaVPS() {
       <section className="relative pt-24 pb-16 overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0">
-          <div 
+          <div
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{
               backgroundImage: 'url(https://i.postimg.cc/qRXGTkHM/image.png)'
@@ -561,7 +575,7 @@ function IndiaVPS() {
             <span className="text-3xl">🇮🇳</span>
             <span className="text-slate-300 text-sm">India VPS Hosting</span>
           </div>
-          
+
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
             <span className="bg-gradient-to-r from-white via-violet-200 to-fuchsia-200 bg-clip-text text-transparent">
               India VPS
@@ -571,7 +585,7 @@ function IndiaVPS() {
               Choose Your Plan
             </span>
           </h1>
-          
+
           <p className="text-xl text-slate-300 mb-12 max-w-3xl mx-auto leading-relaxed">
             High-performance VPS hosting in India with different processor categories to match your needs
           </p>
@@ -590,11 +604,10 @@ function IndiaVPS() {
                 <button
                   key={section}
                   onClick={() => setSelectedSection(section)}
-                  className={`flex items-center space-x-2 px-8 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 ${
-                    selectedSection === section
-                      ? `bg-gradient-to-r ${getSectionColor(section)} text-white shadow-2xl`
-                      : 'bg-slate-800/60 text-slate-300 hover:bg-slate-700/60 border border-slate-700/50'
-                  }`}
+                  className={`flex items-center space-x-2 px-8 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 ${selectedSection === section
+                    ? `bg-gradient-to-r ${getSectionColor(section)} text-white shadow-2xl`
+                    : 'bg-slate-800/60 text-slate-300 hover:bg-slate-700/60 border border-slate-700/50'
+                    }`}
                 >
                   {getSectionIcon(section)}
                   <span>{section}</span>
@@ -605,13 +618,13 @@ function IndiaVPS() {
 
           {/* Plans Grid */}
           <div className="grid gap-8 grid-cols-1 lg:grid-cols-3">
-            {plans[selectedSection].map((plan, index) => (
-              <div 
+            {plans[selectedSection].map((plan: Plan, index: number) => (
+              <div
                 key={index}
                 className="group relative bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-sm border border-slate-700/50 rounded-3xl p-8 hover:border-violet-500/50 transition-all duration-500 transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-violet-500/10"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-violet-500/5 via-purple-500/5 to-fuchsia-500/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                
+
                 <div className="relative z-10">
                   {/* Plan Header */}
                   <div className="text-center mb-8">
@@ -633,7 +646,7 @@ function IndiaVPS() {
                   <div className="mb-8">
                     <h4 className="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-4">Detailed Specifications</h4>
                     <div className="space-y-3">
-                      {plan.specs.map((spec, specIndex) => (
+                      {plan.specs.map((spec: string, specIndex: number) => (
                         <div key={specIndex} className="flex items-start space-x-3">
                           <CheckCircle className="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" />
                           <span className="text-slate-300 text-base leading-relaxed">{spec}</span>
@@ -646,8 +659,8 @@ function IndiaVPS() {
                   <div className="mb-8">
                     <h4 className="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-4">Key Features</h4>
                     <div className="flex flex-wrap gap-2">
-                      {plan.features.map((feature, featureIndex) => (
-                        <span 
+                      {plan.features.map((feature: string, featureIndex: number) => (
+                        <span
                           key={featureIndex}
                           className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-violet-500/10 text-violet-300 border border-violet-500/20"
                         >
@@ -658,7 +671,7 @@ function IndiaVPS() {
                   </div>
 
                   {/* Order Button */}
-                  <a 
+                  <a
                     href={plan.orderLink}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -677,7 +690,7 @@ function IndiaVPS() {
       <footer className="bg-slate-900 border-t border-slate-800 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <button 
+            <button
               onClick={scrollToTop}
               className="flex items-center justify-center space-x-3 mb-6 mx-auto hover:scale-105 transition-transform duration-300"
             >
@@ -691,11 +704,11 @@ function IndiaVPS() {
                 Hexonode
               </span>
             </button>
-            
+
             <p className="text-slate-400 mb-8 text-lg max-w-md mx-auto">
               Powering the web with reliable and fast hosting solutions
             </p>
-            
+
             <div className="pt-8 border-t border-slate-800 text-slate-500">
               <p>&copy; 2024 Hexonode. All rights reserved.</p>
             </div>
