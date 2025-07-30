@@ -1,11 +1,8 @@
-'use client'
 import React, { useState, useEffect } from 'react';
 import { Server, Cpu, HardDrive, Zap, Shield, CheckCircle, Home, X } from 'lucide-react';
-import { useRouter } from 'next/navigation';
 
 function IndiaVPS() {
-  const router = useRouter();
-  const [selectedSection, setSelectedSection] = useState<string>('Intel Budget');
+  const [selectedSection, setSelectedSection] = useState<string>('Entry Level');
   const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
 
   // Scroll to top when component mounts
@@ -13,7 +10,7 @@ function IndiaVPS() {
     window.scrollTo(0, 0);
   }, []);
 
-  const sections = ['Intel Budget', 'Intel Performance', 'AMD Performance', 'Ryzen 9'];
+  const sections = ['Entry Level', 'Intel Standard', 'Intel Performance', 'AMD Performance', 'Ryzen 9'];
 
   type Plan = {
     name: string;
@@ -29,9 +26,74 @@ function IndiaVPS() {
   };
 
   const plans: PlansType = {
-    'Intel Budget': [
+    'Entry Level': [
       {
-        name: "Budget Mini",
+        name: "Entry 16GB",
+        price: "₹250",
+        period: "/month",
+        specs: [
+          "4 vCores",
+          "16 GB DDR4 RAM",
+          "80 GB SSD Storage",
+          "1GBPS Network Speed",
+          "1 IPv4 Address",
+          "Full Root Access",
+          "KVM Virtualization",
+          "99.9% Uptime SLA",
+          "Noida Data Center",
+          "Basic Ddos Protection",
+          "24/7 Ticket Support",
+          "Free Setup"
+        ],
+        features: ["Full Root Access", "99.9% Uptime", "24/7 Support", "DDoS Protection"],
+        orderLink: "https://billing.hexonode.com/products/entry-level-vps-indianoida/16gb-vps-entry-level/checkout?plan=258&options="
+      },
+      {
+        name: "Standard 32GB",
+        price: "₹499",
+        period: "/month",
+        specs: [
+          "6 vCores",
+          "32 GB DDR4 RAM",
+          "150 GB SSD Storage",
+          "1 GBPS Network Speed",
+          "1 IPv4 Address",
+          "Full Root Access",
+          "KVM Virtualization",
+          "99.9% Uptime SLA",
+          "Noida Data Center",
+          "Basic Ddos Protection",
+          "24/7 Ticket Support",
+          "Free Setup"
+        ],
+        features: ["Full Root Access", "99.9% Uptime", "24/7 Support", "DDoS Protection"],
+        orderLink: "https://billing.hexonode.com/products/entry-level-vps-indianoida/32gb-vps-entry-level/checkout?plan=259&options="
+      },
+      {
+        name: "Performance 64GB",
+        price: "₹999",
+        period: "/month",
+        specs: [
+          "8 vCores",
+          "64 GB DDR4 RAM",
+          "250 GB SSD Storage",
+          "1 GBPS Network Speed",
+          "1 IPv4 Address",
+          "Full Root Access",
+          "KVM Virtualization",
+          "99.9% Uptime SLA",
+          "Noida Data Center",
+          "Basic Ddos Protection",
+          "24/7 Ticket Support",
+          "Free Setup"
+        ],
+        features: ["Full Root Access", "99.9% Uptime", "24/7 Support", "Basic DDoS Protection", "Free SSL"],
+        orderLink: "https://billing.hexonode.com/products/entry-level-vps-indianoida/64gb-vps-entry-level/checkout?plan=260&options="
+      }
+    ],
+    'Intel Standard': [
+      {
+        name: "Standard Mini",
         price: "₹750",
         period: "/month",
         specs: [
@@ -53,14 +115,14 @@ function IndiaVPS() {
         orderLink: "https://billing.hexonode.com/products/india-vps-budget/8gb-budget-vps/checkout?plan=257&options="
       },
       {
-        name: "Budget Starter",
-        price: "₹1,200",
+        name: "Standard Starter",
+        price: "₹1,099",
         period: "/month",
         specs: [
           "4 vCores",
           "2.4 GHz to 3.3 GHz Intel Xeon E5-2680 V4",
           "32 GB DDR4 RAM",
-          "500 GB NVMe SSD Storage",
+          "400 GB NVMe SSD Storage",
           "500 Mbps Network Speed",
           "1 IPv4 Address",
           "Full Root Access",
@@ -75,12 +137,12 @@ function IndiaVPS() {
         orderLink: "https://billing.hexonode.com/products/india-vps-budget/32gb-vps-india-budeget"
       },
       {
-        name: "Budget Standard",
+        name: "Standard Extreme",
         price: "₹1,800",
         period: "/month",
         specs: [
           "8 vCores",
-          "2.3 GHz to 2.8 GHz Intel Xeon V4",
+          "2.4 GHz to 3.3 GHz Intel Xeon V4",
           "64 GB DDR4 RAM",
           "500 GB NVMe SSD Storage",
           "500 Mbps Network Speed",
@@ -100,7 +162,7 @@ function IndiaVPS() {
     'Intel Performance': [
       {
         name: "Performance Basic",
-        price: "₹1,199",
+        price: "₹899",
         period: "/month",
         specs: [
           "Intel Xeon E5-2667 V4",
@@ -124,7 +186,7 @@ function IndiaVPS() {
       },
       {
         name: "Performance Advanced",
-        price: "₹1,800",
+        price: "₹1,499",
         period: "/month",
         specs: [
           "Intel Xeon E5-2667 V4",
@@ -148,7 +210,7 @@ function IndiaVPS() {
       },
       {
         name: "Performance Elite",
-        price: "₹2,999",
+        price: "₹2,099",
         period: "/month",
         specs: [
           "Intel Xeon E5-2667 V4",
@@ -174,7 +236,7 @@ function IndiaVPS() {
     'AMD Performance': [
       {
         name: "Performance Basic",
-        price: "₹1,400",
+        price: "₹1,399",
         period: "/month",
         specs: [
           "DEDICATED PERFORMANCE 100%",
@@ -198,7 +260,7 @@ function IndiaVPS() {
       },
       {
         name: "Performance Advanced",
-        price: "₹2,200",
+        price: "₹1,999",
         period: "/month",
         specs: [
           "DEDICATED PERFORMANCE 100%",
@@ -320,7 +382,7 @@ function IndiaVPS() {
   };
 
   const goBackToHome = () => {
-    router.push('/');
+    window.location.href = '/';
   };
 
   const scrollToTop = () => {
@@ -340,7 +402,9 @@ function IndiaVPS() {
 
   const getSectionIcon = (section: string) => {
     switch (section) {
-      case 'Intel Budget':
+      case 'Entry Level':
+        return <Home className="w-5 h-5" />;
+      case 'Intel Standard':
         return <Cpu className="w-5 h-5" />;
       case 'Intel Performance':
         return <Zap className="w-5 h-5" />;
@@ -355,7 +419,9 @@ function IndiaVPS() {
 
   const getSectionColor = (section: string) => {
     switch (section) {
-      case 'Intel Budget':
+      case 'Entry Level':
+        return 'from-emerald-500 to-teal-500';
+      case 'Intel Standard':
         return 'from-blue-500 to-cyan-500';
       case 'Intel Performance':
         return 'from-red-500 to-rose-500';
@@ -599,6 +665,13 @@ function IndiaVPS() {
             <h2 className="text-3xl font-bold mb-6 text-white">
               Select Your Category
             </h2>
+            {selectedSection === 'Entry Level' && (
+              <div className="mb-8 p-4 bg-gradient-to-r from-emerald-500/10 to-teal-500/10 border border-emerald-500/20 rounded-xl max-w-2xl mx-auto">
+                <p className="text-emerald-300 text-lg font-medium">
+                  <span className="font-semibold">🖥️ Dedicated Hardware:</span> These machines run on our own dedicated hardware infrastructure
+                </p>
+              </div>
+            )}
             <div className="flex flex-wrap justify-center gap-4">
               {sections.map((section) => (
                 <button
@@ -682,6 +755,36 @@ function IndiaVPS() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* More Resources Notice */}
+      <section className="py-12 bg-slate-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <div className="bg-gradient-to-r from-slate-800/60 to-slate-900/60 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-8 max-w-2xl mx-auto">
+              <div className="flex items-center justify-center mb-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-violet-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg shadow-violet-500/25">
+                  <span className="text-2xl">💬</span>
+                </div>
+              </div>
+              <h3 className="text-xl font-bold text-white mb-3">
+                Need More Resources?
+              </h3>
+              <p className="text-slate-300 mb-6 leading-relaxed">
+                Looking for higher specifications or custom configurations? We have more powerful options available.
+              </p>
+              <a
+                href="https://discord.gg/gwHZbEYk8T"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center space-x-2 bg-gradient-to-r from-violet-500 to-purple-600 text-white font-semibold px-6 py-3 rounded-xl hover:from-violet-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg shadow-violet-500/25"
+              >
+                <span>💬</span>
+                <span>Contact us on Discord</span>
+              </a>
+            </div>
           </div>
         </div>
       </section>
