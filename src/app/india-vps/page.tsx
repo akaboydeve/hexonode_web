@@ -308,14 +308,14 @@ function IndiaVPS() {
         orderLink: "https://billing.hexonode.com/products/india-amd-performance-vps/64gb-amd-performance-vps/checkout?plan=256&options="
       }
     ],
-    'Ryzen 9': [
+    'Ryzen 9/EYPC 9': [
       {
         name: "Ryzen Power",
-        price: "₹1,850",
+        price: "₹1,499",
         period: "/month",
         specs: [
-          "AMD Ryzen™ 9 9950X",
-          "5.7 GHz",
+          "RYZEN 9 OR AMD EYPC 9 SERIES",
+          "4.0 GHz+",
           "4 vCores",
           "16 GB DDR5 RAM 5200 MHz",
           "100 GB NVMe SSD Storage",
@@ -335,12 +335,12 @@ function IndiaVPS() {
       },
       {
         name: "Ryzen Ultimate",
-        price: "₹3,500",
+        price: "₹2,999",
         period: "/month",
         specs: [
-          "AMD Ryzen™ 9 9950X",
+          "RYZEN 9 OR AMD EYPC 9 SERIES",
           "6 vCores",
-          "5.7 GHz",
+          "4.0 GHz+",
           "32 GB DDR5 RAM 5200 MHz",
           "150 GB NVMe SSD Storage",
           "1 Gbit Uplink",
@@ -358,10 +358,10 @@ function IndiaVPS() {
       },
       {
         name: "Ryzen Extreme",
-        price: "₹6,500",
+        price: "₹5,999",
         period: "/month",
         specs: [
-          "AMD Ryzen™ 9 9950X",
+          "RYZEN 9 OR AMD EYPC 9 SERIES",
           "8 vCores",
           "5.7 GHz",
           "64 GB DDR5 RAM 5200 MHz",
