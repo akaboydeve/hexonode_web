@@ -357,7 +357,7 @@ function MinecraftIndia() {
         period: "/month",
         specs: [
           "Unlimited Player Slots",
-          "AMD Ryzen™ 9 9950X 5.7 GHZ",
+          "RYZEN 9 / EYPC 9 4.0ghz+",
           "5.7 GHZ",
           "200% CPU",
           "8GB DDR5 RAM ECC",
@@ -375,7 +375,7 @@ function MinecraftIndia() {
         period: "/month",
         specs: [
           "Unlimited Player Slots",
-          "AMD Ryzen™ 9 9950X 5.7 GHZ",
+          "RYZEN 9 / EYPC 9 4.0ghz+",
           "400% CPU",
           "16GB DDR5 RAM ECC",
           "80GB NVMe SSD Storage",
@@ -392,7 +392,7 @@ function MinecraftIndia() {
         period: "/month",
         specs: [
           "Unlimited Player Slots",
-          "AMD Ryzen™ 9 9950X 5.7 GHZ",
+          "RYZEN 9 / EYPC 9 4.0ghz+",
           "UNLIMITED CPU",
           "32GB DDR5 RAM ECC",
           "150GB NVMe SSD Storage",
@@ -409,7 +409,7 @@ function MinecraftIndia() {
         period: "/month",
         specs: [
           "Unlimited Player Slots",
-          "AMD Ryzen™ 9 9950X 5.7 GHZ",
+          "RYZEN 9 / EYPC 9 4.0ghz+",
           "UNLIMITED CPU",
           "44GB DDR5 RAM ECC",
           "200GB NVMe SSD Storage",
