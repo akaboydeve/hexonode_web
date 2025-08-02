@@ -30,10 +30,10 @@ function IndiaVPS() {
     'Entry Level': [
       {
         name: "Entry 16GB",
-        price: "₹250",
+        price: "₹399",
         period: "/month",
         specs: [
-          "4 vCores",
+          "3 vCores",
           "16 GB DDR4 RAM",
           "80 GB SSD Storage",
           "1GBPS Network Speed",
@@ -51,10 +51,10 @@ function IndiaVPS() {
       },
       {
         name: "Standard 32GB",
-        price: "₹499",
+        price: "₹650",
         period: "/month",
         specs: [
-          "6 vCores",
+          "5 vCores",
           "32 GB DDR4 RAM",
           "150 GB SSD Storage",
           "1 GBPS Network Speed",
@@ -72,7 +72,7 @@ function IndiaVPS() {
       },
       {
         name: "Performance 64GB",
-        price: "₹999",
+        price: "₹1099",
         period: "/month",
         specs: [
           "8 vCores",
