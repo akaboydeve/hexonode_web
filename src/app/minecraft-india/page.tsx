@@ -353,7 +353,7 @@ function MinecraftIndia() {
     'Ryzen 9': [
       {
         name: "8GB GOLD",
-        price: "₹999",
+        price: "₹799",
         period: "/month",
         specs: [
           "Unlimited Player Slots",
@@ -371,7 +371,7 @@ function MinecraftIndia() {
       },
       {
         name: "16GB DIAMOND",
-        price: "₹1800",
+        price: "₹1599",
         period: "/month",
         specs: [
           "Unlimited Player Slots",
@@ -388,7 +388,7 @@ function MinecraftIndia() {
       },
       {
         name: "32GB EMERALD",
-        price: "₹3500",
+        price: "₹2999",
         period: "/month",
         specs: [
           "Unlimited Player Slots",
