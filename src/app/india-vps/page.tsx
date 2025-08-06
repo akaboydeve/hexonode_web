@@ -11,7 +11,7 @@ function IndiaVPS() {
     window.scrollTo(0, 0);
   }, []);
 
-  const sections = ['Entry Level', 'Intel Standard', 'Intel Performance', 'AMD Performance', 'Ryzen 9'];
+  const sections = ['Entry Level', 'Intel Standard', 'Intel Performance', 'AMD Performance', 'Ryzen 9/EYPC 9'];
 
   type Plan = {
     name: string;
@@ -411,7 +411,7 @@ function IndiaVPS() {
         return <Zap className="w-5 h-5" />;
       case 'AMD Performance':
         return <HardDrive className="w-5 h-5" />;
-      case 'Ryzen 9':
+      case 'Ryzen 9/EYPC 9':
         return <Shield className="w-5 h-5" />;
       default:
         return <Cpu className="w-5 h-5" />;
@@ -428,7 +428,7 @@ function IndiaVPS() {
         return 'from-red-500 to-rose-500';
       case 'AMD Performance':
         return 'from-green-500 to-emerald-500';
-      case 'Ryzen 9':
+      case 'Ryzen 9/EYPC 9':
         return 'from-red-500 to-orange-500';
       default:
         return 'from-blue-500 to-cyan-500';
