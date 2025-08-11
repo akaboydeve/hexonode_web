@@ -30,7 +30,7 @@ function IndiaVPS() {
     'Entry Level': [
       {
         name: "Entry 16GB",
-        price: "₹399",
+        price: "₹450",
         period: "/month",
         specs: [
           "3 vCores",
@@ -51,7 +51,7 @@ function IndiaVPS() {
       },
       {
         name: "Standard 32GB",
-        price: "₹650",
+        price: "₹699",
         period: "/month",
         specs: [
           "5 vCores",
